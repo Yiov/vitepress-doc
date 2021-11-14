@@ -1,5 +1,13 @@
 # nvjdc
 
+以下教程仅适用于1.2版及以上，以下版本请拉倒底部升级
+
+
+# 感谢 @Nolanhzy 大佬
+
+请去作者那里点亮小星星
+[nvjdcdocker](https://github.com/NolanHzy/nvjdcdocker) 
+
 
 ## 提示
 
