@@ -1,12 +1,13 @@
-# nvjdc
+# nvjdc通知
 
-以下教程仅适用于1.2版及以上，以下版本请拉倒底部升级
+现 @Nolanhzy 大佬已删库、删镜像，有备份的请自行更换，会fork的都不是小白吧，这点能力还是有的吧
+
 
 
 # 感谢 @Nolanhzy 大佬
 
-请去作者那里点亮小星星
-[nvjdcdocker](https://github.com/NolanHzy/nvjdcdocker) 
+[@Nolanhzy](https://github.com/NolanHzy/) 
+
 
 
 ## 提示
