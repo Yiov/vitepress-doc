@@ -532,6 +532,27 @@
           }
         }
       },
+      "OpenCvSharp4.Windows/4.5.3.20210817": {
+        "dependencies": {
+          "OpenCvSharp4": "4.5.3.20210817",
+          "OpenCvSharp4.WpfExtensions": "4.5.3.20210817",
+          "OpenCvSharp4.runtime.win": "4.5.3.20210817"
+        }
+      },
+      "OpenCvSharp4.WpfExtensions/4.5.3.20210817": {
+        "dependencies": {
+          "OpenCvSharp4": "4.5.3.20210817"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenCvSharp.WpfExtensions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OpenCvSharp.WpfExtensions.dll": {}
+        }
+      },
       "PuppeteerSharp/5.1.0": {
         "dependencies": {
           "Microsoft.AspNetCore.WebUtilities": "2.0.2",
@@ -1307,6 +1328,7 @@
         "dependencies": {
           "IServer": "1.0.0",
           "OpenCvSharp4": "4.5.3.20210817",
+          "OpenCvSharp4.Windows": "4.5.3.20210817",
           "OpenCvSharp4.runtime.win": "4.5.3.20210817",
           "PuppeteerSharp": "5.1.0"
         },
@@ -3157,6 +3179,20 @@
       "sha512": "sha512-q2PknNPPAJHjVEsrgdHtWVHzZsNlANnkj2SCw4DC/x8qeAX+Skp93KPLVoELNyU415P7RyjDHn7CGLSpNpltyQ==",
       "path": "opencvsharp4.runtime.win/4.5.3.20210817",
       "hashPath": "opencvsharp4.runtime.win.4.5.3.20210817.nupkg.sha512"
+    },
+    "OpenCvSharp4.Windows/4.5.3.20210817": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zCPiZmcQaYnZSInZNNXg3ppyZb9DvaZgKTgEt4yi/sLctEWxW3g4UKOdEOqjbpJzL2kSh//wkOYwtm2xjvKTfw==",
+      "path": "opencvsharp4.windows/4.5.3.20210817",
+      "hashPath": "opencvsharp4.windows.4.5.3.20210817.nupkg.sha512"
+    },
+    "OpenCvSharp4.WpfExtensions/4.5.3.20210817": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dutuhSGpZ/NrZT4bjuO5Jb5XnQfYdjrOcXtVGYc7RaEwXEmfCEPaAckmnZT8RXW2lM8KJaznSs3Arw+Ud4L2gA==",
+      "path": "opencvsharp4.wpfextensions/4.5.3.20210817",
+      "hashPath": "opencvsharp4.wpfextensions.4.5.3.20210817.nupkg.sha512"
     },
     "PuppeteerSharp/5.1.0": {
       "type": "package",
