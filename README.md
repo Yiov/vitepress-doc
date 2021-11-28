@@ -1,5 +1,6 @@
-# nvjdc
+﻿# Nvjdc
 
+* [@NolanHzy](https://github.com/NolanHzy/nvjdcdocker) 牛批
 
 ## 注意 注意注意
     HUBdcoker里面有一个 nolanjdc/nvjdc 镜像不要拉 我看还有500多人拉了 起名都有所图 别的我不多说了把
