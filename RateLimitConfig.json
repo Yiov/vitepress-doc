@@ -1,0 +1,34 @@
+﻿{
+  "IpRateLimiting": {
+    //不要修改
+    "EnableEndpointRateLimiting": true,
+    //false则拒绝的API调用不会添加到调用次数计数器上
+    "StackBlockedRequests": false, //注意这个配置，表示获取用户端的真实IP，我们的线上经过负载后是 X-Forwarded-For，而测试服务器没有，所以是X-Real-IP
+    //不要修改 
+    "RealIpHeader": "X-Real-IP",
+    //不要修改
+    "ClientIdHeader": "X-ClientId",
+    //不要修改
+    "HttpStatusCode": 200,
+    //不要修改
+    "QuotaExceededResponse": {
+      "Content": "{{\"success\":false,\"message\":\"访问过于频繁，请{2}秒后重试\",\"data\":null}}",
+      "ContentType": "application/json",
+      "StatusCode": 200
+    },
+    ////IP白名单:支持Ip v4和v6  可以填自己的机器人IP 内网填内网IP 外网就填外网IP 将127.0.0.1改为你机器人的API即可
+    "IpWhitelist": [ "127.0.0.1"],
+    //"IpWhitelist": [],
+    //不要修改 获取短信验证码接口1分钟5次
+    "GeneralRules": [
+      {
+        //不要修改
+        "Endpoint": "*:/api/SendSMS",
+        //1m一分钟 1s一秒 1h一小时
+        "Period": "1m",
+        ////限制请求 次数 目前默认配置未1分钟5次。够用的。建议默认配置
+        "Limit": 5
+      }
+    ]
+  }
+}
