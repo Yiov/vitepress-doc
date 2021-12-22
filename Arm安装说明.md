@@ -81,7 +81,7 @@ mkdir -p  Config && cd Config
   "WP_APP_TOKEN": "",
   "MainWP_UID": "",
   // ======================================= pushplus 通知设置区域 ===========================================
-  ///Push Plus官方网站：http": //www.pushplus.plus  只有青龙模式有用
+  ///Push Plus官方网站：http: //www.pushplus.plus  只有青龙模式有用
   ///下方填写您的Token，微信扫码登录后一对一推送或一对多推送下面的token，只填" "PUSH_PLUS_TOKEN",
   "PUSH_PLUS_TOKEN": "",
   //下方填写您的一对多推送的 "群组编码" ，（一对多推送下面->您的群组(如无则新建)->群组编码）

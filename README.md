@@ -3,19 +3,49 @@
 * [@NolanHzy](https://github.com/NolanHzy/nvjdcdocker) 牛批
 
 ## 注意 注意注意
+
     HUBdcoker里面有一个 nolanjdc/nvjdc 镜像不要拉 我看还有500多人拉了 起名都有所图 别的我不多说了把
 
     我自己的docker  nolanhzy/nvjdc 认清楚
+
 ## 提示
 
-由于我自己的环境是centos x86，arm不支持
+由于我自己的环境是centos x86，
 
 这是打包过的 不要fork
 
 不是热更新 每次修改配置需要重启容器
 
+## Windows安装教程
 
-## 安装教程
+
+# 1安装ASP.NET Core Runtime 5.0.12
+
+安装地址:https://dotnet.microsoft.com/download/dotnet/5.0
+下载之后无脑下一步
+
+# 2下载当前项目源码解压
+
+# 3删除NETJDC.deps.json
+
+
+# 4根据自己系统将dll复制根目录即可
+
+64位
+
+复制runtimes\win-x64\native\OpenCvSharpExtern.dll到根目录
+
+32位
+
+复制runtimes\win-x86\native\OpenCvSharpExtern.dll到根目录
+
+# 启动 
+
+ 管理员打开CMD CD到源码文件夹中  输入 dotnet NETJDC.dll --urls=http://*:5000
+
+ 后面那个是端口可以自己改
+
+## docker安装教程
 
 如果你是装过NVjdc 先看看后面1.2以前如何更新之1.2升级说明
 
@@ -50,15 +80,65 @@ yum install wget unzip -y
 mkdir -p  Config && cd Config
 ```
 
-5下载config.json 配置文件 并且修改自己的配置 不能缺少
-
+5手动建立Config.json 配置文件 
+注意ARM多一个配置 Captchaurl
 
 ```
-wget -O Config.json  https://raw.githubusercontent.com/Yiov/nvjdcdocker/main/Config.json
-```
-国内请使用
- ```
-wget -O Config.json   https://ghproxy.com/https://raw.githubusercontent.com/Yiov/nvjdcdocker/main/Config.json
+{
+  ///浏览器最多几个网页
+  "MaxTab": "4",
+  //网站标题
+  "Title": "NolanJDCloud",
+  //回收时间分钟 不填默认3分钟
+  "Closetime": "5",
+  //网站公告
+  "Announcement": "为提高账户的安全性，请关闭免密支付。",
+  ///开启打印等待日志卡短信验证登陆 可开启 拿到日志群里回复 默认不要填写
+  "Debug": "",
+  ///自动滑块次数5次 5次后手动滑块 可设置为0默认手动滑块
+  "AutoCaptchaCount": "0",
+  ///XDD PLUS Url  http://IP地址:端口/api/login/smslogin
+  "XDDurl": "",
+  ///xddToken
+  "XDDToken": "",
+  ///登陆预警 0 0 12 * * ?  每天中午十二点 https://www.bejson.com/othertools/cron/ 表达式在线生成网址
+  "ExpirationCron": " 0 0 12 * * ?",
+  ///个人资产 0 0 10,20 * * ?  早十点晚上八点
+  "BeanCron": "0 0 10,20 * * ?",
+  // ======================================= WxPusher 通知设置区域 ===========================================
+  // 此处填你申请的 appToken. 官方文档：https://wxpusher.zjiecode.com/docs
+  // WP_APP_TOKEN 可在管理台查看: https://wxpusher.zjiecode.com/admin/main/app/appToken
+  // MainWP_UID 填你自己uid
+  ///这里的通知只用于用户登陆 删除 是给你的通知
+  "WP_APP_TOKEN": "",
+  "MainWP_UID": "",
+  // ======================================= pushplus 通知设置区域 ===========================================
+  ///Push Plus官方网站：http" //www.pushplus.plus  只有青龙模式有用
+  ///下方填写您的Token，微信扫码登录后一对一推送或一对多推送下面的token，只填" "PUSH_PLUS_TOKEN",
+  "PUSH_PLUS_TOKEN": "",
+  //下方填写您的一对多推送的 "群组编码" ，（一对多推送下面->您的群组(如无则新建)->群组编码）
+  "PUSH_PLUS_USER": "",
+  ///青龙配置  注意对接XDD 对接芝士 设置为"Config":[]
+  "Config": [
+    {
+      //序号必填从1 开始
+      "QLkey": 1,
+      //服务器名称
+      "QLName": "阿里云",
+      //青龙地址
+      "QLurl": "http://ip:5700",
+      //青龙2,9 OpenApi Client ID
+      "QL_CLIENTID": "",
+      //青龙2,9 OpenApi Client Secret
+      "QL_SECRET": "",
+      //CK最大数量
+      "QL_CAPACITY": 99,
+      ///建议一个青龙一个WxPusher 应用
+      "WP_APP_TOKEN": ""
+    }
+  ]
+
+}
 ```
 
 6 回到nolanjdc目录创建chromium文件夹并进入
@@ -94,6 +174,30 @@ sudo docker run   --name nolanjdc -p 5701:80 -d  -v  "$(pwd)":/app \
 -v /etc/localtime:/etc/localtime:ro \
 -it --privileged=true  nolanhzy/nvjdc:latest
 ```
+注意由于我懒 不想更新镜像 /etc/localtime
+
+
+那么群辉启动docker 就删除掉 -v /etc/localtime:/etc/localtime:ro \
+
+由于有定时任务 需要设置 时区 假设群辉拉的源码在 /volume1/docker/nvjdc 目录
+```
+sudo docker run   --name nolanjdc -p 5701:80 -d  -v  /volume1/docker/nvjdc:/app \
+-it --privileged=true  nolanhzy/nvjdc:latest
+```
+进入容器
+```
+docker exec -it nolanjdc bash
+```
+修改时间
+```
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+```
+输入date 查看时区对不对  群辉的docker 日志时间有毛病 我们就不用管docker log
+```
+date
+```
+
+这里可能群辉没有
 
 11查看 日志 
 
@@ -104,6 +208,11 @@ docker logs -f nolanjdc
   
 
 出现 NETJDC  started 即可 
+
+## Arm安装教程
+
+
+安装地址 https://github.com/NolanHzy/nvjdcdocker/blob/main/Arm%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E.md
 
 
 ## 1.2以前如何更新之1.2
