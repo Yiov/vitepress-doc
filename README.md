@@ -2,6 +2,25 @@
 
 * [@NolanHzy](https://github.com/NolanHzy/nvjdcdocker) 牛批
 
+
+
+## 排错说明
+
+Nvjdc登录后没有wxpusher的二维码
+
+git pull 出现如下报错
+
+    error: Your local changes to the following files would be overwritten by merge:Config.json
+    Please, commit your changes or stash them before you can merge.Aborting
+
+请删掉容器后重新按步骤拉取即可，镜像不用删
+
+    docker rm -f nolanjdc
+
+记得删除root文件夹下的nolanjdc文件夹
+
+
+
 ## 注意 注意注意
 
     HUBdcoker里面有一个 nolanjdc/nvjdc 镜像不要拉 我看还有500多人拉了 起名都有所图 别的我不多说了把
