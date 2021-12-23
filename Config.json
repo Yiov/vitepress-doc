@@ -24,6 +24,7 @@
   // WP_APP_TOKEN 可在管理台查看: https://wxpusher.zjiecode.com/admin/main/app/appToken
   // MainWP_UID 填你自己uid
   ///这里的通知只用于用户登陆 删除 是给你的通知
+  //重要：事件回调地址中填写Nvjdc地址http://公网ip:端口/api/wxpusher
   "WP_APP_TOKEN": "",
   "MainWP_UID": "",
   // ======================================= Pushplus 通知设置区域 ===========================================
