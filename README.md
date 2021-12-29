@@ -1,24 +1,6 @@
-# Nvjdc
+# nvjdc
 
 * [@NolanHzy](https://github.com/NolanHzy/nvjdcdocker) 牛批
-
-
-
-## 排错说明
-
-Nvjdc登录后没有wxpusher的二维码
-
-git pull 出现如下报错
-
-    error: Your local changes to the following files would be overwritten by merge:Config.json
-    Please, commit your changes or stash them before you can merge.Aborting
-
-请删掉容器后重新按步骤拉取即可，镜像不用删
-
-    docker rm -f nolanjdc
-
-记得删除root文件夹下的nolanjdc文件夹
-
 
 
 ## 注意 注意注意
@@ -112,6 +94,14 @@ mkdir -p  Config && cd Config
   "Closetime": "5",
   //网站公告
   "Announcement": "为提高账户的安全性，请关闭免密支付。",
+  //Proxy 支持不带密码的socks5 以及http 
+  ///http  Proxy 只需要填写 ip:端口
+  /// Socks5 需要填写socks5://ip:端口 不能填写下方账户密码
+  "Proxy": "",
+  //Proxy帐号
+  "ProxyUser": "",
+  //Proxy密码
+  "ProxyPass": "",
   ///开启打印等待日志卡短信验证登陆 可开启 拿到日志群里回复 默认不要填写
   "Debug": "",
   ///自动滑块次数5次 5次后手动滑块 可设置为0默认手动滑块
@@ -129,11 +119,10 @@ mkdir -p  Config && cd Config
   // WP_APP_TOKEN 可在管理台查看: https://wxpusher.zjiecode.com/admin/main/app/appToken
   // MainWP_UID 填你自己uid
   ///这里的通知只用于用户登陆 删除 是给你的通知
-  //重要：事件回调地址中填写Nvjdc地址http://公网ip:端口/api/wxpusher
   "WP_APP_TOKEN": "",
   "MainWP_UID": "",
-  // ======================================= Pushplus 通知设置区域 ===========================================
-  ///Push Plus官方网站：http": //www.pushplus.plus  只有青龙模式有用
+  // ======================================= pushplus 通知设置区域 ===========================================
+  ///Push Plus官方网站：http" //www.pushplus.plus  只有青龙模式有用
   ///下方填写您的Token，微信扫码登录后一对一推送或一对多推送下面的token，只填" "PUSH_PLUS_TOKEN",
   "PUSH_PLUS_TOKEN": "",
   //下方填写您的一对多推送的 "群组编码" ，（一对多推送下面->您的群组(如无则新建)->群组编码）
@@ -153,9 +142,7 @@ mkdir -p  Config && cd Config
       "QL_SECRET": "",
       //CK最大数量
       "QL_CAPACITY": 99,
-      //使用pushplus就用它，删掉注释，把WP_APP_TOKEN注释掉（二选一）
-      //"QRurl": ""
-      ///使用WxPusher就用它，把QRurl注释掉，建议一个青龙一个WxPusher应用（二选一）
+      ///建议一个青龙一个WxPusher 应用
       "WP_APP_TOKEN": ""
     }
   ]

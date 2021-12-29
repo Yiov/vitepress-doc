@@ -59,6 +59,14 @@ mkdir -p  Config && cd Config
   "Closetime": "5",
   //网站公告
   "Announcement": "为提高账户的安全性，请关闭免密支付。",
+   //Proxy 支持不带密码的socks5 以及http 
+  ///http  Proxy 只需要填写 ip:端口
+  /// Socks5 需要填写socks5://ip:端口 不能填写下方账户密码
+  "Proxy": "",
+  //Proxy帐号
+  "ProxyUser": "",
+  //Proxy密码
+  "ProxyPass": "",
   //Opencv镜像地址  刚刚镜像的地址
   "Captchaurl": "http://xxxxx:5703",
   ///开启打印等待日志卡短信验证登陆 可开启 拿到日志群里回复 默认不要填写
