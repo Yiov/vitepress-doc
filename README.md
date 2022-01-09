@@ -1,4 +1,4 @@
-﻿# nvjdc
+# nvjdc
 
 * [@NolanHzy](https://github.com/NolanHzy/nvjdcdocker) 牛批
 
