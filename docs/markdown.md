@@ -1,7 +1,7 @@
 # Markdown
 
 ::: warning 更新时间
-最近更新：2023-7-12
+最近更新：2023-7-31
 
 搭建版本：vitepress v1.0.0-beta.5
 :::
@@ -626,6 +626,50 @@ export default defineConfig({
 ```ts:no-line-numbers
 无行号演示
 ```
+
+
+
+
+### 代码组
+
+
+和Vuepress不同，我们用 `code-group` 包裹
+
+```
+::: code-group
+:::
+```
+
+输入：
+
+````
+::: code-group
+
+```sh [pnpm]
+#查询pnpm版本
+pnpm -v
+```
+
+```sh [yarn]
+#查询yarn版本
+yarn -v
+```
+
+:::
+````
+
+输出：
+
+::: code-group
+```sh [pnpm]
+#查询pnpm版本
+pnpm -v
+```
+```sh [yarn]
+#查询yarn版本
+yarn -v
+```
+:::
 
 
 
