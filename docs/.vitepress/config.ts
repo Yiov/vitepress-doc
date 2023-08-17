@@ -167,7 +167,7 @@ export default defineConfig({
 
     //社交链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Yiov/vitepressdoc' },
+      { icon: 'github', link: 'https://github.com/Yiov/vitepress-doc' },
       { icon: 'twitter', link: 'https://twitter.com/' }, 
       { icon: 'discord', link: 'https://chat.vitejs.dev/' }, 
     ],
