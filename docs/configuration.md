@@ -57,6 +57,16 @@
 └─ package.json
 ```
 
+如果你文章太多，或者觉得上面的麻烦，可以直接配置
+
+```ts
+export default defineConfig({
+  cleanUrls:true,
+})
+```
+
+
+
 ## 配置
 
 在目录，右键用vscode打开，正式开始开发
