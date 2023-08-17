@@ -59,7 +59,7 @@
 
 如果你文章太多，或者觉得上面的麻烦，可以直接配置
 
-```ts
+```ts{2}
 export default defineConfig({
   cleanUrls:true,
 })
