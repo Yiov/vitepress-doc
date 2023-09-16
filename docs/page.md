@@ -2,9 +2,9 @@
 
 
 ::: warning 更新时间
-最近更新：2023-7-12
+最近更新：2023-9-16
 
-搭建版本：vitepress v1.0.0-beta.5
+搭建版本：vitepress v1.0.0-rc.13
 :::
 
 
@@ -29,7 +29,7 @@ export default defineConfig({
 
 ### Fav图标
 
-路径默认public目录
+路径默认public目录，在 `docs`目录下新建 `public`目录即可
 
 ```ts{3-6}
 export default defineConfig({
@@ -191,7 +191,7 @@ export default defineConfig({
 .
 ├─ docs
 │  ├─ .vitepress
-│  │  └─ config.ts       <--配置文件
+│  │  └─ config.mts       <-- 配置文件已由ts变成mts
 │  └─ public             <--静态资源目录
 │  │  └─ logo.png        <--logo
 │  └─ index.md
@@ -371,6 +371,14 @@ export default defineConfig({
 })
 ```
 
+vitepress自带的其他社交图标
+
+```
+github、twitter、discord
+
+facebook、instagram、linkedin、slack、youtube
+```
+
 还可以自定义SVG图标
 
 ```ts{4-14}
@@ -482,9 +490,9 @@ export default defineConfig({
 
 [Algolia DocSearch](https://docsearch.algolia.com/) 要么自行申请，要么自行搭建
 
-* [自行申请：查看我之前搭建 VuePress 时写的教程](https://yiov.top/vuepress/guide/plugin.html#免费申请)
+* [自行申请：查看我之前搭建 VuePress 时写的教程](https://vuepress.yiov.top/guide/docsearch.html#%E8%87%AA%E8%A1%8C%E7%94%B3%E8%AF%B7)
 
-* [自行搭建：查看我之前搭建 VuePress 时写的教程](https://yiov.top/vuepress/guide/plugin.html#自行爬取前准备)
+* [自行爬取：查看我之前搭建 VuePress 时写的教程](https://vuepress.yiov.top/guide/docsearch.html#%E8%87%AA%E8%A1%8C%E7%88%AC%E5%8F%96)
 
 
 我们先看一下 VitePress 里的配置

@@ -85,6 +85,8 @@ export default defineConfig({
               { text: 'Markdown', link: '/markdown' },
               { text: '团队', link: '/team' },
               { text: '静态部署', link: '/assets' },
+              { text: '样式美化', link: '/style' },
+              { text: '组件', link: '/components' },
             ],
           },
         ],
@@ -122,6 +124,8 @@ export default defineConfig({
           { text: 'Markdown', link: '/markdown' },
           { text: '团队', link: '/team' },
           { text: '静态部署', link: '/assets' },
+          { text: '样式美化', link: '/style' },
+          { text: '组件', link: '/components' },
         ],
       },
       {

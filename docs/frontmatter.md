@@ -1,9 +1,9 @@
 # Frontmatter
 
 ::: warning 更新时间
-最近更新：2023-7-12
+最近更新：2023-9-16
 
-搭建版本：vitepress v1.0.0-beta.5
+搭建版本：vitepress v1.0.0-rc.13
 :::
 
 Vitepress已经给了一个配置，就在我们的 `docs` - `index.md` 中
@@ -92,7 +92,7 @@ layout: home
 就是我们网站的居中文案，都比较简单
 
 ::: tip 关于actions
-`theme: brand` 为主要的按钮
+`theme: brand` 为主要的按钮，还有 `alt` `sponsor`
 
 `text: 开始` 文字可以自定义
 
@@ -123,32 +123,47 @@ hero:
 hero的文字及图片，也可以添加渐变色
 
 ::: warning 注意
-将css代码添加到 `Frontmatter` 底部
-
-`home-hero-name-color` 文字渐变色
-
-`home-hero-image-background-image` 图片渐变色
-
+代码必须用 `<style>` 标签包裹
 :::
 
 ```css
 <style>
   :root {
+  /* 标题渐变色 */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
 
+  /*图标背景渐变色 */
   --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
   --vp-home-hero-image-filter: blur(40px);
 }
-
 </style>
 ```
 
-::: danger 特别注意
-所有标签都应放置在 Frontmatter 之后
+如果你想单独改按钮，就这样配置
 
-如果你想找到css文件路径：`node_modules\vitepress\dist\client\theme-default\styles`
+```css
+<style>
+  :root {
+  /* brand按钮 */
+  --vp-button-brand-border: #F6CEEC;
+  --vp-button-brand-text: #F6CEEC;
+  --vp-button-brand-bg: #D939CD;
+
+  --vp-button-brand-hover-border: #F6CEEC;
+  --vp-button-brand-hover-text: #fff;
+  --vp-button-brand-hover-bg: #D939CD;
+
+  --vp-button-brand-active-border: #F6CEEC;
+}
+</style>
+```
+
+
+::: tip 说明
+[其他美化方案请点我查看](./style)
 :::
+
 
 ## Features
 
@@ -295,13 +310,8 @@ next: false
 
 
 
-## 我的配置
+## 我的配置参考
 
-::: tip 说明
-里面的 `theme: A` 中的 `A` 是我乱写的一个
-
-否则就要用官方的主题了，你们也可以自己写组件发挥
-:::
 
 ::: details 点击查看我的完整配置
 ```md
@@ -322,10 +332,10 @@ hero:
     - theme: alt
       text: GitHub
       link: https://github.com/vuejs/vitepress
-    - theme: A
+    - theme: sponsor
       text: 视频介绍
       link: 
-    - theme: A
+    - theme: sponsor
       text: 相关资料
       link: 
 
@@ -334,8 +344,8 @@ features:
     title: 专注于您的内容
     details: 只需使用 Markdown 即可轻松创建精美的文档网站
   - icon: 
-      dark: /logo.png
-      light: /logo-light.png
+      dark: /vitepress.png
+      light: /vitepress-light.png
     title: 享受Vite DX
     details: 即时服务器启动，闪电般快速的热更新，并利用 Vite 生态插件。
   - icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path fill="#41b883" d="M24.4 3.925H30l-14 24.15L2 3.925h10.71l3.29 5.6 3.22-5.6Z"/><path fill="#41b883" d="m2 3.925 14 24.15 14-24.15h-5.6L16 18.415 7.53 3.925Z"/><path fill="#35495e" d="M7.53 3.925 16 18.485l8.4-14.56h-5.18L16 9.525l-3.29-5.6Z"/></svg>
@@ -357,6 +367,7 @@ features:
 }
 
 </style>
+
 ```
 :::
 

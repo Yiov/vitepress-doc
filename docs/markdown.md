@@ -1,9 +1,9 @@
 # Markdown
 
 ::: warning 更新时间
-最近更新：2023-7-31
+最近更新：2023-9-16
 
-搭建版本：vitepress v1.0.0-beta.5
+搭建版本：vitepress v1.0.0-rc.13
 :::
 
 如果你还不了解 Markdown ，[请看我整理的Markdown教程](https://yiov.top/daily/markdown/)
@@ -40,12 +40,12 @@ export default defineConfig({
 输入：
 
 ```md
-[点我跳转：代码块](#代码块)
+[点我跳转：基础功能](#基础功能)
 ```
 
 输出：
 
-[点我跳转：代码块](#代码块)
+[点我跳转：基础功能](#基础功能)
 
 
 
@@ -64,7 +64,7 @@ export default defineConfig({
 .
 ├─ docs
 │  ├─ .vitepress
-│  │  └─ config.ts
+│  │  └─ config.mts
 │  ├─ public
 │  │  └─ logo.png     <-- LOGO
 │  ├─ markdown.md    <-- 我的位置
@@ -308,7 +308,12 @@ Hello, VitePress!
 
 默认值：
 
-::: details 点击查看css变量
+::: details 点击查看css变量 
+
+var的值都改程颜色代码即可
+
+例如：`--vp-badge-info-border: #ffffff;`
+
 ```css
 :root {
   --vp-badge-info-border: var(--vp-c-divider-light);
@@ -703,16 +708,16 @@ yarn -v
 
 ```md
 <!-- 绝对路径 二选一-->
-<<< @/.vitepress/config.ts#fav{2}
+<<< @/.vitepress/config.mts#fav{2}
 
 <!-- 相对路径 二选一-->
-<<< ./.vitepress/config.ts#fav{2}
+<<< ./.vitepress/config.mts#fav{2}
 ```
 
 
 输出：
 
-<<< @/.vitepress/config.ts#fav{2}
+<<< @/.vitepress/config.mts#fav{2}
 
 
 

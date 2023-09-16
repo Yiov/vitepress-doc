@@ -1,9 +1,9 @@
 # 配置
 
 ::: warning 更新时间
-最近更新：2023-7-12
+最近更新：2023-9-16
 
-搭建版本：vitepress v1.0.0-beta.5
+搭建版本：vitepress v1.0.0-rc.13
 :::
 
 
@@ -24,7 +24,7 @@
 .
 ├─ docs
 │  ├─ .vitepress
-│  │  └─ config.ts           <-- 配置文件
+│  │  └─ config.mts          <-- 配置文件已由ts变成mts
 │  ├─ api-examples.md        <-- 文章1
 │  ├─ markdown-examples.md   <-- 文章2
 │  └─ index.md               <-- 首页
@@ -48,7 +48,7 @@
 .
 ├─ docs
 │  ├─ .vitepress
-│  │  └─ config.ts           <-- 配置文件
+│  │  └─ config.mts           <--  配置文件已由ts变成mts
 │  ├─ api-examples           
 │  │  └─ index.md            <-- 文章1
 │  ├─ markdown-examples      
@@ -75,14 +75,14 @@ export default defineConfig({
 .
 ├─ docs
 │  ├─ .vitepress
-│  │  └─ config.ts           <-- 配置文件
+│  │  └─ config.mts           <--  配置文件已由ts变成mts
 │  ├─ api-examples.md
 │  ├─ markdown-examples.md
 │  └─ index.md
 └─ package.json
 ```
 
-配置已经写好了，我们点击config.ts，在此基础上修改就行了
+配置已经写好了，我们点击 `config.mts` ，在此基础上修改就行了
 
 
 ```ts
@@ -140,9 +140,9 @@ yarn docs:dev
 ```sh [npm]
 npm run docs:dev
 ```
+
+```sh [bun]
+bun run docs:dev
+```
 :::
-
-
-
-
 

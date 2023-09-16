@@ -15,10 +15,10 @@ hero:
     - theme: alt
       text: GitHub
       link: https://github.com/vuejs/vitepress
-    - theme: A
+    - theme: sponsor
       text: 视频介绍
       link: 
-    - theme: A
+    - theme: sponsor
       text: 相关资料
       link: 
 
@@ -40,7 +40,7 @@ features:
 ---
 
 <style>
-  :root {
+:root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
 

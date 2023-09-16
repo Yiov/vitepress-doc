@@ -1,9 +1,9 @@
 # 静态部署
 
 ::: warning 更新时间
-最近更新：2023-7-12
+最近更新：2023-9-16
 
-搭建版本：vitepress v1.0.0-beta.5
+搭建版本：vitepress v1.0.0-rc.13
 :::
 
 主要讲一下GitHub，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://vitepress.dev/guide/deploy)
@@ -61,6 +61,10 @@ yarn run docs:build
 ```sh [npm]
 npm run docs:build
 ```
+
+```sh [bun]
+bun run docs:build
+```
 :::
 
 如果你需要本地预览，可以执行
@@ -76,6 +80,10 @@ yarn docs:preview
 
 ```sh [npm]
 npm run docs:preview
+```
+
+```sh [bun]
+bun run docs:preview
 ```
 :::
 

@@ -1,9 +1,9 @@
 # 快速上手
 
 ::: warning 更新时间
-最近更新：2023-7-12
+最近更新：2023-9-16
 
-搭建版本：vitepress v1.0.0-beta.5
+搭建版本：vitepress v1.0.0-rc.13
 :::
 
 ## 前期工作
@@ -39,6 +39,13 @@ pnpm -v
 ```sh [yarn]
 #安装yarn
 npm install -g yarn
+#查看版本号
+yarn -v
+```
+
+```sh [bun]
+#安装yarn
+npm install -g bun
 #查看版本号
 yarn -v
 ```
@@ -84,16 +91,41 @@ cd vitepress
 
 ::: code-group
 ```sh [pmpm]
-pnpm add -D vitepress search-insights @algolia/client-search
+pnpm add -D vitepress
 ```
 
 ```sh [yarn]
-yarn add -D vitepress search-insights @algolia/client-search
+yarn add -D vitepress
 ```
 
 ```sh [npm]
-npm install -D vitepress search-insights @algolia/client-search
+npm add -D vitepress
 ```
+
+```sh [bun]
+bun add -D vitepress
+```
+:::
+
+::: details 收到了缺少对等依赖的警告
+如果使用 PNPM，您会注意到 `@docsearch/js` 缺少对等警告。这并不妨碍 VitePress 工作。如果您希望抑制此警告，请将以下内容添加到您的 `package.json`
+
+注意：最新版已经不会提示了！
+
+```
+"pnpm": {
+  "peerDependencyRules": {
+    "ignoreMissing": [
+      "@algolia/client-search",
+      "search-insights"
+    ]
+  }
+}
+```
+:::
+
+::: tip 说明
+VitePress是一个仅支持ESM的软件包。不要使用 `require()` 来导入它，并确保您最近的 `package.json` 文件包含 `"type": "module"` ，或者将相关文件的扩展名例如 `vitepress/config.js` 更改为.mjs/.mts。有关更多详细信息，请参考 [Vite的故障排除指南](https://vitejs.dev/guide/troubleshooting.html#this-package-is-esm-only) 。此外，在异步的CJS上下文中，您可以使用 `await import('vitepress')` 来代替。
 :::
 
 
@@ -112,6 +144,10 @@ yarn vitepress init
 ```sh [npm]
 npx vitepress init
 ```
+
+```sh [bun]
+bunx vitepress init
+```
 :::
 
 我们将文件都放在 `./docs` ，参照下面，其他默认回车
@@ -123,7 +159,7 @@ npx vitepress init
 :::
 
 ```sh{6}
-  vitepress v1.0.0-beta.5
+  vitepress v1.0.0-rc.13
 
 T   Welcome to VitePress!
 |
@@ -148,47 +184,25 @@ o  Add VitePress npm scripts to package.json?
 —  Done! Now run npm run docs:dev and start writing.
 ```
 
-::: details 收到了缺少对等依赖的警告？
-
-其实无视即可，不影响任何操作
-
-强迫症在 `package.json` 中添加如下，消除提示
-
-```json
-"pnpm": {
-  "peerDependencyRules": {
-    "ignoreMissing": [
-      "@algolia/client-search",
-      "search-insights"
-    ]
-  }
-}
-```
+::: tip Vue 作为对等依赖
+如果您打算使用 Vue 组件或 API 进行自定义，您还应该显式安装 `vue` 作为对等依赖项。
 :::
-
-
 
 ### 脚本命令
 
 可以无视，初始化的时候已经弄好了
 
 
-```json{2-4}
+```json
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
-  },
+  }
 ```
 
 ::: warning 注意
 如果你在初始化的时候选择了 `./` ，而不是 `./doc`，这里就需要修改
-
-```
-"docs:dev": "vitepress dev",
-"docs:build": "vitepress build",
-"docs:preview": "vitepress preview"
-```
 :::
 
 
@@ -200,8 +214,6 @@ o  Add VitePress npm scripts to package.json?
 
 ::: tip 说明
 主要用于上传到gitee/github时，忽略这些文件不上传
-
-`node_modules` / `cache`
 :::
 
 ```sh
@@ -209,11 +221,11 @@ echo node_modules >> .gitignore
 
 echo cache >> .gitignore
 
+echo dist >> .gitignore
+
 ```
 
-::: tip 说明
-生成的 `dist` 目录不上传也可以加入忽略项里
-:::
+
 
 ## 启动
 
@@ -237,7 +249,13 @@ yarn run docs:dev
 ```sh [npm]
 npm run docs:dev
 ```
+
+```sh [bun]
+bun run docs:dev
+```
 :::
+
+
 
 生成了一个本地 `5173` 端口的链接，可以对网站进行预览
 
@@ -277,5 +295,9 @@ pnpm exec vitepress dev docs
 
 ```sh [npm]
 npx vitepress dev docs
+```
+
+```sh [bun]
+bunx vitepress dev docs
 ```
 :::
