@@ -87,11 +87,20 @@ export default defineConfig({
               { text: '静态部署', link: '/assets' },
               { text: '样式美化', link: '/style' },
               { text: '组件', link: '/components' },
+              { text: '更新版本', link: '/update' },
             ],
           },
         ],
       },
       { text: 'VitePress', link: 'https://vitepress.dev/' },
+
+      {
+        text: '1.0.0-rc.15',
+        items: [
+          { text: '更新日志', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
+          { text: '贡献', link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md' },
+        ],
+      },
     ],
 
 
@@ -126,6 +135,7 @@ export default defineConfig({
           { text: '静态部署', link: '/assets' },
           { text: '样式美化', link: '/style' },
           { text: '组件', link: '/components' },
+          { text: '更新版本', link: '/update' },
         ],
       },
       {

@@ -47,7 +47,7 @@ yarn -v
 #安装yarn
 npm install -g bun
 #查看版本号
-yarn -v
+bun -v
 ```
 :::
 
