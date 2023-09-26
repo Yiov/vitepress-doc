@@ -15,3 +15,12 @@
     text-decoration: dotted;
 }
 
+h1 {
+  background: -webkit-linear-gradient(-45deg, #e43498, #5ad7dd 30%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+

@@ -74,29 +74,31 @@ export default defineConfig({
 
 输入：
 
+::: tip 说明
+由于public文件夹的特殊性，我们直接使用 `![LOGO](./logo.png)` 即可
+
+其他文件夹请遵从下面的使用规则
+:::
+
+
 ```md
 <!-- 相对路径，目标文件相对于本文章所在位置 -->
 ![LOGO](./public/logo.png)
 
 <!-- 绝对路径，目标文件就是真实路径在哪 -->
-![LOGO](/docs/public/logo.png)
+![LOGO](/public/logo.png)
 ```
 
 
 
 输出：
 
-![LOGO](./public/logo.png)
+![LOGO](./logo.png)
 
 ![LOGO](/public/logo.png)
 
 
 
-::: tip 说明
-由于public文件夹的特殊性，我们直接使用 `![LOGO](./logo.png)` 即可
-
-其他文件夹请遵从上面的使用规则
-:::
 
 
 
@@ -715,9 +717,6 @@ yarn -v
 ```
 
 
-输出：
-
-<<< @/.vitepress/config.mts#fav{2}
 
 
 

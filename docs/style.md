@@ -57,7 +57,7 @@ export default {
 
 
 
-### 主题色修改
+## 主题色修改
 
 在 `theme` 目录下新建 `var.css` 并填入如下代码
 
@@ -122,10 +122,50 @@ export default {
 
 
 
+## H1标题颜色修改
+
+::: warning 当然
+同理，你也可以改H2-H6的标题，不过我感觉没必要，太花里胡哨了
+:::
+
+最简单的修改就是，比如改成红色
+
+```css
+/* .vitepress\theme\style\var.css */
+h1 {
+  color: red;
+}
+```
+
+但是这样并不太好看，我们可以弄一个渐变色
+
+```css
+/* .vitepress\theme\style\var.css */
+h1 {
+  background: -webkit-linear-gradient(-45deg, #e43498 5%, #5ad7dd 15%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+```
+
+::: tip 说明
+background: 采用了一个线性渐变
+
+background-clip: 使文本的背景颜色与渐变效果相同
+
+text-fill-color：将文字透明
+:::
 
 
 
-### 链接下划线
+
+
+
+
+## 链接下划线
 
 新版本更新后，文字跳转链接就多了一个下划线
 
@@ -142,7 +182,7 @@ export default {
 
 
 
-### 其他修改
+## 其他修改
 
 太多了，可已参照源文件来进行修改
 
