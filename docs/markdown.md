@@ -74,12 +74,6 @@ export default defineConfig({
 
 输入：
 
-::: tip 说明
-由于public文件夹的特殊性，我们直接使用 `![LOGO](./logo.png)` 即可
-
-其他文件夹请遵从下面的使用规则
-:::
-
 
 ```md
 <!-- 相对路径，目标文件相对于本文章所在位置 -->
@@ -93,7 +87,13 @@ export default defineConfig({
 
 输出：
 
-![LOGO](./logo.png)
+::: tip 说明
+由于public文件夹的特殊性，我们直接使用 `![LOGO](./logo.png)` 即可
+
+其他文件夹请遵从下面的使用规则
+:::
+
+![LOGO](./public/logo.png)
 
 ![LOGO](/public/logo.png)
 
