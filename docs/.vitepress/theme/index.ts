@@ -1,18 +1,17 @@
 import Theme from 'vitepress/theme'
 import './style/var.css'
 
-/* import { h } from "vue";
-import AnimateTitle from "./components/AnimateTitle.vue"; */
+
+import Video from "./components/Video.vue"
 
 
 
 export default {
   ...Theme,
-  /* Layout() {
-    return h(Theme.Layout, null, {
-      "home-hero-info": () => h(AnimateTitle),
-    });
-  },  */
+  enhanceApp(ctx) {
+    // 注册全局组件
+    ctx.app.component('Video' , Video)
+  }
 }
 
 
