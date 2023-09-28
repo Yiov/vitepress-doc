@@ -1,9 +1,9 @@
 # 组件
 
 ::: warning 更新时间
-最近更新：2023-9-21
+最近更新：2023-9-28
 
-搭建版本：vitepress v1.0.0-r.15
+搭建版本：vitepress v1.0.0-r.20
 :::
 
 ## 参考
@@ -153,19 +153,19 @@ export default {
 
 ::: code-group
 ```sh [pmpm]
-pnpm add vue
+pnpm add -D vue
 ```
 
 ```sh [yarn]
-yarn add vue
+yarn add -D vue
 ```
 
 ```sh [npm]
-npm add vue
+npm add -D vue
 ```
 
 ```sh [bun]
-bun add vue
+bun add -D vue
 ```
 :::
 

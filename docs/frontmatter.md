@@ -1,9 +1,9 @@
 # Frontmatter
 
 ::: warning 更新时间
-最近更新：2023-9-21
+最近更新：2023-9-28
 
-搭建版本：vitepress v1.0.0-rc.15
+搭建版本：vitepress v1.0.0-rc.20
 :::
 
 Vitepress已经给了一个配置，就在我们的 `docs` - `index.md` 中

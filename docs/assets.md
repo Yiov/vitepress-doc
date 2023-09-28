@@ -1,9 +1,9 @@
 # 静态部署
 
 ::: warning 更新时间
-最近更新：2023-9-21
+最近更新：2023-9-28
 
-搭建版本：vitepress v1.0.0-rc.15
+搭建版本：vitepress v1.0.0-rc.20
 :::
 
 主要讲一下GitHub，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://vitepress.dev/guide/deploy)

@@ -1,9 +1,9 @@
 # 更新版本
 
 ::: warning 更新时间
-最近更新：2023-9-21
+最近更新：2023-9-28
 
-搭建版本：vitepress v1.0.0-rc.15
+搭建版本：vitepress v1.0.0-rc.20
 :::
 
 
@@ -36,7 +36,7 @@ ncu
 这时候我们的 `package.json` 里的版本都按最新的填写完毕了
 :::
 
-```
+```sh
 #即运行ncu -u to upgrade package.json
 ncu -u
 ```
