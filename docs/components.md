@@ -271,19 +271,17 @@ export default {
 }
 ```
 
-最后，在任意文档中插入 `Video.vue` 组件
+最后，在任意文档中插入 `Video.vue` 组件，我在 `public文件夹` 放了一段视频，直接引入 `src` 即可
 
 ::: danger 注意
-链接只能使用 `本地` 或者 `提取的直链` ，无法直接引用
-
-本次使用的是B站 [@英雄联盟](https://space.bilibili.com/178778949) 中的 [【英雄联盟】海妖吟 | 2023魔女皮肤宣传片](https://www.bilibili.com/video/BV1Yr4y1f7mh?t=20.2)，使用 [B站解析器](https://bili.iiilab.com/) 解析后得到的链接
+链接只能使用 `本地` 或者 `永久的直链` ，临时提取的下载链接引用会失效
 :::
 
 输入：
 
 ```md
 <Video
-    src="https://upos-sz-mirrorcos.bilivideo.com/upgcxcode/42/87/1279338742/1279338742-1-192.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&uipk=5&nbs=1&deadline=1695892757&gen=playurlv2&os=bcache&oi=2584261250&trid=0000a564df361b8a43cb8050eca24aeed807T&mid=0&platform=html5&upsig=3b80dd47e0566b4080c906c05acb7791&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,mid,platform&cdnid=63403&bvc=vod&nettype=0&bw=56791&orderid=0,3&buvid=&build=0&mobi_app=&f=T_0_0&logo=80000000"
+    src="./lol.mp4"
     :width="666.67"
     :height="375"
     :second="3" />
@@ -292,10 +290,11 @@ export default {
 输出：
 
 <Video
-    src="https://upos-sz-mirrorcos.bilivideo.com/upgcxcode/42/87/1279338742/1279338742-1-192.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&uipk=5&nbs=1&deadline=1695892757&gen=playurlv2&os=bcache&oi=2584261250&trid=0000a564df361b8a43cb8050eca24aeed807T&mid=0&platform=html5&upsig=3b80dd47e0566b4080c906c05acb7791&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,mid,platform&cdnid=63403&bvc=vod&nettype=0&bw=56791&orderid=0,3&buvid=&build=0&mobi_app=&f=T_0_0&logo=80000000"
+    src="./lol.mp4"
     :width="666.67"
     :height="375"
-    :second="3" />
+    :second="3"
+/>
 
 
 最大的不足就是，播放器没有自适应！
