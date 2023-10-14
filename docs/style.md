@@ -8,7 +8,7 @@
 
 ## 特别说明
 
-最初教程编写的版本是 `bete.5` ，如今到了 `r.13` 版本，样式有了一些变化
+最初教程编写的版本是 `bete.5` ，如今到了 `r.20` 版本，样式有了一些变化
 
 出于遵循版本更新迭代，本次就做一些简单演示
 
@@ -59,15 +59,16 @@ export default {
 
 ## 主题色修改
 
-在 `theme` 目录下新建 `var.css` 并填入如下代码
+在 `theme` 目录下新建 `style` 文件夹，然后新建 `var.css` 并填入如下代码
 
-```md{6}
+```md{7}
 .
 ├─ docs
 │  ├─ .vitepress
 │  │  └─ config.mts
 │  │  └─ theme
-│  │     └─ var.css
+│  │     └─ style
+│  │        └─ var.css
 │  └─ index.md
 └─ node_modules
 ```
