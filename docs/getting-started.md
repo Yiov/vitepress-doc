@@ -6,6 +6,12 @@
 搭建版本：vitepress v1.0.0-rc.20
 :::
 
+::: danger 注意
+如果你的版本是 `rc.21` ，请及时更新，此版本有个bug
+
+无法使用代码组!
+:::
+
 ## 前期工作
 
 
@@ -159,7 +165,7 @@ bunx vitepress init
 :::
 
 ```sh{6}
-  vitepress v1.0.0-rc.13
+  vitepress v1.0.0-rc.20
 
 T   Welcome to VitePress!
 |
