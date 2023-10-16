@@ -1,9 +1,9 @@
 # Markdown
 
 ::: warning 更新时间
-最近更新：2023-9-28
+最近更新：2023-10-16
 
-搭建版本：vitepress v1.0.0-rc.20
+搭建版本：vitepress v1.0.0-rc.22
 :::
 
 如果你还不了解 Markdown ，[请看我整理的Markdown教程](https://yiov.top/daily/markdown/)

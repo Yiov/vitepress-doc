@@ -1,16 +1,12 @@
 # 快速上手
 
 ::: warning 更新时间
-最近更新：2023-9-28
+最近更新：2023-10-16
 
-搭建版本：vitepress v1.0.0-rc.20
+搭建版本：vitepress v1.0.0-rc.22
 :::
 
-::: danger 注意
-如果你的版本是 `rc.21` ，请及时更新，此版本有个bug
 
-无法使用代码组!
-:::
 
 ## 前期工作
 
@@ -165,7 +161,7 @@ bunx vitepress init
 :::
 
 ```sh{6}
-  vitepress v1.0.0-rc.20
+  vitepress v1.0.0-rc.22
 
 T   Welcome to VitePress!
 |
