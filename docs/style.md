@@ -175,12 +175,11 @@ text-fill-color：将文字透明
 ```css
 /* vp-doc.css */
 .vp-doc a {
-    text-decoration: dotted;
+    text-decoration: none;
 }
-/* underline改成dotted或者其他也行 */
 ```
 
-
+[参考：MDN Web Docs 社区](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration)
 
 
 ## 其他修改
