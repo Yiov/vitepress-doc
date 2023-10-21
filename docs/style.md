@@ -170,10 +170,10 @@ text-fill-color：将文字透明
 
 新版本更新后，文字跳转链接就多了一个下划线
 
-不习惯的可以修改，我们再 `var.css` 中添加下面代码就行了
+不习惯的可以修改，我们在 `var.css` 中添加下面代码就行了
 
 ```css
-/* vp-doc.css */
+/* var.css */
 .vp-doc a {
     text-decoration: none;
 }
