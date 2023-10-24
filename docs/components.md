@@ -9,8 +9,13 @@
 
 ## 视频播放器
 
+::: danger 注意
+本次仅为演示组件注册使用，播放器自适应推荐使用 [Dplayer](https://github.com/DIYgod/DPlayer)
 
-本次参考了 [@themusecatcher](https://github.com/themusecatcher) 的 [Amazing UI 组件库](https://themusecatcher.github.io/vue-amazing-ui/guide/components/video.html)
+比 [vue-dplayer](https://github.com/MoePlayer/vue-dplayer)、[videojs-player](https://github.com/surmon-china/videojs-player) 好用，还支持弹幕，喜欢就自己花时间研究下
+:::
+
+参考了 [@themusecatcher](https://github.com/themusecatcher) 的 [Amazing UI 组件库](https://themusecatcher.github.io/vue-amazing-ui/guide/components/video.html)
 
 ---
 
