@@ -3,7 +3,7 @@
 ::: warning 更新时间
 最近更新：2023-10-16
 
-搭建版本：vitepress v1.0.0-rc.22
+搭建版本：vitepress v1.0.0-rc.24
 :::
 
 ## 简介

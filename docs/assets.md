@@ -3,7 +3,7 @@
 ::: warning 更新时间
 最近更新：2023-10-16
 
-搭建版本：vitepress v1.0.0-rc.22
+搭建版本：vitepress v1.0.0-rc.24
 :::
 
 主要讲一下GitHub，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://vitepress.dev/guide/deploy)
