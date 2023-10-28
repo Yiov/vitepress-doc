@@ -1,10 +1,6 @@
 # Frontmatter
 
-::: warning 更新时间
-最近更新：2023-10-16
-
-搭建版本：vitepress v1.0.0-rc.24
-:::
+<p style="color: #7e7e7e;">更新时间：2023-10-28</p>
 
 Vitepress已经给了一个配置，就在我们的 `docs` - `index.md` 中
 

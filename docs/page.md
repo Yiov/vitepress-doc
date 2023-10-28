@@ -1,11 +1,6 @@
 # 页面
 
-
-::: warning 更新时间
-最近更新：2023-10-16
-
-搭建版本：vitepress v1.0.0-rc.24
-:::
+<p style="color: #7e7e7e;">更新时间：2023-10-28</p>
 
 
 ## 站点配置
@@ -883,9 +878,11 @@ export default defineConfig({
 ```ts{4-5}
 export default defineConfig({
 
+  lastUpdated: true, //此配置不会立即生效，需git提交后爬取时间戳，本地报错可以先注释
+
   themeConfig: {
     //上次更新时间 // [!code focus]
-    lastUpdatedText:'Updated Date', // [!code focus]
+    lastUpdatedText:'上次更新', // [!code focus]
   },
 
 })

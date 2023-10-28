@@ -222,7 +222,7 @@ export default defineConfig({
 
 
     //上次更新时间
-    lastUpdatedText:'true',
+    lastUpdatedText:'Last updated',
 
 
     //自定义上下页名
