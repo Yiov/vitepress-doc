@@ -14,13 +14,10 @@ hero:
       link: /getting-started
     - theme: alt
       text: GitHub
-      link: https://github.com/vuejs/vitepress
+      link: https://github.com/Yiov/vitepress-doc
     - theme: sponsor
-      text: 视频介绍
-      link: 
-    - theme: sponsor
-      text: 相关资料
-      link: 
+      text: 搭建导航
+      link: /nav/
 
 features:
   - icon: 📝

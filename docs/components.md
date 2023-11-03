@@ -24,8 +24,6 @@ docs
 │  └─ theme
 │  │   ├─ components
 │  │   │   └─ Video.vue
-│  │   ├─ style
-│  │   │   └─ var.css
 │  │   └─ index.ts
 └─ index.md
 ```
@@ -264,7 +262,7 @@ docs
 import Video from "./components/Video.vue"
 
 export default {
-  ...Theme,
+  extends: DefaultTheme,
   enhanceApp(ctx) {
     // 注册全局组件
     ctx.app.component('Video' , Video)

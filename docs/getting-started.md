@@ -20,7 +20,7 @@
 可选安装：[安装git](https://yiov.top/daily/git)
 
 
-### pnpm/yarn
+### pnpm
 
 ::: tip 说明
 已经安装 或者 熟练了，可以不用看此步骤
@@ -81,11 +81,8 @@ cd vitepress
 
 ### 安装依赖
 
-我们在目录上方的地址栏输入 `cmd` 可以快捷打开
+在目录上方的地址栏，比如我的是 `F:\vitepress` 上输入 `cmd` 回车可以快捷打开
 
-::: tip 建议
-如果你已经安装好 Vscode ，在目录右键 `vscode打开`
-:::
 
 ::: code-group
 ```sh [pmpm]
@@ -151,7 +148,7 @@ bunx vitepress init
 我们将文件都放在 `./docs` ，参照下面，其他默认回车
 
 ::: tip 说明
-如果你全部默认直接回车，放在根目录 `./`
+如果你第一个直接回车，放在了根目录 `./`
 
 那你的 [脚本命令](#脚本命令) 也要做修改
 :::
@@ -184,12 +181,18 @@ o  Add VitePress npm scripts to package.json?
 
 ::: tip Vue 作为对等依赖
 如果您打算使用 Vue 组件或 API 进行自定义，您还应该显式安装 `vue` 作为对等依赖项。
+
+`pnpm add -D vue`
 :::
+
 
 ### 脚本命令
 
 可以无视，初始化的时候已经弄好了
 
+::: warning 注意
+如果你在初始化的时候选择了 `./` ，而不是 `./doc`，这里就需要修改
+:::
 
 ```json
   "scripts": {
@@ -198,10 +201,6 @@ o  Add VitePress npm scripts to package.json?
     "docs:preview": "vitepress preview docs"
   }
 ```
-
-::: warning 注意
-如果你在初始化的时候选择了 `./` ，而不是 `./doc`，这里就需要修改
-:::
 
 
 
@@ -220,7 +219,6 @@ echo node_modules >> .gitignore
 echo cache >> .gitignore
 
 echo dist >> .gitignore
-
 ```
 
 

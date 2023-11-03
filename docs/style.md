@@ -42,10 +42,10 @@
 
 
 ```ts
-import Theme from 'vitepress/theme'
+import DefaultTheme from 'vitepress/theme'
 
 export default {
-  ...Theme
+  extends: DefaultTheme,
 }
 ```
 
@@ -55,19 +55,27 @@ export default {
 
 ## 主题色修改
 
-在 `theme` 目录下新建 `style` 文件夹，然后新建 `var.css` 并填入如下代码
+在 `theme` 目录下新建 `style` 文件夹，然后新建 `index.css` 并填入如下代码
 
-```md{7}
+```md{7-8}
 .
 ├─ docs
 │  ├─ .vitepress
 │  │  └─ config.mts
 │  │  └─ theme
 │  │     └─ style
+│  │        └─ index.css
 │  │        └─ var.css
 │  └─ index.md
 └─ node_modules
 ```
+
+```css
+/* index.css */
+@import './var.css';
+```
+
+然后再新建 `var.css` 并填入如下代码
 
 ```css
 /* var.css */
@@ -85,17 +93,17 @@ export default {
 /* 以前的vp-c-brand已弃用 */
 ```
 
-然后将 `var.css` 引入 `index.mts`
+然后将修改好的样式引入 `index.ts`
 
 这样就修改回了绿色
 
 
 ```ts{2}
-import Theme from 'vitepress/theme'
-import './style/var.css' // [!code focus]
+import DefaultTheme from 'vitepress/theme'
+import './style/index.css' // [!code focus]
 
 export default {
-  ...Theme
+  extends: DefaultTheme,
 }
 ```
 

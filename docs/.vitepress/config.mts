@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 
-//命令集：pnpm add -D vitepress vue less
+//命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared
 
 export default defineConfig({
   lang: 'zh-CN',

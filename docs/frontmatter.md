@@ -196,7 +196,27 @@ features:
 
 
 
+## 导航栏
 
+默认 `true` 开启，可以选择关闭
+
+```yaml
+---
+navbar: false
+---
+```
+
+
+
+## 侧边栏
+
+默认 `true` 开启，可以选择关闭
+
+```yaml
+---
+sidebar: false
+---
+```
 
 
 ## 大纲
@@ -228,6 +248,8 @@ aside: false
 outline: [2,3]
 ---
 ```
+
+
 
 
 
@@ -304,6 +326,35 @@ next: false
 ---
 ```
 
+
+## 页脚
+
+不想显示可以选择关闭
+
+```yaml
+---
+footer: false
+---
+```
+
+
+## PageClass
+
+在特定页面添加额外的类名
+
+```yaml
+---
+pageClass: custom-page-class
+---
+```
+
+然后，你可以在特定页面中自定义样式，路径 `.vitepress/theme/custom.css`
+
+```css
+.custom-page-class {
+  /* page-specific styles */
+}
+```
 
 
 ## 我的配置参考
