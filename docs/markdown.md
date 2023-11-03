@@ -85,14 +85,14 @@ export default defineConfig({
 输出：
 
 ::: tip 说明
-由于public文件夹的特殊性，我们直接使用 `![LOGO](./logo.png)` 即可
+由于public文件夹的特殊性，我们直接使用 `![LOGO](/logo.png)` 即可
 
 其他文件夹请遵从上面的使用规则
 :::
 
 ![LOGO](./public/logo.png)
 
-![LOGO](/public/logo.png)
+![LOGO](/logo.png)
 
 
 

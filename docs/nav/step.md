@@ -1256,3 +1256,23 @@ outline: [2, 3, 4]
 
 这个在 [VitePress美化](../style#链接下划线) 的时候说了，请参考修改样式
 
+
+
+### 图标大小
+
+在 `MNavLink.vue` 中修改 `.m-nav-link` 的值
+
+::: info 说明
+基本上50左右就差不多了，否则太大了
+:::
+
+```vue{3-4}
+<style lang="scss" scoped>
+.m-nav-link {
+  --m-nav-icon-box-size: 50px;
+  --m-nav-icon-size: 45px;
+  --m-nav-box-gap: 12px;
+}
+</style>
+```
+
