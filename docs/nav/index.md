@@ -15,7 +15,7 @@ hero:
     - text: 预览Demo
       link: /nav/demo
       theme: alt
-    - text: VitePress
+    - text: 返回VitePress
       link: /
       theme: sponsor
 features:

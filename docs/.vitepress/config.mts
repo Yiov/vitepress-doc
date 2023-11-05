@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress'
 
-//命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared
+//命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared vitepress-markdown-timeline
+
+import timeline from "vitepress-markdown-timeline"; 
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -43,6 +45,11 @@ export default defineConfig({
   markdown: {
     //行号显示
     lineNumbers: true, 
+
+    //时间线 
+    config: (md) => {
+      md.use(timeline);
+    },
 
   },
 
@@ -89,7 +96,9 @@ export default defineConfig({
               { text: '静态部署', link: '/assets' },
               { text: '样式美化', link: '/style' },
               { text: '组件', link: '/components' },
+              { text: '插件', link: '/plugin' },
               { text: '更新版本', link: '/update' },
+              { text: '搭建导航', link: '/nav/step' },
             ],
           },
         ],
@@ -137,7 +146,9 @@ export default defineConfig({
           { text: '静态部署', link: '/assets' },
           { text: '样式美化', link: '/style' },
           { text: '组件', link: '/components' },
+          { text: '插件', link: '/plugin' },
           { text: '更新版本', link: '/update' },
+          { text: '搭建导航', link: '/nav/step' },
         ],
       },
       {

@@ -17,6 +17,9 @@ devDependencies:
   vitepress:
     specifier: 1.0.0-rc.24
     version: 1.0.0-rc.24(@algolia/client-search@4.20.0)(less@4.2.0)(sass@1.69.5)(search-insights@2.9.0)
+  vitepress-markdown-timeline:
+    specifier: ^1.2.1
+    version: 1.2.1
   vue:
     specifier: ^3.3.7
     version: 3.3.7
@@ -705,6 +708,10 @@ packages:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
     dev: true
 
+  /dayjs@1.11.10:
+    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+    dev: true
+
   /debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
     requiresBuild: true
@@ -1126,6 +1133,12 @@ packages:
       sass: 1.69.5
     optionalDependencies:
       fsevents: 2.3.3
+    dev: true
+
+  /vitepress-markdown-timeline@1.2.1:
+    resolution: {integrity: sha512-XPYl/btTcTzW+XF20ITB51L8jPjbS72tSKPcv/CHJgM+3LbBvW8Az/X7RcBTJSXDNOwCY5mGkjA7CXQtuxOKgw==}
+    dependencies:
+      dayjs: 1.11.10
     dev: true
 
   /vitepress@1.0.0-rc.24(@algolia/client-search@4.20.0)(less@4.2.0)(sass@1.69.5)(search-insights@2.9.0):

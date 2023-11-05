@@ -6,6 +6,9 @@ import Video from "./components/Video.vue"
 import { h } from 'vue'
 import { useData } from 'vitepress'
 
+// 只需添加以下一行代码，引入时间线样式
+import "vitepress-markdown-timeline/dist/theme/index.css";
+
 export default {
   extends: DefaultTheme,
   enhanceApp(ctx) {

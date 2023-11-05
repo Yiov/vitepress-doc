@@ -4,6 +4,7 @@
     "less": "^4.2.0",
     "sass": "^1.69.5",
     "vitepress": "1.0.0-rc.24",
+    "vitepress-markdown-timeline": "^1.2.1",
     "vue": "^3.3.7"
   },
   "scripts": {

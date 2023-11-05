@@ -2,6 +2,7 @@
 layout: doc
 layoutClass: m-nav-layout
 sidebar: false
+outline: [2, 3, 4]
 ---
 
 <style src="./index.scss"></style>
