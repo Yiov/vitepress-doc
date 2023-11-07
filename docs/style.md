@@ -1,6 +1,6 @@
 # 样式美化
 
-<p style="color: #7e7e7e;">更新时间：2023-10-28</p>
+<p style="color: #7e7e7e;">更新时间：2023-11-7</p>
 
 ## 特别说明
 
@@ -718,3 +718,85 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 ```
 :::
 
+
+
+
+## 代码精简
+
+当我们的内容多了，在 `config.mts` 中配置导航和侧边栏，翻就压半天了
+
+
+所以那就来个简化导航栏，其他同理
+
+在 `.vitepress` 目录新建 `config` 文件夹，并新建 `index.ts` 文件
+
+
+```md{5-6}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ configs      <- 配置文件夹
+│  │     └─ index.ts
+│  └─ index.md
+└─ node_modules
+```
+
+然后复制粘贴到 `index.ts` 并保存下面代码
+
+```ts
+/* configs/index.ts */
+export * from './nav'
+export * from './sidebar'
+```
+
+
+然后再新建 `nav.ts` 文件
+
+```md{7-8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ configs      
+│  │     └─ index.ts
+│  │     └─ nav.ts     <- 导航配置
+│  └─ index.md
+└─ node_modules
+```
+
+同样复制粘贴并保存
+
+```ts
+/* configs/nav.ts */
+import type { DefaultTheme } from 'vitepress'
+
+export const nav: DefaultTheme.Config['nav'] = [
+  { text: '首页', link: '/' },
+  { text: 'VitePress', link: 'https://vitepress.dev/' },
+  {
+    text: '1.0.0-rc.24',
+    items: [
+      { text: '更新日志', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
+      { text: '贡献', link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md' },
+      ],
+  },
+]
+```
+
+
+最后我们回到 `config.mts` 中引入配置
+
+```ts{3,8-9}
+import { defineConfig } from 'vitepress'
+
+import { nav, sidebar } from './configs'
+
+export default defineConfig({
+  //主题配置
+  themeConfig: {
+    //导航栏
+    nav,
+  }
+})
+```

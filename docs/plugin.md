@@ -1,6 +1,6 @@
 # 插件
 
-<p style="color: #7e7e7e;">更新时间：2023-11-5</p>
+<p style="color: #7e7e7e;">更新时间：2023-11-7</p>
 
 
 ## 时间线
@@ -13,10 +13,9 @@ Demo：https://hanochma.github.io/daily/2023-04
 
 
 
-安装插件
+### 安装
 
 ::: code-group
-
 ```sh [pnpm]
 pnpm add -D vitepress-markdown-timeline
 ```
@@ -32,9 +31,11 @@ npm install vitepress-markdown-timeline
 ```sh [bun]
 bun add -D vitepress-markdown-timeline
 ```
-
 :::
 
+
+
+### 使用
 
 在 `config.mts` 中注册 markdown 解析插件
 
@@ -145,3 +146,143 @@ export default {
 - google 技术栏目
   - https://www.infoq.cn/zones/google/cloud/list?id=2
 :::
+
+
+
+
+
+
+## 谷歌分析
+
+利用插件 [google-analytics](https://analytics.google.com/) ，来查看网站访问量，这里我们用 [@ZhongxuYang](https://github.com/ZhongxuYang/) 的插件
+
+仓库：https://github.com/ZhongxuYang/vitepress-plugin-google-analytics
+
+
+### 安装
+
+::: code-group
+```sh [pnpm]
+pnpm add -D vitepress-plugin-google-analytics
+```
+
+```sh [yarn]
+yarn add -D vitepress-plugin-google-analytics
+```
+
+```sh [npm]
+npm install vitepress-plugin-google-analytics
+```
+
+```sh [bun]
+bun add -D vitepress-plugin-google-analytics
+```
+:::
+
+
+### 使用
+
+在 `.vitepress/theme/index.ts` 中引入
+
+```ts{3,8-10}
+// .vitepress/theme/index.ts
+import DefaultTheme from "vitepress/theme"
+import googleAnalytics from 'vitepress-plugin-google-analytics'
+
+export default {
+  extends: DefaultTheme,
+  enhanceApp(ctx) {
+    googleAnalytics({
+      id: 'G-******', //跟踪ID，在analytics.google.com注册即可
+    }),
+  },
+}
+```
+
+
+
+## 图片缩放
+
+Vuepress是可以直接安装插件 [medium-zoom](https://github.com/francoischalifour/medium-zoom) 的，非常好用
+
+但是Vitepress直接用不了，在 [vitepress的issues中找到了方法#854](https://github.com/vuejs/vitepress/issues/854)
+
+
+### 安装
+
+
+::: code-group
+```sh [pnpm]
+pnpm add -D medium-zoom
+```
+
+```sh [yarn]
+yarn add -D medium-zoom
+```
+
+```sh [npm]
+npm install medium-zoom
+```
+
+```sh [bun]
+bun add -D medium-zoom
+```
+:::
+
+
+### 使用
+
+在 `.vitepress/theme/index.ts` 添加如下代码，并保存
+
+```ts{4-6,11-24}
+// .vitepress/theme/index.ts
+import DefaultTheme from 'vitepress/theme'
+
+import mediumZoom from 'medium-zoom';
+import { onMounted, watch, nextTick } from 'vue';
+import { useRoute } from 'vitepress';
+
+export default {
+  extends: DefaultTheme,
+
+  setup() {
+    const route = useRoute();
+    const initZoom = () => {
+      // mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' }); // 默认
+      mediumZoom('.main img', { background: 'var(--vp-c-bg)' }); // 不显式添加{data-zoomable}的情况下为所有图像启用此功能
+    };
+    onMounted(() => {
+      initZoom();
+    });
+    watch(
+      () => route.path,
+      () => nextTick(() => initZoom())
+    );
+  },
+
+}
+```
+
+点击图片后，还是能看到导航栏，强迫症可以加一个遮挡，否则无视
+
+在 `.vitepress/theme/style/var.css` 中加入如下代码，并保存
+
+```css
+/* .vitepress/theme/style/var.css */
+
+.medium-zoom-overlay {
+  z-index: 20;
+}
+
+.medium-zoom-image {
+  z-index: 999; /* 给的值是21，但是实测盖不住，直接999 */
+}
+```
+
+测试一下效果，还不错
+
+::: tip 但是
+有个小bug，每次修改完需要刷新才能起效，不过不影响使用
+:::
+
+![](/img_test.jpg)

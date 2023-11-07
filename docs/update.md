@@ -1,9 +1,11 @@
-# 更新版本
+# 更新及卸载
 
 <p style="color: #7e7e7e;">更新时间：2023-10-28</p>
 
 
-## 安装ncu
+## 更新
+
+### 安装ncu
 
 ::: danger 注意
 已经安装过的可以无视
@@ -24,7 +26,7 @@ ncu
 ```
 
 
-## 更新
+### 更新
 
 更新模块包版本信息
 
@@ -55,3 +57,28 @@ bun install
 ```
 :::
 
+
+
+## 卸载
+
+卸载就比较简单了，在 `package.json` 中找到包名即可
+
+::: code-group
+```sh [pmpm]
+pnpm uninstall <包名>
+```
+
+```sh [yarn]
+yarn uninstall <包名>
+```
+
+```sh [bun]
+bun uninstall <包名>
+```
+:::
+
+::: info 比如
+pnpm uninstall vue
+
+`vue` 就是包名
+:::

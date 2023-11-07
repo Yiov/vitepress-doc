@@ -23,5 +23,11 @@
   
   }
   
+  .medium-zoom-overlay {
+    z-index: 20;
+  }
   
+  .medium-zoom-image {
+    z-index: 999; /* 给的值是21，但是实测盖不住，直接999 */
+  }
   

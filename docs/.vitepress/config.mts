@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 
-//命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared vitepress-markdown-timeline
+//命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared vitepress-markdown-timeline medium-zoom
 
 import timeline from "vitepress-markdown-timeline"; 
 
@@ -97,7 +97,7 @@ export default defineConfig({
               { text: '样式美化', link: '/style' },
               { text: '组件', link: '/components' },
               { text: '插件', link: '/plugin' },
-              { text: '更新版本', link: '/update' },
+              { text: '更新及卸载', link: '/update' },
               { text: '搭建导航', link: '/nav/step' },
             ],
           },
@@ -147,7 +147,7 @@ export default defineConfig({
           { text: '样式美化', link: '/style' },
           { text: '组件', link: '/components' },
           { text: '插件', link: '/plugin' },
-          { text: '更新版本', link: '/update' },
+          { text: '更新及卸载', link: '/update' },
           { text: '搭建导航', link: '/nav/step' },
         ],
       },
