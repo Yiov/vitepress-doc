@@ -377,7 +377,7 @@ model: {
 
 ## 评论
 
-评论的插件比较多：[Giscus](https://giscus.app/zh-CN)、[waline](https://waline.js.org/)、[gitalk](gitalk)、[Valine](https://valine.js.org/quickstart.html)、[disqus](https://disqus.com/)、[Twikoo](https://twikoo.js.org/)、[Artalk](https://artalk.js.org/guide/deploy.html)
+评论的插件比较多：[Giscus](https://giscus.app/zh-CN)、[waline](https://waline.js.org/)、[gitalk](https://gitalk.github.io/)、[Valine](https://valine.js.org/quickstart.html)、[disqus](https://disqus.com/)、[Twikoo](https://twikoo.js.org/)、[Artalk](https://artalk.js.org/guide/deploy.html)
 
 从个人角度而言，[Giscus](https://giscus.app/zh-CN) 最佳，就用它演示，其他的这里就不赘述了
 
