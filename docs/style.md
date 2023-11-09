@@ -747,13 +747,12 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 ```ts
 /* configs/index.ts */
 export * from './nav'
-export * from './sidebar'
 ```
 
 
 然后再新建 `nav.ts` 文件
 
-```md{7-8}
+```md{7}
 .
 ├─ docs
 │  ├─ .vitepress
