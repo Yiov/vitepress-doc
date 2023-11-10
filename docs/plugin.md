@@ -273,7 +273,7 @@ export default {
 }
 
 .medium-zoom-image {
-  z-index: 999; /* 给的值是21，但是实测盖不住，直接999 */
+  z-index: 9999 !important;/* 给的值是21，但是实测盖不住，直接999 */
 }
 ```
 
