@@ -1,6 +1,6 @@
 # 组件
 
-<p style="color: #7e7e7e;">更新时间：2023-10-28</p>
+> 更新时间：2023-10-28
 
 
 ## 视频播放器
@@ -232,7 +232,7 @@ yarn add -D vue less
 ```
 
 ```sh [npm]
-npm add -D vue less
+npm i -D vue less
 ```
 
 ```sh [bun]
@@ -263,9 +263,9 @@ import Video from "./components/Video.vue"
 
 export default {
   extends: DefaultTheme,
-  enhanceApp(ctx) {
+  enhanceApp({app}) {
     // 注册全局组件
-    ctx.app.component('Video' , Video)
+    app.component('Video' , Video)
   }
 }
 ```

@@ -1,6 +1,6 @@
 # Markdown
 
-<p style="color: #7e7e7e;">更新时间：2023-10-28</p>
+> 更新时间：2023-10-28
 
 如果你还不了解 Markdown ，[请看我整理的Markdown教程](https://yiov.top/daily/markdown/)
 

@@ -1,6 +1,6 @@
 # 静态部署
 
-<p style="color: #7e7e7e;">更新时间：2023-10-28</p>
+> 更新时间：2023-10-28
 
 主要讲一下GitHub，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://vitepress.dev/guide/deploy)
 

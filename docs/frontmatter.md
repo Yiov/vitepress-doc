@@ -1,6 +1,6 @@
 # Frontmatter
 
-<p style="color: #7e7e7e;">更新时间：2023-10-28</p>
+> 更新时间：2023-10-28
 
 Vitepress已经给了一个配置，就在我们的 `docs` - `index.md` 中
 

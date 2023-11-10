@@ -5,12 +5,10 @@ sidebar: false
 outline: [2, 3, 4]
 ---
 
-<style src="./index.scss"></style>
+<style src="../.vitepress/theme/style/nav.scss"></style>
 
 <script setup>
-import MNavLinks from './components/MNavLinks.vue'
-
-import { NAV_DATA } from './data'
+import { NAV_DATA } from '../.vitepress/theme/untils/data'
 </script>
 
 

@@ -4,10 +4,10 @@
     "less": "^4.2.0",
     "medium-zoom": "^1.0.8",
     "sass": "^1.69.5",
-    "vitepress": "1.0.0-rc.24",
+    "vitepress": "1.0.0-rc.25",
     "vitepress-markdown-timeline": "^1.2.1",
     "vitepress-plugin-comment-with-giscus": "^1.1.9",
-    "vue": "^3.3.7"
+    "vue": "^3.3.8"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",

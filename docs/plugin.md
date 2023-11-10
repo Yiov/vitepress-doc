@@ -1,6 +1,8 @@
 # 插件
 
-<p style="color: #7e7e7e;">更新时间：2023-11-9</p>
+> 更新时间：2023-11-9
+
+
 
 
 ## 时间线
@@ -11,9 +13,6 @@
 
 Demo：https://hanochma.github.io/daily/2023-04
 
-
-
-### 安装
 
 ::: code-group
 ```sh [pnpm]
@@ -33,9 +32,6 @@ bun add -D vitepress-markdown-timeline
 ```
 :::
 
-
-
-### 使用
 
 在 `config.mts` 中注册 markdown 解析插件
 
@@ -152,14 +148,15 @@ export default {
 
 
 
+
+
+
 ## 谷歌分析
 
 利用插件 [google-analytics](https://analytics.google.com/) ，来查看网站访问量，这里我们用 [@ZhongxuYang](https://github.com/ZhongxuYang/) 的插件
 
 仓库：https://github.com/ZhongxuYang/vitepress-plugin-google-analytics
 
-
-### 安装
 
 ::: code-group
 ```sh [pnpm]
@@ -180,8 +177,6 @@ bun add -D vitepress-plugin-google-analytics
 :::
 
 
-### 使用
-
 在 `.vitepress/theme/index.ts` 中引入
 
 ```ts{3,8-10}
@@ -191,7 +186,7 @@ import googleAnalytics from 'vitepress-plugin-google-analytics'
 
 export default {
   extends: DefaultTheme,
-  enhanceApp(ctx) {
+  enhanceApp({app}) {
     googleAnalytics({
       id: 'G-******', //跟踪ID，在analytics.google.com注册即可
     }),
@@ -201,14 +196,18 @@ export default {
 
 
 
+
+
+
+
+
+
 ## 图片缩放
 
 Vuepress是可以直接安装插件 [medium-zoom](https://github.com/francoischalifour/medium-zoom) 的，非常好用
 
 但是Vitepress直接用不了，在 [vitepress的issues中找到了方法#854](https://github.com/vuejs/vitepress/issues/854)
 
-
-### 安装
 
 
 ::: code-group
@@ -230,7 +229,6 @@ bun add -D medium-zoom
 :::
 
 
-### 使用
 
 在 `.vitepress/theme/index.ts` 添加如下代码，并保存
 
@@ -263,7 +261,7 @@ export default {
 }
 ```
 
-点击图片后，还是能看到导航栏，强迫症可以加一个遮挡，否则无视
+点击图片后，还是能看到导航栏，加一个遮挡样式
 
 在 `.vitepress/theme/style/var.css` 中加入如下代码，并保存
 
@@ -290,6 +288,13 @@ export default {
 
 
 
+
+
+
+
+
+
+
 ## 看板娘
 
 第一次接触的人会比较懵，其实就是在右下角有个二次元的人物，类似电子宠物
@@ -297,9 +302,6 @@ export default {
 这里使用 [@xinlei3166](https://github.com/xinlei3166/) 的 [Live2D](https://www.live2d.com/zh-CHS/) 插件
 
 仓库：https://github.com/xinlei3166/vitepress-theme-website
-
-
-### 安装
 
 
 ::: code-group
@@ -321,7 +323,6 @@ bun add -D vitepress-theme-website
 :::
 
 
-### 使用
 
 在 `.vitepress/theme/index.ts` 粘贴下面代码并保存
 
@@ -375,9 +376,74 @@ model: {
 
 
 
+
+## 浏览量
+
+我对这个并不感冒，看了一下，基本上是用的 [不蒜子](http://busuanzi.ibruce.info/)
+
+但是想要好看就得自己封装一下
+
+::: code-group
+```sh [pnpm]
+pnpm add -D busuanzi.pure.js
+```
+
+```sh [yarn]
+yarn add -D busuanzi.pure.js
+```
+
+```sh [npm]
+npm install busuanzi.pure.js
+```
+
+```sh [bun]
+bun add -D busuanzi.pure.js
+```
+:::
+
+
+
+```ts{4-5,10-16}
+// .vitepress/theme/index.ts
+import DefaultTheme from 'vitepress/theme'
+
+import { inBrowser } from 'vitepress'
+import busuanzi from 'busuanzi.pure.js'
+
+export default {
+  extends: DefaultTheme,
+
+  enhanceApp({ app , router }) {
+    if (inBrowser) {
+      router.onAfterRouteChanged = () => {
+        busuanzi.fetch()
+      }
+    }
+  },
+}
+```
+
+使用就很简单了，也可以自己写个好看点的组件
+
+```html
+本站总访问量 <span id="busuanzi_value_site_pv" /> 次
+本站访客数 <span id="busuanzi_value_site_uv" /> 人次
+```
+
+
+
+
+
+
+
+
 ## 评论
 
-评论的插件比较多：[Giscus](https://giscus.app/zh-CN)、[waline](https://waline.js.org/)、[gitalk](https://gitalk.github.io/)、[Valine](https://valine.js.org/quickstart.html)、[disqus](https://disqus.com/)、[Twikoo](https://twikoo.js.org/)、[Artalk](https://artalk.js.org/guide/deploy.html)
+评论的插件比较多：
+
+* [Giscus](https://giscus.app/zh-CN)、[waline](https://waline.js.org/)、[gitalk](https://gitalk.github.io/)
+
+* [Valine](https://valine.js.org/quickstart.html)、[disqus](https://disqus.com/)[Twikoo](https://twikoo.js.org/)、[Artalk](https://artalk.js.org/guide/deploy.html)
 
 从个人角度而言，[Giscus](https://giscus.app/zh-CN) 最佳，就用它演示，其他的这里就不赘述了
 
@@ -490,7 +556,7 @@ Giscus 是一个基于 GitHub Discussion 的评论系统，启用简便
 ```
 
 
-### 安装插件
+### 安装使用
 
 有能力的可以用官方给的js数据封装，我这里用 [@T-miracle](https://github.com/T-miracle/) 的插件
 

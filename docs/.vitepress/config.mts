@@ -106,7 +106,7 @@ export default defineConfig({
       { text: 'VitePress', link: 'https://vitepress.dev/' },
 
       {
-        text: '1.0.0-rc.24',
+        text: '1.0.0-rc.25',
         items: [
           { text: '更新日志', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
           { text: '贡献', link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md' },

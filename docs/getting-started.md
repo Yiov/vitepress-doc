@@ -1,6 +1,6 @@
 # 快速上手
 
-<p style="color: #7e7e7e;">更新时间：2023-10-28</p>
+> 更新时间：2023-10-28
 
 
 
@@ -94,7 +94,7 @@ yarn add -D vitepress
 ```
 
 ```sh [npm]
-npm add -D vitepress
+npm i -D vitepress
 ```
 
 ```sh [bun]
@@ -154,7 +154,7 @@ bunx vitepress init
 :::
 
 ```sh{6}
-  vitepress v1.0.0-rc.24
+  vitepress v1.0.0-rc.25
 
 T   Welcome to VitePress!
 |

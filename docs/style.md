@@ -1,6 +1,6 @@
 # 样式美化
 
-<p style="color: #7e7e7e;">更新时间：2023-11-7</p>
+> 更新时间：2023-11-7
 
 ## 特别说明
 
@@ -774,7 +774,7 @@ export const nav: DefaultTheme.Config['nav'] = [
   { text: '首页', link: '/' },
   { text: 'VitePress', link: 'https://vitepress.dev/' },
   {
-    text: '1.0.0-rc.24',
+    text: '1.0.0-rc.25',
     items: [
       { text: '更新日志', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
       { text: '贡献', link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md' },

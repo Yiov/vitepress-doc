@@ -3,10 +3,11 @@ import { computed } from 'vue'
 import { slugify } from '@mdit-vue/shared'
 
 import MNavLink from './MNavLink.vue'
-import type { NavLink } from './type'
+import type { NavLink } from '../untils/types'
 
 const props = defineProps<{
   title: string
+  noIcon?: boolean
   items: NavLink[]
 }>()
 
@@ -21,14 +22,7 @@ const formatTitle = computed(() => {
     <a class="header-anchor" :href="`#${formatTitle}`" aria-hidden="true"></a>
   </h2>
   <div class="m-nav-links">
-    <MNavLink
-      v-for="{ icon, title, desc, link } in items"
-      :key="link"
-      :icon="icon"
-      :title="title"
-      :desc="desc"
-      :link="link"
-    />
+    <MNavLink v-for="item in items" :noIcon="noIcon" v-bind="item" />
   </div>
 </template>
 

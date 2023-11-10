@@ -1,7 +1,8 @@
 import DefaultTheme from 'vitepress/theme'
 import './style/index.css' 
 
-import Video from "./components/Video.vue"
+import Video from './components/Video.vue'
+import MNavLinks from './components/MNavLinks.vue'
 
 import { h } from 'vue'
 import { useData } from 'vitepress'
@@ -19,11 +20,12 @@ import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 export default {
   extends: DefaultTheme,
 
-  enhanceApp(ctx) {
+  enhanceApp({app}) {
     // 注册全局组件
-    ctx.app.component('Video' , Video)
+    app.component('Video' , Video)
+    app.component('MNavLinks' , MNavLinks)
   },
-  
+
   Layout: () => {
     const props: Record<string, any> = {}
     // 获取 frontmatter
