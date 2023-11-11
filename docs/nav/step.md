@@ -1218,14 +1218,15 @@ export const NAV_DATA: NavData[] = [
 
 
 
-最后我们引入 `index.md`
+最后我们引入 `index.md`，上下页也关闭
 
 ```md{8-12,17}
 ---
 layout: doc
 layoutClass: m-nav-layout
 sidebar: false
-outline: [2, 3, 4]
+prev: false
+next: false
 ---
 
 <style src="../.vitepress/theme/style/nav.scss"></style>
