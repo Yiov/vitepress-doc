@@ -83,29 +83,9 @@ export default {
 :::
 
 ::: timeline 2023-04-23
-- css !important 该条样式属性声明具有最高优先级
-  - https://www.cnblogs.com/meiwenzx/p/6673302.html
-- 发现一个不错的 git 文档库 准备 get 一下
-  - https://github.com/HenryTSZ/zeit/tree/master/source/_posts
 :::
 
-::: timeline 2023-04-22
-- vue elementui table 表格的封装https://segmentfault.com/a/1190000023382224
-:::
 
-::: timeline 2023-04-21
-- vue2 和 vue3 使用 typeScript 的不同方式
-  - https://jishuin.proginn.com/p/763bfbd2e891
-  - https://www.cnblogs.com/qq3279338858/p/12631728.html
-- vue 中 lint 检查的配置
-  - https://www.cnblogs.com/fengyingYZ/p/10369703.html
-- dart-sass 和 node-sass 区别
-  - https://blog.csdn.net/qianxing111/article/details/107617538
-- 前端多媒体知识
-  - https://mp.weixin.qq.com/s/yuIkTwHk5dx20r8Z0cpSDA
-- google 技术栏目
-  - https://www.infoq.cn/zones/google/cloud/list?id=2
-:::
 ```
 
 
@@ -119,30 +99,7 @@ export default {
 :::
 
 ::: timeline 2023-04-23
-- css !important 该条样式属性声明具有最高优先级
-  - https://www.cnblogs.com/meiwenzx/p/6673302.html
-- 发现一个不错的 git 文档库 准备 get 一下
-  - https://github.com/HenryTSZ/zeit/tree/master/source/_posts
 :::
-
-::: timeline 2023-04-22
-- vue elementui table 表格的封装https://segmentfault.com/a/1190000023382224
-:::
-
-::: timeline 2023-04-21
-- vue2 和 vue3 使用 typeScript 的不同方式
-  - https://jishuin.proginn.com/p/763bfbd2e891
-  - https://www.cnblogs.com/qq3279338858/p/12631728.html
-- vue 中 lint 检查的配置
-  - https://www.cnblogs.com/fengyingYZ/p/10369703.html
-- dart-sass 和 node-sass 区别
-  - https://blog.csdn.net/qianxing111/article/details/107617538
-- 前端多媒体知识
-  - https://mp.weixin.qq.com/s/yuIkTwHk5dx20r8Z0cpSDA
-- google 技术栏目
-  - https://www.infoq.cn/zones/google/cloud/list?id=2
-:::
-
 
 
 
