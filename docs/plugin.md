@@ -496,9 +496,9 @@ Giscus 是一个基于 GitHub Discussion 的评论系统，启用简便
 ```js{2-5}
 <script src="https://giscus.app/client.js"
         data-repo="Yiov/vitepress-doc"
-        data-repo-id="R_kgDOGYFl1A"
+        data-repo-id="R_******"
         data-category="Announcements"
-        data-category-id="DIC_kwDOGYFl1M4CayLM"
+        data-category-id="DIC_******"
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
