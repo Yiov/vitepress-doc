@@ -1251,7 +1251,14 @@ import { NAV_DATA } from '../.vitepress/theme/untils/data'
 
 ### 搜索 
 
-默认自带的本地搜索无法爬取到导航，建议使用`Algolia` 
+默认自带的本地搜索无法爬取到导航，建议使用 [Algolia](https://docsearch.algolia.com/)
+
+
+* [官方申请：查看我之前搭建 VuePress 时写的教程](https://vuepress.yiov.top/guide/docsearch.html#%E5%AE%98%E6%96%B9%E7%94%B3%E8%AF%B7-%E9%80%89%E5%85%B6%E4%B8%80)
+
+* [自建爬虫：查看我之前搭建 VuePress 时写的教程](https://vuepress.yiov.top/guide/docsearch.html#%E8%87%AA%E5%BB%BA%E7%88%AC%E8%99%AB-%E9%80%89%E5%85%B6%E4%B8%80)
+
+
 
 还需要增加页面的 `outline` 配置项
 
