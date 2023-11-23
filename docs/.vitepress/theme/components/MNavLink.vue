@@ -66,7 +66,7 @@ const formatBadge = computed(() => {
 
   display: block;
   border: 1px solid var(--vp-c-bg-soft);
-  border-radius: 8px;
+  border-radius: 12px;
   height: 100%;
   //background-color: var(--vp-c-bg-soft);
   transition: all 0.25s;
