@@ -229,7 +229,7 @@ const formatBadge = computed(() => {
   border: 1px solid var(--vp-c-bg-soft);
   border-radius: 8px;
   height: 100%;
-  //background-color: var(--vp-c-bg-soft);
+  background-color: var(--vp-c-bg-soft);
   transition: all 0.25s;
   &:hover {
     box-shadow: var(--vp-shadow-2);
