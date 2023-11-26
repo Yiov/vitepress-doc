@@ -4,7 +4,7 @@
 
 ## 特别说明
 
-最初教程编写的版本是 `bete.5` ，如今到了 `r.25` 版本，样式有了一些变化
+最初教程编写的版本是 `bete.5` ，如今到了 `rc` 版本，样式有了一些变化
 
 出于遵循版本更新迭代，本次就做一些简单演示
 
@@ -775,7 +775,7 @@ export const nav: DefaultTheme.Config['nav'] = [
   { text: '首页', link: '/' },
   { text: 'VitePress', link: 'https://vitepress.dev/' },
   {
-    text: '1.0.0-rc.25',
+    text: '1.0.0-rc.31',
     items: [
       { text: '更新日志', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
       { text: '贡献', link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md' },
