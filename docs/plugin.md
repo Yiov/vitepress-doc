@@ -1,6 +1,6 @@
 # 插件
 
-> 更新时间：2023-11-9
+> 更新时间：2023-12-20
 
 
 
@@ -387,6 +387,172 @@ export default {
 本站访客数 <span id="busuanzi_value_site_uv" /> 人次
 ```
 
+
+
+
+
+## 自动侧边栏
+
+我自己不用，既然有人问，我就贴出来，自己尝试吧
+
+::: details 为什么我不用的原因
+因为中文文件夹命名，分享时并不太好看
+
+既然排序要遵从插件规则，那手动不也是在遵循规则。文章多，累是一回事，整理的过程也是查漏补缺，并无坏处
+:::
+
+采用了 [@QC2168](https://github.com/QC2168/) 的项目，仓库：
+
+https://github.com/QC2168/vite-plugin-vitepress-auto-sidebar
+
+
+
+::: code-group
+```sh [pnpm]
+pnpm add -D vite-plugin-vitepress-auto-sidebar
+```
+
+```sh [yarn]
+yarn add -D vite-plugin-vitepress-auto-sidebar
+```
+
+```sh [npm]
+npm install vite-plugin-vitepress-auto-sidebar
+```
+
+```sh [bun]
+bun add -D vite-plugin-vitepress-auto-sidebar
+```
+:::
+
+
+
+
+```ts{2,5-12}
+// .vitepress/configs.mts
+import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
+
+export default defineConfig({
+  vite: {
+    plugins: [
+      AutoSidebar({
+        // You can also set options to adjust sidebar data
+        // 需要修改默认配置，请自行参照仓库的配置表
+      })
+    ]
+  },
+})
+```
+
+
+
+
+## Todo
+
+为什么Vitepress没有任务列表，在 [issues#1923](https://github.com/vuejs/vitepress/issues/1923) 和 [issues#413](https://github.com/vuejs/vitepress/issues/413) 里找到了这个问题
+
+::: tip 开发者认为
+开发者认为Vitepress并不需要这个，但可以通过 [markdown-it](https://markdown-it.github.io/) 实现， 在 [vitepress文档中并没有此功能](https://vitepress.dev/guide/markdown.html#advanced-configuration)，但可以通过 [markdown-it-task-lists](https://www.npmjs.com/package/markdown-it-task-lists) 实现
+:::
+
+测试下来感觉 [markdown-it-task-checkbox](https://github.com/linsir/markdown-it-task-checkbox) 更好用点
+
+
+::: code-group
+```sh [pnpm]
+pnpm add -D markdown-it-task-checkbox
+```
+
+```sh [yarn]
+yarn add -D markdown-it-task-checkbox
+```
+
+```sh [npm]
+npm install markdown-it-task-checkbox --save
+```
+
+```sh [bun]
+bun add -D markdown-it-task-checkbox
+```
+:::
+
+
+如果根据文档配置的话是不行的，源码也比较久了，使用的是 [commonjs 同步函数](https://zh.wikipedia.org/wiki/CommonJS) ，而Vitepress使用的是 [ES module 异步函数](https://zh.wikipedia.org/wiki/ECMAScript)
+
+::: details 关于 CJS 和 ESM
+commonjs：简称CJS，`module.exports` `exports` 导出，`require` 导入
+
+ES module：简称ESM，`export` 导出，`import` 导入
+
+这个我们在最开始 [安装Vitepress依赖](./getting-started.md#安装依赖) 的时候也提到过
+:::
+
+```ts{2,5-16}
+// .vitepress/config.mts
+import taskLists from 'markdown-it-task-checkbox'
+
+export default defineConfig({
+  markdown: {
+    config: (md) => {
+      md.use(taskLists, {
+        disabled: true,
+        divWrap: false,
+        divClass: 'checkbox',
+        idPrefix: 'cbx_',
+        ulClass: 'task-list',
+        liClass: 'task-list-item',
+      })
+    }
+  },
+})
+```
+
+::: details 关于引用报错但未爆红
+> 无法找到模块“markdown-it-task-checkbox”的声明文件。“/node_modules/.pnpm/markdown-it-task-checkbox@1.0.6/node_modules/markdown-it-task-checkbox/index.js”隐式拥有 "any" 类型。
+>
+> 尝试使用 `npm i --save-dev @types/markdown-it-task-checkbox` (如果存在)，或者添加一个包含 `declare module 'markdown-it-task-checkbox';` 的新声明(.d.ts)文件ts(7016)
+
+---
+
+解决：
+
+在 `congfig.mts`同级目录新建一个 `type.d.ts` 文件
+
+粘贴 `declare module 'markdown-it-task-checkbox';` 代码保存
+:::
+
+::: tip 说明
+`disabled` 改成  `false` ，可以激活勾选框
+:::
+
+版本过低，跑不起来，我们直接安装 `@types/node`
+
+
+
+::: code-group
+```sh [pnpm]
+pnpm add -d @types/node
+```
+
+```sh [yarn]
+yarn add -D @types/node
+```
+
+```sh [npm]
+npm install @types/node --save
+```
+
+```sh [bun]
+bun add -D @types/node
+```
+:::
+
+
+最后自己测试效果即可
+
+- [ ] 吃饭
+- [ ] 睡觉
+- [x] 打豆豆
 
 
 

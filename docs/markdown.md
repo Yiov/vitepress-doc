@@ -577,7 +577,7 @@ export default defineConfig({
 :::
 
 ````
-```ts{3-4}
+```ts{4-5}
 export default defineConfig({
   lang: 'zh-CN', 
   title: "VitePress", 
@@ -590,7 +590,7 @@ export default defineConfig({
 
 输出：
 
-```ts{3-4}
+```ts{4-5}
 export default defineConfig({
   lang: 'zh-CN', 
   title: "VitePress", 

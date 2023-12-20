@@ -1,13 +1,13 @@
 {
   "devDependencies": {
-    "@mdit-vue/shared": "^1.0.0",
+    "@mdit-vue/shared": "^2.0.0",
     "less": "^4.2.0",
     "medium-zoom": "^1.1.0",
     "sass": "^1.69.5",
-    "vitepress": "1.0.0-rc.31",
+    "vitepress": "1.0.0-rc.32",
     "vitepress-markdown-timeline": "^1.2.1",
-    "vitepress-plugin-comment-with-giscus": "^1.1.10",
-    "vue": "^3.3.9"
+    "vitepress-plugin-comment-with-giscus": "^1.1.11",
+    "vue": "^3.3.13"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",

@@ -8,6 +8,11 @@
 
 VitePress 作为 [VuePress](https://v2.vuepress.vuejs.org/zh/) 的孪生兄弟，借助 [Vue 3](https://cn.vuejs.org/) 和 [vite](https://vitejs.cn/)，VitePress 提供了明显更好的 DX、更好的生产性能、更精致的默认主题以及更灵活的定制 API
 
+::: details 如果你热衷于Vuepress的主题
+可以参考 [@alex8088](https://github.com/alex8088/) 的仓库：
+
+https://github.com/alex8088/vitepress-theme-vue
+:::
 
 ## 官方
 

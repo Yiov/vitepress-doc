@@ -1,9 +1,119 @@
 # 组件
 
-> 更新时间：2023-10-28
+> 更新时间：2023-12-18
 
 
-## 视频播放器
+## 简介
+
+常说的 SFC 组件，即 `Single file component` ，也就是我们的vue组件
+
+组件是将HTML、CSS以及JavaScript封装成了一个 `*.vue` 文件
+
+分别是：`<script>`、`<template>`、`<style>`
+
+::: tip 说明
+* JavaScript 对应：`<script>`
+
+* HTML 对应：`<template>`
+
+* CSS 对应：`<style>`
+:::
+
+
+
+## 使用
+
+在 `theme` 目录中 创建 `components`文件夹，然后创建 `Mycomponent.vue`
+
+```md{5-6}
+docs
+├─ .vitepress
+│  └─ config.mts
+│  └─ theme
+│  │   ├─ components
+│  │   │   └─ Mycomponent.vue
+│  │   └─ index.ts
+└─ index.md
+```
+
+然后将下面代码粘贴在 `Mycomponent.vue` 中
+
+::: tip 说明
+如果没有css样式可以不写 `<style>`
+:::
+
+```vue
+<script setup>
+</script>
+
+<template>
+  自定义的组件代码
+</template>
+```
+
+
+现在是报错的状态，因为还没有安装 `vue`
+
+::: tip 说明
+已安装过的无视，
+
+按CTRL+C退出开发预览模式
+:::
+
+::: code-group
+```sh [pmpm]
+pnpm add -D vue
+```
+
+```sh [yarn]
+yarn add -D vue
+```
+
+```sh [npm]
+npm i vue
+```
+
+```sh [bun]
+bun add -D vue
+```
+:::
+
+
+然后，在 `theme\index.ts` 中注册全局组件
+
+
+```md{7}
+docs
+├─ .vitepress
+│  └─ config.mts
+│  └─ theme
+│  │   ├─ components
+│  │   │   └─ Mycomponent.vue
+│  │   └─ index.ts
+└─ index.md
+```
+
+```ts{2,6-9}
+/* .vitepress\theme\index.ts */
+import Mycomponent from "./components/Mycomponent.vue"
+
+export default {
+  extends: DefaultTheme,
+  enhanceApp({app}) {
+    // 注册全局组件
+    app.component('Mycomponent' , Mycomponent)
+  }
+}
+```
+
+
+
+
+
+## 演示
+
+
+本次演示一下使用 视频播放器 组件，参考了 [@themusecatcher](https://github.com/themusecatcher) 的 [Amazing UI 组件库](https://themusecatcher.github.io/vue-amazing-ui/guide/components/video.html)
 
 ::: danger 注意
 本次仅为演示组件注册使用，播放器自适应推荐使用 [Dplayer](https://github.com/DIYgod/DPlayer)
@@ -11,9 +121,6 @@
 比 [vue-dplayer](https://github.com/MoePlayer/vue-dplayer)、[videojs-player](https://github.com/surmon-china/videojs-player) 好用，还支持弹幕，喜欢就自己花时间研究下
 :::
 
-参考了 [@themusecatcher](https://github.com/themusecatcher) 的 [Amazing UI 组件库](https://themusecatcher.github.io/vue-amazing-ui/guide/components/video.html)
-
----
 
 在 `theme` 目录中 创建 `components`文件夹，然后创建 `Video.vue`
 
@@ -216,27 +323,24 @@ onMounted(() => {
 </style>
 ```
 
-现在是报错的状态，因为还没有安装 `vue` 和 `less`，我们现在来安装
+现在是报错的状态，因为还没有安装 `less` ，我们现在来安装
 
-::: tip 退出
-按CTRL+C退出开发预览模式
-:::
 
 ::: code-group
 ```sh [pmpm]
-pnpm add -D vue less
+pnpm add -D less
 ```
 
 ```sh [yarn]
-yarn add -D vue less
+yarn add -D less
 ```
 
 ```sh [npm]
-npm i -D vue less
+npm i less
 ```
 
 ```sh [bun]
-bun add -D vue less
+bun add -D less
 ```
 :::
 
