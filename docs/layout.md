@@ -172,7 +172,7 @@ export default {
 
 ### doc
 
-当 [Frontmatter](./Frontmatter.md) 配置 `layout: doc` (默认)时插槽及位置
+当 [Frontmatter](./frontmatter.md) 配置 `layout: doc` (默认)时插槽及位置
 
 * doc-top
 * doc-bottom
@@ -202,7 +202,7 @@ export default {
 
 ### home
 
-当 [Frontmatter](./Frontmatter.md) 配置 `layout: home` (默认)时插槽及位置
+当 [Frontmatter](./frontmatter.md) 配置 `layout: home` (默认)时插槽及位置
 
 * home-hero-before
 * home-hero-info
@@ -219,7 +219,7 @@ export default {
 
 ### page
 
-当 [Frontmatter](./Frontmatter.md) 配置 `layout: page` (默认)时插槽及位置
+当 [Frontmatter](./frontmatter.md) 配置 `layout: page` (默认)时插槽及位置
 
 * page-top
 * page-bottom

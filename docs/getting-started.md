@@ -154,7 +154,7 @@ bunx vitepress init
 :::
 
 ```sh{6}
-  vitepress v1.0.0-rc.31
+  vitepress v1.0.0-rc.32
 
 T   Welcome to VitePress!
 |

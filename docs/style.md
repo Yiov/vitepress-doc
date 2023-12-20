@@ -857,7 +857,7 @@ export const nav: DefaultTheme.Config['nav'] = [
   { text: '首页', link: '/' },
   { text: 'VitePress', link: 'https://vitepress.dev/' },
   {
-    text: '1.0.0-rc.31',
+    text: '1.0.0-rc.32',
     items: [
       { text: '更新日志', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
       { text: '贡献', link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md' },
