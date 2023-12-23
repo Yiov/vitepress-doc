@@ -192,7 +192,7 @@ text-fill-color：将文字透明
 [参考：MDN Web Docs 社区](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration)
 
 
----
+
 
 
 
@@ -796,6 +796,112 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 油管链接图标：[Youtube](https://www.youtube.com/)
 
 B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
+
+
+---
+
+
+
+
+
+
+### 链接卡片 
+
+
+在 `.vitepress\theme\style\` 目录新建一个 `linkcard.css` 文件
+
+
+```md{7}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ linkcard.css
+│  └─ index.md
+└─ node_modules
+```
+
+粘贴如下代码，保存
+
+
+```css
+/* .vitepress\theme\style\linkcard.css */
+
+/* 卡片背景 */
+.linkcard {
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  padding: 8px 16px 8px 8px;
+  transition: color 0.5s, background-color 0.5s;
+}
+
+/* 卡片鼠标悬停 */
+.linkcard:hover {
+  background-color: var(--vp-c-yellow-soft);
+}
+
+/* 链接样式 */
+.linkcard a {
+  display: flex;
+  align-items: center;
+}
+
+/* 描述链接文字 */
+.linkcard .description {
+  flex: 1;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px;
+  color: var(--vp-c-text-1);
+  margin: 0 0 0 16px;
+  transition: color 0.5s;
+}
+
+/* 描述链接文字2 */
+.linkcard .description span {
+  font-size: 14px;
+}
+
+/* logo图片 */
+.linkcard .logo img {
+  width: 80px;
+  object-fit: contain;
+}
+
+/* 链接下划线去除 */
+.vp-doc a {
+  text-decoration: none;
+}
+```
+
+
+输入：
+
+```md
+<style src="@theme/styles/linkcard.css"></style>
+<div class="linkcard">
+  <a href="https://vitepress.yiov.top/" target="_blank">
+    <p class="description">Vitepress中文搭建教程<br><span>https://vitepress.yiov.top/</span></p>
+    <div class="logo">
+        <img alt="Logo" width="70px" height="70px" src="https://vitepress.yiov.top/logo.png" />
+    </div>
+  </a>
+</div>
+```
+
+输出：
+
+<style src="@theme/styles/linkcard.css"></style>
+<div class="linkcard">
+  <a href="https://vitepress.yiov.top/" target="_blank">
+    <p class="description">Vitepress中文搭建教程<br><span>https://vitepress.yiov.top/</span></p>
+    <div class="logo">
+        <img alt="Logo" width="70px" height="70px" src="https://vitepress.yiov.top/logo.png" />
+    </div>
+  </a>
+</div>
 
 
 
