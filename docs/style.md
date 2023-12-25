@@ -880,7 +880,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 输入：
 
 ```md
-<style src="@theme/styles/linkcard.css"></style>
+<style src="/.vitepress/theme/style/linkcard.css"></style>
 <div class="linkcard">
   <a href="https://vitepress.yiov.top/" target="_blank">
     <p class="description">Vitepress中文搭建教程<br><span>https://vitepress.yiov.top/</span></p>
@@ -893,7 +893,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 输出：
 
-<style src="@theme/styles/linkcard.css"></style>
+<style src="/.vitepress/theme/style/linkcard.css"></style>
 <div class="linkcard">
   <a href="https://vitepress.yiov.top/" target="_blank">
     <p class="description">Vitepress中文搭建教程<br><span>https://vitepress.yiov.top/</span></p>
