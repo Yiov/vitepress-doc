@@ -45,9 +45,31 @@
   top: -2px;
   color: var(--vp-c-green-1);
   font-size: 13px;
-  border: 3px solid var(--vp-c-green-1);
+  border: 2px solid var(--vp-c-green-1);
   margin-right: 8px;
   margin-left: 4px;
   line-height: 15px;
   padding-left: 1.5px;
+}
+
+/* 提示框背景颜色 */
+:root {
+  --vp-custom-block-tip-bg: var(--vp-c-green-soft);
+}
+
+/* 提示框 */
+.custom-block.tip {
+  border-color: var(--vp-c-green-2);
+}
+
+/* 警告框 */
+.custom-block.warning {
+  /* border-color: #d97706; */
+  border-color: var(--vp-c-yellow-2);
+}
+
+/* 危险框 */
+.custom-block.danger {
+  /* border-color: #f43f5e; */
+  border-color: var(--vp-c-red-2);
 }

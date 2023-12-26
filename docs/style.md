@@ -1,21 +1,6 @@
 # 样式美化
 
-> 更新时间：2023-12-20
-
-## 特别说明
-
-最初教程编写的版本是 `bete.5` ，如今到了 `rc` 版本，样式有了一些变化
-
-出于遵循版本更新迭代，本次就做一些简单演示
-
-::: details 关于退回旧版
-逐个改很麻烦，实在想退回的，用我打包的文件自行研究吧
-
-蓝奏云：https://dzp.lanzouj.com/ivtLU18oh2ib
-
-文件路径：`node_modules\vitepress\dist\client\theme-default`
-:::
-
+> 更新时间：2023-12-26
 
 
 
@@ -194,6 +179,61 @@ text-fill-color：将文字透明
 
 
 
+---
+
+
+### Badge颜色
+
+最初教程编写的版本是 `bete.5` ，容器的颜色有边框的，很好看
+
+版本更新迭代，现在这 `tip` `warning` `danger` 颜色真的想吐槽，好丑
+
+::: details 原css文件路径
+node_modules\vitepress\dist\client\theme-default\styles\components\custom-block.css
+
+node_modules\vitepress\dist\client\theme-default\styles\vars.css
+:::
+
+```css
+/* .vitepress\theme\style\var.css */
+/* 提示框背景颜色 */
+:root {
+  --vp-custom-block-tip-bg: var(--vp-c-green-soft);
+}
+
+/* 提示框 */
+.custom-block.tip {
+  border-color: var(--vp-c-green-2);
+}
+
+/* 警告框 */
+.custom-block.warning {
+  /* border-color: #d97706; */
+  border-color: var(--vp-c-yellow-2);
+}
+
+/* 危险框 */
+.custom-block.danger {
+  /* border-color: #f43f5e; */
+  border-color: var(--vp-c-red-2);
+}
+
+```
+
+看看效果
+
+::: tip 提示
+改为边框+绿色
+:::
+
+
+::: warning 警告
+改为边框+橘色
+:::
+
+::: danger 危险
+改为边框+红色
+:::
 
 
 
@@ -238,7 +278,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
  *
  * Each colors have exact same color scale system with 3 levels of solid
  * colors with different brightness, and 1 soft color.
- * 
+ *
  * - `XXX-1`: The most solid color used mainly for colored text. It must
  *   satisfy the contrast ratio against when used on top of `XXX-soft`.
  *
@@ -325,7 +365,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
  * - `bg-elv`: The elevated bg color. This is used at parts where it "floats",
  *   such as "dialog".
  *
- * - `bg-soft`: The bg color to slightly ditinguish some components from
+ * - `bg-soft`: The bg color to slightly distinguish some components from
  *   the page. Used for things like "carbon ads" or "table".
  * -------------------------------------------------------------------------- */
 
@@ -394,7 +434,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
  * Colors: Function
  *
  * - `default`: The color used purely for subtle indication without any
- *   special meanings attched to it such as bg color for menu hover state.
+ *   special meanings attached to it such as bg color for menu hover state.
  *
  * - `brand`: Used for primary brand colors, such as link text, button with
  *   brand theme, etc.
@@ -639,6 +679,14 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
   --vp-nav-bg-color: var(--vp-c-bg);
   --vp-nav-screen-bg-color: var(--vp-c-bg);
   --vp-nav-logo-height: 24px;
+}
+
+.hide-nav {
+  --vp-nav-height: 0px;
+}
+
+.hide-nav .VPSidebar {
+  --vp-nav-height: 22px;
 }
 
 /**
@@ -963,7 +1011,7 @@ export const nav: DefaultTheme.Config['nav'] = [
   { text: '首页', link: '/' },
   { text: 'VitePress', link: 'https://vitepress.dev/' },
   {
-    text: '1.0.0-rc.32',
+    text: '1.0.0-rc.33',
     items: [
       { text: '更新日志', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
       { text: '贡献', link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md' },

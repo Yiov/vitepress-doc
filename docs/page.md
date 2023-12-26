@@ -368,10 +368,20 @@ export default defineConfig({
 
 vitepress自带的其他社交图标
 
-```
-github、twitter、discord
-
-facebook、instagram、linkedin、slack、youtube
+```ts{2-11}
+/* node_modules\vitepress\types\default-theme.d.ts */
+export type SocialLinkIcon =
+    | 'discord'
+    | 'facebook'
+    | 'github'
+    | 'instagram'
+    | 'linkedin'
+    | 'mastodon'
+    | 'slack'
+    | 'twitter'
+    | 'x'
+    | 'youtube'
+    | { svg: string }
 ```
 
 还可以自定义SVG图标，比如：微信
@@ -410,6 +420,11 @@ export default defineConfig({
 })
 ```
 
+::: warning 关于微信
+如果真的要加微信，建议用 [@zhheo](https://github.com/zhheo/Wechat-Official-Account-Web) 的项目
+
+自己搭一个，界面也很美观
+:::
 
 
 

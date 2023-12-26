@@ -250,16 +250,22 @@ Emoji表情大全：https://emojixd.com/
 
 ::: details 点我查看
 这是一条详情，details后面的文字可修改
-:::
 
+还可以加入代码块
 
-我们在 `details` 中还可以加入代码块
-
-::: details 点我查看
 ```md
 Hello, VitePress!
 ```
 :::
+
+
+::: danger 为什么和我不一样？
+因为我对样式进行了修改，还原了bete时用的样式
+
+详情请看 [样式美化-badge颜色](./style.md#badge颜色)
+:::
+
+
 
 ::: warning 注意
 官方有写关于 `raw` 使用，半吊子的我不是很明白使用场景
