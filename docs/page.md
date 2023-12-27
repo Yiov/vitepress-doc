@@ -368,7 +368,7 @@ export default defineConfig({
 
 vitepress自带的其他社交图标
 
-```ts{2-11}
+```ts{3-12}
 /* node_modules\vitepress\types\default-theme.d.ts */
 export type SocialLinkIcon =
     | 'discord'

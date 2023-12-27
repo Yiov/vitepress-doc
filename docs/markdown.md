@@ -260,9 +260,9 @@ Hello, VitePress!
 
 
 ::: danger 为什么和我不一样？
-因为我对样式进行了修改，还原了bete时用的样式
+因为我对样式进行了修改，还原了beta时用的样式
 
-详情请看 [样式美化-badge颜色](./style.md#badge颜色)
+详情请看 [样式美化 - badge颜色](./style.md#badge颜色)
 :::
 
 

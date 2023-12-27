@@ -184,14 +184,16 @@ text-fill-color：将文字透明
 
 ### Badge颜色
 
-最初教程编写的版本是 `bete.5` ，容器的颜色有边框的，很好看
+最初教程编写的版本是 `beta.5` ，容器的颜色有边框的，很好看
 
-版本更新迭代，现在这 `tip` `warning` `danger` 颜色真的想吐槽，好丑
+版本更新迭代，现在这 `tip` `warning` `danger` 颜色真的想吐槽，好丑！
 
 ::: details 原css文件路径
+```
 node_modules\vitepress\dist\client\theme-default\styles\components\custom-block.css
 
 node_modules\vitepress\dist\client\theme-default\styles\vars.css
+```
 :::
 
 ```css
@@ -239,7 +241,7 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 
 ## 其他美化
 
-太多了，可已参照源文件来进行修改
+太多了，可以参照源文件来进行修改
 
 ::: tip 说明
 主色调都是引用的indigo，你也可以去换`indigo`，反正怎么改都可以
@@ -1064,6 +1066,7 @@ https://sspai.com/post/81310
 
 
 ::: details 这里引用 [查尔斯](https://blog.charles7c.top/about/me) 的页面展示
+```md
 #### 后端技术栈
 
 <p>
@@ -1176,7 +1179,10 @@ https://sspai.com/post/81310
   <img src="https://img.shields.io/badge/-GitHub%20Pages-222?logo=GitHub-Pages&logoColor=FFF" alt="GitHub Pages" style="display: inline-block;" />&nbsp;
   <img src="https://img.shields.io/badge/-Adobe%20Photoshop-A9A9A9?logo=Adobe-Photoshop&logoColor=31A8FF" alt="Adobe Photoshop" style="display: inline-block;" />&nbsp;
 </p>
+```
 :::
+
+
 
 效果：
 
