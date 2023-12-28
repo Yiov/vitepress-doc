@@ -1220,7 +1220,7 @@ export const NAV_DATA: NavData[] = [
 
 最后我们引入 `index.md`，上下页也关闭
 
-```md{8-12,17}
+```md{9-13,18}
 ---
 layout: doc
 layoutClass: m-nav-layout
