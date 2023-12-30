@@ -99,7 +99,7 @@ export default defineConfig({
               { text: '布局插槽', link: '/layout' },
               { text: '插件', link: '/plugin' },
               { text: '更新及卸载', link: '/update' },
-              { text: '搭建导航', link: '/nav/' },
+              { text: '搭建导航', link: '/nav' },
             ],
           },
         ],
@@ -150,7 +150,7 @@ export default defineConfig({
           { text: '布局插槽', link: '/layout' },
           { text: '插件', link: '/plugin' },
           { text: '更新及卸载', link: '/update' },
-          { text: '搭建导航', link: '/nav/' },
+          { text: '搭建导航', link: '/nav' },
         ],
       },
       {

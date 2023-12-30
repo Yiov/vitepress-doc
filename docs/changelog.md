@@ -19,6 +19,15 @@ next: false
 
 ## 2023-12-30
 
+::: danger 关于giscus不行用
+底部提示 `错误：fetch failed` ，而且theme\index.ts中的 `frontmatter` 爆红
+
+不是插件的问题，[giscus](https://giscus.app/zh-CN)官网下也一样的，有可能是Vitepress版本升级后的问题
+
+只是不能关闭某一页了，参数不能少，就这样吧，反正能用
+:::
+
+
 * 更新了[一个新的导航](./nav/ahua.md)
 
 ## 2023-12-28
