@@ -3,16 +3,16 @@ import './style/index.css'
 
 import Video from './components/Video.vue'
 import MNavLinks from './components/MNavLinks.vue'
+import Navlink from './components/Navlink.vue'
 
 import { h } from 'vue'
-import { useData } from 'vitepress'
+import { useData , useRoute } from 'vitepress'
 
 // 只需添加以下一行代码，引入时间线样式
 import "vitepress-markdown-timeline/dist/theme/index.css";
 
 import mediumZoom from 'medium-zoom';
 import { onMounted, watch, nextTick } from 'vue';
-import { useRoute } from 'vitepress';
 
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 
@@ -24,6 +24,7 @@ export default {
     // 注册全局组件
     app.component('Video' , Video)
     app.component('MNavLinks' , MNavLinks)
+    app.component('Navlink' , Navlink)
   },
 
   Layout: () => {
@@ -55,8 +56,8 @@ export default {
 
     // Get frontmatter and route
     const { frontmatter } = useData();
-    
-        
+
+
     // giscus配置
     giscusTalk({
       repo: 'Yiov/vitepress-doc', //仓库

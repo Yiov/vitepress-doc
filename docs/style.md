@@ -857,6 +857,9 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 ### 链接卡片 
 
+::: tip 说明
+方法参考自 [vuejs官网](https://cn.vuejs.org/guide/introduction.html) 的 [中文仓库](https://github.com/vuejs-translations/docs-zh-cn)
+:::
 
 在 `.vitepress\theme\style\` 目录新建一个 `linkcard.css` 文件
 
