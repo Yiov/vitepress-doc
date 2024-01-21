@@ -3,11 +3,11 @@
     "@mdit-vue/shared": "^2.0.0",
     "less": "^4.2.0",
     "medium-zoom": "^1.1.0",
-    "sass": "^1.69.7",
-    "vitepress": "1.0.0-rc.35",
+    "sass": "^1.70.0",
+    "vitepress": "1.0.0-rc.39",
     "vitepress-markdown-timeline": "^1.2.1",
     "vitepress-plugin-comment-with-giscus": "^1.1.11",
-    "vue": "^3.4.5"
+    "vue": "^3.4.15"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
