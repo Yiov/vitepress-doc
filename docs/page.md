@@ -1043,16 +1043,22 @@ export default defineConfig({
 
 ## 上次更新
 
-如果你想添加页面的更新时间就配置，否则默认是 `false`
+如果你想添加页面的更新时间就配置，我反正是没搞定
 
-```ts{4-5}
+```ts{3,6-13}
 export default defineConfig({
 
   lastUpdated: true, //此配置不会立即生效，需git提交后爬取时间戳，本地报错可以先注释
 
   themeConfig: {
-    //上次更新时间 // [!code focus]
-    lastUpdatedText:'上次更新', // [!code focus]
+    //上次更新时间
+    lastUpdated: {
+      text: 'Updated at',
+      formatOptions: {
+        dateStyle: 'full',
+        timeStyle: 'medium'
+      },
+    },
   },
 
 })
