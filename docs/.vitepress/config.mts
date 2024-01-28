@@ -18,6 +18,7 @@ export default defineConfig({
   base: '/', //网站部署到github的vitepress这个仓库里
 
   //cleanUrls:true, //开启纯净链接无html
+  lastUpdated: true, 
 
 
   //启用深色模式
@@ -248,11 +249,7 @@ export default defineConfig({
     //  pattern: 'https://github.com/账户名/仓库名/edit/main/docs/:path',
     //  text: '在GitHub编辑本页'
     //},
-    
 
-
-    //上次更新时间
-    lastUpdatedText:'上次更新',
 
 
     //自定义上下页名
