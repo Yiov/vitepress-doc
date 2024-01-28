@@ -51,7 +51,14 @@ export default defineConfig({
       md.use(timeline);
     },
 
+    // 开启图片懒加载
+    image: {
+      lazyLoading: true
+    },
+
   },
+
+  
 
 
   //主题配置
@@ -99,7 +106,7 @@ export default defineConfig({
               { text: '布局插槽', link: '/layout' },
               { text: '插件', link: '/plugin' },
               { text: '更新及卸载', link: '/update' },
-              { text: '搭建导航', link: '/nav' },
+              { text: '搭建导航', link: '/nav/' },
             ],
           },
         ],
@@ -107,7 +114,7 @@ export default defineConfig({
       { text: 'VitePress', link: 'https://vitepress.dev/' },
 
       {
-        text: '1.0.0-rc.39',
+        text: '1.0.0-rc.40',
         items: [
           { text: '更新日志(本站)', link: '/changelog.md' },
           { text: '更新日志(官方)', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
@@ -150,7 +157,7 @@ export default defineConfig({
           { text: '布局插槽', link: '/layout' },
           { text: '插件', link: '/plugin' },
           { text: '更新及卸载', link: '/update' },
-          { text: '搭建导航', link: '/nav' },
+          { text: '搭建导航', link: '/nav/' },
         ],
       },
       {
@@ -214,6 +221,7 @@ export default defineConfig({
 
 
 
+
     //页脚
     footer: {
       message: 'Released under the MIT License.',
@@ -229,9 +237,10 @@ export default defineConfig({
 
 
     //大纲显示2-3级标题
-    outline:[2,3],
-    //大纲顶部标题
-    outlineTitle:'当前页大纲',
+    outline: {
+      level: [2,3],
+      label: '当前页大纲'
+    },
 
 
     //编辑本页
@@ -243,7 +252,7 @@ export default defineConfig({
 
 
     //上次更新时间
-    lastUpdatedText:'Last updated',
+    lastUpdatedText:'上次更新',
 
 
     //自定义上下页名

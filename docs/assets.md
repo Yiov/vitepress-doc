@@ -1,8 +1,8 @@
 # 静态部署
 
-> 更新时间：2023-10-28
+> 更新时间：2024-1-28
 
-主要讲一下GitHub，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://vitepress.dev/guide/deploy)
+主要讲一下GitHub，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://vitepress.dev/zh/guide/deploy)
 
 
 
@@ -26,9 +26,9 @@ export default defineConfig({
 })
 ```
 
-另一个要注意的点，你的 [Fav图标路径](./page.md#fav图标) 也要变动一下
+另一个要注意的点，部署到非根目录，你的 [Fav图标路径](./page.md#fav图标) 也要变动一下
 
-```ts{3-6}
+```ts{5-6}
 export default defineConfig({
 
   //fav图标
@@ -51,7 +51,7 @@ pnpm run docs:build
 ```
 
 ```sh [yarn]
-yarn run docs:build
+yarn docs:build
 ```
 
 ```sh [npm]
@@ -63,8 +63,10 @@ bun run docs:build
 ```
 :::
 
-如果你需要本地预览，可以执行
 
+
+
+:::: details 如果你需要本地预览，可以执行
 ::: code-group
 ```sh [pmpm]
 pnpm run docs:preview
@@ -82,7 +84,7 @@ npm run docs:preview
 bun run docs:preview
 ```
 :::
-
+::::
 
 
 ## 部署
@@ -119,7 +121,7 @@ bun run docs:preview
 
 ### 工作流
 
-在仓库 `Actions` 里新建一个工作流  或者 直接在 `.github/workflows` 中创建一个 `deploy.yml` 脚本文件
+在仓库 `Actions` 里新建一个工作流 中创建一个 `deploy.yml` 脚本文件
 
 ::: tip 说明
 名字可以自定义，不用非得用 `deploy` ，只要下面配置名和这个一致就行
@@ -128,40 +130,73 @@ bun run docs:preview
 :::
 
 
-```yml{1,6}
-name: Deploy
+```yml{3,9}
+# 构建 VitePress 站点并将其部署到 GitHub Pages 的示例工作流程
+#
+name: Deploy VitePress site to Pages
+
 on:
-  workflow_dispatch: {}
+  # 在针对 `main` 分支的推送上运行。如果你
+  # 使用 `master` 分支作为默认分支，请将其更改为 `master`
   push:
-    branches:
-      - main
+    branches: [main]
+
+  # 允许你从 Actions 选项卡手动运行此工作流程
+  workflow_dispatch:
+
+# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 只允许同时进行一次部署，跳过正在运行和最新队列之间的运行队列
+# 但是，不要取消正在进行的运行，因为我们希望允许这些生产部署完成
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  deploy:
+  # 构建工作
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
+      # - uses: pnpm/action-setup@v2 # 如果使用 pnpm，请取消注释
+      # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm # 或 pnpm / yarn
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Install dependencies
+        run: npm ci # 或 pnpm install / yarn install / bun install
+      - name: Build with VitePress
+        run: |
+          npm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+          touch docs/.vitepress/dist/.nojekyll
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: docs/.vitepress/dist
+
+  # 部署工作
+  deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-      - run: npm ci
-      - name: Build
-        run: npm run docs:build
-      - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
-        with:
-          path: docs/.vitepress/dist
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
 ```
 
 每次你更新代码后，系统会自动给你打包上传并部署

@@ -1,6 +1,6 @@
 # Markdown
 
-> 更新时间：2023-10-28
+> 更新时间：2024-1-28
 
 如果你还不了解 Markdown ，[请看我整理的Markdown教程](https://yiov.top/daily/markdown/)
 
@@ -24,7 +24,7 @@ export default defineConfig({
 
 
 
-### 标题锚
+### 标题锚 {#title-anchor}
 
 标题会自动应用锚链接
 
@@ -45,8 +45,23 @@ export default defineConfig({
 [点我跳转：基础功能](#基础功能)
 
 
+我们还可以自定义锚点，以应对中文无法正确跳转的问题
 
+先再标题后，添加英文锚点
 
+```md
+### 标题锚 {#title-anchor}
+```
+
+输入：
+
+```md
+[点我跳转：标题锚](#title-anchor)
+```
+
+输出：
+
+[点我跳转：标题锚](#title-anchor)
 
 
 ### 图片引用
@@ -97,6 +112,28 @@ export default defineConfig({
 
 
 
+### 图片懒加载
+
+提升我们的访问体验，非常推荐开启
+
+::: tip 区别
+不开启：图片一次性加载出来，图片越多加载越慢
+
+开启：快速打开网页，当访问到了图片的位置，它再加载出来
+:::
+
+
+```ts{4-7}
+export default defineConfig({
+  //markdown配置
+  markdown: {
+    image: {
+      // 开启图片懒加载
+      lazyLoading: true
+    },
+  },
+})
+```
 
 
 ### 链接
@@ -274,6 +311,47 @@ Hello, VitePress!
 :::
 
 
+你也可以使用 [GitHub 风格的警报](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
+
+输入：
+
+```md
+> [!NOTE]
+> 强调用户在快速浏览文档时也不应忽略的重要信息。
+
+> [!TIP]
+> 有助于用户更顺利达成目标的建议性信息。
+
+> [!IMPORTANT]
+> 对用户达成目标至关重要的信息。
+
+> [!WARNING]
+> 因为可能存在风险，所以需要用户立即关注的关键内容。
+
+> [!CAUTION]
+> 行为可能带来的负面影响。
+```
+
+
+输出：
+
+> [!NOTE]
+> 强调用户在快速浏览文档时也不应忽略的重要信息。
+
+> [!TIP]
+> 有助于用户更顺利达成目标的建议性信息。
+
+> [!IMPORTANT]
+> 对用户达成目标至关重要的信息。
+
+> [!WARNING]
+> 因为可能存在风险，所以需要用户立即关注的关键内容。
+
+> [!CAUTION]
+> 行为可能带来的负面影响。
+
+
+
 
 ### Badge组件
 
@@ -321,35 +399,21 @@ var的值都改程颜色代码即可
 
 ```css
 :root {
-  --vp-badge-info-border: var(--vp-c-divider-light);
+  --vp-badge-info-border: transparent;
   --vp-badge-info-text: var(--vp-c-text-2);
-  --vp-badge-info-bg: var(--vp-c-white-soft);
+  --vp-badge-info-bg: var(--vp-c-default-soft);
 
-  --vp-badge-tip-border: var(--vp-c-green-dimm-1);
-  --vp-badge-tip-text: var(--vp-c-green-darker);
-  --vp-badge-tip-bg: var(--vp-c-green-dimm-3);
+  --vp-badge-tip-border: transparent;
+  --vp-badge-tip-text: var(--vp-c-tip-1);
+  --vp-badge-tip-bg: var(--vp-c-tip-soft);
 
-  --vp-badge-warning-border: var(--vp-c-yellow-dimm-1);
-  --vp-badge-warning-text: var(--vp-c-yellow-darker);
-  --vp-badge-warning-bg: var(--vp-c-yellow-dimm-3);
+  --vp-badge-warning-border: transparent;
+  --vp-badge-warning-text: var(--vp-c-warning-1);
+  --vp-badge-warning-bg: var(--vp-c-warning-soft);
 
-  --vp-badge-danger-border: var(--vp-c-red-dimm-1);
-  --vp-badge-danger-text: var(--vp-c-red-darker);
-  --vp-badge-danger-bg: var(--vp-c-red-dimm-3);
-}
-
-.dark {
-  --vp-badge-info-border: var(--vp-c-divider-light);
-  --vp-badge-info-bg: var(--vp-c-black-mute);
-
-  --vp-badge-tip-border: var(--vp-c-green-dimm-2);
-  --vp-badge-tip-text: var(--vp-c-green-light);
-
-  --vp-badge-warning-border: var(--vp-c-yellow-dimm-2);
-  --vp-badge-warning-text: var(--vp-c-yellow-light);
-
-  --vp-badge-danger-border: var(--vp-c-red-dimm-2);
-  --vp-badge-danger-text: var(--vp-c-red-light);
+  --vp-badge-danger-border: transparent;
+  --vp-badge-danger-text: var(--vp-c-danger-1);
+  --vp-badge-danger-bg: var(--vp-c-danger-soft);
 }
 ```
 :::
@@ -370,7 +434,7 @@ var的值都改程颜色代码即可
 输入：
 
 ````
-```md(常用的还有 `ts` `js` `yaml` `sh` 等等，但这里尽量不要出现中文)
+```md(常用的还有 ts / js/ yaml / sh 等等，但这里尽量不要出现中文)
 中间写代码内容
 ```
 ````
@@ -379,31 +443,29 @@ var的值都改程颜色代码即可
 
 ### 语法突出
 
-VitePress有着 [Shiki](https://shiki.matsu.io/) 插件的加持
-
-我们在前反引号后可以写入代码的语法，渲染后会显示在代码块右上方
+VitePress有着 [Shiki](https://shiki.matsu.io/) 插件的加持，在前反引号后可以写入代码的语法，渲染后会显示在代码块右上方
 
 输入：
 
 ````
-```ts
+```ts // [!code focus]
 export default defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
   description: "我的vitpress文档教程",
   titleTemplate: '另起标题覆盖title' ,
 })
-```
+``` // [!code focus]
 ````
 
 ````
-```html
+```html // [!code focus]
 <ul>
   <li v-for="todo in todos" :key="todo.id">
     {{ todo.text }}
   </li>
 </ul>
-```
+``` // [!code focus]
 ````
 
 
@@ -432,12 +494,12 @@ export default defineConfig({
 
 ### 行高亮
 
-比如我要第4行显示
+比如我要第2-3行和第5行显示，连续行用 `-` ，不连续行用 `,`
 
 输入：
 
 ````
-```ts{4}
+```ts{2-3,5}
 export default defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
@@ -450,7 +512,7 @@ export default defineConfig({
 
 输出：
 
-```ts{4}
+```ts{2-3,5}
 export default defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
@@ -459,6 +521,36 @@ export default defineConfig({
 })
 ```
 
+
+也可以使用 `// [!code highlight]`
+
+
+输入：
+
+::: tip 说明
+`!code` 后面只需要一个空格，这里有两个空格是为了防止处理
+:::
+
+````
+```ts
+export default defineConfig({
+  lang: 'zh-CN',
+  title: "VitePress",
+  description: "我的vitpress文档教程", // [!code  highlight]
+})
+```
+````
+
+
+输出：
+
+```ts
+export default defineConfig({
+  lang: 'zh-CN',
+  title: "VitePress",
+  description: "我的vitpress文档教程", // [!code highlight]
+})
+```
 
 
 ### 聚焦代码
@@ -512,7 +604,7 @@ export default defineConfig({
 ````
 ```ts{2-5}
 export default defineConfig({
-  lang: 'zh-CN', // [!code  focus:5]
+  lang: 'zh-CN', // [!code  focus:4]
   title: "VitePress",
   description: "我的vitpress文档教程",
   titleTemplate: '另起标题覆盖title' ,
@@ -546,7 +638,7 @@ export default defineConfig({
 :::
 
 ````
-```ts{3-4}
+```ts{4-5}
 export default defineConfig({
   lang: 'zh-CN', 
   title: "VitePress", 
@@ -559,7 +651,7 @@ export default defineConfig({
 
 输出：
 
-```ts{3-4}
+```ts{4-5}
 export default defineConfig({
   lang: 'zh-CN', 
   title: "VitePress", 
@@ -700,7 +792,7 @@ yarn -v
 ```ts{1,5}
 // #region fav // [!code focus]
   head: [
-    ['link',{ rel: 'icon', href: 'https://vitejs.cn/vite3-cn/logo-with-shadow.png'}],
+    ['link',{ rel: 'icon', href: '/logo.png'}],
   ],
   // #endregion fav // [!code focus]
 ```

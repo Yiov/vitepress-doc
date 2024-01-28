@@ -1,20 +1,29 @@
 # 页面
 
-> 更新时间：2023-12-25
+> 更新时间：2024-1-28
 
 
 ## 站点配置
 
+
 ### 网页标题
 
-使用 `titleTemplate` 自定义整个网页标题
+使用 `titleTemplate` 自定义整个网页标题，一般不使用
+
+::: tip 与 站点标题 的区别
+[站点标题](#站点标题) `title` 是固定的，每个页面都会显示
+
+网页标题 `titleTemplate` 是不固定的，它随着每个页面的 `<h1>` 标题而变动，如 标题是 `# 页面` ，那么显示的就是 `页面 | VitePress` ，除非自定义给它写死 
+:::
 
 ```ts{5}
 export default defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
   description: "我的vitpress文档教程",
-  titleTemplate: '另起标题会覆盖title' // [!code focus]
+  titleTemplate: '另起标题会覆盖title', // [!code focus]
+  // titleTemplate: ':title - 快速上手', //完全自定义标题，:title 不要动，改后面的
+  // titleTemplate: false, //关闭标题
 })
 ```
 
@@ -46,7 +55,7 @@ export default defineConfig({
 
 
 
-::: details 官方配置示例
+::: details 官方配置添加谷歌字体
 ```ts
 export default {
   head: [
@@ -95,7 +104,7 @@ export default defineConfig({
   //appearance:true, //默认浅色且开启切换
   //启用深色模式
   appearance:'dark', // [!code focus]
-
+  // appearance:false, // 关闭
 })
 ```
 
@@ -186,14 +195,14 @@ export default defineConfig({
 .
 ├─ docs
 │  ├─ .vitepress
-│  │  └─ config.mts       <-- 配置文件已由ts变成mts
+│  │  └─ config.mts
 │  └─ public             <--静态资源目录
 │  │  └─ logo.png        <--logo
 │  └─ index.md
 └─ package.json
 
 ```
-根据目录得知logo文件的位置，在 `doc` -  `public 文件夹` 
+根据目录得知logo文件的位置，在 `doc - public` 文件夹
 
 ::: tip 说明
 依次新建public文件夹，并放入logo即可
@@ -228,14 +237,15 @@ export default defineConfig({
 
 ### 站点标题
 
-如果设置后，会覆盖原本的 [title](#网页标题) !
+如果设置后，会覆盖原本的 [网页标题](#网页标题) !
 
 ```ts{4-5}
 export default defineConfig({
 
   themeConfig: {
-    //设置站点标题 会覆盖title
+    // 设置站点标题
     siteTitle: 'Hello World', // [!code focus]
+    // siteTitle: false, // 关闭标题
   },
 
 })
@@ -300,7 +310,7 @@ export default defineConfig({
 给下拉菜单赋予分组标题，就要再次嵌套 `iteams`
 
 
-```ts{4-32}
+```ts{4-38}
 export default defineConfig({
 
   themeConfig: {
@@ -351,7 +361,7 @@ export default defineConfig({
 可以自行添加，支持SVG
 
 
-```ts{4-8}
+```ts{4-9}
 export default defineConfig({
 
   themeConfig: {
@@ -529,9 +539,9 @@ export default defineConfig({
     search: {
       provider: 'algolia',
       options: {
-        appId: '...',
-        apiKey: '...',
-        indexName: '...'
+        appId: '<Application ID>',
+        apiKey: '<Search-Only API Key>',
+        indexName: '<INDEX_NAME>',
       },
     },
   },
@@ -550,9 +560,9 @@ export default defineConfig({
     search: {
       provider: 'algolia',
       options: {
-        appId: '...',
-        apiKey: '...',
-        indexName: '...',
+        appId: '<Application ID>',
+        apiKey: '<Search-Only API Key>',
+        indexName: '<INDEX_NAME>',
         locales: {
           zh: {
             placeholder: '搜索文档',
@@ -603,8 +613,155 @@ export default defineConfig({
 })
 ```
 
+官方爬虫设置
+
+```ts
+new Crawler({
+  appId: '...',
+  apiKey: '...',
+  rateLimit: 8,
+  startUrls: ['https://vitepress.dev/'],
+  renderJavaScript: false,
+  sitemaps: [],
+  exclusionPatterns: [],
+  ignoreCanonicalTo: false,
+  discoveryPatterns: ['https://vitepress.dev/**'],
+  schedule: 'at 05:10 on Saturday',
+  actions: [
+    {
+      indexName: 'vitepress',
+      pathsToMatch: ['https://vitepress.dev/**'],
+      recordExtractor: ({ $, helpers }) => {
+        return helpers.docsearch({
+          recordProps: {
+            lvl1: '.content h1',
+            content: '.content p, .content li',
+            lvl0: {
+              selectors: '',
+              defaultValue: 'Documentation'
+            },
+            lvl2: '.content h2',
+            lvl3: '.content h3',
+            lvl4: '.content h4',
+            lvl5: '.content h5'
+          },
+          indexHeadings: true
+        })
+      }
+    }
+  ],
+  initialIndexSettings: {
+    vitepress: {
+      attributesForFaceting: ['type', 'lang'],
+      attributesToRetrieve: ['hierarchy', 'content', 'anchor', 'url'],
+      attributesToHighlight: ['hierarchy', 'hierarchy_camel', 'content'],
+      attributesToSnippet: ['content:10'],
+      camelCaseAttributes: ['hierarchy', 'hierarchy_radio', 'content'],
+      searchableAttributes: [
+        'unordered(hierarchy_radio_camel.lvl0)',
+        'unordered(hierarchy_radio.lvl0)',
+        'unordered(hierarchy_radio_camel.lvl1)',
+        'unordered(hierarchy_radio.lvl1)',
+        'unordered(hierarchy_radio_camel.lvl2)',
+        'unordered(hierarchy_radio.lvl2)',
+        'unordered(hierarchy_radio_camel.lvl3)',
+        'unordered(hierarchy_radio.lvl3)',
+        'unordered(hierarchy_radio_camel.lvl4)',
+        'unordered(hierarchy_radio.lvl4)',
+        'unordered(hierarchy_radio_camel.lvl5)',
+        'unordered(hierarchy_radio.lvl5)',
+        'unordered(hierarchy_radio_camel.lvl6)',
+        'unordered(hierarchy_radio.lvl6)',
+        'unordered(hierarchy_camel.lvl0)',
+        'unordered(hierarchy.lvl0)',
+        'unordered(hierarchy_camel.lvl1)',
+        'unordered(hierarchy.lvl1)',
+        'unordered(hierarchy_camel.lvl2)',
+        'unordered(hierarchy.lvl2)',
+        'unordered(hierarchy_camel.lvl3)',
+        'unordered(hierarchy.lvl3)',
+        'unordered(hierarchy_camel.lvl4)',
+        'unordered(hierarchy.lvl4)',
+        'unordered(hierarchy_camel.lvl5)',
+        'unordered(hierarchy.lvl5)',
+        'unordered(hierarchy_camel.lvl6)',
+        'unordered(hierarchy.lvl6)',
+        'content'
+      ],
+      distinct: true,
+      attributeForDistinct: 'url',
+      customRanking: [
+        'desc(weight.pageRank)',
+        'desc(weight.level)',
+        'asc(weight.position)'
+      ],
+      ranking: [
+        'words',
+        'filters',
+        'typo',
+        'attribute',
+        'proximity',
+        'exact',
+        'custom'
+      ],
+      highlightPreTag: '<span class="algolia-docsearch-suggestion--highlight">',
+      highlightPostTag: '</span>',
+      minWordSizefor1Typo: 3,
+      minWordSizefor2Typos: 7,
+      allowTyposOnNumericTokens: false,
+      minProximity: 1,
+      ignorePlurals: true,
+      advancedSyntax: true,
+      attributeCriteriaComputedByMinProximity: true,
+      removeWordsIfNoResults: 'allOptional'
+    }
+  }
+})
+```
 
 
+
+
+
+自建爬虫配置
+
+```json
+{
+    "index_name": "你的索引名",
+    "start_urls": [
+        {
+            "url": "https://你的网站",
+            "selectors_key": ""
+        }
+    ],
+    "stop_urls": [],
+    "selectors": {
+        "default": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "我的文档"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        }
+    },
+    "custom_settings": {
+        "attributesForFaceting": [
+            "lang"
+        ]
+    }
+}
+```
 
 
 
@@ -842,29 +999,17 @@ export default defineConfig({
 
 右侧的大纲，默认显示是二级标题，通过设置 `outline` 实现多级标题
 
-::: tip 说明
-设置到六级标题可以用 `'deep'` ，关闭 `false`
-:::
-
-```ts{4-5}
+```ts{4-8}
 export default defineConfig({
 
   themeConfig: {
-    //大纲显示2-3级标题 // [!code focus]
-    outline:[2,3], // [!code focus]
-  },
-
-})
-```
-
-大纲顶部的 `On this page` 可以通过设置 `outlineTitle` 实现
-
-```ts{4-5}
-export default defineConfig({
-
-  themeConfig: {
-    //大纲顶部标题 // [!code focus]
-    outlineTitle:'当前页大纲', // [!code focus]
+    outline: { // [!code focus:7]
+      level: [2,4], // 显示2-4级标题
+      // level: 'deep', // 显示2-6级标题
+      label: '当前页大纲' // 文字显示
+    },
+    // outline:false, // 关闭标题显示
+    // outlineTitle:'当前页大纲', //老方式设置标题
   },
 
 })
@@ -885,17 +1030,13 @@ export default defineConfig({
   themeConfig: {
     //编辑本页 // [!code focus]
     editLink: { // [!code focus]
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path', // [!code focus]
+      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path', // 改成自己的仓库 // [!code focus]
       text: '在GitHub编辑本页' // [!code focus]
     }, // [!code focus]
   },
 
 })
 ```
-
-::: tip 说明
-将 `pattern` 的链接修改成自己的仓库
-:::
 
 
 

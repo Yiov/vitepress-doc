@@ -21,6 +21,34 @@
 
 
 
+## 安装
+
+::: tip 说明
+已安装过的无视，
+
+按CTRL+C退出开发预览模式
+:::
+
+::: code-group
+```sh [pmpm]
+pnpm add -D vue
+```
+
+```sh [yarn]
+yarn add -D vue
+```
+
+```sh [npm]
+npm i vue
+```
+
+```sh [bun]
+bun add -D vue
+```
+:::
+
+
+
 ## 使用
 
 在 `theme` 目录中 创建 `components`文件夹，然后创建 `Mycomponent.vue`
@@ -50,33 +78,6 @@ docs
   自定义的组件代码
 </template>
 ```
-
-
-现在是报错的状态，因为还没有安装 `vue`
-
-::: tip 说明
-已安装过的无视，
-
-按CTRL+C退出开发预览模式
-:::
-
-::: code-group
-```sh [pmpm]
-pnpm add -D vue
-```
-
-```sh [yarn]
-yarn add -D vue
-```
-
-```sh [npm]
-npm i vue
-```
-
-```sh [bun]
-bun add -D vue
-```
-:::
 
 
 然后，在 `theme\index.ts` 中注册全局组件

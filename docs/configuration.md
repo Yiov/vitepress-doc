@@ -1,19 +1,17 @@
 # 配置
 
-> 更新时间：2023-10-28
+> 更新时间：2024-1-28
 
 
 
 ## 目录
 
-搭建完成后，可以看到一个已经完善的目录
-
-在此基础上我们可以进行修改和新增
+搭建完成后，可以看到一个已经完善的目录,在此基础上我们可以进行修改和新增
 
 ::: tip 说明
 `index.md` 是我们的首页，最后也渲染成 `index.html`
 
-你也可以命名成README.md
+你也可以命名成 `README.md`
 :::
 
 ```
@@ -23,55 +21,33 @@
 │  │  └─ config.mts          <-- 配置文件已由ts变成mts
 │  ├─ api-examples.md        <-- 文章1
 │  ├─ markdown-examples.md   <-- 文章2
+│  ├─ guide                  <-- 新增目录
+│  │   └─ index.md           <-- 新增目录的首页
 │  └─ index.md               <-- 首页
 └─ package.json
 ```
 
+生成的 HTML 页面会是这样：
 
-## 纯净链接
-
-在默认情况下Vitepress的链接结尾 `.html` ，如果你喜欢纯净的网址不使用 `.html`
-
-我们需要变更下目录，将原先的文档使用文件夹，然后再文件夹内新建页面
-
-::: tip 说明
-例如：`https://vitepress.dev/guide/` 变成 `https://vitepress.dev/guide/.html`
-:::
-
-
-
-```md{6,8}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ config.mts           <--  配置文件已由ts变成mts
-│  ├─ api-examples           
-│  │  └─ index.md            <-- 文章1
-│  ├─ markdown-examples      
-│  │  └─ index.md            <-- 文章2
-│  └─ index.md               <-- 首页
-└─ package.json
+```
+api-examples.md         -->    /api-examples.html
+markdown-examples.md    -->    /markdown-examples.html
+index.md                -->    /index.html (可以通过 / 访问)
+guide/index.md          -->    /guide/index.html (可以通过 /guide/ 访问)
 ```
 
-如果你文章太多，或者觉得上面的麻烦，可以直接配置
-
-```ts{2}
-export default defineConfig({
-  cleanUrls:true,
-})
-```
 
 
 
 ## 配置
 
-在目录，右键用vscode打开，正式开始开发
+在目录，右键用 vscode 打开，正式开始开发
 
 ```md{4}
 .
 ├─ docs
 │  ├─ .vitepress
-│  │  └─ config.mts           <--  配置文件已由ts变成mts
+│  │  └─ config.mts           <--  配置文件，支持js、ts、mjs、mts
 │  ├─ api-examples.md
 │  ├─ markdown-examples.md
 │  └─ index.md
@@ -118,7 +94,7 @@ export default defineConfig({
 
 
 
-修改成想要的了保存，然后重新进入开发模式
+:::: details 如何重新进入开发模式
 
 ::: tip 如何退出
 ctrl+c 即可退出开发模式
@@ -141,4 +117,59 @@ npm run docs:dev
 bun run docs:dev
 ```
 :::
+::::
+
+
+
+
+
+## 纯净链接
+
+这是一个简单又麻烦的事，需要服务器支持，在默认情况下Vitepress的链接以 `.html` 结尾
+
+
+### 服务器支持
+
+* [Netlify](https://docs.netlify.com/get-started/) 和 [GitHub Pages](https://pages.github.com/) 是无需配置
+
+* [Vercel](https://vercel.com/docs/concepts/get-started) 需要在 [vercel.json 中启用 cleanUrls 选项](https://vercel.com/docs/projects/project-configuration#cleanurls)
+
+
+确保文章在引用是没有使用 `*md` 的后缀名
+
+```
+[Getting Started](./getting-started)
+[Getting Started](../guide/getting-started)
+```
+
+
+然后在 `config.mts` 中配置如下
+
+```ts{2}
+export default defineConfig({
+  cleanUrls:true,
+})
+```
+
+
+### 服务器不支持
+
+需要变更下目录，将原先的文档放入文件夹中
+
+原先的 `api-examples.md` 变成了 `api-examples/index.md`
+
+```md{5,7}
+.
+├─ docs
+│  ├─ .vitepress
+│  ├─ api-examples           
+│  │  └─ index.md            <-- 文章1
+│  ├─ markdown-examples      
+│  │  └─ index.md            <-- 文章2
+│  └─ index.md               <-- 首页
+└─ package.json
+```
+
+
+
 

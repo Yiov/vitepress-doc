@@ -1,8 +1,8 @@
 # Frontmatter
 
-> 更新时间：2023-12-12
+> 更新时间：2024-1-28
 
-Vitepress已经给了一个配置，就在我们的 `docs` - `index.md` 中
+Vitepress已经给了一个配置，就在我们的 `docs - index.md` 中
 
 ::: details 官方配置示例
 ```yaml
@@ -170,8 +170,9 @@ hero的文字及图片，也可以添加渐变色
 
 * 图片：直接引用，也可以使用明暗色图区别开
 
-* SVG图形：`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">这里是path开头的图形元素</svg>`
+* SVG图形：[iconfont](https://www.iconfont.cn/)、[xicons](https://www.xicons.org/#/zh-CN)、[iconpark](https://iconpark.oceanengine.com/official)
 :::
+
 
 ```yaml
 ---
