@@ -1,6 +1,6 @@
 # 样式美化
 
-> 更新时间：2023-12-26
+> 更新时间：2024-2-21
 
 
 
@@ -236,6 +236,100 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 ::: danger 危险
 改为边框+红色
 :::
+
+
+---
+
+
+### 视图过渡
+
+请先了解过 [组件的使用](./components.md) 后再来看 
+
+可以扩展默认主题以在切换颜色模式时提供自定义过渡动画。例如：
+
+
+```vue
+<!-- .vitepress/theme/Layout.vue -->
+
+<script setup lang="ts">
+import { useData } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+import { nextTick, provide } from 'vue'
+
+const { isDark } = useData()
+
+const enableTransitions = () =>
+  'startViewTransition' in document &&
+  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+
+provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+  if (!enableTransitions()) {
+    isDark.value = !isDark.value
+    return
+  }
+
+  const clipPath = [
+    `circle(0px at ${x}px ${y}px)`,
+    `circle(${Math.hypot(
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y)
+    )}px at ${x}px ${y}px)`
+  ]
+
+  await document.startViewTransition(async () => {
+    isDark.value = !isDark.value
+    await nextTick()
+  }).ready
+
+  document.documentElement.animate(
+    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
+    {
+      duration: 300,
+      easing: 'ease-in',
+      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
+    }
+  )
+})
+</script>
+
+<template>
+  <DefaultTheme.Layout />
+</template>
+
+<style>
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root),
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root),
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+
+.VPSwitchAppearance {
+  width: 22px !important;
+}
+
+.VPSwitchAppearance .check {
+  transform: none !important;
+}
+</style>
+```
+
+效果：
+
+![](https://vitepress.dev/appearance-toggle-transition.webp)
+
+有关视图过渡动画的更多详细信息，请参阅 [Chrome 文档](https://developer.chrome.com/docs/web-platform/view-transitions/)。
+
+
 
 
 
