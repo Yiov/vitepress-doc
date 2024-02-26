@@ -1,6 +1,6 @@
 # 页面
 
-> 更新时间：2024-1-28
+> 更新时间：2024-2-26
 
 
 ## 站点配置
@@ -250,6 +250,34 @@ export default defineConfig({
 
 })
 ```
+
+
+
+
+---
+
+
+### 站点地图
+
+VitePress 提供开箱即用的配置，由 [sitemap](https://github.com/ekalinin/sitemap.js) 模块提供支持，为站点生成 `sitemap.xml` 文件。要启用它，请将以下内容添加到 `.vitepress/config.mts` 中
+
+
+
+```ts{4-7}
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  // 站点地图
+  sitemap: {
+    hostname: 'https://你的网址.com',
+  }
+})
+```
+
+
+
+
+
 
 
 
@@ -1112,4 +1140,6 @@ export default defineConfig({
 
 })
 ```
+
+
 
