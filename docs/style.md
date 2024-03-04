@@ -1,6 +1,6 @@
 # 样式美化
 
-> 更新时间：2024-2-21
+> 更新时间：2024-3-4
 
 
 
@@ -1150,17 +1150,85 @@ export default defineConfig({
 选择要生成的徽标，生成后，选择Markdown格式即可，旁边都有示例不难
 
 ::: tip 其他徽标
+https://badgen.net/
 
+https://forthebadge.com/
+
+https://badge.fury.io/
+:::
+
+
+### 组成
+
+由三部分组成：标签、消息和颜色，其中标签可以不写，但消息和颜色必须存在！
+
+格式：`label-message-color`(由左至右)
+
+* label：标签
+
+* message：消息
+
+* color：颜色
+
+---
+
+### 实操
+
+在输入框输入 `any text-you like-blue`
+
+::: tip 说明
+用 `_` 或 `%20`表示空格，`-` 分隔内容
+
+如果你想要输入一个真的 `-` ，那么用两个 `--` 来表示一个真的 `-`
+:::
+
+生成链接：https://img.shields.io/badge/any_text-you_like-blue
+
+效果：![](https://img.shields.io/badge/any_text-you_like-blue)
+
+
+如果不写标签，只写消息和颜色的话，输入 `just_do_it-8A2BE2`
+
+
+生成链接：https://img.shields.io/badge/just_do_it-8A2BE2
+
+
+效果：![](https://img.shields.io/badge/just_do_it-8A2BE2)
+
+
+点击输入框下面的 `Show optional parameters` 展开更多详细信息
+
+我随机填了一些信息，logo可以使用 [Simple Icons](https://simpleicons.org/)
+
+生成链接：https://img.shields.io/badge/just_do_it-blue?style=for-the-badge&logo=alipay&logoColor=1677FF&label=%E6%94%AF%E4%BB%98%E5%AE%9D&labelColor=red
+
+效果：![](https://img.shields.io/badge/just_do_it-blue?style=for-the-badge&logo=alipay&logoColor=1677FF&label=%E6%94%AF%E4%BB%98%E5%AE%9D&labelColor=lightgrey)
+
+
+静态徽章做跳转的话，可以直接使用markdown格式
+
+```md
+[![](https://img.shields.io/badge/just_do_it-blue?style=for-the-badge&logo=alipay&logoColor=1677FF&label=%E6%94%AF%E4%BB%98%E5%AE%9D&labelColor=lightgrey)](https://shields.io/badges)
+```
+
+效果：
+[![](https://img.shields.io/badge/just_do_it-blue?style=for-the-badge&logo=alipay&logoColor=1677FF&label=%E6%94%AF%E4%BB%98%E5%AE%9D&labelColor=lightgrey)](https://shields.io/badges)
+
+
+::: warning 关于其他动态徽章
+可以参照官网，挨个摸索并不难上手
+:::
+
+
+---
+
+### 效果演示
+
+::: tip 更多徽章样式
 https://github.com/Ileriayo/markdown-badges
 
 https://github.com/Envoy-VC/awesome-badges
 :::
-
-https://github.com/badges/shields
-
-https://sspai.com/post/81310
-
-
 
 ::: details 这里引用 [查尔斯](https://blog.charles7c.top/about/me) 的页面展示
 ```md
@@ -1397,3 +1465,15 @@ https://sspai.com/post/81310
 </p>
 
 
+
+## Github美化
+
+个人介绍页面，如何高大上
+
+新建一个 `自己的账户名` 的仓库，然后参照下面的教程
+
+https://github.com/vn7n24fzkq/github-profile-summary-cards
+
+https://github.com/star-history/star-history
+
+https://github.com/anuraghazra/github-readme-stats
