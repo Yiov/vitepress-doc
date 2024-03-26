@@ -111,10 +111,10 @@ export default defineConfig({
           },
         ],
       },
-      { text: 'VitePress', link: 'https://vitepress.dev/zh/' },
+      { text: 'VitePress', link: 'https://vitepress.dev/zh/',noIcon: true },
 
       {
-        text: '1.0.0-rc.45',
+        text: '1.0.0-1.0.1',
         items: [
           { text: '更新日志(本站)', link: '/changelog.md' },
           { text: '更新日志(官方)', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },

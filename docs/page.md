@@ -1,6 +1,6 @@
 # 页面
 
-> 更新时间：2024-2-26
+> 更新时间：2024-3-26
 
 
 ## 站点配置
@@ -382,6 +382,22 @@ export default defineConfig({
 })
 ```
 
+如果不喜欢外部链接，有个箭头`↗` 图标，可以选择关闭
+
+```ts{8}
+export default defineConfig({
+
+  themeConfig: {
+    //导航栏
+    nav: [
+      { text: '首页', link: '/' },
+      
+      { text: 'VitePress', link: 'https://vitepress.dev/zh/' , noIcon: true },
+    ],
+  },
+
+})
+```
 
 
 ### 社交链接
