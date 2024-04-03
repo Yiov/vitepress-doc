@@ -2,31 +2,23 @@
 
 > 更新时间：2023-12-30
 
-## 挑选样式(重要)
+## 简介
+
+VitePress也能做导航，Amazing！[@茂茂大神](https://github.com/maomao1996/mm-notes) 牛批！
 
 * @茂茂：[Demo](./mao.md)  丨 [点我直达教程](#茂茂导航)
 
 * @ahua：[Demo](./ahua.md) 丨 [点我直达教程](#ahua导航)
 
-::: warning 注意
-根据自己的喜好选择，相应的教程
-
-@ahua666 的好像也是基于茂茂的，不过也很棒
-:::
-
 
 
 ## 茂茂导航
 
-VitePress也能做导航，Amazing！茂神牛批！
 
 * 仓库：https://github.com/maomao1996/vitepress-nav-template
 
 * Demo：https://fe-nav.netlify.app/nav/
 
-::: warning 说明
-如果你懒得折腾，直接仓库下 [@茂茂大神](https://github.com/maomao1996/mm-notes) 的用即可
-:::
 
 
 
@@ -1454,7 +1446,7 @@ bun add -D vue
 
 在 `.vitepress/theme/components` 新建 `Navlink.vue` 文件，复制粘贴下面代码保存
 
-```md{6-7}
+```md{6}
 .
 ├─ docs
 │  ├─ .vitepress
@@ -1472,7 +1464,7 @@ bun add -D vue
 本次仅做演示
 :::
 
-```vue{2}
+```vue{22}
 <template>
     <div id="article-container" class="flink">
       <div v-for="(item, index) in datas" :key="index">

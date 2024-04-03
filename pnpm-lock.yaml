@@ -18,8 +18,8 @@ devDependencies:
     specifier: ^1.72.0
     version: 1.72.0
   vitepress:
-    specifier: 1.0.1
-    version: 1.0.1(@algolia/client-search@4.20.0)(less@4.2.0)(sass@1.72.0)(search-insights@2.9.0)
+    specifier: 1.0.2
+    version: 1.0.2(@algolia/client-search@4.20.0)(less@4.2.0)(sass@1.72.0)(search-insights@2.9.0)
   vitepress-markdown-timeline:
     specifier: ^1.2.1
     version: 1.2.1
@@ -1396,8 +1396,8 @@ packages:
       - vue
     dev: true
 
-  /vitepress@1.0.1(@algolia/client-search@4.20.0)(less@4.2.0)(sass@1.72.0)(search-insights@2.9.0):
-    resolution: {integrity: sha512-eNr5pOBppYUUjEhv8S0S2t9Tv95LQ6mMeHj6ivaGwfHxpov70Vduuwl/QQMDRznKDSaP0WKV7a82Pb4JVOaqEw==}
+  /vitepress@1.0.2(@algolia/client-search@4.20.0)(less@4.2.0)(sass@1.72.0)(search-insights@2.9.0):
+    resolution: {integrity: sha512-bEj9yTEdWyewJFOhEREZF+mXuAgOq27etuJZT6DZSp+J3XpQstXMJc5piSVwhZBtuj8OfA0iXy+jdP1c71KMYQ==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4

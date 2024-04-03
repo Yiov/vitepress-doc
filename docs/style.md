@@ -958,13 +958,14 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 在 `.vitepress\theme\style\` 目录新建一个 `linkcard.css` 文件
 
 
-```md{7}
+```md{8}
 .
 ├─ docs
 │  ├─ .vitepress
 │  │  └─ config.mts
 │  │  └─ theme
 │  │     └─ style
+│  │        └─ index.css
 │  │        └─ linkcard.css
 │  └─ index.md
 └─ node_modules
@@ -1023,11 +1024,18 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 }
 ```
 
+然后在 `index.css` 中引入生效
+
+```css
+/* .vitepress\theme\style\index.css */
+@import './linkcard.css';
+```
+
+
 
 输入：
 
 ```md
-<style src="/.vitepress/theme/style/linkcard.css"></style>
 <div class="linkcard">
   <a href="https://vitepress.yiov.top/" target="_blank">
     <p class="description">Vitepress中文搭建教程<br><span>https://vitepress.yiov.top/</span></p>
@@ -1040,7 +1048,6 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 输出：
 
-<style src="/.vitepress/theme/style/linkcard.css"></style>
 <div class="linkcard">
   <a href="https://vitepress.yiov.top/" target="_blank">
     <p class="description">Vitepress中文搭建教程<br><span>https://vitepress.yiov.top/</span></p>
