@@ -32,25 +32,6 @@
   }
 
 
-  /* 链接图标 */
-  .vp-doc a[href^="https://www.youtube.com/"]:before,[href^="https://www.bilibili.com/"]:before
-{
-  content: '➹';
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  border-radius: 10px;
-  vertical-align: middle;
-  position: relative;
-  top: -2px;
-  color: var(--vp-c-green-1);
-  font-size: 13px;
-  border: 2px solid var(--vp-c-green-1);
-  margin-right: 8px;
-  margin-left: 4px;
-  line-height: 15px;
-  padding-left: 1.5px;
-}
 
 /* 提示框背景颜色 */
 :root {
@@ -73,3 +54,14 @@
   /* border-color: #f43f5e; */
   border-color: var(--vp-c-red-2);
 }
+
+
+/* 引用块 */
+.vp-doc blockquote {
+  border-radius: 5px;
+  padding: 10px 16px;
+  background-color: var(--vp-badge-danger-bg);
+  position: relative;
+  border-left: 4px solid #e95f59;
+}
+ 

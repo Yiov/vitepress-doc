@@ -1,0 +1,25 @@
+/* 代码块tab */
+.vp-code-group .tabs {
+    padding-top: 30px;
+}
+
+/* 代码块tab-顶部小圆点 */
+.vp-code-group .tabs::before {
+    background: #fc625d;
+    border-radius: 50%;
+    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    content: ' ';
+    height: 12px;
+    width: 12px;
+    left: 12px;
+    margin-top: -20px;
+    position: absolute;
+}
+
+
+/* 代码组 */
+.vp-code-group {
+    color: var(--vp-c-black-soft);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
+}

@@ -1,0 +1,19 @@
+/* 链接图标 */
+.vp-doc a[href^="https://www.youtube.com/"]:before,
+[href^="https://www.bilibili.com/"]:before {
+    content: '➹';
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    color: var(--vp-c-green-1);
+    font-size: 13px;
+    border: 2px solid var(--vp-c-green-1);
+    margin-right: 8px;
+    margin-left: 4px;
+    line-height: 15px;
+    padding-left: 1.5px;
+}

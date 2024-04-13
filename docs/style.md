@@ -241,13 +241,43 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 ---
 
 
+
+### 引用颜色
+
+在Markdown中我们常用的引用符号 `>`，在Vitepress中是一个灰色样式，我们可以稍微改动一下
+
+```css
+/* .vitepress\theme\style\var.css */
+/* 引用块 */
+.vp-doc blockquote {
+  border-radius: 5px;
+  padding: 10px 16px;
+  background-color: var(--vp-badge-danger-bg);
+  position: relative;
+  border-left: 4px solid #e95f59;
+}
+```
+
+输入：
+
+```md
+> 更新时间：2024年
+```
+
+输出：
+
+> 更新时间：2024年
+
+
+---
+
 ### 视图过渡
 
 请先了解过 [组件的使用](./components.md) 后再来看 
 
 可以扩展默认主题以在切换颜色模式时提供自定义过渡动画。例如：
 
-
+::: details 点我查看详细代码
 ```vue
 <!-- .vitepress/theme/Layout.vue -->
 
@@ -322,6 +352,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 }
 </style>
 ```
+:::
+
+
 
 效果：
 
@@ -892,7 +925,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 │  │  └─ theme
 │  │     └─ style
 │  │        └─ index.css
-│  │        └─ var.css
+│  │        └─ link.css
 │  └─ index.md
 └─ node_modules
 ```
@@ -906,7 +939,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 :::
 
 ```css{2,4}
-/* .vitepress\theme\style\var.css */
+/* .vitepress\theme\style\link.css */
 .vp-doc a[href^="https://www.youtube.com/"]:before,[href^="https://www.bilibili.com/"]:before
 {
   content: '➹';
@@ -926,6 +959,14 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
   padding-left: 1.5px;
 }
 ```
+
+然后在 `index.css` 中引入生效
+
+```css
+/* .vitepress\theme\style\index.css */
+@import './link.css';
+```
+
 
 输入：
 
@@ -1032,7 +1073,6 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 ```
 
 
-
 输入：
 
 ```md
@@ -1059,6 +1099,132 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 
 
+---
+
+
+### 代码组风格
+
+将代码组改成Mac风格，三个小圆点
+
+在 `.vitepress\theme\style\` 目录新建一个 `vp-code-group.css` 文件
+
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ vp-code-group.css
+│  └─ index.md
+└─ node_modules
+```
+
+粘贴如下代码，保存
+
+
+```css
+/* .vitepress\theme\style\vp-code-group.css */
+
+/* 代码块tab */
+.vp-code-group .tabs {
+    padding-top: 30px;
+}
+
+/* 代码块tab-顶部小圆点 */
+.vp-code-group .tabs::before {
+    background: #fc625d;
+    border-radius: 50%;
+    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    content: ' ';
+    height: 12px;
+    width: 12px;
+    left: 12px;
+    margin-top: -20px;
+    position: absolute;
+}
+
+
+/* 代码组 */
+.vp-code-group {
+    color: var(--vp-c-black-soft);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
+}
+
+```
+
+然后在 `index.css` 中引入生效
+
+```css
+/* .vitepress\theme\style\index.css */
+@import './vp-code-group.css';
+```
+
+输入：
+
+````md
+::: code-group
+
+```sh [pnpm]
+#查询pnpm版本
+pnpm -v
+```
+
+```sh [yarn]
+#查询yarn版本
+yarn -v
+```
+
+:::
+````
+
+
+
+输出：
+
+
+::: code-group
+
+```sh [pnpm]
+#查询pnpm版本
+pnpm -v
+```
+
+```sh [yarn]
+#查询yarn版本
+yarn -v
+```
+:::
+
+修改默认单个代码块，就会影响到代码组
+
+如果你想单个使用，在 `code-group` 只写入一组即可
+
+
+输入：
+
+````md
+::: code-group
+
+```sh [pnpm]
+#查询pnpm版本
+pnpm -v
+```
+:::
+````
+
+输出：
+
+::: code-group
+
+```sh [pnpm]
+#查询pnpm版本
+pnpm -v
+```
+:::
 
 
 ---
@@ -1142,6 +1308,11 @@ export default defineConfig({
   }
 })
 ```
+
+
+
+
+
 
 
 
