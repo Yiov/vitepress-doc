@@ -1362,7 +1362,15 @@ https://badge.fury.io/
 
 生成链接：https://img.shields.io/badge/any_text-you_like-blue
 
-效果：![](https://img.shields.io/badge/any_text-you_like-blue)
+输入：
+
+```md
+![](https://img.shields.io/badge/any_text-you_like-blue)
+```
+
+输出：
+
+![](https://img.shields.io/badge/any_text-you_like-blue)
 
 
 如果不写标签，只写消息和颜色的话，输入 `just_do_it-8A2BE2`
@@ -1370,8 +1378,15 @@ https://badge.fury.io/
 
 生成链接：https://img.shields.io/badge/just_do_it-8A2BE2
 
+输入：
 
-效果：![](https://img.shields.io/badge/just_do_it-8A2BE2)
+```md
+![](https://img.shields.io/badge/just_do_it-8A2BE2)
+```
+
+输出：
+
+![](https://img.shields.io/badge/just_do_it-8A2BE2)
 
 
 点击输入框下面的 `Show optional parameters` 展开更多详细信息
@@ -1380,7 +1395,15 @@ https://badge.fury.io/
 
 生成链接：https://img.shields.io/badge/just_do_it-blue?style=for-the-badge&logo=alipay&logoColor=1677FF&label=%E6%94%AF%E4%BB%98%E5%AE%9D&labelColor=red
 
-效果：![](https://img.shields.io/badge/just_do_it-blue?style=for-the-badge&logo=alipay&logoColor=1677FF&label=%E6%94%AF%E4%BB%98%E5%AE%9D&labelColor=lightgrey)
+输入：
+
+```md
+![](https://img.shields.io/badge/just_do_it-blue?style=for-the-badge&logo=alipay&logoColor=1677FF&label=%E6%94%AF%E4%BB%98%E5%AE%9D&labelColor=lightgrey)
+```
+
+输出：
+
+![](https://img.shields.io/badge/just_do_it-blue?style=for-the-badge&logo=alipay&logoColor=1677FF&label=%E6%94%AF%E4%BB%98%E5%AE%9D&labelColor=lightgrey)
 
 
 静态徽章做跳转的话，可以直接使用markdown格式
