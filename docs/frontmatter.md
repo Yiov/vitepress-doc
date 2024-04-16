@@ -166,7 +166,7 @@ hero的文字及图片，也可以添加渐变色
 特性可以使用emoji表情、图片以及SVG创建图形
 
 ::: tip 说明
-* Emoji：https://emojixd.com/
+* Emoji大全：https://emoji6.com/emojiall/
 
 * 图片：直接引用，也可以使用明暗色图区别开
 

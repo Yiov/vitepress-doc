@@ -213,7 +213,7 @@ export default defineConfig({
 :tada: :100:
 
 
-Emoji表情大全：https://emojixd.com/
+Emoji大全：https://emoji6.com/emojiall/
 
 
 
