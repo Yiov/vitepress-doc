@@ -213,7 +213,7 @@ export default defineConfig({
 :tada: :100:
 
 
-Emoji大全：https://emoji6.com/emojiall/
+Emoji大全：https://www.emojiall.com/zh-hans/
 
 
 
@@ -233,6 +233,29 @@ Emoji大全：https://emoji6.com/emojiall/
 ::: details 点我查看当前页目录
 [[toc]]
 :::
+
+
+
+### 折叠语法
+
+
+输入：
+
+```md
+<details>
+  <summary>点我展开</summary>
+  Markdown默认折叠语法，Vitepress可以使用容器折叠语法，更加美观
+</details>
+```
+
+输出：
+
+<details>
+  <summary>点我展开</summary>
+  Markdown默认折叠语法，Vitepress可以使用容器折叠语法，更加美观
+</details>
+
+
 
 
 
