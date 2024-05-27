@@ -16,11 +16,11 @@
 
 ::: details 必备工具
 
-必装：[安装nodejs](https://yiov.top/website/nodejs#window%E5%AE%89%E8%A3%85)
+必装：[安装nodejs](https://yiov.top/website/nodejs.html)
 
-建议安装：[安装vscode](https://yiov.top/daily/VSCode/)
+建议安装：[安装vscode](https://yiov.top/website/VSCode.html)
 
-可选安装：[安装git](https://yiov.top/daily/git)
+可选安装：[安装git](https://yiov.top/website/git.html)
 :::
 
 

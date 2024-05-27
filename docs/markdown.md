@@ -2,7 +2,7 @@
 
 > 更新时间：2024-1-28
 
-如果你还不了解 Markdown ，[请看我整理的Markdown教程](https://yiov.top/daily/markdown/)
+如果你还不了解 Markdown ，[请看我整理的Markdown教程](https://yiov.top/computer/markdown.html)
 
 ::: tip 说明
 VitePress 相对于 VuePress 在Markdown中唯一的区别：链接可以直接渲染，不需要语法
@@ -193,7 +193,7 @@ export default defineConfig({
 
 
 ::: tip 说明
-更详细的使用方式，我在 [Markdown教程](https://yiov.top/daily/markdown/#表格.html) 里也说到过
+更详细的使用方式，我在 [Markdown教程](https://yiov.top/computer/markdown.html#%E8%A1%A8%E6%A0%BC) 里也说到过
 
 也可使用 Execl 生成 Markdwon：https://tableconvert.com/zh-cn/
 :::
@@ -856,7 +856,7 @@ yarn -v
 那么我们就用4个反引号 ```` ，以此类推即可
 
 ::: tip 说明
-这个使用方法，其实我在 [Markdown教程](https://yiov.top/daily/markdown/#代码块嵌套) 里已经说过了
+这个使用方法，其实我在 [Markdown教程](https://yiov.top/computer/markdown.html#%E4%BB%A3%E7%A0%81%E5%9D%97%E5%B5%8C%E5%A5%97) 里已经说过了
 :::
 
 输入：
