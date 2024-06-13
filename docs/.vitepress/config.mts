@@ -114,7 +114,7 @@ export default defineConfig({
       { text: 'VitePress', link: 'https://vitepress.dev/zh/',noIcon: true },
 
       {
-        text: '1.0.0-1.2.2',
+        text: '1.0.0-1.2.3',
         items: [
           { text: '更新日志(本站)', link: '/changelog.md' },
           { text: '更新日志(官方)', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
@@ -225,7 +225,7 @@ export default defineConfig({
     //页脚
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023 备案号：<a href="https://beian.miit.gov.cn/">京****号</a>',
+      copyright: 'Copyright © 2023-2024 备案号：<a href="https://beian.miit.gov.cn/">京****号</a>',
     },
 
 
