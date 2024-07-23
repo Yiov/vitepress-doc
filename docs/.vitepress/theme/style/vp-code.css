@@ -1,0 +1,24 @@
+/* 代码块 - 小圆点 */
+pre:before {
+    content: "";
+    background: #fc625d;
+    border-radius: 50%;
+    box-shadow: 20px 0 #fdbc40,40px 0 #35cd4b;
+    top: 15px;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+    z-index: 1000;
+    position: absolute;
+    padding-top: 10px;
+}
+
+/* 代码块 - 间距 */
+pre>code {
+    margin-top: 15px;
+}
+
+/* 线号间距 */
+.vp-doc .line-numbers-wrapper {
+    padding-top: 35px;
+}

@@ -731,7 +731,7 @@ export default defineConfig({
   //markdown配置 // [!code focus:6]
   markdown: {
     //行号显示
-    lineNumbers: true,
+    lineNumbers: true, //false关闭
   },
 })
 ```

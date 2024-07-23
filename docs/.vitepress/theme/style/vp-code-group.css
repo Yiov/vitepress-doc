@@ -1,9 +1,9 @@
-/* 代码块tab */
+/* 代码组tab */
 .vp-code-group .tabs {
     padding-top: 30px;
 }
 
-/* 代码块tab-顶部小圆点 */
+/* 代码组tab-顶部小圆点 */
 .vp-code-group .tabs::before {
     background: #fc625d;
     border-radius: 50%;
@@ -12,12 +12,12 @@
     height: 12px;
     width: 12px;
     left: 12px;
-    margin-top: -20px;
+    margin-top: -15px;
     position: absolute;
 }
 
 
-/* 代码组 */
+/* 代码组背景 */
 .vp-code-group {
     color: var(--vp-c-black-soft);
     border-radius: 8px;

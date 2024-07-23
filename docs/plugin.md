@@ -393,57 +393,92 @@ export default {
 
 ## 自动侧边栏
 
-我自己不用，既然有人问，我就贴出来，自己尝试吧
+发现一款自动侧边栏，简单好用 [@jooy2/vitepress-sidebar](https://github.com/jooy2/vitepress-sidebar)
 
-::: details 为什么我不用的原因
-因为中文文件夹命名，分享时并不太好看
-
-既然排序要遵从插件规则，那手动不也是在遵循规则。文章多，累是一回事，整理的过程也是查漏补缺，并无坏处
-:::
-
-采用了 [@QC2168](https://github.com/QC2168/) 的项目，仓库：
-
-https://github.com/QC2168/vite-plugin-vitepress-auto-sidebar
-
-
+安装参考文档：https://vitepress-sidebar.jooy2.com/guide/getting-started
 
 ::: code-group
 ```sh [pnpm]
-pnpm add -D vite-plugin-vitepress-auto-sidebar
+pnpm add -D vitepress-sidebar
 ```
 
 ```sh [yarn]
-yarn add -D vite-plugin-vitepress-auto-sidebar
+yarn add -D vitepress-sidebar
 ```
 
 ```sh [npm]
-npm install vite-plugin-vitepress-auto-sidebar
-```
-
-```sh [bun]
-bun add -D vite-plugin-vitepress-auto-sidebar
+npm i -D vitepress-sidebar
 ```
 :::
 
 
+在 `configs.mts` 中引入配置，可以根据 [作者api文档](https://vitepress-sidebar.jooy2.com/guide/api) 按需修改
 
-
-```ts{2,5-12}
+```ts{2,4-6,10-53}
 // .vitepress/configs.mts
-import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
+import { generateSidebar } from 'vitepress-sidebar';
+
+const vitepressSidebarOptions = {
+  /* Options... */
+};
 
 export default defineConfig({
-  vite: {
-    plugins: [
-      AutoSidebar({
-        // You can also set options to adjust sidebar data
-        // 需要修改默认配置，请自行参照仓库的配置表
-      })
-    ]
+  themeConfig: {
+    sidebar: generateSidebar({
+      /*
+       * For detailed instructions, see the links below:
+       * https://vitepress-sidebar.jooy2.com/guide/api
+       */
+      documentRootPath: '/docs', //文档根目录
+      // scanStartPath: null,
+      // resolvePath: null,
+      // useTitleFromFileHeading: true,
+      // useTitleFromFrontmatter: true,
+      // frontmatterTitleFieldName: 'title',
+      // useFolderTitleFromIndexFile: false,
+      // useFolderLinkFromIndexFile: false,
+      // hyphenToSpace: true,
+      // underscoreToSpace: true,
+      // capitalizeFirst: false,
+      // capitalizeEachWords: false,
+      collapsed: false, //折叠组关闭
+      collapseDepth: 2, //折叠组2级菜单
+      // sortMenusByName: false,
+      // sortMenusByFrontmatterOrder: false,
+      // sortMenusByFrontmatterDate: false,
+      // sortMenusOrderByDescending: false,
+      // sortMenusOrderNumericallyFromTitle: false,
+      // sortMenusOrderNumericallyFromLink: false,
+      // frontmatterOrderDefaultValue: 0,
+      // manualSortFileNameByPriority: ['first.md', 'second', 'third.md'],
+      removePrefixAfterOrdering: false, //删除前缀，必须与prefixSeparator一起使用
+      prefixSeparator: '.', //删除前缀的符号
+      // excludeFiles: ['first.md', 'secret.md'],
+      // excludeFilesByFrontmatterFieldName: 'exclude',
+      // excludeFolders: ['secret-folder'],
+      // includeDotFiles: false,
+      // includeRootIndexFile: false,
+      // includeFolderIndexFile: false,
+      // includeEmptyFolder: false,
+      // rootGroupText: 'Contents',
+      // rootGroupLink: 'https://github.com/jooy2',
+      // rootGroupCollapsed: false,
+      // convertSameNameSubFileToGroupIndexPage: false,
+      // folderLinkNotIncludesFileName: false,
+      // keepMarkdownSyntaxFromTitle: false,
+      // debugPrint: false,
+    }),
   },
 })
 ```
 
+为了避免安装插件影响教程，就写一个简单的示例
+
+stackblitz演示：https://stackblitz.com/edit/vite-y1rga7
+
+> 等待生成后可查看，左侧是目录，右侧是页面
+
+![](/vitepress-sidebar.png)
 
 
 
