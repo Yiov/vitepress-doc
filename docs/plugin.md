@@ -1,6 +1,6 @@
 # 插件
 
-> 更新时间：2024-7-23
+> 更新时间：2024-7-25
 
 
 
@@ -583,13 +583,17 @@ bun add -D @types/node
 :::
 
 
-最后自己测试效果即可
+自己测试效果即可
 
 - [ ] 吃饭
 - [ ] 睡觉
 - [x] 打豆豆
 
+最后，我还是推荐使用emoji表情，简简单单
 
+* ✅ 吃饭
+
+* ⬜ 睡觉
 
 
 
@@ -601,7 +605,7 @@ bun add -D @types/node
 
 * [Giscus](https://giscus.app/zh-CN)、[waline](https://waline.js.org/)、[gitalk](https://gitalk.github.io/)
 
-* [Valine](https://valine.js.org/quickstart.html)、[disqus](https://disqus.com/)[Twikoo](https://twikoo.js.org/)、[Artalk](https://artalk.js.org/guide/deploy.html)
+* [Valine](https://valine.js.org/quickstart.html)、[disqus](https://disqus.com/)、[Twikoo](https://twikoo.js.org/)、[Artalk](https://artalk.js.org/guide/deploy.html)
 
 从个人角度而言，[Giscus](https://giscus.app/zh-CN) 最佳，就用它演示，其他的这里就不赘述了
 
