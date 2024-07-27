@@ -37,15 +37,3 @@ features:
     title: 快速发布网站
     details: 使用静态 HTML 进行快速初始加载，使用客户端路由进行快速加载后导航
 ---
-
-<style>
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
-
-
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
-  --vp-home-hero-image-filter: blur(40px);
-}
-
-</style>
