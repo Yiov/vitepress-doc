@@ -79,11 +79,32 @@ export default {
   --vp-c-brand-3: #298459;
 }
 /* 以前的vp-c-brand已弃用 */
+
+:root {
+  /* 标题渐变色 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+
+  /*图标背景渐变色 */
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+/* 也可自行单独修改brand按钮 */
+/* :root {
+  --vp-button-brand-border: #F6CEEC;
+  --vp-button-brand-text: #F6CEEC;
+  --vp-button-brand-bg: #D939CD;
+
+  --vp-button-brand-hover-border: #F6CEEC;
+  --vp-button-brand-hover-text: #fff;
+  --vp-button-brand-hover-bg: #D939CD;
+
+  --vp-button-brand-active-border: #F6CEEC;
+} */
 ```
 
 然后将修改好的样式引入 `index.ts`
-
-这样就修改回了绿色
 
 
 ```ts{2}
@@ -93,24 +114,6 @@ import './style/index.css' // [!code focus]
 export default {
   extends: DefaultTheme,
 }
-```
-
-还有一种方法，就是直接在首页 `index.md` 中插入代码
-
-```md
-<style>
-:root {
-  --vp-c-brand-1: #18794e;
-  --vp-c-brand-2: #299764;
-  --vp-c-brand-3: #30a46c;
-}
-
-.dark {
-  --vp-c-brand-1: #3dd68c;
-  --vp-c-brand-2: #30a46c;
-  --vp-c-brand-3: #298459;
-}
-</style>
 ```
 
 

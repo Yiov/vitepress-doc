@@ -116,49 +116,10 @@ hero:
 ```
 
 
-hero的文字及图片，也可以添加渐变色
+hero的文字及图片添加渐变色，不推荐直接用 `<style>` 标签
 
-::: warning 注意
-代码必须用 `<style>` 标签包裹
-:::
+因为build后样式会丢失，建议在css中添加引用 [点我查看美化方法](./style#主题色)
 
-```css
-<style>
-  :root {
-  /* 标题渐变色 */
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
-
-  /*图标背景渐变色 */
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
-  --vp-home-hero-image-filter: blur(40px);
-}
-</style>
-```
-
-如果你想单独改按钮，就这样配置
-
-```css
-<style>
-  :root {
-  /* brand按钮 */
-  --vp-button-brand-border: #F6CEEC;
-  --vp-button-brand-text: #F6CEEC;
-  --vp-button-brand-bg: #D939CD;
-
-  --vp-button-brand-hover-border: #F6CEEC;
-  --vp-button-brand-hover-text: #fff;
-  --vp-button-brand-hover-bg: #D939CD;
-
-  --vp-button-brand-active-border: #F6CEEC;
-}
-</style>
-```
-
-
-::: tip 说明
-[其他美化方案请点我查看](./style)
-:::
 
 
 ## Features
