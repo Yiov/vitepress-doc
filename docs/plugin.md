@@ -477,6 +477,8 @@ export default defineConfig({
 stackblitz演示：https://stackblitz.com/edit/vite-y1rga7
 
 > 等待生成后可查看，左侧是目录，右侧是页面
+>
+> 注意：插件在读取目录之后，你再修改文件名，需要重启才能生效
 
 ![](/vitepress-sidebar.png)
 
