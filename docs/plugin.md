@@ -436,7 +436,7 @@ export default defineConfig({
       // useTitleFromFrontmatter: true,
       // frontmatterTitleFieldName: 'title',
       // useFolderTitleFromIndexFile: false, //是否使用层级首页文件名做分级标题
-      // useFolderLinkFromIndexFile: false, //是否让层级首页文件显示
+      // useFolderLinkFromIndexFile: false, //是否链接至层级首页文件
       // hyphenToSpace: true,
       // underscoreToSpace: true,
       // capitalizeFirst: false,
