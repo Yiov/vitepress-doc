@@ -108,7 +108,7 @@ bun run docs:preview
 默认的构建输出目录 `.vitepress/dist` ，上传到Github即可
 
 ::: tip 说明
-如果你还不会使用，请参考教程：[Github的注册使用到上传](https://yiov.top/website/github.html)
+如果你还不会使用，请参考教程：[Github的注册使用到上传](https://yiov.top/website/pages/github.html)
 :::
 
 

@@ -20,7 +20,7 @@
 
 建议安装：[安装vscode](https://yiov.top/website/VSCode.html)
 
-可选安装：[安装git](https://yiov.top/website/git.html)
+可选安装：[安装git](https://yiov.top/website/pages/git.html)
 :::
 
 
