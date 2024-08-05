@@ -821,15 +821,17 @@ new Crawler({
 ## 页脚
 
 
-```ts{4-8}
+```ts{4-9}
 export default defineConfig({
 
   themeConfig: {
-    //页脚 // [!code focus]
-    footer: { // [!code focus]
-      message: 'Released under the MIT License.', // [!code focus]
-      copyright: 'Copyright © 2019-2023present Evan You', // [!code focus]
-    }, // [!code focus]
+    //页脚 // [!code focus:6]
+    footer: { 
+      message: 'Released under the MIT License.', 
+      copyright: 'Copyright © 2019-2023 present Evan You', 
+      // 自动更新时间
+      //copyright: `Copyright © 2019-${new Date().getFullYear()} present Evan You`, 
+    }, 
   },
 
 })
@@ -838,14 +840,16 @@ export default defineConfig({
 
 如果你有备案，会需要跳转到工信部，使用html代码就行了
 
-```ts{7}
+```ts{7-9}
 export default defineConfig({
 
   themeConfig: {
     //页脚
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023 备案号：<a href="https://beian.miit.gov.cn/" target="_blank">京****号</a>', // [!code focus]
+      copyright: 'Copyright © 2023-2024 备案号：<a href="https://beian.miit.gov.cn/" target="_blank">京****号</a>', // [!code focus:3]
+      // 自动更新时间
+      copyright: `Copyright © 2023-${new Date().getFullYear()} 备案号：<a href="https://beian.miit.gov.cn/" target="_blank">京****号</a>`, 
     },
   },
 

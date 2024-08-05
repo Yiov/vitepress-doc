@@ -467,7 +467,7 @@ var的值都改程颜色代码即可
 
 ### 语法突出
 
-VitePress有着 [Shiki](https://shiki.matsu.io/) 插件的加持，在前反引号后可以写入代码的语法，渲染后会显示在代码块右上方
+VitePress有着 [Shiki](https://shiki.tmrs.site/) 插件的加持，在前反引号后可以写入代码的语法，渲染后会显示在代码块右上方
 
 输入：
 
@@ -551,16 +551,12 @@ export default defineConfig({
 
 输入：
 
-::: tip 说明
-`!code` 后面只需要一个空格，这里有两个空格是为了防止处理
-:::
-
-````
+````md
 ```ts
 export default defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
-  description: "我的vitpress文档教程", // [!code  highlight]
+  description: "我的vitpress文档教程", // [!!code highlight]
 })
 ```
 ````
@@ -577,6 +573,34 @@ export default defineConfig({
 ```
 
 
+也可以通过 `// [!code highlight:<lines>]` 连续行号
+
+输入：
+
+````md
+```ts
+export default defineConfig({
+  lang: 'zh-CN', // [!!code highlight:3]
+  title: "VitePress",
+  description: "我的vitpress文档教程",
+})
+```
+````
+
+
+输出：
+
+```ts
+export default defineConfig({
+  lang: 'zh-CN', // [!code highlight:3]
+  title: "VitePress",
+  description: "我的vitpress文档教程",
+})
+```
+
+
+
+
 ### 聚焦代码
 
 在某一行后添加 `// [!code focus]` 注释会聚焦该行，并模糊代码的其他部分
@@ -584,16 +608,12 @@ export default defineConfig({
 
 输入：
 
-::: tip 说明
-`!code` 后面只需要一个空格，这里有两个空格是为了防止处理
-:::
-
 ````
 ```ts{4}
 export default defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
-  description: "我的vitpress文档教程", // [!code  focus]
+  description: "我的vitpress文档教程", // [!!code focus]
   titleTemplate: '另起标题覆盖title' ,
 })
 ```
@@ -621,14 +641,11 @@ export default defineConfig({
 
 输入：
 
-::: tip 说明
-`!code` 后面只需要一个空格，这里有两个空格是为了防止处理
-:::
 
 ````
 ```ts{2-5}
 export default defineConfig({
-  lang: 'zh-CN', // [!code  focus:4]
+  lang: 'zh-CN', // [!!code focus:4]
   title: "VitePress",
   description: "我的vitpress文档教程",
   titleTemplate: '另起标题覆盖title' ,
@@ -657,17 +674,13 @@ export default defineConfig({
 
 输入：
 
-::: tip 说明
-`!code` 后面只需要一个空格，这里有两个空格是为了防止处理
-:::
-
 ````
 ```ts{4-5}
 export default defineConfig({
   lang: 'zh-CN', 
   title: "VitePress", 
-  description: "我的vitpress文档教程", // [!code  --]
-  description: "更详细的vitpress中文文档教程", // [!code  ++]
+  description: "我的vitpress文档教程", // [!!code --]
+  description: "更详细的vitpress中文文档教程", // [!!code ++]
   titleTemplate: '另起标题覆盖title' ,
 })
 ```
@@ -694,17 +707,14 @@ export default defineConfig({
 
 输入：
 
-::: tip 说明
-`!code` 后面只需要一个空格，这里有两个空格是为了防止处理
-:::
 
 ````
 ```ts{4-5}
 export default defineConfig({
   lang: 'zh-CN', 
   title: "VitePress", 
-  description: "我的vitpress文档教程", // [!code  error]
-  description: "更详细的vitpress中文文档教程", // [!code  warning]
+  description: "我的vitpress文档教程", // [!!code error]
+  description: "更详细的vitpress中文文档教程", // [!!code warning]
   titleTemplate: '另起标题覆盖title' ,
 })
 ```
@@ -752,6 +762,7 @@ export default defineConfig({
 ```ts:no-line-numbers
 无行号演示
 ```
+
 
 
 

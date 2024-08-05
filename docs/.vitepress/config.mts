@@ -1,6 +1,11 @@
 import { defineConfig } from 'vitepress'
 
-//命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared vitepress-markdown-timeline medium-zoom vitepress-plugin-comment-with-giscus
+//命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared vitepress-markdown-timeline medium-zoom vitepress-plugin-comment-with-giscus @types/node
+
+// 版本获取 pnpm add -D @types/node
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+const pkg = require('vitepress/package.json')
 
 import timeline from "vitepress-markdown-timeline"; 
 
@@ -46,6 +51,15 @@ export default defineConfig({
     //行号显示
     lineNumbers: true, 
 
+    // 使用 `!!code` 防止转换
+    codeTransformers: [
+      {
+        postprocess(code) {
+          return code.replace(/\[\!\!code/g, '[!code')
+        }
+      }
+    ],
+
     //时间线 
     config: (md) => {
       md.use(timeline);
@@ -57,6 +71,8 @@ export default defineConfig({
     },
 
   },
+
+
 
   
 
@@ -114,7 +130,7 @@ export default defineConfig({
       { text: 'VitePress', link: 'https://vitepress.dev/zh/',noIcon: true },
 
       {
-        text: '1.0.0-1.3.1',
+        text: pkg.version,
         items: [
           { text: '更新日志(本站)', link: '/changelog.md' },
           { text: '更新日志(官方)', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
@@ -225,7 +241,7 @@ export default defineConfig({
     //页脚
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023-2024 备案号：<a href="https://beian.miit.gov.cn/">京****号</a>',
+      copyright: `Copyright © 2023-${new Date().getFullYear()} 备案号：<a href="https://beian.miit.gov.cn/" target="_blank">京****号</a>`,
     },
 
 
