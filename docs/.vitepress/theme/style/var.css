@@ -34,7 +34,7 @@
   }
   
   .medium-zoom-overlay {
-    z-index: 20;
+    z-index: 30;
   }
   
   .medium-zoom-image {

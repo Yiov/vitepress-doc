@@ -226,7 +226,7 @@ export default {
 /* .vitepress/theme/style/var.css */
 
 .medium-zoom-overlay {
-  z-index: 20;
+  z-index: 30;
 }
 
 .medium-zoom-image {
@@ -241,8 +241,6 @@ export default {
 :::
 
 ![](/img_test.jpg)
-
-
 
 
 
