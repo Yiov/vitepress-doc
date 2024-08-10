@@ -33,14 +33,4 @@ features:
     details: Chargement initial rapide à l'aide de HTML statique et navigation post-chargement rapide à l'aide du routage côté client
 ---
 
-<style>
-  :root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
-
-
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
-  --vp-home-hero-image-filter: blur(40px);
-}
-
-</style>
+<HomeUnderline />

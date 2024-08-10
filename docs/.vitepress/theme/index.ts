@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import './style/index.css' 
 
+import HomeUnderline from "./components/HomeUnderline.vue"
 import Video from './components/Video.vue'
 import MNavLinks from './components/MNavLinks.vue'
 import Navlink from './components/Navlink.vue'
@@ -22,6 +23,7 @@ export default {
 
   enhanceApp({app}) {
     // 注册全局组件
+    app.component('HomeUnderline' , HomeUnderline)
     app.component('Video' , Video)
     app.component('MNavLinks' , MNavLinks)
     app.component('Navlink' , Navlink)
