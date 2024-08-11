@@ -1,6 +1,6 @@
 # 样式美化
 
-> 更新时间：2024-3-4
+> 更新时间：2024-8-11
 
 
 
@@ -273,6 +273,117 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 
 
 ---
+
+
+### 导航栏毛玻璃
+
+在 `theme/style` 文件夹，然后新建 `blur.css` 并填入如下代码
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ blur.css
+│  └─ index.md
+└─ node_modules
+```
+
+在主题原始文件中， `VPNavBar.vue` 组件有其对应的属性
+
+复制下面代码，粘贴到 `blur.css` 中，可以自行增减
+
+::: code-group
+```css [blur.css]
+/* .vitepress\theme\style\blur.css */
+:root {
+
+    /* 首页导航 */
+    .VPNavBar {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+    }
+
+    /* 文档页导航两侧 */
+    .VPNavBar:not(.home) {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+    }
+
+    @media (min-width: 960px) {
+
+        /* 文档页导航两侧 */
+        .VPNavBar:not(.home) {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 首页下滑后导航两侧 */
+        .VPNavBar:not(.has-sidebar):not(.home.top) {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
+    }
+
+    @media (min-width: 960px) {
+
+        /* 文档页导航中间 */
+        .VPNavBar:not(.home.top) .content-body {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 首页下滑后导航中间 */
+        .VPNavBar:not(.has-sidebar):not(.home.top) .content-body {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
+    }
+
+
+    /* 分割线 */
+
+    @media (min-width: 960px) {
+
+        /* 文档页分割线 */
+        .VPNavBar:not(.home.top) .divider-line {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 首页分割线 */
+        .VPNavBar:not(.has-sidebar):not(.home.top) .divider {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
+    }
+
+    /* 搜索框 VPNavBarSearchButton.vue */
+    .DocSearch-Button {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+    }
+    
+}
+```
+:::
+
+
+最后引入 `index.css` 中 即可看到效果
+
+```css
+/* style/index.css */
+@import './blur.css';
+```
+
+
+
+---
+
+
 
 ### 视图过渡
 
