@@ -5,6 +5,7 @@ import HomeUnderline from "./components/HomeUnderline.vue"
 import Video from './components/Video.vue'
 import MNavLinks from './components/MNavLinks.vue'
 import Navlink from './components/Navlink.vue'
+import confetti from "./components/confetti.vue"
 
 import { h } from 'vue'
 import { useData , useRoute } from 'vitepress'
@@ -27,6 +28,7 @@ export default {
     app.component('Video' , Video)
     app.component('MNavLinks' , MNavLinks)
     app.component('Navlink' , Navlink)
+    app.component('confetti' , confetti)
   },
 
   Layout: () => {

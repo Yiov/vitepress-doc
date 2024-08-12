@@ -39,3 +39,5 @@ features:
 ---
 
 <HomeUnderline />
+
+<confetti />

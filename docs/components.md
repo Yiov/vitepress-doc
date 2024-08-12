@@ -523,3 +523,92 @@ export default {
 目前最新版 `v2.0.28` 出现不兼容，可以退回 `v2.0.26` 或者等更新
 
 :::
+
+
+
+---
+
+
+### 五彩纸屑
+
+佬友的需求越来越花哨了，直接使用 [@catdad/canvas-confetti](https://github.com/catdad/canvas-confetti)
+
+
+::: code-group
+
+```sh [pnpm]
+pnpm add -D canvas-confetti
+```
+
+```sh [yarn]
+yarn add -D canvas-confetti
+```
+
+```sh [npm]
+npm i -D canvas-confetti
+```
+
+```sh [bun]
+bun add -D canvas-confetti
+```
+
+:::
+
+在其 [官网](https://www.kirilv.com/canvas-confetti/) 上，有最简单的纸屑配置
+
+但是建议还是vue封装一下，在 `theme/components` 文件夹中创建 `confetti.vue`
+
+```md{6}
+docs
+├─ .vitepress
+│  └─ config.mts
+│  └─ theme
+│  │   ├─ components
+│  │   │   └─ confetti.vue
+│  │   └─ index.ts
+└─ index.md
+```
+
+在 `confetti.vue` 填入如下代码，保存
+
+::: code-group
+
+```vue [confetti.vue]
+<script setup lang="ts">
+import confetti from 'canvas-confetti'
+
+/* 纸屑 */
+confetti({
+    particleCount: 100,
+    spread: 170,
+    origin: { y: 0.6 },
+})
+
+</script>
+```
+:::
+
+然后，在 `index.ts` 中注册全局组件
+
+```ts{3,7-10}
+/* .vitepress\theme\index.ts */
+import DefaultTheme from 'vitepress/theme'
+import confetti from "./components/confetti.vue"
+
+export default {
+  extends: DefaultTheme,
+  enhanceApp({app}) {
+    // 注册全局组件
+    app.component('confetti' , confetti)
+  }
+}
+```
+
+最后回到首页或者其他页面，插入组件，看效果
+
+同理也可以做[ 雪花效果](https://www.kirilv.com/canvas-confetti/#snow)
+
+```md
+<!-- index.md -->
+<confetti />
+```
