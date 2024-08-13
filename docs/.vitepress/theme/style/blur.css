@@ -67,4 +67,15 @@
         backdrop-filter: blur(10px);
     }
 
+
+    /* 移动端大纲栏 */
+    .VPLocalNav {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+        /* 隐藏分割线 */
+        /* border-bottom: 5px solid var(--vp-c-gutter); */
+        border-bottom: 0px;
+    }
+
+
 }

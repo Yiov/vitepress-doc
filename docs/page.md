@@ -20,7 +20,7 @@
 export default defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
-  description: "我的vitpress文档教程",
+  description: "我的vitpress文档教程", //我的文字有下划线，请后期再查看 `组件 - 首页文字下划线`
   titleTemplate: '另起标题会覆盖title', // [!code focus]
   // titleTemplate: ':title - 快速上手', //完全自定义标题，:title 不要动，改后面的
   // titleTemplate: false, //关闭标题

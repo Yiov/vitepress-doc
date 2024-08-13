@@ -1,0 +1,8 @@
+/* .vitepress\theme\style\VPImage.css */
+
+.VPImage.image-src {
+    &.blur {
+        filter: blur(20px);
+        /* transform: translate(-50%, -50%) scale(0.88); */
+    }
+}

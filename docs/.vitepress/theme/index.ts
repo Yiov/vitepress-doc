@@ -6,6 +6,7 @@ import Video from './components/Video.vue'
 import MNavLinks from './components/MNavLinks.vue'
 import Navlink from './components/Navlink.vue'
 import confetti from "./components/confetti.vue"
+import busuanzi from "./components/busuanzi.vue"
 
 import { h } from 'vue'
 import { useData , useRoute } from 'vitepress'
@@ -41,7 +42,9 @@ export default {
       props.class = frontmatter.value.layoutClass
     }
 
-    return h(DefaultTheme.Layout, props)
+    return h(DefaultTheme.Layout, props, {
+      'layout-bottom': () => h(busuanzi),
+    })
   },
   
   setup() {

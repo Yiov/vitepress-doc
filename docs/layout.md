@@ -1,6 +1,6 @@
 # 布局插槽
 
-> 更新时间：2023-12-20
+> 更新时间：2024-8-13
 
 
 ## 简介
@@ -64,30 +64,6 @@ docs
 
 在 `MyLayout.vue` 中粘贴如下代码
 
-```vue{9-14}
-<script setup>
-import DefaultTheme from 'vitepress/theme'
-
-const { Layout } = DefaultTheme
-</script>
-
-<template>
-  <Layout>
-    <template #aside-outline-before>
-      <div class="title">aside-outline-before</div>
-    </template>
-    <template #doc-before>
-      <div class="title">doc-before</div>
-    </template>
-  </Layout>
-</template>
-
-<style scoped>
-.title {
-  color: red;
-}
-</style>
-```
 
 ::: tip 说明
 这里的 `aside-outline-before` 和 `doc-before` 是 [插槽](#插槽表)
@@ -96,17 +72,53 @@ const { Layout } = DefaultTheme
 :::
 
 
-然后在 `.vitepress/theme/index.mts` 中引入
+
+::: code-group
+
+```vue{10-13,15-18} [MyLayout.vue]
+<script setup lang="ts">
+import DefaultTheme from 'vitepress/theme'
+
+const { Layout } = DefaultTheme
+</script>
+
+<template>
+    <Layout>
+
+        <!-- 插槽1 --> 
+        <template #aside-outline-before>
+            <div class="title">aside-outline-before</div>
+        </template>
+
+        <!-- 插槽2 -->
+        <template #doc-before>
+            <div class="title">doc-before</div>
+        </template>
+
+    </Layout>
+</template>
+
+<style>
+.title {
+    color: red;
+}
+</style>
+```
+:::
+
+
+
+然后在 `.vitepress/theme/index.ts` 中引入
 
 
 ```ts{3,7}
-// .vitepress/theme/index.mts
+// .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import MyLayout from './components/MyLayout.vue'
+import MyLayout from './components/MyLayout.vue' // [!code focus]
 
 export default {
   extends: DefaultTheme,
-  Layout: MyLayout,
+  Layout: MyLayout, // [!code focus]
 }
 ```
 
@@ -130,7 +142,7 @@ export default {
   <div class="title">aside-outline-before</div>
 </template>
 
-<style scoped>
+<style>
 .title {
   color: red;
 }
@@ -146,7 +158,7 @@ export default {
 
 
 ```ts{3-4,9-14}
-// .vitepress/theme/index.mts
+// .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import MyLayout from './components/MyLayout.vue'
@@ -266,7 +278,7 @@ export default {
 
 ---
 
-### Frontmatter使用
+### Frontmatter（Layout）
 
 本方法参考 [掘金 @Younglina](https://juejin.cn/post/7134586612406714375)的文章
 
@@ -303,8 +315,10 @@ docs
 
 粘贴如下代码，此处的插槽使用的是 [doc-before](#doc)
 
-```vue{12}
-<script setup>
+::: code-group
+
+```vue{12-14} [tags.vue]
+<script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
 import { useData } from 'vitepress'
 
@@ -329,6 +343,8 @@ const { frontmatter } = useData()
   }
 </style>
 ```
+:::
+
 
 然后在引入
 
@@ -361,7 +377,7 @@ date: 2023-12-19 08:09
 ---
 
 
-### 常规使用
+### Vite官网赞助（h函数）
 
 
 这里我们参考 [Vite官网](https://vitejs.cn/vite3-cn/) 下的赞助，代码在 [仓库](https://github.com/vitejs/vite) 查找
@@ -387,7 +403,9 @@ docs
 
 粘贴如下代码，保存
 
-```ts
+::: code-group
+
+```ts [sponsors.ts ]
 import { ref, onMounted } from 'vue'
 
 interface Sponsors {
@@ -497,9 +515,10 @@ function mapImgPath(sponsors: Sponsor[]) {
     }))
 }
 ```
+:::
 
 
-然后我们将赞助商的图片放入 `public - svg`文件夹
+然后我们将赞助商的图片放入 `public - svg` 文件夹
 
 
 ```md{6}
@@ -529,7 +548,9 @@ docs
 
 粘贴如下代码，保存
 
-```ts
+::: code-group
+
+```ts [HomeSponsors.vue]
 <script setup lang="ts">
 import { VPHomeSponsors } from 'vitepress/theme'
 import { useSponsor } from '../untils/sponsor'
@@ -601,13 +622,15 @@ const { data } = useSponsor()
 }
 </style>
 ```
+:::
+
 
 最后我们使用 `home-features-after` 插槽并引入配置文件`index.ts` 
 
-```ts{4,8-12}
+```ts{3-4,8-12}
 // .vitepress/theme/index.ts
-import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
+import { h } from 'vue'
 import HomeSponsors from './components/HomeSponsors.vue'
 
 export default {
@@ -617,5 +640,113 @@ export default {
       'home-features-after': () => h(HomeSponsors),
     })
   },
+}
+```
+
+
+
+
+
+
+
+
+### 不蒜子
+
+之前安装了 [浏览器插件：不蒜子](./plugin.md#浏览量) ，现在仅做一个简单的封装示例，好看自己研究一下吧
+
+新建一个 `busuanzi.vue` 组件
+
+```md{6}
+docs
+├─ .vitepress
+│  └─ config.mts
+│  └─ theme
+│  │   ├─ components
+│  │   │   └─ busuanzi.vue    <-- 不蒜子组件
+│  │   └─ index.ts
+└─ index.md
+```
+
+
+选择一种方式，复制代码，粘贴到 `busuanzi.vue` 中
+
+::: code-group
+
+```vue [h函数（2选1）]
+<script setup>
+</script>
+
+<template>
+  <div class="busuanzi">
+    本站访客数 <span id="busuanzi_value_site_uv" /> 人次 本站总访问量 <span id="busuanzi_value_site_pv" /> 次
+  </div>
+</template>
+
+<style>
+.busuanzi {
+  font-size: 15px;
+  color: gray;
+  text-align: center;
+}
+</style>
+```
+
+```vue [Layout（2选1）]
+<script setup lang="ts">
+import DefaultTheme from 'vitepress/theme'
+const { Layout } = DefaultTheme
+</script>
+
+<template>
+  <Layout>
+    <template #layout-bottom>
+      <div class="busuanzi">
+        本站访客数 <span id="busuanzi_value_site_uv" /> 人次 本站总访问量 <span id="busuanzi_value_site_pv" /> 次
+      </div>
+    </template>
+  </Layout>
+</template>
+
+<style>
+.busuanzi {
+  font-size: 15px;
+  color: gray;
+  text-align: center;
+}
+</style>
+```
+
+:::
+
+
+最后引入 `index.ts` 中
+
+::: code-group
+
+```ts{4-5,9-13} [h函数（2选1）]
+// .vitepress/theme/index.ts
+import DefaultTheme from 'vitepress/theme'
+
+import { h } from 'vue' // [!code focus:2]
+import busuanzi from './components/busuanzi.vue'
+
+export default {
+  extends: DefaultTheme,
+  Layout() { // [!code focus:5]
+    return h(DefaultTheme.Layout, null, {
+      'layout-bottom': () => h(busuanzi),
+    })
+  },
+}
+```
+
+```ts{3,7} [Layout（2选1）]
+// .vitepress/theme/index.ts
+import DefaultTheme from 'vitepress/theme'
+import busuanzi from './components/busuanzi.vue' // [!code focus]
+
+export default {
+  extends: DefaultTheme,
+  Layout: busuanzi, // [!code focus]
 }
 ```

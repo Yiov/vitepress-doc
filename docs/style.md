@@ -366,7 +366,18 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
         background-color: rgba(255, 255, 255, 0);
         backdrop-filter: blur(10px);
     }
-    
+
+
+    /* 移动端大纲栏 */
+    .VPLocalNav {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+        /* 隐藏分割线 */
+        /* border-bottom: 5px solid var(--vp-c-gutter); */
+        border-bottom: 0px;
+    }
+
+
 }
 ```
 :::
@@ -378,6 +389,53 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 /* style/index.css */
 @import './blur.css';
 ```
+
+
+---
+
+
+
+### LOGO模糊渐显
+
+
+在 `theme/style` 文件夹，然后新建 `VPImage.css` 并填入如下代码
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ VPImage.css
+│  └─ index.md
+└─ node_modules
+```
+
+复制下面代码，粘贴到 `VPImage.css` 中
+
+
+::: code-group
+```css [VPImage.css]
+/* .vitepress\theme\style\VPImage.css */
+
+.VPImage.image-src {
+    &.blur {
+        filter: blur(20px);
+        /* transform: translate(-50%, -50%) scale(0.88); */
+    }
+}
+```
+:::
+
+最后引入 `index.css` 中 即可看到效果，可以与 [五彩纸屑](./components.md#五彩纸屑) 搭配使用
+
+```css
+/* style/index.css */
+@import './VPImage.css';
+```
+
 
 
 

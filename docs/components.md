@@ -604,7 +604,7 @@ export default {
 }
 ```
 
-最后回到首页或者其他页面，插入组件，看效果
+最后回到首页或者其他页面，插入组件看效果，可以与 [LOGO模糊渐显](./style.md#logo模糊渐显) 搭配使用
 
 同理也可以做[ 雪花效果](https://www.kirilv.com/canvas-confetti/#snow)
 
