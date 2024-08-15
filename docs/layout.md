@@ -719,7 +719,11 @@ const { Layout } = DefaultTheme
 :::
 
 
-最后引入 `theme/index.ts` 中
+最后引入 `theme/index.ts` 中即可
+
+::: tip 说明
+本地开发出现数字即算成功，等你部署后会显示正确的数值
+:::
 
 ::: code-group
 

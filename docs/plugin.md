@@ -379,6 +379,10 @@ export default {
 
 使用就很简单了，我还做了一个 [简单的插槽示例](./layout.md#不蒜子)，可以参考使用
 
+::: tip 说明
+本地开发出现数字即算成功，等你部署后会显示正确的数值
+:::
+
 ```html
 本站总访问量 <span id="busuanzi_value_site_pv" /> 次
 本站访客数 <span id="busuanzi_value_site_uv" /> 人次
