@@ -652,9 +652,9 @@ export default {
 
 ### 不蒜子
 
-之前安装了 [浏览器插件：不蒜子](./plugin.md#浏览量) ，现在仅做一个简单的封装示例，好看自己研究一下吧
+之前安装了 [浏览量的插件：不蒜子](./plugin.md#浏览量) ，想好看自己研究一下吧
 
-新建一个 `busuanzi.vue` 组件
+现在仅做一个简单的封装示例，新建一个 `view.vue` 组件
 
 ```md{6}
 docs
@@ -662,13 +662,13 @@ docs
 │  └─ config.mts
 │  └─ theme
 │  │   ├─ components
-│  │   │   └─ busuanzi.vue    <-- 不蒜子组件
+│  │   │   └─ view.vue    <--浏览量组件
 │  │   └─ index.ts
 └─ index.md
 ```
 
 
-选择一种方式，复制代码，粘贴到 `busuanzi.vue` 中
+选择一种方式，复制代码，粘贴到 `view.vue` 中
 
 ::: code-group
 
@@ -719,24 +719,39 @@ const { Layout } = DefaultTheme
 :::
 
 
-最后引入 `index.ts` 中
+最后引入 `theme/index.ts` 中
 
 ::: code-group
 
-```ts{4-5,9-13} [h函数（2选1）]
+```ts{4-9,14-21,23-27} [h函数（2选1）]
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
 
-import { h } from 'vue' // [!code focus:2]
-import busuanzi from './components/busuanzi.vue'
+import { h } from 'vue' // [!code focus:6]
+
+// 不蒜子
+import { inBrowser } from 'vitepress'
+import busuanzi from 'busuanzi.pure.js'
+import view from "./components/view.vue"
 
 export default {
   extends: DefaultTheme,
+
+  // 不蒜子 // [!code focus:8]
+  enhanceApp({ app , router }) {
+    if (inBrowser) {
+      router.onAfterRouteChanged = () => {
+        busuanzi.fetch()
+      }
+    }
+  },
+
   Layout() { // [!code focus:5]
     return h(DefaultTheme.Layout, null, {
-      'layout-bottom': () => h(busuanzi),
+      'layout-bottom': () => h(view), //不蒜子layout-bottom插槽
     })
   },
+
 }
 ```
 

@@ -1,37 +1,55 @@
 import DefaultTheme from 'vitepress/theme'
-import './style/index.css' 
 
-import HomeUnderline from "./components/HomeUnderline.vue"
-import Video from './components/Video.vue'
-import MNavLinks from './components/MNavLinks.vue'
-import Navlink from './components/Navlink.vue'
-import confetti from "./components/confetti.vue"
-import busuanzi from "./components/busuanzi.vue"
+// giscusTalk
+import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 
-import { h } from 'vue'
+// 样式
+import './style/index.css' //自定义样式
+import "vitepress-markdown-timeline/dist/theme/index.css"; //时间线
+
+import { h } from 'vue' // h函数
 import { useData , useRoute } from 'vitepress'
-
-// 只需添加以下一行代码，引入时间线样式
-import "vitepress-markdown-timeline/dist/theme/index.css";
-
+// mediumZoom
 import mediumZoom from 'medium-zoom';
 import { onMounted, watch, nextTick } from 'vue';
 
-import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+
+// 组件
+import MNavLinks from './components/MNavLinks.vue' //导航1
+import Navlink from './components/Navlink.vue' //导航2
+import HomeUnderline from "./components/HomeUnderline.vue" // 首页下划线
+import Video from './components/Video.vue' // 视频播放器
+import confetti from "./components/confetti.vue" // 五彩纸屑
+import blur from "./components/blur.vue" // LOGO模糊渐显
+
+// 不蒜子
+import { inBrowser } from 'vitepress'
+import busuanzi from 'busuanzi.pure.js'
+import view from "./components/view.vue"
 
 
 export default {
   extends: DefaultTheme,
 
-  enhanceApp({app}) {
+  enhanceApp({app , router }) {
     // 注册全局组件
-    app.component('HomeUnderline' , HomeUnderline)
-    app.component('Video' , Video)
-    app.component('MNavLinks' , MNavLinks)
-    app.component('Navlink' , Navlink)
-    app.component('confetti' , confetti)
+    app.component('MNavLinks' , MNavLinks) //导航1
+    app.component('Navlink' , Navlink) //导航2
+    app.component('HomeUnderline' , HomeUnderline) // 首页下划线
+    app.component('Video' , Video) // 视频播放器
+    app.component('confetti' , confetti) // 五彩纸屑
+    app.component('blur' , blur) // LOGO模糊渐显
+
+    // 不蒜子
+    if (inBrowser) {
+      router.onAfterRouteChanged = () => {
+         busuanzi.fetch()
+       }
+    }
+
   },
 
+  //导航
   Layout: () => {
     const props: Record<string, any> = {}
     // 获取 frontmatter
@@ -43,10 +61,11 @@ export default {
     }
 
     return h(DefaultTheme.Layout, props, {
-      'layout-bottom': () => h(busuanzi),
+      'layout-bottom': () => h(view), //不蒜子layout-bottom插槽
     })
   },
   
+  // medium-zoom
   setup() {
     const route = useRoute();
     const initZoom = () => {
@@ -61,9 +80,8 @@ export default {
       () => nextTick(() => initZoom())
     );
 
-    // Get frontmatter and route
+    // giscus
     const { frontmatter } = useData();
-
 
     // giscus配置
     giscusTalk({

@@ -40,6 +40,8 @@ features:
 
 <HomeUnderline />
 
+<blur />
+
 <confetti />
 
 <busuanzi />

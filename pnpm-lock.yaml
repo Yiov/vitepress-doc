@@ -11,6 +11,9 @@ devDependencies:
   '@types/node':
     specifier: ^22.1.0
     version: 22.1.0
+  busuanzi.pure.js:
+    specifier: ^1.0.3
+    version: 1.0.3
   canvas-confetti:
     specifier: ^1.9.3
     version: 1.9.3
@@ -881,6 +884,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       fill-range: 7.0.1
+    dev: true
+
+  /busuanzi.pure.js@1.0.3:
+    resolution: {integrity: sha512-tPULdyx+8NNb9geZYDpktKmHAYx9f2LEOBaHyWCaM7iPEMIa/43KgYAUluuU7YG9UFSOFpj4dO7Nj2Vlu3V9Rg==}
     dev: true
 
   /canvas-confetti@1.9.3:

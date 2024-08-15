@@ -16,7 +16,7 @@ next: false
 
 - 添加 [导航栏移动端大纲栏：毛玻璃效果](./style.md#导航栏毛玻璃)
 
-- 新增 [LOGO模糊渐显](./style.md#logo模糊渐显) 
+- 新增 [LOGO模糊渐显](./components.md#logo模糊渐显) 
 
 - 新增 [不蒜子封装插槽使用示例](./layout.md#不蒜子)
 

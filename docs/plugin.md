@@ -336,8 +336,6 @@ model: {
 
 我对这个并不感冒，看了一下，基本上是用的 [不蒜子](http://busuanzi.ibruce.info/)
 
-但是想要好看就得自己封装一下
-
 ::: code-group
 ```sh [pnpm]
 pnpm add -D busuanzi.pure.js
@@ -375,10 +373,11 @@ export default {
       }
     }
   },
+  
 }
 ```
 
-使用就很简单了，做了一个 [简单的插槽示例，可以参考使用](./layout.md#不蒜子)
+使用就很简单了，我还做了一个 [简单的插槽示例](./layout.md#不蒜子)，可以参考使用
 
 ```html
 本站总访问量 <span id="busuanzi_value_site_pv" /> 次
@@ -589,7 +588,7 @@ bun add -D @types/node
 - [ ] 睡觉
 - [x] 打豆豆
 
-最后，我还是推荐使用emoji表情，简简单单
+最后，我还是推荐直接使用 [emoji表情](https://www.emojiall.com/zh-hant/) ，简简单单
 
 * ✅ 吃饭
 
