@@ -24,7 +24,6 @@ export default defineConfig({
 
   //cleanUrls:true, //开启纯净链接无html
 
-
   //启用深色模式
   appearance:'dark',
 
@@ -74,7 +73,7 @@ export default defineConfig({
 
 
 
-  
+  lastUpdated: true, 
 
 
   //主题配置
@@ -86,6 +85,12 @@ export default defineConfig({
 
     //设置站点标题 会覆盖title
     //siteTitle: 'Hello World',
+
+    //编辑本页
+    editLink: { 
+      pattern: 'https://github.com/Yiov/vitepress-doc/edit/main/docs/:path', // 改成自己的仓库
+      text: '在GitHub编辑本页'
+    }, 
 
     //导航栏
     nav: [
