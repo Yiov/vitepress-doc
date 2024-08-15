@@ -73,7 +73,7 @@ export default defineConfig({
 
 
 
-  lastUpdated: true, 
+  lastUpdated: true, //此配置不会立即生效，需git提交后爬取时间戳，没有安装git本地报错可以先注释
 
 
   //主题配置
@@ -91,6 +91,15 @@ export default defineConfig({
       pattern: 'https://github.com/Yiov/vitepress-doc/edit/main/docs/:path', // 改成自己的仓库
       text: '在GitHub编辑本页'
     }, 
+
+    //上次更新时间
+    lastUpdated: {
+      text: '上次更新时间',
+      formatOptions: {
+        dateStyle: 'full',
+        timeStyle: 'medium'
+      },
+    },
 
     //导航栏
     nav: [

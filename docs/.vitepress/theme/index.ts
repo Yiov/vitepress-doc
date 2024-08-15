@@ -22,6 +22,7 @@ import Video from './components/Video.vue' // 视频播放器
 import confetti from "./components/confetti.vue" // 五彩纸屑
 import blur from "./components/blur.vue" // LOGO模糊渐显
 
+
 // 不蒜子
 import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'

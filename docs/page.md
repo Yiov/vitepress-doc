@@ -1076,11 +1076,11 @@ export default defineConfig({
 export default defineConfig({
 
   themeConfig: {
-    //编辑本页 // [!code focus]
-    editLink: { // [!code focus]
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path', // 改成自己的仓库 // [!code focus]
-      text: '在GitHub编辑本页' // [!code focus]
-    }, // [!code focus]
+    //编辑本页 // [!code focus:5]
+    editLink: { 
+      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path', // 改成自己的仓库
+      text: '在GitHub编辑本页'
+    },
   },
 
 })
@@ -1093,22 +1093,23 @@ export default defineConfig({
 
 如果你想添加页面的更新时间就配置，我反正是没搞定
 
-```ts{3,6-13}
+```ts{3,7-14}
 export default defineConfig({
 
-  lastUpdated: true, //此配置不会立即生效，需git提交后爬取时间戳，本地报错可以先注释
+  lastUpdated: true, //此配置不会立即生效，需git提交后爬取时间戳，没有安装git本地报错可以先注释 // [!code focus]
 
   themeConfig: {
-    //上次更新时间
+
+    //上次更新时间，为安装git会报错，可以先注释 // [!code focus:8]
     lastUpdated: {
-      text: 'Updated at',
+      text: '最后更新于',
       formatOptions: {
         dateStyle: 'full',
         timeStyle: 'medium'
       },
     },
-  },
 
+  },
 })
 ```
 
