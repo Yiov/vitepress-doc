@@ -1,6 +1,6 @@
 # Frontmatter
 
-> 更新时间：2024-1-28
+<update />
 
 Vitepress已经给了一个配置，就在我们的 `docs - index.md` 中
 

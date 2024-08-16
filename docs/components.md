@@ -1,6 +1,6 @@
 # 组件
 
-> 更新时间：2024-8-10
+<update />
 
 
 ## 简介
@@ -96,11 +96,11 @@ docs
 
 ```ts{2,6-9}
 /* .vitepress\theme\index.ts */
-import Mycomponent from "./components/Mycomponent.vue"
+import Mycomponent from "./components/Mycomponent.vue" // [!code focus]
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({app}) {
+  enhanceApp({app}) { // [!code focus:4]
     // 注册全局组件
     app.component('Mycomponent' , Mycomponent)
   }
@@ -203,11 +203,11 @@ docs
 ```ts{3,7-10}
 /* .vitepress\theme\index.ts */
 import DefaultTheme from 'vitepress/theme'
-import HomeUnderline from "./components/HomeUnderline.vue"
+import HomeUnderline from "./components/HomeUnderline.vue" // [!code focus]
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({app}) {
+  enhanceApp({app}) { // [!code focus:4]
     // 注册全局组件
     app.component('HomeUnderline' , HomeUnderline)
   }
@@ -478,11 +478,11 @@ docs
 ```ts{3,7-10}
 /* .vitepress\theme\index.ts */
 import DefaultTheme from 'vitepress/theme'
-import Video from "./components/Video.vue"
+import Video from "./components/Video.vue" // [!code focus]
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({app}) {
+  enhanceApp({app}) { // [!code focus:4]
     // 注册全局组件
     app.component('Video' , Video)
   }
@@ -594,24 +594,147 @@ confetti({
 ```ts{3,7-10}
 /* .vitepress\theme\index.ts */
 import DefaultTheme from 'vitepress/theme'
-import confetti from "./components/confetti.vue"
+import confetti from "./components/confetti.vue" // [!code focus]
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({app}) {
+  enhanceApp({app}) { // [!code focus:4]
     // 注册全局组件
     app.component('confetti' , confetti)
   }
 }
 ```
 
-最后回到首页或者其他页面，插入组件看效果
-
-同理也可以做[ 雪花效果](https://www.kirilv.com/canvas-confetti/#snow)
+最后回到首页或者其他页面，插入组件看效果，同理也可以做 [雪花效果](https://www.kirilv.com/canvas-confetti/#snow)
 
 ```md
 <!-- index.md -->
 <confetti />
 ```
 
+
+---
+
+
+### 标题下添加时间
+
+文档页有个 `lastUpdated` 通过 `git log` 的方式自动更新时间，我们直接获取同步，不用手动填那不香香！
+
+开干！在查询了 [官网的API接口：useData](https://vitepress.dev/zh/reference/runtime-api#usedata)，发现 `lastUpdated` 在 `page` 属性中
+
+```ts{13,40}
+interface VitePressData<T = any> {
+  /**
+   * 站点级元数据
+   */
+  site: Ref<SiteData<T>>
+  /**
+   * .vitepress/config.js 中的 themeConfig
+   */
+  theme: Ref<T>
+  /**
+   * 页面级元数据
+   */
+  page: Ref<PageData> // [!code focus]
+  /**
+   * 页面 frontmatter
+   */
+  frontmatter: Ref<PageData['frontmatter']>
+  /**
+   * 动态路由参数
+   */
+  params: Ref<PageData['params']>
+  title: Ref<string>
+  description: Ref<string>
+  lang: Ref<string>
+  isDark: Ref<boolean>
+  dir: Ref<string>
+  localeIndex: Ref<string>
+}
+
+interface PageData {
+  title: string
+  titleTemplate?: string | boolean
+  description: string
+  relativePath: string
+  filePath: string
+  headers: Header[]
+  frontmatter: Record<string, any>
+  params?: Record<string, any>
+  isNotFound?: boolean
+  lastUpdated?: number // [!code focus]
+}
+```
+
+我们直接在 `theme/components` 文件夹，新建 `update.vue` 组件编写
+
+
+```md{6}
+docs
+├─ .vitepress
+│  └─ config.mts
+│  └─ theme
+│  │   ├─ components
+│  │   │   └─ update.vue
+│  │   └─ index.ts
+└─ index.md
+```
+
+在 `update.vue` 填入如下代码，保存
+
+::: code-group
+```vue [update.vue]
+<script setup lang="ts">
+import { useData } from 'vitepress'
+import { computed } from 'vue'
+const { page } = useData()
+
+const date = computed(
+  () => new Date(page.value.lastUpdated!)
+)
+</script>
+
+<template>
+  <div class="LastUpdated">
+    <p>更新时间: {{ date.toLocaleString() }}</p>
+  </div>
+</template>
+
+<style>
+.LastUpdated {
+  color: var(--vp-c-text-2);
+}
+</style>
+```
+
+然后，在 `index.ts` 中注册全局组件
+
+```ts{3,7-10}
+/* .vitepress\theme\index.ts */
+import DefaultTheme from 'vitepress/theme'
+import update from "./components/update.vue" // [!code focus]
+
+export default {
+  extends: DefaultTheme,
+  enhanceApp({app}) { // [!code focus:4]
+    // 注册全局组件
+    app.component('update' , update)
+  }
+}
+```
+
+最后回到首页或者其他页面，插入组件，本地开发显示 `更新时间: Invalid Date` 即可
+
+::: tip 为什么不用插槽
+由于标题下没有合适的插槽的位置，所以选择组件的方式
+:::
+
+::: warning 为什么没有效果
+请确保你的 `config.mts` 配置中，已开启 `lastUpdated: true,`
+:::
+
+```md
+<!-- index.md -->
+<update />
+```
 

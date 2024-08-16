@@ -1,6 +1,6 @@
 # Markdown
 
-> 更新时间：2024-1-28
+<update />
 
 如果你还不了解 Markdown ，[请看我整理的Markdown教程](https://yiov.top/computer/markdown.html)
 

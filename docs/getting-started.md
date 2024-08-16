@@ -1,6 +1,6 @@
 # 快速上手
 
-> 更新时间：2024-1-28
+<update />
 
 <div class="linkcard">
   <a href="https://vitepress.new/" target="_blank">
