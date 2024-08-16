@@ -601,6 +601,7 @@ export default {
 
 ::: details 为什么不用插槽
 由于标题下没有合适的插槽的位置，所以选择组件的
+:::
 
 ::: details 为什么没有效果
 请确保你的 `config.mts` 配置中，已开启 `lastUpdated: true,`
