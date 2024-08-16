@@ -39,7 +39,7 @@ export default {
     app.component('HomeUnderline' , HomeUnderline) // 首页下划线
     app.component('Video' , Video) // 视频播放器
     app.component('confetti' , confetti) // 五彩纸屑
-    app.component('update' , update) // 更新时间
+    app.component('update' , update) // 视频
 
     // 不蒜子
     if (inBrowser) {

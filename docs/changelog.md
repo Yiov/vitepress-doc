@@ -18,6 +18,9 @@ next: false
 
 - 新增 [标题下添加时间，并自动更新](./components.md#标题下添加时间)
 
+- 更新 [不蒜子封装组件的方式](./components.md#不蒜子)
+
+- 更新 [视频组件修改为原生video](./components.md#视频播放)
 
 ### 2024-8-15
 

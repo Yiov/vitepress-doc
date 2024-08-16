@@ -331,7 +331,7 @@ model: {
 
 ## 浏览量
 
-我对这个并不感冒，看了一下，基本上是用的 [不蒜子](http://busuanzi.ibruce.info/)
+基本上使用的是 [不蒜子](http://busuanzi.ibruce.info/)，免费的且足够好用
 
 ::: code-group
 ```sh [pnpm]
@@ -374,7 +374,7 @@ export default {
 }
 ```
 
-使用就很简单了，我还做了一个 [简单的插槽示例](./layout.md#不蒜子)，可以参考使用
+使用就很简单了，复制到页面中使用即可
 
 ::: tip 说明
 本地开发出现数字即算成功，等你部署后会显示正确的数值
@@ -385,7 +385,11 @@ export default {
 本站访客数 <span id="busuanzi_value_site_uv" /> 人次
 ```
 
+但是这也不好看啊，那就根据自己需求选择封装吧
 
+* 仅首页显示：[组件使用示例](./components.md#不蒜子)
+
+* 所有页面底部：[插槽使用示例](./layout.md#不蒜子)
 
 
 
@@ -487,10 +491,15 @@ stackblitz演示：https://stackblitz.com/edit/vite-y1rga7
 为什么Vitepress没有任务列表，在 [issues#1923](https://github.com/vuejs/vitepress/issues/1923) 和 [issues#413](https://github.com/vuejs/vitepress/issues/413) 里找到了这个问题
 
 ::: tip 开发者认为
-开发者认为Vitepress并不需要这个，但可以通过 [markdown-it](https://markdown-it.github.io/) 实现， 在 [vitepress文档中并没有此功能](https://vitepress.dev/guide/markdown.html#advanced-configuration)，但可以通过 [markdown-it-task-lists](https://www.npmjs.com/package/markdown-it-task-lists) 实现
+Vitepress并不需要这个，也可以通过 [markdown-it](https://markdown-it.github.io/) 实现，但 [vitepress集成的markdown-it](https://vitepress.dev/zh/guide/markdown#advanced-configuration) 并没有此功能
+
+看到推荐的 [markdown-it-task-lists](https://www.npmjs.com/package/markdown-it-task-lists) 年久失修，找了一下可以使用 [markdown-it-task-checkbox](https://github.com/linsir/markdown-it-task-checkbox) 实现
 :::
 
-测试下来感觉 [markdown-it-task-checkbox](https://github.com/linsir/markdown-it-task-checkbox) 更好用点
+
+:::: details 实测下来不建议折腾，不如直接使用Emoji表情
+
+我们需要用到另一款插件：[markdown-it-task-checkbox](https://github.com/linsir/markdown-it-task-checkbox)
 
 
 ::: code-group
@@ -588,6 +597,10 @@ bun add -D @types/node
 - [ ] 吃饭
 - [ ] 睡觉
 - [x] 打豆豆
+
+::::
+
+
 
 最后，我还是推荐直接使用 [emoji表情](https://www.emojiall.com/zh-hant/) ，简简单单
 
