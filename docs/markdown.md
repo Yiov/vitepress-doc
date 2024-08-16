@@ -170,6 +170,23 @@ export default defineConfig({
 
 
 
+### 视频
+
+视频用HTML5自带的 `<video>` 即可
+
+输入：
+
+```html
+<video src="/lol.mp4" controls="controls"></video>
+```
+
+输出：
+
+<video src="/lol.mp4" controls="controls"></video>
+
+
+
+
 ### 表格
 
 输入：

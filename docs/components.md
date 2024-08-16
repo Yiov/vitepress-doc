@@ -211,8 +211,7 @@ export default {
 
 ### 视频播放
 
-视频用HTML5自带的 `<video>` 即可，但是我们需要封装一下才可以使用
-
+之前我们用 `<video>` 标签实现了 [视频播放](./markdown.md#视频)，我们还可以将它封装
 
 在 `theme/components` 文件夹，然后创建 `Video.vue`
 
@@ -269,6 +268,10 @@ export default {
 而它最大的弊端，就是只能播放本地视频，在线视频不可以，想要视频封面是万万没有的
 
 <Video />
+
+
+
+
 
 
 
