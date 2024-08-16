@@ -1104,8 +1104,8 @@ export default defineConfig({
     lastUpdated: {
       text: '最后更新于',
       formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'medium'
+        dateStyle: 'short', // 可选值full、long、medium、short。
+        timeStyle: 'medium' // 可选值full、long、medium、short。
       },
     },
 

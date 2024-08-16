@@ -2,6 +2,8 @@
 
 > 更新时间：2024-1-28
 
+<update />
+
 ## 简介
 
 [VitePress](https://vitepress.dev/zh/) 使用 Markdown 编写的源内容，生成可以轻松部署在任何地方的静态 HTML 页面

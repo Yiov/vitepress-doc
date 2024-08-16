@@ -39,9 +39,12 @@ guide/index.md          -->    /guide/index.html (可以通过 /guide/ 访问)
 
 
 
-## 配置
+## 基础配置
 
-在目录，右键用 vscode 打开，正式开始开发
+在当前目录，[右键用 vscode 打开（没有的请自行安装VScode）](https://yiov.top/website/VSCode.html)
+
+然后按 [Ctrl+\`(~) 键](#基础配置) （ESC下面的那个键），调出终端，正式开始开发
+
 
 ```md{4}
 .

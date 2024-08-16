@@ -21,6 +21,7 @@ import HomeUnderline from "./components/HomeUnderline.vue" // 首页下划线
 import Video from './components/Video.vue' // 视频播放器
 import confetti from "./components/confetti.vue" // 五彩纸屑
 import blur from "./components/blur.vue" // LOGO模糊渐显
+import update from "./components/update.vue" // LOGO模糊渐显
 
 
 // 不蒜子
@@ -40,6 +41,7 @@ export default {
     app.component('Video' , Video) // 视频播放器
     app.component('confetti' , confetti) // 五彩纸屑
     app.component('blur' , blur) // LOGO模糊渐显
+    app.component('update' , update) // LOGO模糊渐显
 
     // 不蒜子
     if (inBrowser) {
