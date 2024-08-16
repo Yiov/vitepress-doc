@@ -605,74 +605,13 @@ export default {
 }
 ```
 
-最后回到首页或者其他页面，插入组件看效果，可以与 [LOGO模糊渐显](./style.md#logo模糊渐显) 搭配使用
+最后回到首页或者其他页面，插入组件看效果
 
 同理也可以做[ 雪花效果](https://www.kirilv.com/canvas-confetti/#snow)
 
 ```md
 <!-- index.md -->
 <confetti />
-```
-
-
-
-### LOGO模糊渐显
-
-在 `theme\components` 文件夹，创建 `blur.vue` 组件
-
-```md{7}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ config.mts
-│  │  └─ theme
-│  │     └─ components
-│  │        └─ blur.vue
-│  └─ index.md
-└─ node_modules
-```
-
-复制下面代码，粘贴到 `blur.vue` 中
-
-
-::: code-group
-```vue [blur.vue]
-<script setup lang="ts">
-import { onMounted } from 'vue';
-onMounted(() => {
-  const image = document.querySelector('.VPImage.image-src');
-  image.classList.add('blur');
-  setTimeout(() => {
-    image.classList.remove('blur');
-  }, 500)
-});
-</script>
-
-<style>
-.VPImage.image-src {
-  &.blur {
-    filter: blur(20px);
-    /* transform: translate(-50%, -50%) scale(0.88); */
-  }
-}
-</style>
-```
-:::
-
-最后引入 `index.index` 中 即可看到效果，可以与 [五彩纸屑](#五彩纸屑) 搭配使用
-
-```ts{3,9}
-/* .vitepress\theme\index.ts */
-import DefaultTheme from 'vitepress/theme'
-import blur from "./components/blur.vue" // [!code focus]
-
-export default {
-  extends: DefaultTheme,
-  enhanceApp({app}) {
-    // 注册全局组件
-    app.component('blur' , blur) // [!code focus]
-  }
-}
 ```
 
 
