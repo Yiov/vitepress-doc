@@ -578,6 +578,8 @@ const date = computed(
 }
 </style>
 ```
+:::
+
 
 然后，在 `index.ts` 中注册全局组件
 
