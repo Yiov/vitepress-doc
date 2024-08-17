@@ -573,6 +573,8 @@ const date = computed(
 }
 </style>
 ```
+:::
+
 
 然后，在 `index.ts` 中注册全局组件
 
@@ -592,15 +594,15 @@ export default {
 
 最后回到首页或者其他页面，插入组件，本地开发显示 `更新时间: Invalid Date` 即可
 
-::: tip 为什么不用插槽
-由于标题下没有合适的插槽的位置，所以选择组件的方式
+::: details 为什么不用插槽
+由于标题下没有合适的插槽的位置，所以选择组件的
 :::
 
-::: warning 为什么没有效果
+::: details 为什么没有效果
 请确保你的 `config.mts` 配置中，已开启 `lastUpdated: true,`
 :::
 
-::: danger 可以添加作者吗
+::: details 可以添加显示作者吗
 官方没有提供这个接口，在 [官方的issues中](https://github.com/vuejs/vitepress/issues/3001) 你可以找到答案，添加贡献者并尝试
 :::
 
