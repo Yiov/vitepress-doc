@@ -234,7 +234,7 @@ docs
 <template>
     <div>
       <video controls>
-        <source src="/lol.mp4" type="lol/mp4">
+        <source src="/lol.mp4" type="video/mp4">
       </video>
     </div>
   </template>
@@ -268,11 +268,6 @@ export default {
 而它最大的弊端，就是只能播放本地视频，在线视频不可以，想要视频封面是万万没有的
 
 <Video />
-
-
-
-
-
 
 
 
