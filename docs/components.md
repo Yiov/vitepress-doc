@@ -211,9 +211,36 @@ export default {
 
 ### 视频播放
 
-之前我们用 `<video>` 标签实现了 [视频播放](./markdown.md#视频)，我们还可以将它封装
+之前我们用 `<video>` 标签实现了 [视频播放](./markdown.md#视频)，但是没有封面也没有倍数
 
-在 `theme/components` 文件夹，然后创建 `Video.vue`
+我们安装 [西瓜播放器](https://h5player.bytedance.com/guide/) 并封装成vue组件达到目的
+
+::: details 其他播放器
+有能力的也可以看看最近比较热门的播放器：[VidStack](https://www.vidstack.io/)
+:::
+
+::: code-group
+
+```sh [pnpm]
+pnpm add -D xgplayer
+```
+
+```sh [yarn]
+yarn add -D xgplayer
+```
+
+```sh [npm]
+npm i xgplayer
+```
+
+```sh [bun]
+bun add -D xgplayer
+```
+
+:::
+
+
+在 `theme/components` 文件夹，然后创建 `xgplayer.vue`
 
 
 ```md{6}
@@ -222,22 +249,66 @@ docs
 │  └─ config.mts
 │  └─ theme
 │  │   ├─ components
-│  │   │   └─ Video.vue
+│  │   │   └─ xgplayer.vue
 │  │   └─ index.ts
 └─ index.md
 ```
 
-在 `Video.vue` 填入如下代码，保存
+在 `xgplayer.vue` 填入如下代码，保存
 
 ::: code-group
-```vue [Video.vue]
+```vue [xgplayer.vue]
 <template>
-    <div>
-      <video controls>
-        <source src="/lol.mp4" type="video/mp4">
-      </video>
-    </div>
-  </template>
+  <div id="mse"></div>
+</template>
+
+<script setup lang="ts">
+import Player from "xgplayer";
+import "xgplayer/dist/index.min.css";
+import { onMounted } from 'vue'
+
+interface propsType {
+  url: string
+  poster: string
+}
+
+const props = withDefaults(defineProps<propsType>(), {
+  url: '',
+  poster: '',
+})
+
+onMounted(() => {
+  new Player({
+    id: 'mse', //占位id
+    volume: 0, // 默认静音
+    lang: "zh", //设置中文
+
+    autoplay: false, //关闭自动播放
+    // autoplayMuted: true,// 是否开启自动静音
+    fluid: true,  // 流式布局，自动宽高比
+    controls: true, //开启控制栏，设为false即隐藏
+    leavePlayerTime: 0, //鼠标离开控制栏隐藏延时时间，默认3000ms
+    download: true, //开启下载
+    keyShortcut: true, //开启热键
+
+    url: props.url, //传入的url
+    poster: props.poster, //传入的视频封面
+
+    start: {
+      isShowPause: true //暂停显示播放按钮
+    }
+
+  })
+
+})
+
+</script>
+
+<style scoped>
+#mse {
+  flex: auto;
+}
+</style>
 ```
 :::
 
@@ -247,13 +318,13 @@ docs
 ```ts{3,7-10}
 /* .vitepress\theme\index.ts */
 import DefaultTheme from 'vitepress/theme'
-import Video from "./components/Video.vue" // [!code focus]
+import xgplayer from "./components/xgplayer.vue" // [!code focus]
 
 export default {
   extends: DefaultTheme,
   enhanceApp({app}) { // [!code focus:4]
     // 注册全局组件
-    app.component('Video' , Video)
+    app.component('xgplayer' , xgplayer)
   }
 }
 ```
@@ -262,12 +333,12 @@ export default {
 
 ```md
 <!-- index.md -->
-<Video />
+<xgplayer url="/视频路径.mp4" poster="/封面路径.png" />
 ```
 
-而它最大的弊端，就是只能播放本地视频，在线视频不可以，想要视频封面是万万没有的
+更过的功能，可以自己在 [西瓜播放器的配置](https://h5player.bytedance.com/config/) 中寻找
 
-<Video />
+<xgplayer url="/lol.mp4" poster="/lol.png" />
 
 
 
@@ -595,7 +666,11 @@ export default {
 最后回到首页或者其他页面，插入组件，本地开发显示 `更新时间: Invalid Date` 即可
 
 ::: details 为什么不用插槽
-由于标题下没有合适的插槽的位置，所以选择组件的
+目前位置最佳的 [插槽](./layout.md#插槽表) 是 `doc-before`
+
+但是在标题上方，不是太喜欢，所以选择组件，你也可以自己找
+
+* 区别：插槽不用手动添加；组件需要手动添加
 :::
 
 ::: details 为什么没有效果
@@ -610,4 +685,3 @@ export default {
 <!-- index.md -->
 <update />
 ```
-

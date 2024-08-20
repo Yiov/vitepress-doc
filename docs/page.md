@@ -1091,21 +1091,39 @@ export default defineConfig({
 
 ## 上次更新
 
-如果你想添加页面的更新时间就配置，我反正是没搞定
+如果你想添加页面的更新时间就配置
+
+::: details 报错：spawn git EAGAIN
+* 原因：没有 [安装git](https://yiov.top/website/pages/git.html) ，配置 lastUpdated 必须安装
+
+* 相关：打开项目时，也会提示 `未找到 Git。请安装 Git，或在 "git.path" 设置中配置`
+
+* 解决：安装好git后，打开VScode - 文件 - 首选项 - 设置  - 搜索 `git.path` - 点击 `在 settings.json 中编辑`，添加正确的 git.path 安装路径
+
+```json:no-line-numbers{5-6}
+{
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+    "git.path": "D:\Program Files\Git\bin\git.exe", // Windows默认反斜杠是错的 // [!code --]
+    "git.path": "D:/Program Files/Git/bin/git.exe", // 请使用正确Linux的斜杠 // [!code ++]
+}
+```
+:::
 
 ```ts{3,7-14}
 export default defineConfig({
 
-  lastUpdated: true, //此配置不会立即生效，需git提交后爬取时间戳，没有安装git本地报错可以先注释 // [!code focus]
+  lastUpdated: true, //首次配置不会立即生效，需git提交后爬取时间戳 // [!code focus]
 
   themeConfig: {
 
-    //上次更新时间，为安装git会报错，可以先注释 // [!code focus:8]
+    //上次更新时间 // [!code focus:8]
     lastUpdated: {
       text: '最后更新于',
       formatOptions: {
-        dateStyle: 'short', // 可选值full、long、medium、short。
-        timeStyle: 'medium' // 可选值full、long、medium、short。
+        dateStyle: 'short', // 可选值full、long、medium、short
+        timeStyle: 'short' // 可选值full、long、medium、short
       },
     },
 

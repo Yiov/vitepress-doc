@@ -18,9 +18,10 @@ import { onMounted, watch, nextTick } from 'vue';
 import MNavLinks from './components/MNavLinks.vue' //导航1
 import Navlink from './components/Navlink.vue' //导航2
 import HomeUnderline from "./components/HomeUnderline.vue" // 首页下划线
-import Video from './components/Video.vue' // 视频播放器
 import confetti from "./components/confetti.vue" // 五彩纸屑
 import update from "./components/update.vue" // 更新时间
+import xgplayer from "./components/xgplayer.vue" //西瓜播放器
+import backTop from "./components/backTop.vue" //返回顶部
 
 
 // 不蒜子
@@ -37,9 +38,9 @@ export default {
     app.component('MNavLinks' , MNavLinks) //导航1
     app.component('Navlink' , Navlink) //导航2
     app.component('HomeUnderline' , HomeUnderline) // 首页下划线
-    app.component('Video' , Video) // 视频播放器
     app.component('confetti' , confetti) // 五彩纸屑
-    app.component('update' , update) // 视频
+    app.component('update' , update) // 更新
+    app.component('xgplayer' , xgplayer) //西瓜播放器
 
     // 不蒜子
     if (inBrowser) {
@@ -63,6 +64,7 @@ export default {
 
     return h(DefaultTheme.Layout, props, {
       'layout-bottom': () => h(view), //不蒜子layout-bottom插槽
+      'doc-footer-before': () => h(backTop), // 使用doc-footer-before插槽
     })
   },
   

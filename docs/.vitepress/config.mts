@@ -93,8 +93,8 @@ export default defineConfig({
     lastUpdated: {
       text: '上次更新时间',
       formatOptions: {
-        dateStyle: 'short', // 可选值full、long、medium、short。
-        timeStyle: 'medium' // 可选值full、long、medium、short。
+        dateStyle: 'short', // 可选值full、long、medium、short
+        timeStyle: 'medium' // 可选值full、long、medium、short
       },
     },
 

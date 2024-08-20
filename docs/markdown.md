@@ -177,7 +177,7 @@ export default defineConfig({
 输入：
 
 ```html
-<video src="/lol.mp4" controls="controls"></video>
+<video src="/本地视频路径.mp4" controls="controls"></video>
 ```
 
 输出：
