@@ -2,17 +2,27 @@
 
 <update />
 
-如果你还不了解 Markdown ，[请看我整理的Markdown教程](https://yiov.top/computer/markdown.html)
+> 如果你还不了解 Markdown ，请先了解下Markdown的简单用法
+>
+> VitePress 中的链接可以直接渲染
 
-::: tip 说明
-VitePress 相对于 VuePress 在Markdown中唯一的区别：链接可以直接渲染，不需要语法
-:::
+<div class="linkcard">
+  <a href="https://yiov.top/computer/markdown.html" target="_blank">
+    <p class="description">Markdown的简单用法<br><span>https://yiov.top/computer/markdown.html</span></p>
+    <div class="logo">
+        <img alt="Logo" width="70px" height="70px" src="/markdown.png" />
+    </div>
+  </a>
+</div>
+
+
 
 ## 基础功能
 
 VitePress 使用 [markdown-it](https://github.com/markdown-it/markdown-it) 作为解析器，并使用 [Shiki](https://shiki.matsu.io/) 来突出显示语言语法
 
-基本配置
+
+### 基本配置
 
 ```ts
 export default defineConfig({

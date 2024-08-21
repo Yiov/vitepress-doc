@@ -20,11 +20,11 @@
 
 ::: details 必备工具
 
-必装：[安装nodejs](https://yiov.top/website/nodejs.html)
+* 必装：[安装nodejs](https://yiov.top/website/nodejs.html)
 
-建议安装：[安装vscode](https://yiov.top/website/VSCode.html)
+* 建议安装：[安装vscode](https://yiov.top/website/VSCode.html)
 
-可选安装：[安装git](https://yiov.top/website/pages/git.html)
+* 可选安装：[安装git](https://yiov.top/website/pages/git.html)
 :::
 
 
@@ -61,7 +61,11 @@ bun -v
 
 :::: details 创建目录
 
-win键+R键，调出命令运行框，输入 `cmd`
+`win键+R键`，输入 `cmd`，打开命令终端
+
+![](/cmd/cmd-01.png)
+
+
 
 先进入任意盘符，比如 `F` 盘
 
@@ -70,21 +74,25 @@ win键+R键，调出命令运行框，输入 `cmd`
 f:
 ```
 
-再创建文件夹名
+![](/cmd/cmd-02.png)
+
+
+再创建文件夹名并进入
 
 ```sh
-#目录可以自定义
-mkdir vitepress
-
-#目录和上面保持一致
-cd vitepress
+#创建目录并进入文件夹
+mkdir vitepress && cd vitepress
 ```
-::: warning 说明
+
 这样我的目录路径为 `F:\vitepress`
 
-我们先关闭cmd，一会介绍快捷的方法
-:::
+我们先关闭cmd，一会介绍快捷进入的方法
+
+
+![](/cmd/cmd-03.png)
+
 ::::
+
 
 
 
@@ -95,8 +103,13 @@ cd vitepress
 
 ### 安装依赖
 
-在目录上方的地址栏，比如我的是 `F:\vitepress` 上输入 `cmd` 回车可以快捷打开
+在项目目录上方的地址栏，上输入 `cmd` 回车可以快捷打开
 
+![](/cmd/cmd-04.png)
+
+![](/cmd/cmd-05.png)
+
+然后我们安装vitepress
 
 ::: code-group
 ```sh [pmpm]
@@ -116,27 +129,7 @@ bun add -D vitepress
 ```
 :::
 
-::: details 收到了缺少对等依赖的警告
-如果使用 PNPM，您会注意到 `@docsearch/js` 缺少对等警告。这并不妨碍 VitePress 工作。如果您希望抑制此警告，请将以下内容添加到您的 `package.json`
-
-注意：最新版已经不会提示了！
-
-```
-"pnpm": {
-  "peerDependencyRules": {
-    "ignoreMissing": [
-      "@algolia/client-search",
-      "search-insights"
-    ]
-  }
-}
-```
-:::
-
-::: tip 说明
-VitePress是一个仅支持ESM的软件包。不要使用 `require()` 来导入它，并确保您最新的 `package.json` 文件包含 `"type": "module"` ，或者更改相关文件的扩展名，例如 `vitepress/config.js` 更改为 `.mjs` / `.mts`。有关更多详细信息，请参考 [Vite的故障排除指南](https://cn.vitejs.dev/guide/troubleshooting#this-package-is-esm-only) 。此外，在异步的CJS上下文中，您可以使用 `await import('vitepress')` 来代替。
-:::
-
+![](/cmd/cmd-06.png)
 
 ### 初始化向导
 
@@ -161,14 +154,14 @@ bunx vitepress init
 
 
 ::: details 文件位置放在 `./docs`
-文件夹名参照下面，你也可以自己改
+文件夹名新手请参照下面，老手可以自己改
 
 如果你直接回车，则是放在了根目录 `./`，那你的 [脚本命令](#脚本命令) 也要修改一下
 :::
 
 
 
-```sh{4}
+```sh:no-line-numbers{4}
 T   Welcome to VitePress!
 |
 o  Where should VitePress initialize the config?
@@ -193,26 +186,32 @@ o  Add VitePress npm scripts to package.json?
 ```
 
 ::: tip Vue 作为对等依赖
-如果您打算使用 Vue 组件或 API 进行自定义，您还应该显式 [安装 vue](./components.md#安装) 作为对等依赖项
+如果您打算使用 Vue 组件或 API 进行自定义，您还应该显式 [安装 Vue](./components.md#安装) 作为对等依赖项
 
-暂时用不到的，我们后面会再详细说
+如果你不懂，我们先暂时不看，我们后面会再详细说
 :::
 
 
 ### 脚本命令
 
+默认不用改，在 `package.json` 中可以查看
+
 ::: warning 注意
 如果你在初始化的时候选择了 `./` ，而不是 `./doc`，这里就需要修改
-
-否则，不用动
 :::
 
-```json
-  "scripts": {
+```json{6-10}
+{
+  "devDependencies": {
+    "vitepress": "^1.3.3"
+  },
+  "packageManager": "pnpm@8.6.10+sha1.98fe2755061026799bfa30e7dc8d6d48e9c3edf0",
+  "scripts": { // [!code focus:5]
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   }
+}
 ```
 
 
@@ -224,13 +223,11 @@ o  Add VitePress npm scripts to package.json?
 
 ```sh
 echo node_modules >> .gitignore
-
 echo cache >> .gitignore
-
 echo dist >> .gitignore
 ```
 
-
+![](/cmd/cmd-07.png)
 
 
 
@@ -238,9 +235,6 @@ echo dist >> .gitignore
 
 本地启动开发环境，来开发你的网站
 
-::: tip 如何退出
-ctrl+c 即可退出开发模式
-:::
 
 ::: code-group
 ```sh [pmpm]
@@ -261,29 +255,40 @@ bun run docs:dev
 :::
 
 
+生成了一个本地 `5173` 端口的链接，复制到浏览器打开进行预览
 
-生成了一个本地 `5173` 端口的链接，可以对网站进行预览
+```sh:no-line-numbers{9}
+F:\vitepress>pnpm run docs:dev
 
-
-此时，VitePress已经搭建好了一个基础的网站
-
-`http://localhost:5173/`
-
-::: tip 说明
-接下来我们可以关闭cmd，全程用 vscode 了
-:::
+> @ docs:dev F:\vitepress
+> vitepress dev docs
 
 
+  vitepress v1.3.3
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+```
 
 
+
+
+按 `Ctrl+C键` 即可退出开发模式
+
+我们可以关闭cmd，以后全程用 [VScode](https://yiov.top/website/VSCode.html) 了
+
+![](/cmd/cmd-08.png)
+
+
+
+## 相关
+
+无特殊情况，不需要了解
 
 :::: details 拓展：启动端口修改
 
-需要在 [脚本命令](#脚本命令) 中修改端口
-
-::: warning 注意
-若无必要，不用修改
-:::
+若无必要，不用修改，需要在 [脚本命令](#脚本命令) 中修改端口
 
 这样就是 `8080` 端口启动了
 

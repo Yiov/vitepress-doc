@@ -22,7 +22,7 @@
 └─ node_modules
 ```
 
-然后在 `theme` 目录下新建 `index.mts` 并填入如下代码
+然后在 `theme` 目录下新建 `index.ts` 并填入如下代码
 
 
 ```ts
@@ -42,7 +42,7 @@ export default {
 
 ### 主题色
 
-在 `theme` 目录下新建 `style` 文件夹，然后新建 `index.css` 并填入如下代码
+在 `theme` 目录下新建 `style` 文件夹，然后新建 `index.css` 和 `var.css`
 
 ```md{7-8}
 .
@@ -57,14 +57,18 @@ export default {
 └─ node_modules
 ```
 
-```css
+
+分别复制代码并粘贴
+
+::: code-group
+
+```css [index.css]
 /* index.css */
 @import './var.css';
 ```
 
-然后再新建 `var.css` 并填入如下代码
 
-```css
+```css [var.css]
 /* var.css */
 :root {
   --vp-c-brand-1: #18794e;
@@ -102,11 +106,15 @@ export default {
   --vp-button-brand-active-border: #F6CEEC;
 } */
 ```
+:::
+
+
 
 然后将修改好的样式引入 `index.ts`
 
 
-```ts{2}
+```ts{3}
+/* .vitepress/theme/index.ts */
 import DefaultTheme from 'vitepress/theme'
 import './style/index.css' // [!code focus]
 
@@ -129,7 +137,7 @@ export default {
 最简单的修改就是，比如改成红色
 
 ```css
-/* .vitepress\theme\style\var.css */
+/* .vitepress/theme/style/var.css */
 h1 {
   color: red;
 }
@@ -138,15 +146,13 @@ h1 {
 但是这样并不太好看，我们可以弄一个渐变色
 
 ```css
-/* .vitepress\theme\style\var.css */
+/* .vitepress/theme/style/var.css */
 h1 {
-  background: -webkit-linear-gradient(-45deg, #e43498 5%, #5ad7dd 15%);
+  background: -webkit-linear-gradient(10deg, #bd34fe 5%, #e43498 15%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
 }
-
 ```
 
 ::: tip 说明
@@ -199,7 +205,7 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 :::
 
 ```css
-/* .vitepress\theme\style\var.css */
+/* .vitepress/theme/style/var.css */
 /* 提示框背景颜色 */
 :root {
   --vp-custom-block-tip-bg: var(--vp-c-green-soft);
@@ -244,36 +250,6 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 
 
 
-### 引用颜色
-
-在Markdown中我们常用的引用符号 `>`，在Vitepress中是一个灰色样式，我们可以稍微改动一下
-
-```css
-/* .vitepress\theme\style\var.css */
-/* 引用块 */
-.vp-doc blockquote {
-  border-radius: 5px;
-  padding: 10px 16px;
-  background-color: var(--vp-badge-danger-bg);
-  position: relative;
-  border-left: 4px solid #e95f59;
-}
-```
-
-输入：
-
-```md
-> 更新时间：2024年
-```
-
-输出：
-
-> 更新时间：2024年
-
-
----
-
-
 ### 导航栏毛玻璃
 
 在 `theme/style` 文件夹，然后新建 `blur.css` 并填入如下代码
@@ -297,7 +273,7 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 
 ::: code-group
 ```css [blur.css]
-/* .vitepress\theme\style\blur.css */
+/* .vitepress/theme/style/blur.css */
 :root {
 
     /* 首页导航 */
@@ -509,11 +485,83 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 ---
 
 
+### 引用颜色
+
+在Markdown中，我们常用的引用符号是 `>`，我们可以稍微改动一下
+
+在 `theme/style` 新建 `blockquote.css` 文件
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ blockquote.css
+│  └─ index.md
+└─ node_modules
+```
+
+复制下面代码，粘贴到 `blockquote.css` 中
+
+```css
+/* .vitepress/theme/style/blockquote.css */
+:root {
+    /* 浅色引用块色卡 */
+    --blockquote-color: #e6f6e6;
+    --blockquote-color-left: #009400;
+}
+
+.dark {
+    /* 深色引用块色卡 */
+    --blockquote-color: #003100;
+    --blockquote-color-left: #009400;
+}
+
+.vp-doc blockquote {
+    border-radius: 10px;
+    padding: 10px 16px;
+    position: relative;
+    background-color: var(--blockquote-color);
+    border-left: 6px solid var(--blockquote-color-left);
+    color: var(--vp-c-text-1);
+}
+```
+
+
+然后在 `index.css` 中引入生效
+
+```css
+/* .vitepress/theme/style/index.css */
+@import './blockquote.css';
+```
+
+
+
+输入：
+
+```md
+> 更新时间：2024年
+```
+
+输出：
+
+> 更新时间：2024年
+
+
+
+
+---
+
+
+
 ### 链接图标
 
 在 [Vuejs官网的快速上手](https://cn.vuejs.org/guide/quick-start.html) 中 链接前有个图标，怎么做到呢
 
-在 `var.css` 中添加代码
+在 `theme/style` 新建 `link.css` 文件
 
 ```md{8}
 .
@@ -527,6 +575,8 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 │  └─ index.md
 └─ node_modules
 ```
+
+将下面代码，复制粘贴到 `link.css` 中
 
 分别添加了 [油管](https://www.youtube.com/) 和 [B站](https://www.bilibili.com/) 的链接图标
 
@@ -594,7 +644,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 方法参考自 [vuejs官网](https://cn.vuejs.org/guide/introduction.html) 的 [中文仓库](https://github.com/vuejs-translations/docs-zh-cn)
 :::
 
-在 `.vitepress\theme\style\` 目录新建一个 `linkcard.css` 文件
+在 `.vitepress/theme/style` 目录新建一个 `linkcard.css` 文件
 
 
 ```md{8}
@@ -614,7 +664,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 
 ```css
-/* .vitepress\theme\style\linkcard.css */
+/* .vitepress/theme/style/linkcard.css */
 
 /* 卡片背景 */
 .linkcard {
@@ -666,7 +716,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 然后在 `index.css` 中引入生效
 
 ```css
-/* .vitepress\theme\style\index.css */
+/* .vitepress/theme/style/index.css */
 @import './linkcard.css';
 ```
 
@@ -706,7 +756,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 将代码组改成Mac风格，三个小圆点
 
-在 `.vitepress\theme\style\` 目录新建一个 `vp-code-group.css` 文件
+在 `.vitepress/theme/style` 目录新建一个 `vp-code-group.css` 文件
 
 
 ```md{8}
@@ -726,7 +776,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 
 ```css
-/* .vitepress\theme\style\vp-code-group.css */
+/* .vitepress/theme/style/vp-code-group.css */
 
 /* 代码块tab */
 .vp-code-group .tabs {
@@ -759,7 +809,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 然后在 `index.css` 中引入生效
 
 ```css
-/* .vitepress\theme\style\index.css */
+/* .vitepress/theme/style/index.css */
 @import './vp-code-group.css';
 ```
 

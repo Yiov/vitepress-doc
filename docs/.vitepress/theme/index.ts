@@ -15,8 +15,7 @@ import { onMounted, watch, nextTick } from 'vue';
 
 
 // 组件
-import MNavLinks from './components/MNavLinks.vue' //导航1
-import Navlink from './components/Navlink.vue' //导航2
+import MNavLinks from './components/MNavLinks.vue' //导航
 import HomeUnderline from "./components/HomeUnderline.vue" // 首页下划线
 import confetti from "./components/confetti.vue" // 五彩纸屑
 import update from "./components/update.vue" // 更新时间
@@ -35,8 +34,7 @@ export default {
 
   enhanceApp({app , router }) {
     // 注册全局组件
-    app.component('MNavLinks' , MNavLinks) //导航1
-    app.component('Navlink' , Navlink) //导航2
+    app.component('MNavLinks' , MNavLinks) //导航
     app.component('HomeUnderline' , HomeUnderline) // 首页下划线
     app.component('confetti' , confetti) // 五彩纸屑
     app.component('update' , update) // 更新

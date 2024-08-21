@@ -2,7 +2,24 @@
 
 <update />
 
+
+## 方式
+
 主要讲一下GitHub，其他的方式都大同小异，[更多部署方式可以参考官方文档](https://vitepress.dev/zh/guide/deploy)
+
+::: tip 说明
+常见的静态部署方式，无论你采用哪种，都会先上传到GitHub
+:::
+
+| 名称 | 自定义域名 | 限制 | 缺点 |
+|:-:|:-:|:-:|:-:|
+| [Github page](https://pages.github.com/) | 支持 | 空间1G，100G/月 | 国内访问慢，百度不收录 |
+| [Gitee Pages](https://gitee.com/help/articles/4136#article-header0) | 收费 | 空间1G，100G/月 | 需实名，仓库审查 |
+| [GitLab Pages](https://docs.gitlab.cn/jh/user/project/pages/index.html) | 支持 | - | 国内访问慢 |
+| |
+| [Netlify](https://docs.netlify.com/get-started/) | 支持 | 100G/月 | 从GitHub、GitLab、BitBucket拉取 |
+| [Vercel](https://vercel.com/docs/concepts/get-started) | 支持 | 100G/月 | 从GitHub、GitLab、BitBucket拉取 |
+| [Cloudflare Pages](https://developers.cloudflare.com/pages/get-started/) | 支持 | - | 从GitHub、GitLab拉取 |
 
 
 
@@ -41,7 +58,10 @@ export default defineConfig({
 ```
 
 
-## 构建
+## 部署
+
+
+### 手动部署
 
 构建完成后，在dist文件夹上传到Github即可
 
@@ -87,41 +107,33 @@ bun run docs:preview
 ::::
 
 
-## 部署
 
-::: tip 说明
-常见的静态部署方式，无论你采用哪种，都会先上传到GitHub
-:::
-
-| 名称 | 自定义域名 | 限制 | 缺点 |
-|:-:|:-:|:-:|:-:|
-| [Github page](https://pages.github.com/) | 支持 | 空间1G，100G/月 | 国内访问慢，百度不收录 |
-| [Gitee Pages](https://gitee.com/help/articles/4136#article-header0) | 收费 | 空间1G，100G/月 | 需实名，仓库审查 |
-| [GitLab Pages](https://docs.gitlab.cn/jh/user/project/pages/index.html) | 支持 | - | 国内访问慢 |
-| |
-| [Netlify](https://docs.netlify.com/get-started/) | 支持 | 100G/月 | 从GitHub、GitLab、BitBucket拉取 |
-| [Vercel](https://vercel.com/docs/concepts/get-started) | 支持 | 100G/月 | 从GitHub、GitLab、BitBucket拉取 |
-| [Cloudflare Pages](https://developers.cloudflare.com/pages/get-started/) | 支持 | - | 从GitHub、GitLab拉取 |
-
-### 手动上传
-
-默认的构建输出目录 `.vitepress/dist` ，上传到Github即可
+默认的构建输出目录 `.vitepress/dist` ，将生成的所有文件上传到 Github 即可
 
 ::: tip 说明
 如果你还不会使用，请参考教程：[Github的注册使用到上传](https://yiov.top/website/pages/github.html)
 :::
 
 
-在GitHub仓库 - 设置 - page里把分支改成main，默认root，保存
+上传成功后，在GitHub仓库 - 设置 - page里把分支改成main，默认root，保存
 
 
 等创建成功后即可获得访问链接
 
 
 
-### 工作流
+
+### 自动部署（推荐）
+
+* [Vercel](https://vercel.com/docs/concepts/get-started) ：非常推荐，可以参考 [Vercel注册到部署](https://yiov.top/website/pages/vercel.html)
+
+* Github Actions 工作流
+
+:::: details 点我查看 Github Actions 工作流步骤
 
 在仓库 `Actions` 里新建一个工作流 中创建一个 `deploy.yml` 脚本文件
+
+每次你更新代码后，系统会自动给你打包上传并部署
 
 ::: tip 说明
 名字可以自定义，不用非得用 `deploy` ，只要下面配置名和这个一致就行
@@ -199,4 +211,5 @@ jobs:
         uses: actions/deploy-pages@v2
 ```
 
-每次你更新代码后，系统会自动给你打包上传并部署
+
+::::

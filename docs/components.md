@@ -24,9 +24,7 @@
 ## 安装
 
 ::: tip 说明
-已安装过的无视，
-
-按CTRL+C退出开发预览模式
+已安装过的无视，按 `CTRL+C` 退出开发预览模式后安装
 :::
 
 ::: code-group
@@ -95,7 +93,7 @@ docs
 ```
 
 ```ts{2,6-9}
-/* .vitepress\theme\index.ts */
+/* .vitepress/theme/index.ts */
 import Mycomponent from "./components/Mycomponent.vue" // [!code focus]
 
 export default {
@@ -118,7 +116,7 @@ export default {
 
 [首页文字](./index.md) 的下划线，是利用了 [@Theo-Messi](https://github.com/Theo-Messi/tm-fe/) 的组件
 
-在 `theme` 目录中 创建 `components` 文件夹，然后创建 `HomeUnderline.vue`
+在 `theme/components` 文件夹，创建 `HomeUnderline.vue`
 
 
 ```md{6}
@@ -185,7 +183,7 @@ docs
 
 
 ```ts{3,7-10}
-/* .vitepress\theme\index.ts */
+/* .vitepress/theme/index.ts */
 import DefaultTheme from 'vitepress/theme'
 import HomeUnderline from "./components/HomeUnderline.vue" // [!code focus]
 
@@ -316,7 +314,7 @@ onMounted(() => {
 然后，在 `index.ts` 中注册全局组件
 
 ```ts{3,7-10}
-/* .vitepress\theme\index.ts */
+/* .vitepress/theme/index.ts */
 import DefaultTheme from 'vitepress/theme'
 import xgplayer from "./components/xgplayer.vue" // [!code focus]
 
@@ -329,14 +327,14 @@ export default {
 }
 ```
 
-最后回到首页，插入组件，看效果
+最后回到任意页面，插入组件，看效果
 
 ```md
 <!-- index.md -->
 <xgplayer url="/视频路径.mp4" poster="/封面路径.png" />
 ```
 
-更过的功能，可以自己在 [西瓜播放器的配置](https://h5player.bytedance.com/config/) 中寻找
+更多的功能，可以自己在 [西瓜播放器的配置](https://h5player.bytedance.com/config/) 中寻找
 
 <xgplayer url="/lol.mp4" poster="/lol.png" />
 
@@ -438,7 +436,7 @@ docs
 然后，在 `index.ts` 中注册全局组件
 
 ```ts{3,7-10}
-/* .vitepress\theme\index.ts */
+/* .vitepress/theme/index.ts */
 import DefaultTheme from 'vitepress/theme'
 import DataPanel from "./components/DataPanel.vue" // [!code focus]
 
@@ -530,7 +528,7 @@ confetti({
 然后，在 `index.ts` 中注册全局组件
 
 ```ts{3,7-10}
-/* .vitepress\theme\index.ts */
+/* .vitepress/theme/index.ts */
 import DefaultTheme from 'vitepress/theme'
 import confetti from "./components/confetti.vue" // [!code focus]
 

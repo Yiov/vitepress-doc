@@ -4,9 +4,7 @@
 
 ## 时间线
 
-采用了 [@HanochMa](https://github.com/HanochMa/) 的项目
-
-仓库：https://github.com/HanochMa/vitepress-markdown-timeline
+采用了 [@HanochMa/vitepress-markdown-timeline](https://github.com/HanochMa/vitepress-markdown-timeline) 的项目
 
 Demo：https://hanochma.github.io/daily/2023-04
 
@@ -107,9 +105,9 @@ export default {
 
 ## 谷歌分析
 
-利用插件 [google-analytics](https://analytics.google.com/) ，来查看网站访问量，这里我们用 [@ZhongxuYang](https://github.com/ZhongxuYang/) 的插件
+利用插件 [google-analytics](https://analytics.google.com/) ，来查看网站访问量
 
-仓库：https://github.com/ZhongxuYang/vitepress-plugin-google-analytics
+这里我们用 [@ZhongxuYang/vitepress-plugin-google-analytics](https://github.com/ZhongxuYang/vitepress-plugin-google-analytics) 的插件
 
 
 ::: code-group
@@ -251,9 +249,7 @@ export default {
 
 第一次接触的人会比较懵，其实就是在右下角有个二次元的人物，类似电子宠物
 
-这里使用 [@xinlei3166](https://github.com/xinlei3166/) 的 [Live2D](https://www.live2d.com/zh-CHS/) 插件
-
-仓库：https://github.com/xinlei3166/vitepress-theme-website
+这里使用 [@xinlei3166/vitepress-theme-website](https://github.com/xinlei3166/vitepress-theme-website) 的 [Live2D](https://www.live2d.com/zh-CHS/) 插件
 
 
 ::: code-group
@@ -316,10 +312,12 @@ export default {
 
 想要更换模型在 [@iCharlesZ](https://github.com/iCharlesZ/vscode-live2d-models#url) 这里找，替换 `model` 中的 `url` 链接即可
 
-```ts{2}
-model: {
-  url: 'https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/bilibili-22/index.json'
-},
+```ts{3}
+useLive2d({
+  model: {
+  url: 'https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/bilibili-22/index.json' // [!code focus]
+  },
+})
 ```
 
 
@@ -387,9 +385,14 @@ export default {
 
 但是这也不好看啊，那就根据自己需求选择封装吧
 
+::: info 封装演示
+
 * 仅首页显示：[组件使用示例](./components.md#不蒜子)
 
 * 所有页面底部：[插槽使用示例](./layout.md#不蒜子)
+:::
+
+
 
 
 
@@ -397,7 +400,7 @@ export default {
 
 发现一款自动侧边栏，简单好用 [@jooy2/vitepress-sidebar](https://github.com/jooy2/vitepress-sidebar)
 
-安装参考文档：https://vitepress-sidebar.jooy2.com/guide/getting-started
+安装文档：https://vitepress-sidebar.jooy2.com/guide/getting-started
 
 ::: code-group
 ```sh [pnpm]
@@ -482,7 +485,7 @@ stackblitz演示：https://stackblitz.com/edit/vite-y1rga7
 >
 > 注意：插件在读取目录之后，你再修改文件名，需要重启才能生效
 
-![](/vitepress-sidebar.png)
+![](/sidebar.png)
 
 
 
@@ -528,7 +531,7 @@ commonjs：简称CJS，`module.exports` `exports` 导出，`require` 导入
 
 ES module：简称ESM，`export` 导出，`import` 导入
 
-这个我们在最开始 [安装Vitepress依赖](./getting-started.md#安装依赖) 的时候也提到过
+这个我们在最开始 [Vitepress前言](./preface.md#官方) 的时候也提到过
 :::
 
 ```ts{2,5-16}
@@ -662,7 +665,7 @@ Giscus 是一个基于 GitHub Discussion 的评论系统，启用简便
 点击 `Install` 安装
 
 
-![](/giscus-01.png)
+![](/giscus/giscus-01.png)
 
 
 
@@ -674,7 +677,7 @@ Giscus 是一个基于 GitHub Discussion 的评论系统，启用简便
 想单独放评论，新建一个也可
 :::
 
-![](/giscus-02.png)
+![](/giscus/giscus-02.png)
 
 ::: tip 查看
 完成后可以在个人头像-设置-应用 `Applications` 中看到
@@ -688,7 +691,7 @@ Giscus 是一个基于 GitHub Discussion 的评论系统，启用简便
 
 我们进入要开启讨论的仓库，点设置 - 勾选讨论 `Settings - discussions`
 
-![](/giscus-03.png)
+![](/giscus/giscus-03.png)
 
 
 ### 生成数据
@@ -697,16 +700,16 @@ Giscus 是一个基于 GitHub Discussion 的评论系统，启用简便
 
 输入自己的仓库链接，满足条件会提示可用
 
-![](/giscus-04.png)
+![](/giscus/giscus-04.png)
 
 下拉到 Discussion 分类我们按推荐的选 `Announcements` ，懒加载评论也可以勾选下
 
-![](/giscus-05.png)
+![](/giscus/giscus-05.png)
 
 
 下方就自动生成了你的关键数据
 
-![](/giscus-06.png)
+![](/giscus/giscus-06.png)
 
 
 其中 `data-repo` 、 `data-repo-id` 、 `data-category` 和 `data-category-id` 这4个是我们的关键数据
@@ -733,9 +736,10 @@ Giscus 是一个基于 GitHub Discussion 的评论系统，启用简便
 
 ### 安装使用
 
-有能力的可以用官方给的js数据封装，我这里用 [@T-miracle](https://github.com/T-miracle/) 的插件
+有能力的可以用官方给的js数据封装
 
-仓库：https://github.com/T-miracle/vitepress-plugin-comment-with-giscus
+我这里用 [@T-miracle/vitepress-plugin-comment-with-giscus](https://github.com/T-miracle/vitepress-plugin-comment-with-giscus) 的插件
+
 
 ::: code-group
 ```sh [pnpm]

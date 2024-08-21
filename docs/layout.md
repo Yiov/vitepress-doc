@@ -9,8 +9,10 @@ Vitepress基于Vue3用到了 `<slot>` 插槽，在 `<Layout/>` 布局组件中�
 
 由于也是使用组件，请了解过 [组件的使用](./components.md) 了再来看
 
-::: tip 说明
-布局插槽就好比一个插线板，将电器的插头插入对应的插线孔就可以工作了
+::: tip 插槽与组件的区别
+* 插槽：有固定的孔位，适用于需要频繁显示的内容，比如：广告
+
+* 组件：无固定的孔位，适用于单次或少次显示内容，比如：视频播放
 :::
 
 
@@ -206,7 +208,7 @@ export default {
 * aside-ads-after
 
 
-![](/layout-doc.png)
+![](/layout/layout-doc.png)
 
 
 ---
@@ -224,7 +226,7 @@ export default {
 * home-features-after
 
 
-![](/layout-home.png)
+![](/layout/layout-home.png)
 
 
 ---
@@ -236,7 +238,7 @@ export default {
 * page-top
 * page-bottom
 
-![](/layout-page.png)
+![](/layout/layout-page.png)
 
 
 ---
@@ -247,7 +249,7 @@ export default {
 
 * not-found
 
-![](/layout-404.png)
+![](/layout/layout-404.png)
 
 ---
 
@@ -269,18 +271,16 @@ export default {
 * nav-screen-content-after
 
 
-![](/layout-nav.png)
+![](/layout/layout-nav.png)
 
 
 ## 使用演示
 
-分别演示两种使用情况，[Frontmatter使用](#frontmatter使用) 和 [常规使用](#常规使用)
 
----
 
 ### Frontmatter（Layout）
 
-本方法参考 [掘金 @Younglina](https://juejin.cn/post/7134586612406714375)的文章
+本方法参考 [掘金 @Younglina](https://juejin.cn/post/7134586612406714375) 的文章
 
 通过VitePress官网给出的 [useDate](https://vitepress.dev/reference/runtime-api#usedata) 返回页面数据，可以看到返回对象的类型
 
@@ -370,7 +370,7 @@ date: 2023-12-19 08:09
 
 查看效果
  
-![](/layout-demo-01.png)
+![](/layout/layout-demo-01.png)
 
 
 
@@ -383,7 +383,7 @@ date: 2023-12-19 08:09
 这里我们参考 [Vite官网](https://vitejs.cn/vite3-cn/) 下的赞助，代码在 [仓库](https://github.com/vitejs/vite) 查找
 
 
-![](/layout-vite.png)
+![](/layout/layout-vite.png)
 
 在 `untils` 目录新建一个 `sponsors.ts` 文件
 

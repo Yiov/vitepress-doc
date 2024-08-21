@@ -138,15 +138,8 @@ export default defineConfig({
           },
         ],
       },
-      { text: 'VitePress', link: 'https://vitepress.dev/zh/', noIcon: true },
-
-      {
-        text: pkg.version,
-        items: [
-          { text: '更新日志(本站)', link: '/changelog.md' },
-          { text: '更新日志(官方)', link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md' },
-        ],
-      },
+      { text: pkg.version, link: 'https://vitepress.dev/zh/', noIcon: true },
+      {text: '更新日志', link: '/changelog.md'},
     ],
 
 

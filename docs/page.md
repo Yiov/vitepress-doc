@@ -3,17 +3,31 @@
 <update />
 
 
+
 ## 站点配置
 
+### 元数据
+
+包含了 `lang` `title` `description` 信息
+
+```ts{4-6}
+import { defineConfig } from 'vitepress'
+
+export default defineConfig({
+  lang: 'zh-CN', //语言，可选 en-US
+  title: "VitePress", //站点名
+  description: "我的vitpress文档教程",  //站点描述
+})
+```
 
 ### 网页标题
 
-使用 `titleTemplate` 自定义整个网页标题，一般不使用
+使用 `titleTemplate` 自定义整个网页标题，一般不使用，自定义会直接写死
 
-::: tip 与 站点标题 的区别
-[站点标题](#站点标题) `title` 是固定的，每个页面都会显示
+::: tip 说明
+网页标题随着每个页面的 `<h1>` 标题而变动，
 
-网页标题 `titleTemplate` 是不固定的，它随着每个页面的 `<h1>` 标题而变动，如 标题是 `# 页面` ，那么显示的就是 `页面 | VitePress` ，除非自定义给它写死 
+如 标题是 `# 页面` ，那么显示的就是 `页面 | VitePress` 
 :::
 
 ```ts{5}
@@ -55,18 +69,51 @@ export default defineConfig({
 
 
 
-::: details 官方配置添加谷歌字体
-```ts
-export default {
+:::: details Head其他配置
+
+::: code-group
+
+```ts [添加谷歌字体]
+export default defineConfig({
   head: [
     [
       'link',
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
-      // would render:
-      //
-      // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
     ],
+    [
+      'link',
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
+    ],
+    [
+      'link',
+      { href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', rel: 'stylesheet' }
+    ]
+  ]
+})
+```
 
+```ts [添加谷歌分析]
+export default defineConfig({
+  head: [
+    [
+      'script',
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=TAG_ID' }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'TAG_ID');`
+    ]
+  ]
+})
+```
+
+```ts [添加谷歌分析]
+export default defineConfig({
+  head: [
     [
       'script',
       { id: 'register-sw' },
@@ -75,20 +122,12 @@ export default {
           navigator.serviceWorker.register('/sw.js')
         }
       })()`
-      // would render:
-      //
-      // <script id="register-sw">
-      // ;(() => {
-      //   if ('serviceWorker' in navigator) {
-      //     navigator.serviceWorker.register('/sw.js')
-      //   }
-      // })()
-      // </script>
     ]
   ]
-}
+})
 ```
-:::
+
+::::
 
 
 
@@ -133,7 +172,7 @@ export default defineConfig({
 ::: tip 说明
 实际就是新建一个语言目录，再把根目录所有文档，翻译后再放进去
 
-本次仅演示下首页，其他的自行配置吧！
+本次仅演示下首页，其他的请 [参考官方的配置](https://github.com/vuejs/vitepress/tree/main/docs/.vitepress/config) ！
 :::
 
 默认读取目录的index文件，无需手动填写 `index`
@@ -162,24 +201,34 @@ export default defineConfig({
 })
 ```
 
+### 忽略死链
 
-### 默认主题
+不建议配置，当你的链接指向路径错误，自动忽略会导致问题无法排查
 
-本文仅演示默认主题设置
+```ts{2}
+export default defineConfig({
+  ignoreDeadLinks: false //关闭忽略死链，不配置即可，非常不建议设置为true
+})
+```
+
+## 默认主题
+
+通过配置文件中的 `themeConfig` 选项定义主题配置
 
 ::: tip 说明
-主题配置允许您自定义主题，通过配置文件中的themeConfig选项定义主题配置
+主题配置允许您自定义主题，但本文仅演示默认主题的设置
 :::
 
 ```ts
 export default defineConfig({
 
-  // 主题配置
+  // 默认主题配置
   themeConfig: {
     logo: '',
     nav: [...],
     sidebar: { ... },
   },
+
 })
 ```
 
@@ -189,7 +238,7 @@ export default defineConfig({
 
 ### Logo
 
-网站的Logo图标还没有，下方是目录表
+网站的Logo图标还没有，参考下方目录表
 
 ```md{6}
 .
@@ -202,11 +251,9 @@ export default defineConfig({
 └─ package.json
 
 ```
-根据目录得知logo文件的位置，在 `doc - public` 文件夹
+按照目录新建public文件夹，并在 `doc\public` 中 放入logo
 
-::: tip 说明
-依次新建public文件夹，并放入logo即可
-:::
+然后在 `config.mts` 中配置
 
 ```ts{4-5}
 export default defineConfig({
@@ -254,12 +301,12 @@ export default defineConfig({
 
 
 
----
-
 
 ### 站点地图
 
-VitePress 提供开箱即用的配置，由 [sitemap](https://github.com/ekalinin/sitemap.js) 模块提供支持，为站点生成 `sitemap.xml` 文件。要启用它，请将以下内容添加到 `.vitepress/config.mts` 中
+VitePress 提供开箱即用的配置，由 [sitemap](https://vitepress.dev/zh/guide/sitemap-generation) 模块提供支持，为站点生成 `sitemap.xml` 文件。
+
+要启用它，请将以下内容添加到 `.vitepress/config.mts` 中
 
 
 
@@ -420,9 +467,9 @@ export default defineConfig({
 })
 ```
 
-vitepress自带的其他社交图标
+通过查看vitepress的文件，自带的社交图标有以下这些
 
-```ts{3-12}
+```ts:no-line-numbers {3-12}
 /* node_modules\vitepress\types\default-theme.d.ts */
 export type SocialLinkIcon =
     | 'discord'
@@ -440,7 +487,7 @@ export type SocialLinkIcon =
 
 还可以自定义SVG图标，比如：微信
 
-我这里使用阿里旗下的 [iconfont](https://www.iconfont.cn/)，搜索 `微信` 找到合适的下载 `复制svg代码`
+我这里使用 [阿里旗下的：iconfont](https://www.iconfont.cn/)，搜索 `微信` 找到合适的 `下载 - 复制svg代码`
 
 ::: tip 说明
 其他图标网站：[xicons·需翻墙打开](https://www.xicons.org/#/zh-CN)、字节跳动旗下的 [iconpark](https://iconpark.oceanengine.com/official)
@@ -474,7 +521,7 @@ export default defineConfig({
 })
 ```
 
-::: warning 关于微信
+::: warning 关于微信链接
 如果真的要加微信，建议用 [@zhheo](https://github.com/zhheo/Wechat-Official-Account-Web) 的项目
 
 自己搭一个，界面也很美观
@@ -657,9 +704,9 @@ export default defineConfig({
 })
 ```
 
-官方爬虫设置
+::: code-group
 
-```ts
+```ts [官方爬虫设置]
 new Crawler({
   appId: '...',
   apiKey: '...',
@@ -763,13 +810,7 @@ new Crawler({
 })
 ```
 
-
-
-
-
-自建爬虫配置
-
-```json
+```json [自建爬虫配置]
 {
     "index_name": "你的索引名",
     "start_urls": [
@@ -806,7 +847,7 @@ new Crawler({
     }
 }
 ```
-
+:::
 
 
 
@@ -1123,7 +1164,7 @@ export default defineConfig({
       text: '最后更新于',
       formatOptions: {
         dateStyle: 'short', // 可选值full、long、medium、short
-        timeStyle: 'short' // 可选值full、long、medium、short
+        timeStyle: 'medium' // 可选值full、long、medium、short
       },
     },
 

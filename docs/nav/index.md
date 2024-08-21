@@ -1,35 +1,28 @@
 # VitePress搭建个人导航
 
-> 更新时间：2023-12-30
+<update />
 
 ## 简介
 
 VitePress也能做导航，Amazing！[@茂茂大神](https://github.com/maomao1996/mm-notes) 牛批！
 
-* @茂茂：[Demo](./mao.md)  丨 [点我直达教程](#茂茂导航)
+* 茂茂：https://github.com/maomao1996/vitepress-nav-template
 
-* @ahua：[Demo](./ahua.md) 丨 [点我直达教程](#ahua导航)
+* DEMO：https://fe-nav.netlify.app/nav/
 
+* 我的演示页：[本次教程演示](./mao.md)
 
-
-## 茂茂导航
-
-
-* 仓库：https://github.com/maomao1996/vitepress-nav-template
-
-* Demo：https://fe-nav.netlify.app/nav/
+::: details 其他衍生导航
+* ahua：[仓库](https://github.com/ahua666/StarNavigation) 丨 [DEMO](https://star-navigation.vercel.app/)
+:::
 
 
+## 自定义布局
 
-
-### 自定义布局
-
-在 `docs/.vitepress/theme` 目录下的`index.ts` 文件中加入如下代码
+在 `docs/.vitepress/theme` 目录下的 `index.ts` 文件中加入如下代码
 
 ::: tip 说明
 因为 `layout: doc` 主要是提供给文档使用的，其页面宽度有限，同时为了更好的样式隔离，为其添加一个 `layoutClass` 方便我们更好的去自定义样式
-
-样式代码，一会我们写到组件中
 :::
 
 ```md{6}
@@ -72,9 +65,7 @@ export default {
 安装 `vue` 即可，已安装的无视！
 
 ::: tip 说明
-按 `CTRL+C` 退出开发预览模式后安装
-
-安装完成再重新启动
+按 `CTRL+C` 退出开发预览模式后安装，安装完成再重新启动
 :::
 
 ::: code-group
@@ -99,7 +90,7 @@ bun add -D vue
 
 
 
-### 自定义组件
+## 自定义组件
 
 ::: danger 特别说明
 以下文件夹及文件，可以放在任意位置/取名
@@ -123,7 +114,9 @@ bun add -D vue
 
 粘贴如下代码
 
-```ts
+::: code-group
+
+```ts [type.ts]
 /* type.ts */
 export interface NavLink {
   /** 站点图标 */
@@ -147,9 +140,10 @@ export interface NavData {
   items: NavLink[]
 }
 ```
+:::
 
 
-在 `.vitepress/theme/components` 分别新建 `MNavLink.vue` 和 `MNavLinks.vue` 文件，复制粘贴下面代码保存
+在 `.vitepress/theme/components` 分别新建 `MNavLink.vue` 和 `MNavLinks.vue` 文件
 
 ```md{6-7}
 .
@@ -163,6 +157,8 @@ export interface NavData {
 │  └─ index.md       
 └─ package.json
 ```
+
+复制粘贴下面代码保存
 
 ::: code-group
 
@@ -393,9 +389,7 @@ const formatTitle = computed(() => {
 这里有报红，我们要安装 `@mdit-vue/shared`
 
 ::: tip 说明
-按 `CTRL+C` 退出开发预览模式后安装
-
-安装完成再重新启动
+按 `CTRL+C` 退出开发预览模式后安装，安装完成再重新启动
 :::
 
 
@@ -438,7 +432,7 @@ export default {
 
 
 
-### 新建页面
+## 新建页面
 
 在 `nav` 目录下新建一个 `index.md` 文件
 
@@ -460,14 +454,15 @@ export default {
 粘贴下面代码保存
 
 
-```md
+```md{3}
 ---
 layout: doc
 layoutClass: m-nav-layout
 ---
 ```
 
-### 修改样式
+
+## 修改样式
 
 然后在 `.vitepress/theme/style` 目录下新建 `nav.scss`
 
@@ -486,7 +481,9 @@ layoutClass: m-nav-layout
 
 复制粘贴下面代码保存
 
-```scss
+::: code-group
+
+```scss [nav.scss]
 .m-nav-layout {
     /* 覆盖全局的 vp-layout-max-width（仅当前页面使用） */
     --vp-layout-max-width: 1660px;
@@ -525,14 +522,13 @@ layoutClass: m-nav-layout
     }
   }
 ```
+:::
 
 
 安装一下 `sass`
 
 ::: tip 说明
-按 `CTRL+C` 退出开发预览模式后安装
-
-安装完成再重新启动
+按 `CTRL+C` 退出开发预览模式后安装，安装完成再重新启动
 :::
 
 
@@ -575,7 +571,7 @@ sidebar: false
 
 
 
-### 建数据库
+## 建数据库
 
 在 `.vitepress/theme/untils` 目录新建 `data.ts` 文件
 
@@ -595,8 +591,11 @@ sidebar: false
 
 粘贴代码保存，也可参考数据进行修改
 
-::: details 点我查看 data.ts 代码
-```ts
+
+:::: details 点我查看 data.ts 代码
+::: code-group
+
+```ts [data.ts]
 import type { NavData } from './types'
 
 export const NAV_DATA: NavData[] = [
@@ -1220,10 +1219,11 @@ export const NAV_DATA: NavData[] = [
 ]
 ```
 :::
+::::
 
 
 
-### 实现
+## 实现
 
 最后我们引入 `index.md`，上下页也关闭
 
@@ -1252,8 +1252,9 @@ import { NAV_DATA } from '/.vitepress/theme/untils/data'
 
 
 
+## 优化
 
-### 优化：搜索
+### 搜索
 
 
 默认自带的本地搜索无法爬取到导航，建议使用 [Algolia](../page.md#algolia)
@@ -1267,7 +1268,7 @@ outline: [2, 3, 4]
 ```
 
 
-### 优化：悬停边框
+### 悬停边框
 
 需要修改 `MNavLink.vue` 中的代码，可以自己做一些颜色改变
 
@@ -1288,7 +1289,7 @@ outline: [2, 3, 4]
 
 
 
-### 优化：下划线
+### 下划线
 
 这个在 [VitePress美化](../style#链接下划线) 的时候说了，请参考修改
 
@@ -1304,7 +1305,7 @@ outline: [2, 3, 4]
 ```
 
 
-### 优化：图标穿透
+### 图标穿透
 
 图标大小在 `MNavLink.vue` 中修改 `.m-nav-link` 的值
 
@@ -1332,1356 +1333,3 @@ outline: [2, 3, 4]
   z-index: 0 !important;
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## ahua导航
-
-虽然基于茂茂的，但这hover深入我心啊
-
-* 仓库：https://github.com/ahua666/StarNavigation
-
-* Demo：https://star-navigation.vercel.app/
-
-
-### 自定义布局
-
-在 `docs/.vitepress/theme` 目录下的`index.ts` 文件中加入如下代码
-
-::: tip 说明
-因为 `layout: doc` 主要是提供给文档使用的，其页面宽度有限，同时为了更好的样式隔离，为其添加一个 `layoutClass` 方便我们更好的去自定义样式
-
-样式代码，一会我们写到组件中
-:::
-
-```md{6}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ config.mts
-│  │  └─ theme
-│  │      └─ index.ts   <-- 主题配置
-│  └─ index.md        
-└─ package.json
-```
-
-
-```ts{3-4,9-20}
-import DefaultTheme from 'vitepress/theme'
-
-import { h } from 'vue'
-import { useData } from 'vitepress'
-
-export default {
-  extends: DefaultTheme,
-
-  Layout: () => {
-    const props: Record<string, any> = {}
-    // 获取 frontmatter
-    const { frontmatter } = useData()
-
-    /* 添加自定义 class */
-    if (frontmatter.value?.layoutClass) {
-      props.class = frontmatter.value.layoutClass
-    }
-
-    return h(DefaultTheme.Layout, props)
-  },
-}
-```
-
-:::: details vue如果是报红的状态?
-安装 `vue` 即可，已安装的无视！
-
-::: tip 说明
-按 `CTRL+C` 退出开发预览模式后安装
-
-安装完成再重新启动
-:::
-
-::: code-group
-```sh [pmpm]
-pnpm add -D vue
-```
-
-```sh [yarn]
-yarn add -D vue
-```
-
-```sh [npm]
-npm i -D vue
-```
-
-```sh [bun]
-bun add -D vue
-```
-:::
-::::
-
-
-
-
-### 自定义组件
-
-
-在 `.vitepress/theme/components` 新建 `Navlink.vue` 文件，复制粘贴下面代码保存
-
-```md{6}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ theme          
-│  │     └─ components      
-│  │         └─ Navlink.vue.vue    <-- 我在这
-│  │  └─ config.mts
-│  └─ index.md       
-└─ package.json
-```
-
-::: tip 说明
-这里的22行，数据名可以根据自己的改
-
-本次仅做演示
-:::
-
-```vue{22}
-<template>
-    <div id="article-container" class="flink">
-      <div v-for="(item, index) in datas" :key="index">
-        <h2 :id="item.title" tabindex="-1">{{ item.title }}</h2>
-        <div class="flink-desc">{{ item.desc }}</div>
-        <div class="flink-list">
-          <div v-for="(item2, index2) in item.items" :key="index2" class="flink-list-item"><a :href="item2.link"
-              :title="item2.title" rel="external nofollow" target="_blank"><img :data-lazy-src="item2.icon"
-                :src="item2.icon" alt="chatGPT" class="flink-avatar entered loaded" data-ll-status="loaded"
-                onerror="this.onerror=null;this.src='https://bu.dusays.com/2023/03/03/6401a7902b8de.png'">
-              <div class="img-alt is-center">{{ item2.title }}</div>
-              <div class="flink-item-info"><span class="flink-item-name">{{ item2.title }}</span><span :title="item2.desc"
-                  class="flink-item-desc">{{ item2.desc }}</span></div>
-            </a></div>
-        </div>
-  
-      </div>
-    </div>
-</template>
-  
-<script lang="ts" setup>
-  import { NAV_DATA } from '../untils/data-ahua'
-  const datas: any = NAV_DATA
-</script>
-  
-<style>
-  :root {
-    --star-white: #fff;
-    --star-white-op: rgba(255, 255, 255, 0.2);
-    --star-black: #000;
-    --star-black-op: rgba(0, 0, 0, 0.2);
-    --star-none: #00000000;
-    --star-gray: #999999;
-    --star-gray-op: #9999992b;
-    --star-vip: #e5a80d;
-    --star-main: var(--star-theme);
-    --star-main-op: var(--star-theme-op);
-    --star-main-op-deep: var(--star-theme-op-deep);
-    --star-main-none: var(--star-theme-none);
-    --star-shadow-theme: 0 8px 12px -3px var(--star-theme-op);
-    --star-shadow-blackdeep: 0 2px 16px -3px rgba(0, 0, 0, .15);
-    --star-shadow-main: 0 8px 12px -3px var(--star-main-op);
-    --star-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, .20);
-    --star-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, .20);
-    --star-shadow-black: 0 0 12px 4px rgba(0, 0, 0, .05);
-    --star-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, .12);
-    --star-shadow-red: 0 8px 12px -3px #ee7d7936;
-    --star-shadow-green: 0 8px 12px -3px #87ee7936;
-    --star-logo-color: linear-gradient(215deg, #4584ff 0%, #cf0db9 100%);
-    --star-snackbar-time: 5s;
-    --star-theme: #425AEF;
-    --star-theme-op: #4259ef23;
-    --star-theme-op-deep: #4259efdd;
-    --star-theme-none: #4259ef01;
-    --star-blue: #425AEF;
-    --star-red: #f04a63;
-    --star-pink: #FF7C7C;
-    --star-green: #57bd6a;
-    --star-yellow: #c28b00;
-    --star-yellow-op: #d99c001a;
-    --star-orange: #e38100;
-    --star-fontcolor: #363636;
-    --star-background: #f7f9fe;
-    --star-reverse: #000;
-    --star-maskbg: rgba(255, 255, 255, 0.6);
-    --star-maskbgdeep: rgba(255, 255, 255, 0.85);
-    --star-hovertext: var(--star-main);
-    --star-ahoverbg: #F7F7FA;
-    --star-lighttext: var(--star-main);
-    --star-secondtext: rgba(60, 60, 67, 0.8);
-    --star-scrollbar: rgba(60, 60, 67, 0.4);
-    --star-card-btn-bg: #edf0f7;
-    --star-post-blockquote-bg: #fafcff;
-    --star-post-tabs-bg: #f2f5f8;
-    --star-secondbg: #f1f3f8;
-    --star-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
-    --star-card-bg: #fff;
-    --star-card-bg-op: var(--star-black-op);
-    --star-card-bg-none: rgba(255, 255, 255, 0);
-    --star-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0.00);
-    --star-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0.00);
-    --star-card-border: #e3e8f7;
-    --star-shadow-border: 0 8px 16px -4px #2c2d300c;
-    --style-border: 1px solid var(--star-card-border);
-    --style-border-always: 1px solid var(--star-card-border);
-    --style-border-hover: 1px solid var(--star-main);
-    --style-border-hover-always: 1px solid var(--star-main);
-    --style-border-dashed: 1px dashed var(--star-theme-op);
-    --style-border-forever: 2px solid var(--star-main);
-  }
-
-  ::selection {
-    background: var(--star-fontcolor);
-    color: var(--star-background);
-  }
-
-  [class=light] {
-    --star-theme: #425AEF;
-    --star-theme-op: #4259ef23;
-    --star-theme-op-deep: #4259efdd;
-    --star-theme-none: #4259ef01;
-    --star-blue: #425AEF;
-    --star-red: #f04a63;
-    --star-pink: #FF7C7C;
-    --star-green: #57bd6a;
-    --star-yellow: #c28b00;
-    --star-yellow-op: #d99c001a;
-    --star-orange: #e38100;
-    --star-fontcolor: #363636;
-    --star-background: #f7f9fe;
-    --star-reverse: #000;
-    --star-maskbg: rgba(255, 255, 255, 0.6);
-    --star-maskbgdeep: rgba(255, 255, 255, 0.85);
-    --star-hovertext: var(--star-main);
-    --star-ahoverbg: #F7F7FA;
-    --star-lighttext: var(--star-main);
-    --star-secondtext: rgba(60, 60, 67, 0.8);
-    --star-scrollbar: rgba(60, 60, 67, 0.4);
-    --star-card-btn-bg: #edf0f7;
-    --star-post-blockquote-bg: #fafcff;
-    --star-post-tabs-bg: #f2f5f8;
-    --star-secondbg: #f1f3f8;
-    --star-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
-    --star-card-bg: #fff;
-    --star-card-bg-op: var(--star-black-op);
-    --star-card-bg-none: rgba(255, 255, 255, 0);
-    --star-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0.00);
-    --star-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0.00);
-    --star-card-border: #e3e8f7;
-    --star-shadow-border: 0 8px 16px -4px #2c2d300c;
-    --style-border: 1px solid var(--star-card-border);
-    --style-border-always: 1px solid var(--star-card-border);
-    --style-border-hover: 1px solid var(--star-main);
-    --style-border-hover-always: 1px solid var(--star-main);
-    --style-border-dashed: 1px dashed var(--star-theme-op);
-    --style-border-forever: 2px solid var(--star-main);
-  }
-
-  [class=dark] {
-    --star-theme: #f2b94b;
-    --star-theme-op: #f2b94b23;
-    --star-theme-op-deep: #f2b94bdd;
-    --star-theme-none: #f2b94b00;
-    --star-blue: #0084FF;
-    --star-red: #FF3842;
-    --star-pink: #d44040;
-    --star-green: #3e9f50;
-    --star-yellow: #ffc93e;
-    --star-yellow-op: #ffc93e30;
-    --star-orange: #ff953e;
-    --star-fontcolor: #F7F7FA;
-    --star-background: #18171d;
-    --star-reverse: #fff;
-    --star-maskbg: rgba(0, 0, 0, 0.6);
-    --star-maskbgdeep: rgba(0, 0, 0, 0.85);
-    --star-hovertext: #0A84FF;
-    --star-ahoverbg: #fff;
-    --star-lighttext: var(--star-theme);
-    --star-secondtext: #a1a2b8;
-    --star-scrollbar: rgba(200, 200, 223, 0.4);
-    --star-card-btn-bg: #30343f;
-    --star-post-blockquote-bg: #000;
-    --star-post-tabs-bg: #121212;
-    --star-secondbg: #30343f;
-    --star-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
-    --star-card-bg: #1d1e22;
-    --star-card-bg-op: var(--star-white-op);
-    --star-card-bg-none: #1d1b2600;
-    --star-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0.0);
-    --star-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0.0);
-    --star-card-border: #3d3d3f;
-    --star-shadow-border: 0 8px 16px -4px #00000050;
-    --style-border: 1px solid var(--star-card-border);
-    --style-border-always: 1px solid var(--star-card-border);
-    --style-border-hover: 1px solid var(--star-theme);
-    --style-border-hover-always: 1px solid var(--star-theme);
-    --style-border-dashed: 1px dashed var(--star-theme-op);
-    --style-border-forever: 2px solid var(--star-lighttext);
-  }
-
-  .is-center {
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-  }
-
-  .img-alt {
-    font-size: 12px;
-    margin: 0;
-    color: var(--star-secondtext);
-  }
-
-  .flink-list>.flink-list-item a .img-alt {
-    display: none;
-  }
-
-  .flink-list {
-    overflow: auto;
-    padding: 10px 10px 0px;
-    text-align: center;
-  }
-
-  .flink-list>.flink-list-item a .flink-item-desc {
-    display: block;
-    padding: 4px 10px 0px 0px;
-    height: 50px;
-    font-size: 0.93em;
-  }
-
-  .flink-list>.flink-list-item a {
-    color: var(--star-fontcolor);
-    text-decoration: none;
-  }
-
-  /* 炙焰友链间距 */
-  .flink-list {
-    padding: 0;
-    margin: 0.5rem -6px 1rem -6px;
-    overflow-x: hidden;
-
-  }
-
-  .flink-desc {
-    margin: 0;
-    color: var(--star-secondtext);
-  }
-
-  .flink-desc {
-    margin: 0.2rem 0px 0.5rem;
-  }
-
-  /* 友情描述 */
-  .flink-list>.flink-list-item a .flink-item-desc {
-    white-space: normal;
-    padding: 5px 10px 16px 0;
-    color: var(--star-fontcolor);
-    text-align: left;
-    height: 40px;
-    text-overflow: ellipsis;
-    opacity: 0.7;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .flink-list>.flink-list-item:hover a .flink-item-desc {
-    color: var(--star-white);
-  }
-
-  /* 友链标题 */
-  .flink-list-item .flink-item-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: calc(100% - 90px);
-    height: fit-content;
-  }
-
-  .flink-list-item:hover .flink-item-info {
-    min-width: calc(100% - 20px);
-  }
-
-  .flink-list>.flink-list-item a .flink-item-name {
-    text-align: left;
-    font-size: 19px;
-    line-height: 20px;
-    color: var(--star-fontcolor);
-  }
-
-  .flink-list>.flink-list-item:hover a .flink-item-name {
-    color: var(--star-white);
-  }
-
-  .flink-list>.flink-list-item a {
-    display: flex;
-    border: none;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-  }
-
-  .flink-list>.flink-list-item a:hover {
-    background: none;
-  }
-
-  #article-container img {
-    display: block;
-    margin: 0px auto 0.8rem;
-  }
-
-  img {
-    max-width: 100%;
-    transition: all 0.2s ease 0s;
-    border-style: none;
-  }
-
-  #article-container img {
-    border-radius: 32px;
-    margin-bottom: 0.5rem;
-    object-fit: cover;
-  }
-
-  .flink-list>.flink-list-item a img {
-    float: left;
-    margin: 15px 10px;
-    width: 60px;
-    height: 60px;
-    border-radius: 35px;
-    transition: all 0.3s ease 0s;
-  }
-
-  /* 友链头像 */
-  .flink-list>.flink-list-item a img {
-    border-radius: 32px;
-    margin: 15px 20px 15px 15px;
-    transition: 0.3s;
-    background: var(--star-background);
-    min-width: 60px;
-    min-height: 60px;
-  }
-
-
-  /* 悬浮状态头像 */
-  .flink-list>.flink-list-item:hover a img {
-    transition: 0.6s;
-    width: 0;
-    height: 0;
-    opacity: 0;
-    margin: 0.5rem;
-    min-width: 0px;
-    min-height: 0px;
-  }
-
-  /* 标题和描述 */
-  .flink-list-item a span {
-    transition: 0.3s;
-  }
-
-  /* 友链描述 */
-  .flink-list-item:hover a .flink-item-desc {
-    overflow: hidden;
-    width: 100%;
-  }
-
-
-  #article-container.flink {
-    margin-top: 1rem;
-  }
-
-  .flink#article-container .flink-desc {
-    margin: 0.2rem 0px 0.5rem;
-  }
-
-  .flink#article-container .flink-list {
-    overflow: auto;
-    padding: 10px 10px 0px;
-    text-align: center;
-  }
-
-  @media screen and (max-width: 1200px) {
-    .flink#article-container .flink-list>.flink-list-item {
-      width: calc(25% - 12px) !important;
-    }
-  }
-
-  @media screen and (max-width: 1024px) {
-    .flink#article-container .flink-list>.flink-list-item {
-      width: calc(33.3333% - 12px) !important;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .flink#article-container .flink-list>.flink-list-item {
-      width: calc(50% - 12px) !important;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    .flink#article-container .flink-list>.flink-list-item {
-      width: calc(100% - 12px) !important;
-    }
-  }
-
-  /* 修改初始动画 */
-  .flink#article-container .flink-list>.flink-list-item {
-    margin: 6px 6px;
-    transition: 0.3s;
-    border-radius: 12px;
-    transition-timing-function: ease-in-out;
-    position: relative;
-    width: calc(20% - 12px);
-    border: var(--style-border);
-    box-shadow: var(--star-shadow-border);
-    background: var(--star-card-bg);
-    display: flex;
-  }
-
-  .flink#article-container .flink-list>.flink-list-item {
-    position: relative;
-    float: left;
-    overflow: hidden;
-    margin: 15px 7px;
-    width: calc(25% - 12px);
-    height: 90px;
-    border-radius: 5px;
-    line-height: 17px;
-    transform: translateZ(0px);
-    transition: all 0.3s ease 0s;
-  }
-
-  /* 修改初始动画 */
-  .flink#article-container .flink-list>.flink-list-item {
-    margin: 6px 6px;
-    transition: 0.3s;
-    border-radius: 12px;
-    transition-timing-function: ease-in-out;
-    position: relative;
-    width: calc(20% - 12px);
-    border: var(--style-border);
-    box-shadow: var(--star-shadow-border);
-    background: var(--star-card-bg);
-    display: flex;
-  }
-
-  .flink#article-container .flink-list>.flink-list-item:hover {
-    transform: scale(1);
-    background: var(--star-theme);
-    border: var(--style-border-hover);
-    box-shadow: var(--star-shadow-main);
-  }
-
-  .flink#article-container .site-card .img img {
-    width: 100%;
-    height: 100%;
-    transition: transform 2s ease 0s;
-    object-fit: cover;
-  }
-
-  .flink#article-container .site-card .info {
-    margin-top: 8px;
-  }
-
-  .flink#article-container .site-card .info img {
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-    float: left;
-    margin-right: 8px;
-    margin-top: 2px;
-  }
-
-  .flink#article-container .site-card .info span {
-    display: block;
-  }
-
-  .flink#article-container .site-card .info .title {
-    font-weight: 600;
-    color: rgb(68, 68, 68);
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 1;
-    transition: all 0.3s ease 0s;
-  }
-
-  .flink#article-container .site-card .info .desc {
-    overflow-wrap: break-word;
-    line-height: 1.2;
-    color: rgb(136, 136, 136);
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-  }
-
-  .flink#article-container .site-card .img {
-    transition: all 0.3s ease 0s;
-  }
-
-  .flink#article-container .site-card .img-alt {
-    display: none;
-  }
-
-  .flink#article-container .site-card:hover .info .title {
-    color: rgb(255, 87, 34);
-  }
-
-  .flink-list>.flink-list-item:hover {
-    transform: scale(1);
-    background: var(--star-theme);
-    border: var(--style-border-hover);
-    box-shadow: var(--star-shadow-main);
-  }
-
-  .gallery-group figcaption p {
-    line-height: 1.5 !important;
-  }
-
-  /* 超级博主友链 */
-
-  /* 超级博主标题 */
-
-  .site-card .info .title {
-    color: var(--star-fontcolor);
-    text-align: left;
-  }
-
-  .site-card:hover .info .title {
-    color: var(--star-white);
-    box-shadow: var(--star-shadow-blue);
-  }
-
-  .site-card:hover .info {
-    height: 120px;
-  }
-
-  .site-card .site-card-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-
-  /* 超级博主描述 */
-  .site-card .info .desc {
-    font-size: 0.7rem;
-    color: var(--star-fontcolor);
-    opacity: 0.7;
-    transition: 0.3s;
-    text-align: left;
-  }
-
-  .site-card:hover .info .desc {
-    -webkit-line-clamp: 4;
-  }
-
-  .site-card:hover .info .desc {
-    transition: 0.3s;
-    color: var(--star-white);
-    width: 100%
-  }
-
-  .site-card:hover .info {
-    background: var(--star-theme);
-  }
-
-  /* 背景 */
-  .site-card {
-    border: var(--style-border);
-    border-radius: 12px;
-    transition: 0.3s;
-    transition-timing-function: ease-in-out;
-    overflow: hidden;
-    height: 200px;
-    position: relative;
-    width: calc(100% / 7 - 16px);
-    background: var(--star-card-bg);
-    box-shadow: var(--star-shadow-border);
-  }
-
-  .site-card-tag {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 4px 8px;
-    background-color: var(--star-blue);
-    box-shadow: var(--star-shadow-blue);
-    color: var(--star-white);
-    z-index: 1;
-    border-radius: 12px 0 12px 0;
-    transition: 0.3s;
-    font-size: 0.6rem;
-  }
-
-  .site-card-tag.vip {
-    /*! Edit and share this gradient: https://html5kit.com/gradient-editor/?preset=d48f16,100;e5b085,0 */
-    background: -moz-linear-gradient(38deg, rgba(229, 176, 133, 1) 0%, rgba(212, 143, 22, 1) 100%);
-    /* FF3.6+ */
-    background: -webkit-linear-gradient(38deg, rgba(229, 176, 133, 1) 0%, rgba(212, 143, 22, 1) 100%);
-    /* Chrome10-25, Safari5.1-6 */
-    background: linear-gradient(38deg, rgba(229, 176, 133, 1) 0%, rgba(212, 143, 22, 1) 100%);
-    /* W3C, IE10+, Firefox16+, Chrome26+, Opera12+, Safari7+ */
-    overflow: hidden;
-    box-shadow: var(--star-shadow-yellow);
-  }
-
-  .light {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    width: 100px;
-    height: 50px;
-    background-image: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
-    background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
-    -webkit-animation: light_tag 4s both infinite;
-    -moz-animation: light_tag 4s both infinite;
-    -ms-animation: light_tag 4s both infinite;
-    animation: light_tag 4s both infinite;
-  }
-
-  @keyframes light_tag {
-    0% {
-      transform: skewx(0deg);
-      -o-transform: skewx(0deg);
-      -moz-transform: skewx(0deg);
-      -webkit-transform: skewx(0deg);
-      left: -150px;
-    }
-
-    99% {
-      transform: skewx(-25deg);
-      -o-transform: skewx(-25deg);
-      -moz-transform: skewx(-25deg);
-      -webkit-transform: skewx(-25deg);
-      left: 50px;
-    }
-  }
-
-  .site-card-tag.speed {
-    background: var(--star-green);
-    box-shadow: var(--star-shadow-green);
-  }
-
-  .site-card:hover .site-card-tag {
-    left: -50px;
-  }
-
-
-  .flink-list-item:hover .site-card-tag {
-    left: -70px;
-  }
-
-  .site-card .info {
-    display: flex;
-    border: none;
-    padding: 0.5rem;
-    width: 100%;
-    height: 90px;
-    margin: 0;
-    border-radius: 0 0 12px 12px;
-  }
-
-  /* 修复图片圆角 */
-  .site-card .img img {
-    border-radius: 0;
-    transform: scale(1.03);
-    transition: 0.3s;
-  }
-
-  @media screen and (min-width: 769px) {
-    .site-card:hover .img img {
-      transform: scale(1.1);
-      filter: brightness(0.3);
-    }
-
-    .site-card:hover .img {
-      height: 80px;
-    }
-  }
-
-
-  .site-card .img {
-    -webkit-mask-image: -webkit-radial-gradient(center, rgb(255, 255, 255), rgb(0, 0, 0));
-    border-radius: 0;
-    height: 120px;
-    width: 100%;
-    display: flex;
-    border: none;
-    padding: 0 !important;
-  }
-
-
-  /* 头像 */
-  .site-card .info img {
-    border-radius: 32px;
-    transition: 0.3s !important;
-    margin: 2px 8px 0 0;
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    min-height: 20px;
-    background: var(--star-secondbg);
-  }
-
-
-  /* 边距 */
-  .site-card-group {
-    padding: 20px 0;
-  }
-
-  .site-card:hover .info img {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    min-width: 0;
-    min-height: 0;
-  }
-
-  .site-card:hover {
-    border: var(--style-border-hover);
-    box-shadow: var(--star-shadow-main);
-  }
-
-  /* 友链文章 */
-  .article-sort-item-info a {
-    margin-right: auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-</style>
-```
-
-
-最后我们注册一下 `Navlink.vue` 组件，后期我们只需要引用它就够了
-
-```ts{4,11}
-// .vitepress/theme/index.ts
-import DefaultTheme from 'vitepress/theme'
-
-import Navlink from './components/Navlink.vue'
-
-export default {
-  extends: DefaultTheme,
-
-  enhanceApp({app}) {
-    // 注册组件
-    app.component('Navlink' , Navlink)
-  },
-}
-```
-
-
-
-### 新建页面
-
-在 `nav` 目录下新建一个 `index.md` 文件
-
-::: tip 说明
-名字随意哈，我只是做演示
-:::
-
-```md{5-6}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ config.mts
-│  ├─ nav
-│  │  └─ index.md      <-- 导航演示页
-│  └─ index.md
-└─ package.json
-```
-
-粘贴下面代码保存
-
-
-```md
----
-layout: doc
-layoutClass: m-nav-layout
----
-```
-
-### 修改样式
-
-然后在 `.vitepress/theme/style` 目录下新建 `nav.scss`
-
-```md{6}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ theme
-│  │     └─ style
-│  │        └─ nav.scss
-│  ├─ nav             
-│  │  └─ index.md     
-│  └─ index.md
-└─ package.json
-```
-
-复制粘贴下面代码保存
-
-```scss
-.m-nav-layout {
-    /* 覆盖全局的 vp-layout-max-width（仅当前页面使用） */
-    --vp-layout-max-width: 1660px;
-  
-    /* layout 样式 */
-    .container {
-      max-width: var(--vp-layout-max-width) !important;
-    }
-    .content-container,
-    .content {
-      max-width: 100% !important;
-    }
-  
-    /* aside 样式 */
-    .aside {
-      padding-left: 0;
-      max-width: 224px;
-    }
-  
-    .content .copyright {
-      display: none;
-    }
-  
-    /* tip */
-    .tip {
-      .custom-block-title {
-        display: none;
-      }
-      p {
-        margin: 0;
-      }
-    }
-  
-    .vp-doc h2 {
-      margin-top: 24px;
-    }
-  }
-```
-
-
-安装一下 `sass`
-
-::: tip 说明
-按 `CTRL+C` 退出开发预览模式后安装
-
-安装完成再重新启动
-:::
-
-
-::: code-group
-```sh [pmpm]
-pnpm add -D sass
-```
-
-```sh [yarn]
-yarn add -D sass
-```
-
-```sh [npm]
-npm i -D sass
-```
-
-```sh [bun]
-bun add -D sass
-```
-:::
-
-
-
-然后将样式引入 `index.md` ，并关闭侧边栏
-
-```md{4,7}
----
-layout: doc
-layoutClass: m-nav-layout
-sidebar: false
----
-
-<style src="/.vitepress/theme/style/nav.scss"></style>
-
-# 我的导航
-```
-
-
-
-
-
-
-### 建数据库
-
-在 `.vitepress/theme/untils` 目录新建 `data-ahua.ts` 文件
-
-
-```md{6}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ theme
-│  │     └─ untils
-│  │        └─ data-ahua.ts  <- 我在这
-│  ├─ nav             
-│  │  └─ index.md     
-│  └─ index.md
-└─ package.json
-```
-
-粘贴代码保存，也可参考数据进行修改
-
-::: details 点我查看 data-ahua.ts 代码
-```ts
-type NavData = {
-    title: string
-    desc: string
-    items: NavLink[]
-}
-type NavLink = {
-    icon: string
-    title: string
-    desc?: string
-    link: string
-}
-export const NAV_DATA: NavData[] = [
-    {
-        title: 'AI 导航',
-        desc: '让人工智能帮助你完成枯燥的工作',
-        items: [
-            {
-                icon: 'https://gpt.ahuaaa.cn/favicon.ico',
-                title: 'ChatGPT（内部）',
-                link: 'https://gpt.ahuaaa.cn/',
-                desc: '需要内部授权码'
-            },
-            {
-                icon: 'https://gpt4.ahuaaa.cn/favicon.ico',
-                title: 'ChatGPT（内部）',
-                link: 'https://gpt4.ahuaaa.cn/',
-                desc: '需要内部授权码'
-            },
-            {
-                icon: 'https://assets.website-files.com/60de2701a7b28f308f619d3d/62f5b1528499d8e6b3d02447_Gamma_V1_Icon_only_4.gif',
-                title: 'Gamma (PPT)',
-                link: 'https://gamma.app/',
-                desc: '公测免费使用'
-            },
-            {
-                icon: 'https://www.midjourney.com/apple-touch-icon.png',
-                title: 'Midjourney（绘画）',
-                link: 'https://www.midjourney.com'
-            },
-            {
-                icon: 'https://neveragain.allstatics.com/2019/assets/icon/logo/edraw-mindmaster-square.svg',
-                title: 'mindmaster',
-                link: 'https://www.mindmaster.io/',
-                desc: '亿图思维(流程图)，需付费(可以免费试用)'
-            },
-            {
-                icon: 'https://global-uploads.webflow.com/59deb588800ae30001ec19c9/5d4891e0e260e3c1bc37b100_beautiful%20ai%20favicon%20%20blue%20square.png',
-                title: 'Beautiful.ai（PPT）',
-                link: 'https://www.beautiful.ai'
-            }, {
-                title: 'AI工具集',
-                icon: 'https://ai-bot.cn/wp-content/uploads/2023/07/ai-bot-favicon.png',
-                link: 'https://ai-bot.cn/',
-                desc: '国内外AI工具集合网站大全'
-            }
-        ]
-    }, {
-        title: '社区',
-        desc: '开发者社区',
-        items: [
-            {
-                icon: 'https://ts3.cn.mm.bing.net/th?id=Aed3c79c5ea4781db45fd44d7e804b5ae&w=148&h=148&o=6&dpr=1.3&pid=SANGAM',
-                title: 'github',
-                desc: '一个面向开源及私有软件项目的托管平台',
-                link: 'https://github.com/'
-            }, {
-                icon: 'https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png?v=c78bd457575a',
-                title: 'Stack Overflow',
-                desc: '全球最大的技术问答网站',
-                link: 'https://stackoverflow.com'
-            },
-            {
-                title: '稀土掘金',
-                icon: 'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web//static/favicons/apple-touch-icon.png',
-                desc: '面向全球中文开发者的技术内容分享与交流平台',
-                link: 'https://juejin.cn'
-            },
-            {
-                title: 'SegmentFault 思否',
-                icon: 'https://static.segmentfault.com/main_site_next/0dc4bace/touch-icon.png',
-                desc: '技术问答开发者社区',
-                link: 'https://segmentfault.com'
-            },
-            {
-                title: '博客园',
-                // icon: 'https://common.cnblogs.com/favicon.ico',
-                icon: 'https://ts4.cn.mm.bing.net/th?id=ODLS.c8870dec-a17f-476f-ad66-f13612a6fe85&w=32&h=32&o=6&pid=13.1',
-                desc: '博客园是一个面向开发者的知识分享社区',
-                link: 'https://www.cnblogs.com'
-            },
-            {
-                title: '知乎',
-                icon: 'https://static.zhihu.com/heifetz/assets/apple-touch-icon-60.362a8eac.png',
-                desc: '中文互联网高质量的问答社区和创作者聚集的原创内容平台',
-                link: 'https://juejin.cn'
-            },
-        ]
-    }, {
-        title: '设计工具',
-        desc: '收录的设计工具',
-        items: [
-            {
-                icon: 'https://img.js.design/assets/webImg/favicon.ico',
-                title: '即时设计',
-                desc: '同时创造，即时设计',
-                link: 'https://js.design/',
-            },
-        ]
-    }, {
-        title: 'WEB网页设计',
-        desc: '灵感酷站',
-        items: [
-            {
-                icon: 'https://pngimg.com/uploads/pinterest/pinterest_PNG63.png',
-                title: 'Pinterest',
-                desc: 'Pintester 国外图片资源',
-                link: 'https://www.pinterest.com/'
-            }, {
-                icon: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.RLVRjameUVvXbSNFl5xXKwHaHa?pid=ImgDet&rs=1',
-                title: 'Dribbble',
-                link: 'https://dribbble.com/',
-                desc: '设计师必备站点，国内顶尖的设计师都在上面',
-            }, {
-                icon: 'https://xcx.bigbigwork.com/pimg/favicon.ico',
-                title: '大作',
-                desc: ' 国内图片资源',
-                link: 'https://bigbigwork.com/'
-            }, {
-                icon: 'https://www.instructables.com/assets/img/siteassets/apple-touch-icon-192x192.png',
-                title: 'instructables',
-                link: 'https://www.instructables.com/',
-                desc: '电子电气作品',
-            },
-        ]
-    }, {
-        title: '小工具',
-        desc: '收录的小工具',
-        items: [
-            {
-                icon: 'https://squoosh.app/c/icon-demo-logo-326ed9b6.png',
-                title: '在线png压缩',
-                desc: 'png图片压缩',
-                link: 'https://squoosh.app/'
-            },
-            {
-                icon: 'https://uigradients.com/static/images/favicon-32x32.png',
-                title: 'CSS渐变',
-                desc: '在线查看渐变颜色,并生成css代码一键复制',
-                link: 'https://uigradients.com/#Mini',
-            },
-            {
-                icon: 'https://ezgif.com/favicon.ico',
-                title: '在线转GIF',
-                desc: '多种格式在线转换为GIF',
-                link: 'https://ezgif.com/',
-            },
-            {
-                icon: 'https://color.oulu.me/favicon.ico',
-                title: 'CSS渐变2',
-                desc: '180种免费的线性渐变,不仅可以复制渐变的原生CSS颜色代码，还可以查看下载每个优质的渐变图片',
-                link: 'https://color.oulu.me/'
-            }
-        ]
-    },
-    {
-        title: 'npm',
-        desc: '免费的前端开源项目 CDN 加速服务',
-        items: [
-            {
-                icon: 'https://cdn.cbd.int/favicon.ico',
-                title: 'cbd',
-                desc: 'npm镜像',
-                link: 'https://cdn.cbd.int/'
-            }, {
-                icon: 'https://cdn.bytedance.com/src/res/favicon.png',
-                title: '字节跳动静态资源公共库',
-                link: 'https://cdn.bytedance.com/',
-                desc: '字节跳动静态资源公共库',
-            }, {
-                icon: 'https://www.bootcdn.cn/assets/ico/favicon.ico',
-                title: 'bootcdn',
-                desc: '稳定、快速、免费的前端开源项目 CDN 加速服务',
-                link: 'https://www.bootcdn.cn/'
-            }, {
-                icon: 'https://www.jsdelivr.com/favicon.ico',
-                title: 'jsDelivr',
-                link: 'https://www.jsdelivr.com/',
-                desc: 'jsDelivr 是一个免费、快速且可靠的 npm 和 GitHub 开源 CDN。大多数 GitHub 链接可以轻松转换为 jsDelivr 链接。',
-            },
-        ]
-    }, {
-        title: 'Vue 生态',
-        desc: '一系列支持库和工具，可帮助开发者更快速、高效地构建现代化的Vue应用程序。',
-        items: [
-            {
-                icon: 'https://cn.vuejs.org/logo.svg',
-                title: 'Vue 3',
-                desc: '渐进式 JavaScript 框架',
-                link: 'https://cn.vuejs.org'
-            },
-            {
-                icon: 'https://cn.vuejs.org/logo.svg',
-                title: 'Vue 2',
-                desc: '渐进式 JavaScript 框架',
-                link: 'https://v2.cn.vuejs.org'
-            },
-            {
-                icon: 'https://cn.vuejs.org/logo.svg',
-                title: 'Vue Router',
-                desc: 'Vue.js 的官方路由\n为 Vue.js 提供富有表现力、可配置的、方便的路由',
-                link: 'https://router.vuejs.org/zh'
-            },
-            {
-                icon: 'https://pinia.vuejs.org/logo.svg',
-                title: 'Pinia',
-                desc: '符合直觉的 Vue.js 状态管理库',
-                link: 'https://pinia.vuejs.org/zh'
-            },
-            {
-                icon: 'https://nuxt.com/icon.png',
-                title: 'Nuxt.js',
-                desc: '一个基于 Vue.js 的通用应用框架',
-                link: 'https://nuxt.com'
-            },
-            {
-                icon: 'https://vueuse.org/favicon.svg',
-                title: 'VueUse',
-                desc: 'Vue Composition API 的常用工具集',
-                link: 'https://vueuse.org'
-            },
-            {
-                icon: 'https://element-plus.org/images/element-plus-logo-small.svg',
-                title: 'Element Plus',
-                desc: '基于 Vue 3，面向设计师和开发者的组件库',
-                link: 'https://element-plus.org'
-            },
-            {
-                icon: 'https://www.antdv.com/assets/logo.1ef800a8.svg',
-                title: 'Ant Design Vue',
-                desc: 'Ant Design 的 Vue 实现，开发和服务于企业级后台产品',
-                link: 'https://antdv.com'
-            },
-            {
-                icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/logo.png',
-                title: 'Vant',
-                desc: '轻量、可定制的移动端 Vue 组件库',
-                link: 'https://vant-ui.github.io/vant'
-            },
-            {
-                icon: 'https://webapp.didistatic.com/static/webapp/shield/Cube-UI_logo.ico',
-                title: 'Cube UI',
-                desc: '基于 Vue.js 实现的精致移动端组件库',
-                link: 'https://didi.github.io/cube-ui'
-            },
-            {
-                icon: 'https://img14.360buyimg.com/imagetools/jfs/t1/167902/2/8762/791358/603742d7E9b4275e3/e09d8f9a8bf4c0ef.png',
-                title: 'NutUI',
-                desc: '京东风格的轻量级移动端组件库',
-                link: 'https://nutui.jd.com'
-            }
-        ]
-    },]
-```
-:::
-
-
-
-### 实现
-
-最后我们引入 `index.md`，上下页也关闭
-
-```md{5-6,9-13}
----
-layout: doc
-layoutClass: m-nav-layout
-sidebar: false
-prev: false
-next: false
----
-
-<style src="/.vitepress/theme/style/nav.scss"></style>
-
-# 我的导航
-
-<Navlink></Navlink>
-```
-
-
-
-
-
-### 优化：下划线
-
-这个在 [VitePress美化](../style#链接下划线) 的时候说了，请参考修改
-
-::: warning 注意
-如果你在 `var.css` 中引用了，这里就不用填了
-:::
-
-```scss
-/* .vitepress/theme/style/nav.scss */
-.vp-doc a {
-    text-decoration: none;
-}
-```
-
-
-### 优化：图标穿透
-
-
-因为安装 [medium-zoom](http://127.0.0.1:5174/plugin.html#%E5%9B%BE%E7%89%87%E7%BC%A9%E6%94%BE) 的时候引入了一个样式，导致手机端导航被这个图片样式给遮盖了
-
-那么我们就需要在 `nav.scss` 中加入此样式，并改成 `0` 就可以覆盖掉
-
-```scss
-// .vitepress/theme/style/nav.scss
-.medium-zoom-overlay {
-  z-index: 0;
-}
-  
-.medium-zoom-image {
-  z-index: 0 !important;
-}
-```
-

@@ -1,0 +1,21 @@
+/* .vitepress\theme\style\blockquote.css */
+:root {
+    /* 浅色引用块色卡 */
+    --blockquote-color: #e6f6e6;
+    --blockquote-color-left: #009400;
+}
+
+.dark {
+    /* 深色引用块色卡 */
+    --blockquote-color: #003100;
+    --blockquote-color-left: #009400;
+}
+
+.vp-doc blockquote {
+    border-radius: 10px;
+    padding: 10px 16px;
+    position: relative;
+    background-color: var(--blockquote-color);
+    border-left: 6px solid var(--blockquote-color-left);
+    color: var(--vp-c-text-1);
+}

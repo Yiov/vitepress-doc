@@ -6,13 +6,9 @@
 
 ## 目录
 
-搭建完成后，可以看到一个已经完善的目录,在此基础上我们可以进行修改和新增
+搭建完成后，已经有了一个完善的目录
 
-::: tip 说明
-`index.md` 是我们的首页，最后也渲染成 `index.html`
-
-你也可以命名成 `README.md`
-:::
+在此基础上，我们可以进行修改和新增
 
 ```
 .
@@ -41,10 +37,16 @@ guide/index.md          -->    /guide/index.html (可以通过 /guide/ 访问)
 
 ## 基础配置
 
-在当前目录，[右键用 vscode 打开（没有的请自行安装VScode）](https://yiov.top/website/VSCode.html)
+在当前目录，`右键用 vscode 打开` ，[没有的请自行安装VScode](https://yiov.top/website/VSCode.html)
+
+![](/vscode/vscode-01.png)
 
 然后按 [Ctrl+\`(~) 键](#基础配置) （ESC下面的那个键），调出终端，正式开始开发
 
+![](/vscode/vscode-02.png)
+
+
+展开右侧目录，找到 `config.mts`
 
 ```md{4}
 .
@@ -57,26 +59,25 @@ guide/index.md          -->    /guide/index.html (可以通过 /guide/ 访问)
 └─ package.json
 ```
 
-配置已经写好了，我们点击 `config.mts` ，在此基础上修改就行了
+![](/vscode/vscode-03.png)
 
+
+配置已经写好了，在此基础上修改就行了
 
 ```ts
 import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  lang: 'zh-CN',
-  title: 'VitePress',
-  //titleTemplate: '另起标题覆盖title'
-  description: 'Vite & Vue 驱动的静态网站生成器',
+  title: "My Awesome Project",
+  description: "A VitePress Site",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    //导航
     nav: [
-      { text: 'Home', link: '/' }, 
+      { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' }
     ],
-    //侧边栏
+
     sidebar: [
       {
         text: 'Examples',
@@ -86,14 +87,14 @@ export default defineConfig({
         ]
       }
     ],
-    //社交链接
+
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
   }
 })
-
 ```
+
 
 
 
@@ -128,7 +129,9 @@ bun run docs:dev
 
 ## 纯净链接
 
-这是一个简单又麻烦的事，需要服务器支持，在默认情况下Vitepress的链接以 `.html` 结尾
+这是一个简单又麻烦的事，可以等网站初上线后，再来完善
+
+它需要服务器支持，默认情况下Vitepress的链接以 `.html` 结尾
 
 
 ### 服务器支持
@@ -148,9 +151,11 @@ bun run docs:dev
 
 然后在 `config.mts` 中配置如下
 
-```ts{2}
+```ts{4}
+import { defineConfig } from 'vitepress'
+
 export default defineConfig({
-  cleanUrls:true,
+  cleanUrls:true, //开启纯净链接 // [!code focus]
 })
 ```
 

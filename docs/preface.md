@@ -25,7 +25,19 @@ VitePress 作为 [VuePress](https://v2.vuepress.vuejs.org/zh/) 的孪生兄弟�
 [VuePress](https://v2.vuepress.vuejs.org/zh/)、[Docusaurus](https://docusaurus.io/)、[Astro](https://astro.build/)、[Modern.js](https://modernjs.dev/)、[docsify](https://docsify.js.org/)、[Docz](https://www.docz.site/)、[Nuxt](https://nuxt.com/)、[Jekyll](https://jekyllrb.com/)、[Hexo](https://hexo.io/zh-cn/)、[Hugo](https://gohugo.io/)、[idoc](https://wangchujiang.com/idoc/)、[Styleguidist](https://react-styleguidist.js.org/)、[Storybook](https://storybook.js.org/)、[Gatsby](https://www.gatsbyjs.com/)、[Eleventy](https://www.11ty.dev/)、[Publii](https://getpublii.com/)
 :::
 
+::: tip 说明
+VitePress是一个仅支持ESM的软件包。不要使用 `require()` 来导入它，请参考 [Vite的故障排除指南](https://cn.vitejs.dev/guide/troubleshooting#this-package-is-esm-only) 
 
+---
+
+当使用 `require` 导入一个仅支持 ESM 的包时，会出现以下错误且文件无法被 require 加载
+
+建议你通过以下方式将你的配置文件转换为 ESM 格式：
+
+* 在邻近的 `package.json` 中添加 `"type": "module"`
+
+* `vite.config.js/vite.config.ts` 重命名为 `vite.config.mjs/vite.config.mts`
+:::
 
 ## 参考网站
 
