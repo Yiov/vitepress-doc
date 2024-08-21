@@ -4,6 +4,12 @@
 
 ## 时间线
 
+:::: details 由于markdown-it官方更新，导致内部不匹配等问题，暂时无法使用
+
+请等待作者更新，或者弃用
+
+---
+
 采用了 [@HanochMa/vitepress-markdown-timeline](https://github.com/HanochMa/vitepress-markdown-timeline) 的项目
 
 Demo：https://hanochma.github.io/daily/2023-04
@@ -80,22 +86,12 @@ export default {
 ::: timeline 2023-04-23
 :::
 
-
 ```
 
 
-输出：
 
-::: timeline 2023-04-24
-- 一个非常棒的开源项目 H5-Dooring 目前 star 3.1k
-  - 开源地址 https://github.com/MrXujiang/h5-Dooring
-  - 基本介绍 http://h5.dooring.cn/doc/zh/guide/
-- 《深入浅出webpack》 http://webpack.wuhaolin.cn/
-:::
 
-::: timeline 2023-04-23
-:::
-
+::::
 
 
 

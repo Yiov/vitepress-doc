@@ -1,13 +1,12 @@
 import { defineConfig } from 'vitepress'
 
-//命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared vitepress-markdown-timeline medium-zoom vitepress-plugin-comment-with-giscus @types/node
+//命令集：pnpm add -D vitepress vue @mdit-vue/shared @types/node busuanzi.pure.js canvas-confetti less medium-zoom sass vitepress-plugin-comment-with-giscus xgplayer
 
 // 版本获取 pnpm add -D @types/node
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 const pkg = require('vitepress/package.json')
 
-import timeline from "vitepress-markdown-timeline";
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -58,11 +57,6 @@ export default defineConfig({
         }
       }
     ],
-
-    //时间线 
-    config: (md) => {
-      md.use(timeline);
-    },
 
     // 开启图片懒加载
     image: {

@@ -5,7 +5,6 @@ import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 
 // 样式
 import './style/index.css' //自定义样式
-import "vitepress-markdown-timeline/dist/theme/index.css"; //时间线
 
 import { h } from 'vue' // h函数
 import { useData , useRoute } from 'vitepress'
