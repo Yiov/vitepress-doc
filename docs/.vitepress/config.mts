@@ -132,7 +132,7 @@ export default defineConfig({
           },
         ],
       },
-      { text: pkg.version, link: 'https://vitepress.dev/zh/', noIcon: true },
+      { text: `VitePress ${pkg.version}`, link: 'https://vitepress.dev/zh/', noIcon: true },
       {text: '更新日志', link: '/changelog.md'},
     ],
 

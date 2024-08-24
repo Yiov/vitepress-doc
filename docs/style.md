@@ -187,50 +187,268 @@ text-fill-color：将文字透明
 
 
 
+
+## 其他美化
+
+太多了，可以参照源文件来进行修改
+
+```
+node_modules\vitepress\dist\client\theme-default\styles\var.css
+```
+
+
+
+---
+
+
+### 引用颜色
+
+在Markdown中，我们常用的引用符号是 `>`，我们可以稍微改动一下
+
+在 `theme/style` 新建 `blockquote.css` 文件
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ blockquote.css
+│  └─ index.md
+└─ node_modules
+```
+
+复制下面代码，粘贴到 `blockquote.css` 中
+
+::: code-group
+
+```css
+/* .vitepress\theme\style\blockquote.css */
+:root {
+    /* 浅色引用块色卡 */
+    --blockquote-color: #eef9fd;
+    --blockquote-color-left: #4cb3d4;
+}
+
+.dark {
+    /* 深色引用块色卡 */
+    --blockquote-color: #193c47;
+    --blockquote-color-left: #4cb3d4;
+}
+
+.vp-doc blockquote {
+    border-radius: 10px;
+    padding: 18px 20px 20px 15px;
+    position: relative;
+    background-color: var(--blockquote-color);
+    border-left: 6px solid var(--blockquote-color-left);
+    color: var(--vp-c-text-1);
+}
+```
+:::
+
+
+然后在 `index.css` 中引入生效
+
+```css
+/* .vitepress/theme/style/index.css */
+@import './blockquote.css';
+```
+
+
+
+输入：
+
+```md
+> 更新时间：2024年
+```
+
+输出：
+
+> 更新时间：2024年
+
+
+
+
 ---
 
 
 ### Badge颜色
 
-最初教程编写的版本是 `beta.5` ，容器的颜色有边框的，很好看
+随着版本更新迭代，现在这 `tip` `warning` `danger` 颜色真的想吐槽，好丑！
 
-版本更新迭代，现在这 `tip` `warning` `danger` 颜色真的想吐槽，好丑！
+[Vuepress/hope主题的容器颜色](https://theme-hope.vuejs.press/zh/guide/markdown/stylize/hint.html#%E6%BC%94%E7%A4%BA) 就不错，参考着弄一下
 
-::: details 原css文件路径
+
+在 `theme/style` 新建 `custom-block.css` 文件
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ blockquote.css
+│  └─ index.md
+└─ node_modules
 ```
-node_modules\vitepress\dist\client\theme-default\styles\components\custom-block.css
 
-node_modules\vitepress\dist\client\theme-default\styles\vars.css
+复制下面代码，粘贴到 `custom-block.css` 中
+
+::: code-group
+
+```css [custom-block.css]
+/* .vitepress/theme/style/custom-block.css */
+/* 深浅色卡 */
+:root {
+    --vp-custom-block-info: #cccccc;
+    --vp-custom-block-info-bg: #fdfdfe;
+
+    --vp-custom-block-tip: #009400;
+    --vp-custom-block-tip-bg: #e6f6e6;
+
+    --vp-custom-block-warning: #e6a700;
+    --vp-custom-block-warning-bg: #fff8e6;
+
+    --vp-custom-block-danger: #e13238;
+    --vp-custom-block-danger-bg: #ffebec;
+}
+
+.dark {
+    --vp-custom-block-info: #cccccc;
+    --vp-custom-block-info-bg: #474748;
+
+    --vp-custom-block-tip: #009400;
+    --vp-custom-block-tip-bg: #003100;
+
+    --vp-custom-block-warning: #e6a700;
+    --vp-custom-block-warning-bg: #4d3800;
+
+    --vp-custom-block-danger: #e13238;
+    --vp-custom-block-danger-bg: #4b1113;
+}
+
+
+
+/* 标题前图标控制 */
+.custom-block:before {
+    font-family: "Font Awesome 6 Free";
+    position: absolute;
+}
+
+/* 标题字体大小 */
+.custom-block-title {
+    font-size: 16px;
+}
+
+
+
+/* 注释容器:边框色、背景色 */
+.custom-block.info {
+    padding: 20px 24px 15px 42px;
+    background-color: var(--vp-custom-block-info-bg);
+    border-left: 5px solid var(--vp-custom-block-info);
+}
+
+/* 注释容器前图标 */
+.custom-block.info:before {
+    content: "\24D8";
+    color: var(--vp-custom-block-info);
+    font-size: 25px;
+    left: 16px;
+    margin-top: -1px;
+}
+
+/* 注释容器描述文字缩进 */
+.custom-block.info p {
+    margin-left: -27px;
+}
+
+
+
+
+
+/* 提示容器:边框色、背景色 */
+.custom-block.tip {
+    padding: 20px 24px 15px 42px;
+    /* border-color: var(--vp-custom-block-tip); */
+    background-color: var(--vp-custom-block-tip-bg);
+    border-left: 5px solid var(--vp-custom-block-tip);
+}
+
+/* 提示容器前图标 */
+.custom-block.tip:before {
+    content: "\2600";
+    color: var(--vp-custom-block-tip);
+    font-size: 28px;
+    left: 18px;
+    margin-top: -1px;
+}
+
+/* 提示容器描述文字缩进 */
+.custom-block.tip p {
+    margin-left: -25px;
+}
+
+
+
+
+
+/* 警告容器:边框色、背景色 */
+.custom-block.warning {
+    padding: 20px 24px 15px 42px;
+    background-color: var(--vp-custom-block-warning-bg);
+    border-left: 5px solid var(--vp-custom-block-warning);
+}
+
+/* 警示容器前图标 */
+.custom-block.warning:before {
+    content: "\2726";
+    color: var(--vp-custom-block-warning);
+    font-size: 28px;
+    left: 18px;
+    margin-top: -2px;
+}
+
+/* 警示容器描述文字缩进 */
+.custom-block.warning p {
+    margin-left: -25px;
+}
+
+
+
+
+
+/* 危险容器:边框色、背景色 */
+.custom-block.danger {
+    padding: 20px 24px 15px 42px;
+    background-color: var(--vp-custom-block-danger-bg);
+    border-left: 5px solid var(--vp-custom-block-danger);
+}
+
+/* 危险容器前图标 */
+.custom-block.danger:before {
+    content: "\1F5F2";
+    color: var(--vp-custom-block-danger);
+    font-size: 28px;
+    left: 18px;
+    margin-top: -2px;
+}
+
+/* 危险容器描述文字缩进 */
+.custom-block.danger p {
+    margin-left: -25px;
+}
+
 ```
 :::
 
-```css
-/* .vitepress/theme/style/var.css */
-/* 提示框背景颜色 */
-:root {
-  --vp-custom-block-tip-bg: var(--vp-c-green-soft);
-}
 
-/* 提示框 */
-.custom-block.tip {
-  border-color: var(--vp-c-green-2);
-}
-
-/* 警告框 */
-.custom-block.warning {
-  /* border-color: #d97706; */
-  border-color: var(--vp-c-yellow-2);
-}
-
-/* 危险框 */
-.custom-block.danger {
-  /* border-color: #f43f5e; */
-  border-color: var(--vp-c-red-2);
-}
-
-```
-
-看看效果
+看看效果，不满意可以用 [Emoji表情](https://www.emojiall.com/zh-hans/) 或者 [Unicode 符号表](https://symbl.cc/cn/unicode-table/) 自己改
 
 ::: tip 提示
 改为边框+绿色
@@ -247,7 +465,6 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 
 
 ---
-
 
 
 ### 导航栏毛玻璃
@@ -368,192 +585,6 @@ node_modules\vitepress\dist\client\theme-default\styles\vars.css
 
 ---
 
-
-
-
-
-### 视图过渡
-
-请先了解过 [组件的使用](./components.md) 后再来看 
-
-可以扩展默认主题以在切换颜色模式时提供自定义过渡动画。例如：
-
-::: details 点我查看详细代码
-```vue
-<!-- .vitepress/theme/Layout.vue -->
-
-<script setup lang="ts">
-import { useData } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
-import { nextTick, provide } from 'vue'
-
-const { isDark } = useData()
-
-const enableTransitions = () =>
-  'startViewTransition' in document &&
-  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
-
-provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
-  if (!enableTransitions()) {
-    isDark.value = !isDark.value
-    return
-  }
-
-  const clipPath = [
-    `circle(0px at ${x}px ${y}px)`,
-    `circle(${Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
-    )}px at ${x}px ${y}px)`
-  ]
-
-  await document.startViewTransition(async () => {
-    isDark.value = !isDark.value
-    await nextTick()
-  }).ready
-
-  document.documentElement.animate(
-    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
-    {
-      duration: 300,
-      easing: 'ease-in',
-      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
-    }
-  )
-})
-</script>
-
-<template>
-  <DefaultTheme.Layout />
-</template>
-
-<style>
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(root),
-.dark::view-transition-new(root) {
-  z-index: 1;
-}
-
-::view-transition-new(root),
-.dark::view-transition-old(root) {
-  z-index: 9999;
-}
-
-.VPSwitchAppearance {
-  width: 22px !important;
-}
-
-.VPSwitchAppearance .check {
-  transform: none !important;
-}
-</style>
-```
-:::
-
-
-
-效果：
-
-![](https://vitepress.dev/appearance-toggle-transition.webp)
-
-有关视图过渡动画的更多详细信息，请参阅 [Chrome 文档](https://developer.chrome.com/docs/web-platform/view-transitions/)。
-
-
-
-
-
-## 其他美化
-
-太多了，可以参照源文件来进行修改
-
-::: tip 说明
-主色调都是引用的indigo，你也可以去换`indigo`，反正怎么改都可以
-:::
-
-
-```
-node_modules\vitepress\dist\client\theme-default\styles\var.css
-```
-
-
-
----
-
-
-### 引用颜色
-
-在Markdown中，我们常用的引用符号是 `>`，我们可以稍微改动一下
-
-在 `theme/style` 新建 `blockquote.css` 文件
-
-```md{8}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ config.mts
-│  │  └─ theme
-│  │     └─ style
-│  │        └─ index.css
-│  │        └─ blockquote.css
-│  └─ index.md
-└─ node_modules
-```
-
-复制下面代码，粘贴到 `blockquote.css` 中
-
-```css
-/* .vitepress/theme/style/blockquote.css */
-:root {
-    /* 浅色引用块色卡 */
-    --blockquote-color: #e6f6e6;
-    --blockquote-color-left: #009400;
-}
-
-.dark {
-    /* 深色引用块色卡 */
-    --blockquote-color: #003100;
-    --blockquote-color-left: #009400;
-}
-
-.vp-doc blockquote {
-    border-radius: 10px;
-    padding: 10px 16px;
-    position: relative;
-    background-color: var(--blockquote-color);
-    border-left: 6px solid var(--blockquote-color-left);
-    color: var(--vp-c-text-1);
-}
-```
-
-
-然后在 `index.css` 中引入生效
-
-```css
-/* .vitepress/theme/style/index.css */
-@import './blockquote.css';
-```
-
-
-
-输入：
-
-```md
-> 更新时间：2024年
-```
-
-输出：
-
-> 更新时间：2024年
-
-
-
-
----
 
 
 
@@ -958,7 +989,6 @@ export default defineConfig({
   }
 })
 ```
-
 
 
 

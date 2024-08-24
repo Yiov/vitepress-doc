@@ -1,0 +1,142 @@
+
+/* .vitepress/theme/style/custom-block.css */
+/* 深浅色卡 */
+:root {
+    --vp-custom-block-info: #cccccc;
+    --vp-custom-block-info-bg: #fdfdfe;
+
+    --vp-custom-block-tip: #009400;
+    --vp-custom-block-tip-bg: #e6f6e6;
+
+    --vp-custom-block-warning: #e6a700;
+    --vp-custom-block-warning-bg: #fff8e6;
+
+    --vp-custom-block-danger: #e13238;
+    --vp-custom-block-danger-bg: #ffebec;
+}
+
+.dark {
+    --vp-custom-block-info: #cccccc;
+    --vp-custom-block-info-bg: #474748;
+
+    --vp-custom-block-tip: #009400;
+    --vp-custom-block-tip-bg: #003100;
+
+    --vp-custom-block-warning: #e6a700;
+    --vp-custom-block-warning-bg: #4d3800;
+
+    --vp-custom-block-danger: #e13238;
+    --vp-custom-block-danger-bg: #4b1113;
+}
+
+
+
+/* 标题前图标控制 */
+.custom-block:before {
+    font-family: "Font Awesome 6 Free";
+    position: absolute;
+}
+
+/* 标题字体大小 */
+.custom-block-title {
+    font-size: 16px;
+}
+
+
+
+/* 注释容器:边框色、背景色 */
+.custom-block.info {
+    padding: 20px 24px 15px 42px;
+    background-color: var(--vp-custom-block-info-bg);
+    border-left: 5px solid var(--vp-custom-block-info);
+}
+
+/* 注释容器前图标 */
+.custom-block.info:before {
+    content: "\24D8";
+    color: var(--vp-custom-block-info);
+    font-size: 25px;
+    left: 16px;
+    margin-top: -1px;
+}
+
+/* 注释容器描述文字缩进 */
+.custom-block.info p {
+    margin-left: -27px;
+}
+
+
+
+
+
+/* 提示容器:边框色、背景色 */
+.custom-block.tip {
+    padding: 20px 24px 15px 42px;
+    /* border-color: var(--vp-custom-block-tip); */
+    background-color: var(--vp-custom-block-tip-bg);
+    border-left: 5px solid var(--vp-custom-block-tip);
+}
+
+/* 提示容器前图标 */
+.custom-block.tip:before {
+    content: "\2600";
+    color: var(--vp-custom-block-tip);
+    font-size: 28px;
+    left: 18px;
+    margin-top: -1px;
+}
+
+/* 提示容器描述文字缩进 */
+.custom-block.tip p {
+    margin-left: -25px;
+}
+
+
+
+
+
+/* 警告容器:边框色、背景色 */
+.custom-block.warning {
+    padding: 20px 24px 15px 42px;
+    background-color: var(--vp-custom-block-warning-bg);
+    border-left: 5px solid var(--vp-custom-block-warning);
+}
+
+/* 警示容器前图标 */
+.custom-block.warning:before {
+    content: "\2726";
+    color: var(--vp-custom-block-warning);
+    font-size: 28px;
+    left: 18px;
+    margin-top: -2px;
+}
+
+/* 警示容器描述文字缩进 */
+.custom-block.warning p {
+    margin-left: -25px;
+}
+
+
+
+
+
+/* 危险容器:边框色、背景色 */
+.custom-block.danger {
+    padding: 20px 24px 15px 42px;
+    background-color: var(--vp-custom-block-danger-bg);
+    border-left: 5px solid var(--vp-custom-block-danger);
+}
+
+/* 危险容器前图标 */
+.custom-block.danger:before {
+    content: "\1F5F2";
+    color: var(--vp-custom-block-danger);
+    font-size: 28px;
+    left: 18px;
+    margin-top: -2px;
+}
+
+/* 危险容器描述文字缩进 */
+.custom-block.danger p {
+    margin-left: -25px;
+}

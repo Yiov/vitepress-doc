@@ -1,19 +1,19 @@
 /* .vitepress\theme\style\blockquote.css */
 :root {
     /* 浅色引用块色卡 */
-    --blockquote-color: #e6f6e6;
-    --blockquote-color-left: #009400;
+    --blockquote-color: #eef9fd;
+    --blockquote-color-left: #4cb3d4;
 }
 
 .dark {
     /* 深色引用块色卡 */
-    --blockquote-color: #003100;
-    --blockquote-color-left: #009400;
+    --blockquote-color: #193c47;
+    --blockquote-color-left: #4cb3d4;
 }
 
 .vp-doc blockquote {
     border-radius: 10px;
-    padding: 10px 16px;
+    padding: 18px 20px 20px 15px;
     position: relative;
     background-color: var(--blockquote-color);
     border-left: 6px solid var(--blockquote-color-left);
