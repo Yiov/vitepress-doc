@@ -348,21 +348,38 @@ Hello, VitePress!
 
 
 ::: danger 为什么和我不一样？
-因为我对样式进行了修改，还原了beta时用的样式
+因为我对样式进行了修改，仿造了VuePress/hope主题的样式
 
 详情请看 [样式美化 - badge颜色](./style.md#badge颜色)
 :::
 
+你也可以在配置中，添加自定义标题
 
+```ts{4-12}
+// .vitepress/config.mts
+export default defineConfig({
+
+  markdown: { // [!code focus:9]
+    container: {
+      tipLabel: '提示',
+      warningLabel: '警告',
+      dangerLabel: '危险',
+      infoLabel: '信息',
+      detailsLabel: '详细信息'
+    }
+  }
+
+})
+```
 
 ::: warning 注意
 官方有写关于 `raw` 使用，半吊子的我不是很明白使用场景
 
-具体请看官方：https://vitepress.dev/guide/markdown#raw.html
+具体请看官方：https://vitepress.dev/zh/guide/markdown#raw
 :::
 
 
-你也可以使用 [GitHub 风格的警报](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)
+你也可以使用 [GitHub 风格的警报](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)，只是书写方式不同，渲染方式是一样的
 
 输入：
 
