@@ -1,6 +1,6 @@
 # 静态部署
 
-<update />
+<ArticleMetadata />
 
 
 ## 方式
