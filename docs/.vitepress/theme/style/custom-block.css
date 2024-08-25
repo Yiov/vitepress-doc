@@ -54,7 +54,7 @@
 
 /* 提示容器:边框色、背景色、左侧 */
 .custom-block.tip {
-    /* border-color: var(--vp-custom-block-tip); */ 
+    /* border-color: var(--vp-custom-block-tip); */
     background-color: var(--vp-custom-block-tip-bg);
     border-left: 5px solid var(--vp-custom-block-tip);
 }
@@ -81,4 +81,10 @@
 .custom-block.important {
     background-color: var(--vp-custom-block-important-bg);
     border-left: 5px solid var(--vp-custom-block-important);
+}
+
+/* CAUTION容器:背景色、左侧 */
+.custom-block.caution {
+    background-color: var(--vp-c-red-soft);
+    border-left: 5px solid var(--vp-c-red-3);
 }

@@ -373,6 +373,12 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
     background-color: var(--vp-custom-block-important-bg);
     border-left: 5px solid var(--vp-custom-block-important);
 }
+
+/* CAUTION容器:背景色、左侧 */
+.custom-block.caution {
+    background-color: var(--vp-c-red-soft);
+    border-left: 5px solid var(--vp-c-red-3);
+}
 ```
 :::
 
