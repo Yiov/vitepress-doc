@@ -226,25 +226,12 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 ```css
 /* .vitepress\theme\style\blockquote.css */
-:root {
-    /* 浅色引用块色卡 */
-    --blockquote-color: #eef9fd;
-    --blockquote-color-left: #4cb3d4;
-}
-
-.dark {
-    /* 深色引用块色卡 */
-    --blockquote-color: #193c47;
-    --blockquote-color-left: #4cb3d4;
-}
-
 .vp-doc blockquote {
     border-radius: 10px;
     padding: 18px 20px 20px 15px;
     position: relative;
-    background-color: var(--blockquote-color);
-    border-left: 6px solid var(--blockquote-color-left);
-    color: var(--vp-c-text-1);
+    background-color: var(--vp-c-gray-soft);
+    border-left: 6px solid var(--vp-c-green-2);
 }
 ```
 :::
@@ -316,6 +303,12 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
     --vp-custom-block-danger: #e13238;
     --vp-custom-block-danger-bg: #ffebec;
+
+    --vp-custom-block-note: #4cb3d4;
+    --vp-custom-block-note-bg: #eef9fd;
+
+    --vp-custom-block-important: #a371f7;
+    --vp-custom-block-important-bg: #f4eefe;
 }
 
 .dark {
@@ -330,137 +323,77 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
     --vp-custom-block-danger: #e13238;
     --vp-custom-block-danger-bg: #4b1113;
+
+    --vp-custom-block-note: #4cb3d4;
+    --vp-custom-block-note-bg: #193c47;
+
+    --vp-custom-block-important: #a371f7;
+    --vp-custom-block-important-bg: #230555;
 }
 
-
-
-/* 标题前图标控制 */
-.custom-block:before {
-    font-family: "Font Awesome 6 Free";
-    position: absolute;
-}
 
 /* 标题字体大小 */
 .custom-block-title {
     font-size: 16px;
 }
 
-
-
-/* 注释容器:边框色、背景色 */
+/* 注释容器:背景色、左侧 */
 .custom-block.info {
-    padding: 20px 24px 15px 42px;
     background-color: var(--vp-custom-block-info-bg);
     border-left: 5px solid var(--vp-custom-block-info);
 }
 
-/* 注释容器前图标 */
-.custom-block.info:before {
-    content: "\24D8";
-    color: var(--vp-custom-block-info);
-    font-size: 25px;
-    left: 16px;
-    margin-top: -1px;
-}
-
-/* 注释容器描述文字缩进 */
-.custom-block.info p {
-    margin-left: -27px;
-}
-
-
-
-
-
-/* 提示容器:边框色、背景色 */
+/* 提示容器:边框色、背景色、左侧 */
 .custom-block.tip {
-    padding: 20px 24px 15px 42px;
-    /* border-color: var(--vp-custom-block-tip); */
+    /* border-color: var(--vp-custom-block-tip); */ 
     background-color: var(--vp-custom-block-tip-bg);
     border-left: 5px solid var(--vp-custom-block-tip);
 }
 
-/* 提示容器前图标 */
-.custom-block.tip:before {
-    content: "\2600";
-    color: var(--vp-custom-block-tip);
-    font-size: 28px;
-    left: 18px;
-    margin-top: -1px;
-}
-
-/* 提示容器描述文字缩进 */
-.custom-block.tip p {
-    margin-left: -25px;
-}
-
-
-
-
-
-/* 警告容器:边框色、背景色 */
+/* 警告容器:背景色、左侧 */
 .custom-block.warning {
-    padding: 20px 24px 15px 42px;
     background-color: var(--vp-custom-block-warning-bg);
     border-left: 5px solid var(--vp-custom-block-warning);
 }
 
-/* 警示容器前图标 */
-.custom-block.warning:before {
-    content: "\2726";
-    color: var(--vp-custom-block-warning);
-    font-size: 28px;
-    left: 18px;
-    margin-top: -2px;
-}
-
-/* 警示容器描述文字缩进 */
-.custom-block.warning p {
-    margin-left: -25px;
-}
-
-
-
-
-
-/* 危险容器:边框色、背景色 */
+/* 危险容器:背景色、左侧 */
 .custom-block.danger {
-    padding: 20px 24px 15px 42px;
     background-color: var(--vp-custom-block-danger-bg);
     border-left: 5px solid var(--vp-custom-block-danger);
 }
 
-/* 危险容器前图标 */
-.custom-block.danger:before {
-    content: "\1F5F2";
-    color: var(--vp-custom-block-danger);
-    font-size: 28px;
-    left: 18px;
-    margin-top: -2px;
+/* NOTE容器:背景色、左侧 */
+.custom-block.note {
+    background-color: var(--vp-custom-block-note-bg);
+    border-left: 5px solid var(--vp-custom-block-note);
 }
 
-/* 危险容器描述文字缩进 */
-.custom-block.danger p {
-    margin-left: -25px;
+/* IMPORTANT容器:背景色、左侧 */
+.custom-block.important {
+    background-color: var(--vp-custom-block-important-bg);
+    border-left: 5px solid var(--vp-custom-block-important);
 }
-
 ```
 :::
 
 
-看看效果，不满意可以用 [Emoji表情](https://www.emojiall.com/zh-hans/) 或者 [Unicode 符号表](https://symbl.cc/cn/unicode-table/) 自己改
+看看效果，也可以在 `::before`中添加 `content`属性，使用 [Emoji表情](https://www.emojiall.com/zh-hans/) 或者 [Unicode 符号表](https://symbl.cc/cn/unicode-table/) ，因为添加后要改动的地方较多，就不演示了
+
+::: info 注释
+改为左缩进+灰色
+:::
 
 ::: tip 提示
-改为边框+绿色
+改为左缩进+绿色
 :::
 
 
 ::: warning 警告
-改为边框+橘色
+改为左缩进+橘色
 :::
 
 ::: danger 危险
-改为边框+红色
+改为左缩进+红色
 :::
 
 
