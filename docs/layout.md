@@ -1,6 +1,6 @@
 # 布局插槽
 
-<update />
+<ArticleMetadata />
 
 
 ## 简介

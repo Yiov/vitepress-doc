@@ -1,6 +1,6 @@
 # Markdown
 
-<update />
+<ArticleMetadata />
 
 > 如果你还不了解 Markdown ，请先了解下Markdown的简单用法
 >

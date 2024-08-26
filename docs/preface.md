@@ -1,6 +1,6 @@
 # 前言
 
-<update />
+<ArticleMetadata />
 
 ## 简介
 

@@ -1,6 +1,6 @@
 # 样式美化
 
-<update />
+<ArticleMetadata />
 
 
 ## 主题目录(必看)

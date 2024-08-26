@@ -17,7 +17,3 @@ export function countWord(data: string) {
     }
     return count
 }
-
-
-
-

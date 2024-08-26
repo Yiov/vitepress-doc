@@ -1,6 +1,6 @@
 # 配置
 
-<update />
+<ArticleMetadata />
 
 
 

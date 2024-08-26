@@ -1,6 +1,6 @@
 # 更新及卸载
 
-<update />
+<ArticleMetadata />
 
 
 ## 更新

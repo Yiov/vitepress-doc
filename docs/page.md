@@ -1,6 +1,6 @@
 # 页面
 
-<update />
+<ArticleMetadata />
 
 
 

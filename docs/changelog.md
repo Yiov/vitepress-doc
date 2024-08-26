@@ -1,22 +1,27 @@
 ---
 sidebar: false
 outline: false
-lastUpdated: false
 editLink: false
+lastUpdated: false
 prev: false
 next: false
 ---
 
 
 
+
 # 更新说明
 
-<update /><ArticleMetadata />
 
 > 大概率不会再添加新的内容了，作为文档，现有的功能已经非常够用了
 >
 > 只会随着官方更新版本，极致的美化，就是腻！
 
+
+
+## 2024-8-26
+
+- 新增 标题下显示 [阅读时间和字数](./components.md#字数及阅读时间) 组件
 
 ## 2024-8-25
 
@@ -24,7 +29,6 @@ next: false
 
 - 修正 [Bage容器自定义颜色样式](./style.md#badge颜色)
 
-- 新增 标题下显示阅读时间和字数（等我写到插槽里，再更新文章吧）
 
 
 ## 2024-8-24

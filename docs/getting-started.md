@@ -1,6 +1,6 @@
 # 快速上手
 
-<update />
+<ArticleMetadata />
 
 <div class="linkcard">
   <a href="https://vitepress.new/" target="_blank">
