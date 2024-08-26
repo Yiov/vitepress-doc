@@ -1,6 +1,6 @@
 # 组件
 
-<update />
+<ArticleMetadata />
 
 
 ## 简介
