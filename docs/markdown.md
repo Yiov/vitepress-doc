@@ -1,20 +1,13 @@
 # Markdown
 
-<ArticleMetadata />
+
 
 > 如果你还不了解 Markdown ，请先了解下Markdown的简单用法
 >
 > VitePress 中的链接可以直接渲染
 
-<div class="linkcard">
-  <a href="https://yiov.top/computer/markdown.html" target="_blank">
-    <p class="description">Markdown的简单用法<br><span>https://yiov.top/computer/markdown.html</span></p>
-    <div class="logo">
-        <img alt="Logo" width="70px" height="70px" src="/markdown.png" />
-    </div>
-  </a>
-</div>
 
+<Linkcard url="https://yiov.top/computer/markdown.html" title="Markdown的简单用法" description="https://yiov.top/computer/markdown.html" logo="/markdown.png"/>
 
 
 ## 基础功能

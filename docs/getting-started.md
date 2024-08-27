@@ -1,16 +1,6 @@
 # 快速上手
 
-<ArticleMetadata />
-
-<div class="linkcard">
-  <a href="https://vitepress.new/" target="_blank">
-    <p class="description">在线体验及调试（StackBlitz 驱动）<br><span>https://vitepress.new/</span></p>
-    <div class="logo">
-        <img alt="Logo" width="70px" height="70px" src="/svg/stackblitz_logo.svg" />
-    </div>
-  </a>
-</div>
-
+<Linkcard url="https://vitepress.new/" title="在线体验及调试（StackBlitz 驱动）" description="https://vitepress.new/" logo="/svg/stackblitz_logo.svg"/>
 
 ## 前期工作
 

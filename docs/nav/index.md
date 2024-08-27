@@ -1,12 +1,11 @@
 # VitePress搭建个人导航
 
-<update />
 
 ## 简介
 
 VitePress也能做导航，Amazing！[@茂茂大神](https://github.com/maomao1996/mm-notes) 牛批！
 
-* 茂茂：https://github.com/maomao1996/vitepress-nav-template
+* 项目：https://github.com/maomao1996/vitepress-nav-template
 
 * DEMO：https://fe-nav.netlify.app/nav/
 

@@ -608,120 +608,6 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 
 
-### 链接卡片 
-
-::: tip 说明
-方法参考自 [vuejs官网](https://cn.vuejs.org/guide/introduction.html) 的 [中文仓库](https://github.com/vuejs-translations/docs-zh-cn)
-:::
-
-在 `.vitepress/theme/style` 目录新建一个 `linkcard.css` 文件
-
-
-```md{8}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ config.mts
-│  │  └─ theme
-│  │     └─ style
-│  │        └─ index.css
-│  │        └─ linkcard.css
-│  └─ index.md
-└─ node_modules
-```
-
-粘贴如下代码，保存
-
-
-```css
-/* .vitepress/theme/style/linkcard.css */
-
-/* 卡片背景 */
-.linkcard {
-  background-color: var(--vp-c-bg-soft);
-  border-radius: 8px;
-  padding: 8px 16px 8px 8px;
-  transition: color 0.5s, background-color 0.5s;
-}
-
-/* 卡片鼠标悬停 */
-.linkcard:hover {
-  background-color: var(--vp-c-yellow-soft);
-}
-
-/* 链接样式 */
-.linkcard a {
-  display: flex;
-  align-items: center;
-}
-
-/* 描述链接文字 */
-.linkcard .description {
-  flex: 1;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 25px;
-  color: var(--vp-c-text-1);
-  margin: 0 0 0 16px;
-  transition: color 0.5s;
-}
-
-/* 描述链接文字2 */
-.linkcard .description span {
-  font-size: 14px;
-}
-
-/* logo图片 */
-.linkcard .logo img {
-  width: 80px;
-  object-fit: contain;
-}
-
-/* 链接下划线去除 */
-.vp-doc a {
-  text-decoration: none;
-}
-```
-
-然后在 `index.css` 中引入生效
-
-```css
-/* .vitepress/theme/style/index.css */
-@import './linkcard.css';
-```
-
-
-输入：
-
-```md
-<div class="linkcard">
-  <a href="https://vitepress.yiov.top/" target="_blank">
-    <p class="description">Vitepress中文搭建教程<br><span>https://vitepress.yiov.top/</span></p>
-    <div class="logo">
-        <img alt="Logo" width="70px" height="70px" src="https://vitepress.yiov.top/logo.png" />
-    </div>
-  </a>
-</div>
-```
-
-输出：
-
-<div class="linkcard">
-  <a href="https://vitepress.yiov.top/" target="_blank">
-    <p class="description">Vitepress中文搭建教程<br><span>https://vitepress.yiov.top/</span></p>
-    <div class="logo">
-        <img alt="Logo" width="70px" height="70px" src="https://vitepress.yiov.top/logo.png" />
-    </div>
-  </a>
-</div>
-
-
-
----
-
-
-
-
 ### 代码组
 
 将代码组改成Mac风格，三个小圆点
@@ -940,7 +826,7 @@ export default defineConfig({
 
 也可以叫徽标，无论文档还是github项目都会见到这种
 
-![](https://vuepress.yiov.top/assets/vuepress-37-83d44ec7.png)
+![](https://vuepress.yiov.top/beautification/02.png)
 
 官网：https://shields.io/
 

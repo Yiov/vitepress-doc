@@ -1,6 +1,5 @@
 # 组件
 
-<ArticleMetadata />
 
 
 ## 简介
@@ -110,6 +109,158 @@ export default {
 
 
 ## 演示
+
+
+### 链接卡片 
+
+::: tip 说明
+代码参考自 [vuejs官网](https://cn.vuejs.org/guide/introduction.html) 的 [中文仓库](https://github.com/vuejs-translations/docs-zh-cn)
+:::
+
+在 `theme/components` 文件夹，创建 `Linkcard.vue`
+
+
+```md{6}
+docs
+├─ .vitepress
+│  └─ config.mts
+│  └─ theme
+│  │   ├─ components
+│  │   │   └─ Linkcard.vue
+│  │   └─ index.ts
+└─ index.md
+```
+
+粘贴如下代码，保存
+
+::: code-group
+```vue [Linkcard.vue]
+<script setup lang="ts">
+interface Props {
+    url: string
+    title: string
+    description: string
+    logo: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    url: '',
+    title: '',
+    description: '',
+    logo: '',
+})
+</script>
+
+
+<template>
+    <div class="linkcard">
+        <a :href="props.url" target="_blank">
+            <p class="description">{{ props.title }}<br><span>{{ props.description }}</span></p>
+            <div class="logo">
+                <img alt="logo" width="70px" height="70px" :src="props.logo" />
+            </div>
+        </a>
+    </div>
+</template>
+
+<style>
+/* 卡片背景 */
+.linkcard {
+    background-color: var(--vp-c-bg-soft);
+    border-radius: 8px;
+    padding: 8px 16px 8px 8px;
+    transition: color 0.5s, background-color 0.5s;
+    margin-top: 15px;
+}
+
+/* 卡片鼠标悬停 */
+.linkcard:hover {
+    background-color: var(--vp-c-yellow-soft);
+}
+
+/* 链接样式 */
+.linkcard a {
+    display: flex;
+    align-items: center;
+}
+
+/* 描述链接文字 */
+.linkcard .description {
+    flex: 1;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    color: var(--vp-c-text-1);
+    margin: 0 0 0 16px;
+    transition: color 0.5s;
+}
+
+/* 描述链接文字2 */
+.linkcard .description span {
+    font-size: 14px;
+}
+
+/* logo图片 */
+.linkcard .logo img {
+    width: 80px;
+    object-fit: contain;
+}
+
+/* 链接下划线去除 */
+.vp-doc a {
+    text-decoration: none;
+}
+</style>
+```
+:::
+
+
+
+
+然后，在 `index.ts` 中注册全局组件
+
+
+```md{7}
+docs
+├─ .vitepress
+│  └─ config.mts
+│  └─ theme
+│  │   ├─ components
+│  │   │   └─ Linkcard.vue
+│  │   └─ index.ts
+└─ index.md
+```
+
+
+```ts{3,7-10}
+/* .vitepress/theme/index.ts */
+import DefaultTheme from 'vitepress/theme'
+import Linkcard from "./components/Linkcard.vue" // [!code focus]
+
+export default {
+  extends: DefaultTheme,
+  enhanceApp({app}) { // [!code focus:4]
+    // 注册全局组件
+    app.component('Linkcard' , Linkcard)
+  }
+}
+```
+
+使用上，注意格式
+
+```md{1}
+<Linkcard url="你的网址" title="标题" description="描述" logo="logo图片路径"/>
+
+比如：
+
+<Linkcard url="https://vitepress.yiov.top/" title="Vitepress中文搭建教程" description="https://vitepress.yiov.top/" logo="https://vitepress.yiov.top/logo.png"/>
+```
+
+输出：
+
+<Linkcard url="https://vitepress.yiov.top/" title="Vitepress中文搭建教程" description="https://vitepress.yiov.top/" logo="https://vitepress.yiov.top/logo.png"/>
+
+---
 
 
 ### 首页文字下划线
@@ -840,29 +991,32 @@ export function countWord(data: string) {
 :::
 
 
+这次我们不注册组件了，在拜读了 [查尔斯的知识库](https://blog.charles7c.top/) 后，找到了答案
 
-然后，在 `index.ts` 中注册全局组件
+将其写在 H1标题 下即可，参照官网 [Markdown的高级配置](https://vitepress.dev/zh/guide/markdown#advanced-configuration) 在 `config.mts` 中配置
 
-```ts{3,7-10}
-/* .vitepress\theme\index.ts */
-import DefaultTheme from 'vitepress/theme'
-import ArticleMetadata from "./components/ArticleMetadata.vue" // [!code focus]
+```ts{8-15}
+/* .vitepress/config.mts */
+import { defineConfig } from 'vitepress'
 
-export default {
-  extends: DefaultTheme,
-  enhanceApp({app}) { // [!code focus:4]
-    // 注册全局组件
-    app.component('ArticleMetadata' , ArticleMetadata)
+export default defineConfig({
+
+  //markdown配置
+  markdown: {
+    // 组件插入h1标题下
+    config: (md) => {
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+          let htmlResult = slf.renderToken(tokens, idx, options);
+          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
+          return htmlResult;
+      }
+    }
   }
-}
+
+})
 ```
 
-最后回到首页或者其他页面，插入组件即可
-
-```md
-<!-- index.md -->
-<ArticleMetadata />
-```
+最后回到任意页面看效果即可
 
 
 ---

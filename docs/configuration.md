@@ -1,7 +1,5 @@
 # 配置
 
-<ArticleMetadata />
-
 
 
 ## 目录

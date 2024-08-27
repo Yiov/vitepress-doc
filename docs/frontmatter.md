@@ -1,6 +1,6 @@
 # Frontmatter
 
-<ArticleMetadata />
+
 
 Vitepress已经给了一个配置，就在我们的 `docs - index.md` 中
 

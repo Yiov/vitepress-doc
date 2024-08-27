@@ -1,7 +1,5 @@
 # 页面
 
-<ArticleMetadata />
-
 
 
 ## 站点配置

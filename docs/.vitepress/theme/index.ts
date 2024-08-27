@@ -20,7 +20,7 @@ import confetti from "./components/confetti.vue" // 五彩纸屑
 import update from "./components/update.vue" // 更新时间
 import xgplayer from "./components/xgplayer.vue" //西瓜播放器
 import backTop from "./components/backTop.vue" //返回顶部
-import ArticleMetadata from "./components/ArticleMetadata.vue" //文章元数据
+import Linkcard from "./components/Linkcard.vue" //链接卡片
 
 
 // 不蒜子
@@ -39,7 +39,7 @@ export default {
     app.component('confetti' , confetti) // 五彩纸屑
     app.component('update' , update) // 更新
     app.component('xgplayer' , xgplayer) //西瓜播放器
-    app.component('ArticleMetadata' , ArticleMetadata) //文章元数据
+    app.component('Linkcard' , Linkcard) //链接卡片
 
     // 不蒜子
     if (inBrowser) {

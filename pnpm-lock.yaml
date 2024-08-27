@@ -9,8 +9,8 @@ devDependencies:
     specifier: ^2.1.3
     version: 2.1.3
   '@types/node':
-    specifier: ^22.4.1
-    version: 22.4.1
+    specifier: ^22.5.0
+    version: 22.5.0
   busuanzi.pure.js:
     specifier: ^1.0.3
     version: 1.0.3
@@ -27,8 +27,8 @@ devDependencies:
     specifier: ^1.77.8
     version: 1.77.8
   vitepress:
-    specifier: 1.3.3
-    version: 1.3.3(@algolia/client-search@4.20.0)(@types/node@22.4.1)(less@4.2.0)(sass@1.77.8)(search-insights@2.9.0)
+    specifier: 1.3.4
+    version: 1.3.4(@algolia/client-search@4.20.0)(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(search-insights@2.9.0)
   vitepress-plugin-comment-with-giscus:
     specifier: ^1.1.15
     version: 1.1.15(vue@3.4.38)
@@ -36,8 +36,8 @@ devDependencies:
     specifier: ^3.4.38
     version: 3.4.38
   xgplayer:
-    specifier: ^3.0.19
-    version: 3.0.19(core-js@3.38.0)
+    specifier: ^3.0.20
+    version: 3.0.20(core-js@3.38.0)
 
 packages:
 
@@ -668,8 +668,8 @@ packages:
     resolution: {integrity: sha512-RGdgjQUZba5p6QEFAVx2OGb8rQDL/cPRG7GiedRzMcJ1tYnUANBncjbSB1NRGwbvjcPeikRABz2nshyPk1bhWg==}
     dev: true
 
-  /@types/node@22.4.1:
-    resolution: {integrity: sha512-1tbpb9325+gPnKK0dMm+/LMriX0vKxf6RnB0SZUqfyVkQ4fMgUSySqhxE/y8Jvs4NyF1yHzTfG9KlnkIODxPKg==}
+  /@types/node@22.5.0:
+    resolution: {integrity: sha512-DkFrJOe+rfdHTqqMg0bSNlGlQ85hSoh2TPzZyhHsXnMtligRWpxUySiyw8FY14ITt24HVCiQPWxS3KO/QlGmWg==}
     dependencies:
       undici-types: 6.19.8
     dev: true
@@ -693,7 +693,7 @@ packages:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.4.2(@types/node@22.4.1)(less@4.2.0)(sass@1.77.8)
+      vite: 5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)
       vue: 3.4.38
     dev: true
 
@@ -1519,7 +1519,7 @@ packages:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
     dev: true
 
-  /vite@5.4.2(@types/node@22.4.1)(less@4.2.0)(sass@1.77.8):
+  /vite@5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8):
     resolution: {integrity: sha512-dDrQTRHp5C1fTFzcSaMxjk6vdpKvT+2/mIdE07Gw2ykehT49O0z/VHS3zZ8iV/Gh8BJJKHWOe5RjaNrW5xf/GA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -1550,7 +1550,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
       esbuild: 0.21.5
       less: 4.2.0
       postcss: 8.4.41
@@ -1568,8 +1568,8 @@ packages:
       - vue
     dev: true
 
-  /vitepress@1.3.3(@algolia/client-search@4.20.0)(@types/node@22.4.1)(less@4.2.0)(sass@1.77.8)(search-insights@2.9.0):
-    resolution: {integrity: sha512-6UzEw/wZ41S/CATby7ea7UlffvRER/uekxgN6hbEvSys9ukmLOKsz87Ehq9yOx1Rwiw+Sj97yjpivP8w1sUmng==}
+  /vitepress@1.3.4(@algolia/client-search@4.20.0)(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)(search-insights@2.9.0):
+    resolution: {integrity: sha512-I1/F6OW1xl3kW4PaIMC6snxjWgf3qfziq2aqsDoFc/Gt41WbcRv++z8zjw8qGRIJ+I4bUW7ZcKFDHHN/jkH9DQ==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4
@@ -1594,7 +1594,7 @@ packages:
       mark.js: 8.11.1
       minisearch: 7.1.0
       shiki: 1.14.1
-      vite: 5.4.2(@types/node@22.4.1)(less@4.2.0)(sass@1.77.8)
+      vite: 5.4.2(@types/node@22.5.0)(less@4.2.0)(sass@1.77.8)
       vue: 3.4.38
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -1655,8 +1655,8 @@ packages:
       '@vue/shared': 3.4.38
     dev: true
 
-  /xgplayer-subtitles@3.0.19(core-js@3.38.0):
-    resolution: {integrity: sha512-e2k1oFq1HSbnnHaK694FREqkFyq65ze4vETTIy8ABkOXItcr9/ugyNIJ4zCjD+jExSAVppM9FAF761X4+wRCeA==}
+  /xgplayer-subtitles@3.0.20(core-js@3.38.0):
+    resolution: {integrity: sha512-I1bjsIY+aKOrhYQspLdneOkYg+Vf4cJVGPnDSFnNebnxXl9Mhz5SEpWGzYizMYxL9UvsQ9pgjeEY0o4hkwM+kQ==}
     peerDependencies:
       core-js: '>=3.12.1'
     dependencies:
@@ -1664,8 +1664,8 @@ packages:
       eventemitter3: 4.0.7
     dev: true
 
-  /xgplayer@3.0.19(core-js@3.38.0):
-    resolution: {integrity: sha512-yw4yinU5EtxS5YxOpctCVnHS/WW3tLTYjT+ZHivUYihlaAdudrmBmoOCcRYykGg7xz6PVIi6B79Gn1RBnGAnpg==}
+  /xgplayer@3.0.20(core-js@3.38.0):
+    resolution: {integrity: sha512-UNKZJRyODOZGdka83ao8fI18xdhzOV8qG4aNEOOkuOQbXFXfXsJMr/dazRHFP+uXmTqiCXr568euee3ch7CS7g==}
     peerDependencies:
       core-js: '>=3.12.1'
     dependencies:
@@ -1674,5 +1674,5 @@ packages:
       delegate: 3.2.0
       downloadjs: 1.4.7
       eventemitter3: 4.0.7
-      xgplayer-subtitles: 3.0.19(core-js@3.38.0)
+      xgplayer-subtitles: 3.0.20(core-js@3.38.0)
     dev: true

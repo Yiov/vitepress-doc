@@ -1,7 +1,5 @@
 # 静态部署
 
-<ArticleMetadata />
-
 
 ## 方式
 
