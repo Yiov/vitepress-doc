@@ -1004,7 +1004,7 @@ export default defineConfig({
 
   //markdown配置
   markdown: {
-    // 组件插入h1标题下
+    // 组件插入h1标题下 // [!code focus:8]
     config: (md) => {
       md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
           let htmlResult = slf.renderToken(tokens, idx, options);
@@ -1025,8 +1025,8 @@ export default defineConfig({
 
 ### 文章摘要
 
-说实话这个就真的是博客的需求，而不是文档了
+这个就真的是博客的需求，而不是文档了，推荐一个博客主题
 
-推荐一个博客主题：https://github.com/imsyy/vitepress-theme-curve
+* 项目：https://github.com/imsyy/vitepress-theme-curve
 
 静等开源吧
