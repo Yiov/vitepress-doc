@@ -21,6 +21,9 @@ next: false
 > * 关于我：由于没有前端基础，从beta版摸索至今也有了一个年头，过程中很吃力，认识到了许多不足，学习真的是一件永久的事情啊
 
 
+## 2024-8-28
+
+- 新增 [隐藏切换按钮且启用深色模式](./page.md#深色主题) 方式
 
 ## 2024-8-27
 
@@ -52,6 +55,7 @@ next: false
 - 更新 [Bage容器自定义颜色样式](./style.md#badge颜色)
 
 - 删除 [视屏过渡API演示](https://vitepress.dev/zh/guide/extending-default-theme#on-appearance-toggle)
+
 
 
 

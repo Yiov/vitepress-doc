@@ -178,7 +178,7 @@ o  Add VitePress npm scripts to package.json?
 ::: tip Vue 作为对等依赖
 如果您打算使用 Vue 组件或 API 进行自定义，您还应该显式 [安装 Vue](./components.md#安装) 作为对等依赖项
 
-如果你不懂，我们先暂时不看，我们后面会再详细说
+如果你不懂，我们先暂时不看，我们后面会详细说
 :::
 
 
@@ -193,7 +193,7 @@ o  Add VitePress npm scripts to package.json?
 ```json{6-10}
 {
   "devDependencies": {
-    "vitepress": "^1.3.3"
+    "vitepress": "^1.3.4"
   },
   "packageManager": "pnpm@8.6.10+sha1.98fe2755061026799bfa30e7dc8d6d48e9c3edf0",
   "scripts": { // [!code focus:5]
@@ -254,7 +254,7 @@ F:\vitepress>pnpm run docs:dev
 > vitepress dev docs
 
 
-  vitepress v1.3.3
+  vitepress v1.3.4
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose

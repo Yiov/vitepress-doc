@@ -145,6 +145,16 @@ export default defineConfig({
 })
 ```
 
+如果你既想隐藏切换按钮，有想启用深色模式，可以这样使用
+
+```ts{3-4}
+export default defineConfig({
+
+  appearance: false,
+  head: [['script', {}, `document.documentElement.classList.add('dark')`]],
+
+})
+```
 
 
 ### 多语言
