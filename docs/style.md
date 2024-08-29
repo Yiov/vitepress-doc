@@ -1,7 +1,5 @@
 # 样式美化
 
-<ArticleMetadata />
-
 
 ## 主题目录(必看)
 
