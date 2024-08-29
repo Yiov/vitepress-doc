@@ -347,7 +347,7 @@ const { frontmatter } = useData()
 
 然后在引入
 
-```ts{3-4,8}
+```ts{4,8}
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'

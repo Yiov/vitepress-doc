@@ -1013,6 +1013,12 @@ export default {
 
 将其写在 H1标题 下即可，参照官网 [Markdown的高级配置](https://vitepress.dev/zh/guide/markdown#advanced-configuration) 在 `config.mts` 中配置
 
+::: info 说明
+如果你觉得组件在 H1标题 之上的位置，才是最合适的，建议使用 [doc-before 插槽](./layout.md#doc) 位置
+
+不要像上方一样使用 `enhanceApp` 方式注册组件，请参考 [h函数的配置](./layout.md#示例2-h函数) 使用
+:::
+
 ```ts{8-15}
 /* .vitepress/config.mts */
 import { defineConfig } from 'vitepress'
