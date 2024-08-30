@@ -23,7 +23,7 @@
 :::: details pnpm / yarn / bun
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 #安装pnpm
 npm install -g pnpm
 #查看版本号

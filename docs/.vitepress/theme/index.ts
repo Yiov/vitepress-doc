@@ -5,6 +5,7 @@ import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 
 // 样式
 import './style/index.css' //自定义样式
+import 'virtual:group-icons.css' //代码组样式
 
 import { h } from 'vue' // h函数
 import { useData , useRoute } from 'vitepress'

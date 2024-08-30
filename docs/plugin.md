@@ -609,6 +609,84 @@ bun add -D @types/node
 
 
 
+## 代码组图标
+
+使用的是 [@yuyinws/vitepress-plugin-group-icons](https://github.com/yuyinws/vitepress-plugin-group-icons)
+
+参照教程安装：https://vpgi.vercel.app/
+
+::: code-group
+```sh [pnpm]
+pnpm add -D vitepress-plugin-group-icons
+```
+
+```sh [yarn]
+yarn add -D vitepress-plugin-group-icons
+```
+
+```sh [npm]
+npm install vitepress-plugin-group-icons
+```
+
+```sh [bun]
+bun add -D vitepress-plugin-group-icons
+```
+:::
+
+
+然后在 `config.mts` 中配置
+
+```ts{3,8-10,13-17}
+// .vitepress/config.mts
+import { defineConfig } from 'vitepress'
+import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons' // [!code focus]
+
+export default defineConfig({
+
+  markdown: {
+    config(md) { // [!code focus:3]
+      md.use(groupIconMdPlugin) //代码组图标
+    },
+  },
+
+  vite: { // [!code focus:5]
+    plugins: [
+      groupIconVitePlugin() //代码组图标
+    ],
+  },
+
+})
+```
+
+最后还需要再 `index.ts` 中引入样式
+
+```ts{4}
+// .vitepress/theme/index.ts
+import DefaultTheme from 'vitepress/theme'
+
+import 'virtual:group-icons.css' //代码组样式 // [!code focus]
+
+export default {
+  extends: DefaultTheme,
+}
+```
+
+
+看一下效果，你也可以参考官网教程自定义
+
+::: code-group
+```sh [pnpm]
+pnpm -v
+```
+
+```sh [yarn]
+yarn -v
+```
+
+```sh [bun]
+bun -v
+```
+:::
 
 
 ## 评论
