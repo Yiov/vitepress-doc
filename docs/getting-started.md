@@ -102,7 +102,7 @@ mkdir vitepress && cd vitepress
 然后我们安装vitepress
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm add -D vitepress
 ```
 
@@ -125,7 +125,7 @@ bun add -D vitepress
 
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm vitepress init
 ```
 
@@ -227,7 +227,7 @@ echo dist >> .gitignore
 
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm run docs:dev
 ```
 
@@ -295,7 +295,7 @@ F:\vitepress>pnpm run docs:dev
 你也可以直接调用命令
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm exec vitepress dev docs
 ```
 

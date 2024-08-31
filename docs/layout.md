@@ -21,7 +21,7 @@ Vitepress基于Vue3用到了 `<slot>` 插槽，在 `<Layout/>` 布局组件中�
 
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm add -D vue
 ```
 

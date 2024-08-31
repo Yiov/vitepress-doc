@@ -64,7 +64,7 @@ export default defineConfig({
 构建完成后，在dist文件夹上传到Github即可
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm run docs:build
 ```
 
@@ -86,7 +86,7 @@ bun run docs:build
 
 :::: details 如果你需要本地预览，可以执行
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm run docs:preview
 ```
 

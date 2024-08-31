@@ -27,7 +27,7 @@
 :::
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm add -D vue
 ```
 

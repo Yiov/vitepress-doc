@@ -68,7 +68,7 @@ export default {
 :::
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm add -D vue
 ```
 
@@ -393,7 +393,7 @@ const formatTitle = computed(() => {
 
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm add -D @mdit-vue/shared
 ```
 
@@ -532,7 +532,7 @@ layoutClass: m-nav-layout
 
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm add -D sass
 ```
 

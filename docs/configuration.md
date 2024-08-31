@@ -103,7 +103,7 @@ ctrl+c 即可退出开发模式
 :::
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm run docs:dev
 ```
 

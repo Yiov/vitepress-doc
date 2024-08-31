@@ -44,7 +44,7 @@ ncu -u
 
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm install
 ```
 
@@ -64,7 +64,7 @@ bun install
 卸载就比较简单了，在 `package.json` 中找到包名即可
 
 ::: code-group
-```sh [pmpm]
+```sh [pnpm]
 pnpm uninstall <包名>
 ```
 

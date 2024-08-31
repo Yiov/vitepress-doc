@@ -672,8 +672,9 @@ export default {
 ```
 
 
-看一下效果，你也可以参考官网教程自定义
+使用是，代码组的 `[]` 中括号里要写对应的标题字才可以
 
+````md{2,6,10}
 ::: code-group
 ```sh [pnpm]
 pnpm -v
@@ -687,6 +688,98 @@ yarn -v
 bun -v
 ```
 :::
+````
+
+已经支持的图标有
+
+```ts
+export const builtInIcons: Record<string, string> = {
+  // package manager
+  pnpm: 'logos:pnpm',
+  npm: 'logos:npm-icon',
+  yarn: 'logos:yarn',
+  bun: 'logos:bun',
+  // framework
+  vue: 'logos:vue',
+  svelte: 'logos:svelte-icon',
+  angular: 'logos:angular-icon',
+  react: 'logos:react',
+  next: 'logos:nextjs-icon',
+  nuxt: 'logos:nuxt-icon',
+  solid: 'logos:solidjs-icon',
+  // bundler
+  rollup: 'logos:rollupjs',
+  webpack: 'logos:webpack',
+  vite: 'logos:vitejs',
+  esbuild: 'logos:esbuild',
+}
+```
+
+那么如何自定义呢，我们先在 [iconify](https://icon-sets.iconify.design/) 中找到中意的图标
+
+::: tip 说明
+* 本地图标格式：只能使用相对路径
+
+* 远程图标格式：必须是 `logos:***`
+:::
+
+图标名复制后，可以在 `config.mts` 中配置
+
+
+```ts{3,15-20}
+// .vitepress/config.mts
+import { defineConfig } from 'vitepress'
+import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons' // [!code focus]
+
+export default defineConfig({
+
+  markdown: {
+    config(md) {
+      md.use(groupIconMdPlugin) //代码组图标
+    },
+  },
+
+  vite: {
+    plugins: [
+      groupIconVitePlugin({ // [!code focus:6]
+        customIcon: {
+          ts: localIconLoader(import.meta.url, '../public/svg/typescript.svg'), //本地ts图标导入
+          js: 'logos:javascript', //js图标
+          md: 'logos:markdown', //markdown图标
+          css: 'logos:css-3', //markdown图标
+        },
+      })
+    ],
+  },
+
+})
+```
+
+来吧看看，效果如何
+
+::: code-group
+```ts [ts]
+console.log("I'm TypeScript");
+```
+
+```js [js]
+console.log("I'm JavaScript");
+```
+
+```md [md]
+Markdown图标演示
+```
+
+```css [css]
+h1 {
+  background: red;
+}
+```
+
+:::
+
+
+
 
 
 ## 评论

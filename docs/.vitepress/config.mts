@@ -7,7 +7,7 @@ import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 const pkg = require('vitepress/package.json')
 
-import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
+import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -81,7 +81,14 @@ export default defineConfig({
 
   vite: { 
     plugins: [
-      groupIconVitePlugin() //代码组图标
+      groupIconVitePlugin({
+        customIcon: {
+          ts: localIconLoader(import.meta.url, '../public/svg/typescript.svg'), //本地ts图标导入
+          md: localIconLoader(import.meta.url, '../public/svg/md.svg'), //markdown图标
+          css: localIconLoader(import.meta.url, '../public/svg/css.svg'), //css图标
+          js: 'logos:javascript', //js图标
+        },
+      })
     ],
   },
 
