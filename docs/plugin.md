@@ -4,11 +4,6 @@
 
 ## 时间线
 
-:::: details 由于markdown-it官方更新，导致内部不匹配等问题，暂时无法使用
-
-请等待作者更新，或者弃用
-
----
 
 采用了 [@HanochMa/vitepress-markdown-timeline](https://github.com/HanochMa/vitepress-markdown-timeline) 的项目
 
@@ -88,10 +83,6 @@ export default {
 
 ```
 
-
-
-
-::::
 
 
 
@@ -636,6 +627,10 @@ bun add -D vitepress-plugin-group-icons
 
 然后在 `config.mts` 中配置
 
+::: tip `groupIconMdPlugin` 报错？
+请备份配置及文件后，重新安装VitePress
+:::
+
 ```ts{3,8-10,13-17}
 // .vitepress/config.mts
 import { defineConfig } from 'vitepress'
@@ -672,7 +667,7 @@ export default {
 ```
 
 
-使用是，代码组的 `[]` 中括号里要写对应的标题字才可以
+使用时，请确保代码后有对应的文字触发
 
 ````md{2,6,10}
 ::: code-group
@@ -690,7 +685,7 @@ bun -v
 :::
 ````
 
-已经支持的图标有
+已经内置的常用图标有
 
 ```ts
 export const builtInIcons: Record<string, string> = {
