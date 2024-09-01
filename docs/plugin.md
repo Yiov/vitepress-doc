@@ -741,7 +741,7 @@ export default defineConfig({
           ts: localIconLoader(import.meta.url, '../public/svg/typescript.svg'), //本地ts图标导入
           js: 'logos:javascript', //js图标
           md: 'logos:markdown', //markdown图标
-          css: 'logos:css-3', //markdown图标
+          css: 'logos:css-3', //css图标
         },
       })
     ],
