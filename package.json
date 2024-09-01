@@ -1,7 +1,6 @@
 {
   "devDependencies": {
     "@mdit-vue/shared": "^2.1.3",
-    "@types/node": "^22.5.1",
     "busuanzi.pure.js": "^1.0.3",
     "canvas-confetti": "^1.9.3",
     "less": "^4.2.0",

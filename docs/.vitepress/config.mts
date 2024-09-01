@@ -2,10 +2,7 @@ import { defineConfig } from 'vitepress'
 
 //命令集：pnpm add -D vitepress vue @mdit-vue/shared @types/node busuanzi.pure.js canvas-confetti less medium-zoom sass vitepress-plugin-comment-with-giscus xgplayer
 
-// 版本获取 pnpm add -D @types/node
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
-const pkg = require('vitepress/package.json')
+import { devDependencies } from '../../package.json'
 
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 
@@ -159,7 +156,7 @@ export default defineConfig({
           },
         ],
       },
-      { text: `VitePress ${pkg.version}`, link: 'https://vitepress.dev/zh/', noIcon: true },
+      { text: `VitePress ${ devDependencies.vitepress.replace('^','') }`, link: 'https://vitepress.dev/zh/', noIcon: true },
       {text: '更新日志', link: '/changelog.md'},
     ],
 

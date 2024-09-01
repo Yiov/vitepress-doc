@@ -455,6 +455,52 @@ export default defineConfig({
 ```
 
 
+### 版本号
+
+方式有两种，按需配置即可
+
+::: code-group
+
+```ts{2-4,12} [安装@types/node（二选一）]
+// 需要先安装 pnpm add -D @types/node
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+const pkg = require('vitepress/package.json')
+
+export default defineConfig({
+
+  themeConfig: {
+    //导航栏
+    nav: [
+      { text: '首页', link: '/' },
+      { text: `VitePress ${pkg.version}`, link: 'https://vitepress.dev/zh/', noIcon: true },
+    ],
+  },
+
+})
+
+```
+
+```ts{1,9-10} [不安装@types/node（二选一）]
+import { devDependencies } from '../../package.json'
+
+export default defineConfig({
+
+  themeConfig: {
+    //导航栏
+    nav: [
+      { text: '首页', link: '/' },
+      // 其中的 `replace` 是将版本前的 `^` ，替换成了空白字符
+      { text: `VitePress ${ devDependencies.vitepress.replace('^','') }`, link: 'https://vitepress.dev/zh/', noIcon: true },
+    ],
+  },
+
+})
+
+```
+:::
+
+
 ### 社交链接
 
 可以自行添加，支持SVG
