@@ -551,28 +551,27 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 ::: details 使用说明
 多个链接，分别添加即可
 
-`content` 可使用Emoji，自行修改好位置即可
+`content` 可使用 [Unicode 符号表](https://symbl.cc/cn/unicode-table/)，自行修改好位置即可
 :::
 
 ```css{2,4}
 /* .vitepress\theme\style\link.css */
-.vp-doc a[href^="https://www.youtube.com/"]:before,[href^="https://www.bilibili.com/"]:before
-{
-  content: '➹';
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  border-radius: 10px;
-  vertical-align: middle;
-  position: relative;
-  top: -2px;
-  color: var(--vp-c-green-1);
-  font-size: 13px;
-  border: 3px solid var(--vp-c-green-1);
-  margin-right: 8px;
-  margin-left: 4px;
-  line-height: 15px;
-  padding-left: 1.5px;
+.vp-doc a[href^="https://www.youtube.com/"]:before,
+[href^="https://www.bilibili.com/"]:before {
+    content: '\2023';
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    color: var(--vp-c-green-1);
+    font-size: 30px;
+    border: 2px solid var(--vp-c-green-1);
+    margin-right: 4px;
+    line-height: 13px;
+    padding-left: 0.8px;
 }
 ```
 
