@@ -16,13 +16,9 @@ VitePress也能做导航，Amazing！[@茂茂大神](https://github.com/maomao19
 :::
 
 
-## 自定义布局
+## 新建布局
 
-在 `docs/.vitepress/theme` 目录下的 `index.ts` 文件中加入如下代码
-
-::: tip 说明
-因为 `layout: doc` 主要是提供给文档使用的，其页面宽度有限，同时为了更好的样式隔离，为其添加一个 `layoutClass` 方便我们更好的去自定义样式
-:::
+打开 `docs/.vitepress/theme/index.ts` 文件
 
 ```md{6}
 .
@@ -30,13 +26,20 @@ VitePress也能做导航，Amazing！[@茂茂大神](https://github.com/maomao19
 │  ├─ .vitepress
 │  │  └─ config.mts
 │  │  └─ theme
-│  │      └─ index.ts   <-- 主题配置
+│  │      └─ index.ts   <-- 我在这里
 │  └─ index.md        
 └─ package.json
 ```
 
+复制下面代码，并粘贴
 
-```ts{3-4,9-20}
+::: tip 说明
+因为 `layout: doc` 主要是提供给文档使用的，其页面宽度有限，同时为了更好的样式隔离，为其添加一个 `layoutClass` 方便我们更好的去自定义样式
+:::
+
+::: code-group
+
+```ts{3-4,9-20} [index.ts]
 import DefaultTheme from 'vitepress/theme'
 
 import { h } from 'vue'
@@ -59,6 +62,8 @@ export default {
   },
 }
 ```
+:::
+
 
 :::: details vue如果是报红的状态?
 安装 `vue` 即可，已安装的无视！
@@ -89,7 +94,7 @@ bun add -D vue
 
 
 
-## 自定义组件
+## 新建组件
 
 ::: danger 特别说明
 以下文件夹及文件，可以放在任意位置/取名
@@ -461,7 +466,7 @@ layoutClass: m-nav-layout
 ```
 
 
-## 修改样式
+## 新建样式
 
 然后在 `.vitepress/theme/style` 目录下新建 `nav.scss`
 
@@ -570,7 +575,7 @@ sidebar: false
 
 
 
-## 建数据库
+## 新建数据库
 
 在 `.vitepress/theme/untils` 目录新建 `data.ts` 文件
 
