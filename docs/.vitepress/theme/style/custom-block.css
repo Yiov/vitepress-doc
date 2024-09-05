@@ -1,43 +1,43 @@
 /* .vitepress/theme/style/custom-block.css */
 /* 深浅色卡 */
 :root {
-    --vp-custom-block-info: #cccccc;
-    --vp-custom-block-info-bg: #fdfdfe;
+    --custom-block-info-left: #cccccc;
+    --custom-block-info-bg: #fafafa;
 
-    --vp-custom-block-tip: #009400;
-    --vp-custom-block-tip-bg: #e6f6e6;
+    --custom-block-tip-left: #009400;
+    --custom-block-tip-bg: #e6f6e6;
 
-    --vp-custom-block-warning: #e6a700;
-    --vp-custom-block-warning-bg: #fff8e6;
+    --custom-block-warning-left: #e6a700;
+    --custom-block-warning-bg: #fff8e6;
 
-    --vp-custom-block-danger: #e13238;
-    --vp-custom-block-danger-bg: #ffebec;
+    --custom-block-danger-left: #e13238;
+    --custom-block-danger-bg: #ffebec;
 
-    --vp-custom-block-note: #4cb3d4;
-    --vp-custom-block-note-bg: #eef9fd;
+    --custom-block-note-left: #4cb3d4;
+    --custom-block-note-bg: #eef9fd;
 
-    --vp-custom-block-important: #a371f7;
-    --vp-custom-block-important-bg: #f4eefe;
+    --custom-block-important-left: #a371f7;
+    --custom-block-important-bg: #f4eefe;
 }
 
 .dark {
-    --vp-custom-block-info: #cccccc;
-    --vp-custom-block-info-bg: #474748;
+    --custom-block-info-left: #cccccc;
+    --custom-block-info-bg: #474748;
 
-    --vp-custom-block-tip: #009400;
-    --vp-custom-block-tip-bg: #003100;
+    --custom-block-tip-left: #009400;
+    --custom-block-tip-bg: #003100;
 
-    --vp-custom-block-warning: #e6a700;
-    --vp-custom-block-warning-bg: #4d3800;
+    --custom-block-warning-left: #e6a700;
+    --custom-block-warning-bg: #4d3800;
 
-    --vp-custom-block-danger: #e13238;
-    --vp-custom-block-danger-bg: #4b1113;
+    --custom-block-danger-left: #e13238;
+    --custom-block-danger-bg: #4b1113;
 
-    --vp-custom-block-note: #4cb3d4;
-    --vp-custom-block-note-bg: #193c47;
+    --custom-block-note-left: #4cb3d4;
+    --custom-block-note-bg: #193c47;
 
-    --vp-custom-block-important: #a371f7;
-    --vp-custom-block-important-bg: #230555;
+    --custom-block-important-left: #a371f7;
+    --custom-block-important-bg: #230555;
 }
 
 
@@ -48,43 +48,44 @@
 
 /* 注释容器:背景色、左侧 */
 .custom-block.info {
-    background-color: var(--vp-custom-block-info-bg);
-    border-left: 5px solid var(--vp-custom-block-info);
+    border-left: 5px solid var(--custom-block-info-left);
+    background-color: var(--custom-block-info-bg);
 }
 
 /* 提示容器:边框色、背景色、左侧 */
 .custom-block.tip {
-    /* border-color: var(--vp-custom-block-tip); */
-    background-color: var(--vp-custom-block-tip-bg);
-    border-left: 5px solid var(--vp-custom-block-tip);
+    /* border-color: var(--custom-block-tip); */ 
+    border-left: 5px solid var(--custom-block-tip-left);
+    background-color: var(--custom-block-tip-bg);
 }
 
 /* 警告容器:背景色、左侧 */
 .custom-block.warning {
-    background-color: var(--vp-custom-block-warning-bg);
-    border-left: 5px solid var(--vp-custom-block-warning);
+    border-left: 5px solid var(--custom-block-warning-left);
+    background-color: var(--custom-block-warning-bg);
 }
 
 /* 危险容器:背景色、左侧 */
 .custom-block.danger {
-    background-color: var(--vp-custom-block-danger-bg);
-    border-left: 5px solid var(--vp-custom-block-danger);
+    border-left: 5px solid var(--custom-block-danger-left);
+    background-color: var(--custom-block-danger-bg);
 }
 
 /* NOTE容器:背景色、左侧 */
 .custom-block.note {
-    background-color: var(--vp-custom-block-note-bg);
-    border-left: 5px solid var(--vp-custom-block-note);
+    border-left: 5px solid var(--custom-block-note-left);
+    background-color: var(--custom-block-note-bg);
 }
 
 /* IMPORTANT容器:背景色、左侧 */
 .custom-block.important {
-    background-color: var(--vp-custom-block-important-bg);
-    border-left: 5px solid var(--vp-custom-block-important);
+    border-left: 5px solid var(--custom-block-important-left);
+    background-color: var(--custom-block-important-bg);
+
 }
 
 /* CAUTION容器:背景色、左侧 */
 .custom-block.caution {
-    background-color: var(--vp-c-red-soft);
     border-left: 5px solid var(--vp-c-red-3);
+    background-color: var(--vp-c-red-soft);
 }

@@ -2,38 +2,37 @@
 
 /* 代码块tab */
 .vp-code-group .tabs {
-    padding-top: 30px;
-  }
-  
-  /* 代码块tab-顶部小圆点 */
-  .vp-code-group .tabs::before {
-    background: #fc625d;
-    border-radius: 50%;
-    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-    content: ' ';
-    height: 12px;
-    width: 12px;
-    left: 12px;
-    margin-top: -15px;
-    position: absolute;
-  }
-  
-  /* 代码组的容器样式 */
-  .vp-code-group {
-    color: var(--vp-c-black-soft);
-    border-radius: 8px;
-    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
-  }
-  
-  /* 在代码组内部的代码块样式 */
-  .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
-    padding-top: 24px; /* 确保代码块内的间距正确 */
-    border-radius: 8px; /* 与外部容器的边角一致 */
-    box-shadow: none; /* 避免嵌套的阴影叠加 */
-    position: relative;
-  }
-  
-  /* 确保 group 内的代码块不重复显示小圆点 */
-  .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
-    display: none;
-  }
+  padding-top: 30px;
+}
+
+/* 代码块tab-顶部小圆点 */
+.vp-code-group .tabs::before {
+  background: #fc625d;
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  content: ' ';
+  height: 12px;
+  width: 12px;
+  left: 12px;
+  margin-top: -15px;
+  position: absolute;
+}
+
+/* 代码组的容器样式 */
+.vp-code-group {
+  color: var(--vp-c-black-soft);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
+}
+
+/* 在代码组内部的代码块样式 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+  border-radius: 8px; /* 与外部容器的边角一致 */
+  box-shadow: none; /* 避免嵌套的阴影叠加 */
+  position: relative;
+}
+
+/* 确保 group 内的代码块不重复显示小圆点 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+  display: none;
+}

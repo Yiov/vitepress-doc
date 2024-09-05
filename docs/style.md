@@ -290,43 +290,43 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 /* .vitepress/theme/style/custom-block.css */
 /* 深浅色卡 */
 :root {
-    --vp-custom-block-info: #cccccc;
-    --vp-custom-block-info-bg: #fdfdfe;
+    --custom-block-info-left: #cccccc;
+    --custom-block-info-bg: #fafafa;
 
-    --vp-custom-block-tip: #009400;
-    --vp-custom-block-tip-bg: #e6f6e6;
+    --custom-block-tip-left: #009400;
+    --custom-block-tip-bg: #e6f6e6;
 
-    --vp-custom-block-warning: #e6a700;
-    --vp-custom-block-warning-bg: #fff8e6;
+    --custom-block-warning-left: #e6a700;
+    --custom-block-warning-bg: #fff8e6;
 
-    --vp-custom-block-danger: #e13238;
-    --vp-custom-block-danger-bg: #ffebec;
+    --custom-block-danger-left: #e13238;
+    --custom-block-danger-bg: #ffebec;
 
-    --vp-custom-block-note: #4cb3d4;
-    --vp-custom-block-note-bg: #eef9fd;
+    --custom-block-note-left: #4cb3d4;
+    --custom-block-note-bg: #eef9fd;
 
-    --vp-custom-block-important: #a371f7;
-    --vp-custom-block-important-bg: #f4eefe;
+    --custom-block-important-left: #a371f7;
+    --custom-block-important-bg: #f4eefe;
 }
 
 .dark {
-    --vp-custom-block-info: #cccccc;
-    --vp-custom-block-info-bg: #474748;
+    --custom-block-info-left: #cccccc;
+    --custom-block-info-bg: #474748;
 
-    --vp-custom-block-tip: #009400;
-    --vp-custom-block-tip-bg: #003100;
+    --custom-block-tip-left: #009400;
+    --custom-block-tip-bg: #003100;
 
-    --vp-custom-block-warning: #e6a700;
-    --vp-custom-block-warning-bg: #4d3800;
+    --custom-block-warning-left: #e6a700;
+    --custom-block-warning-bg: #4d3800;
 
-    --vp-custom-block-danger: #e13238;
-    --vp-custom-block-danger-bg: #4b1113;
+    --custom-block-danger-left: #e13238;
+    --custom-block-danger-bg: #4b1113;
 
-    --vp-custom-block-note: #4cb3d4;
-    --vp-custom-block-note-bg: #193c47;
+    --custom-block-note-left: #4cb3d4;
+    --custom-block-note-bg: #193c47;
 
-    --vp-custom-block-important: #a371f7;
-    --vp-custom-block-important-bg: #230555;
+    --custom-block-important-left: #a371f7;
+    --custom-block-important-bg: #230555;
 }
 
 
@@ -337,45 +337,46 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 /* 注释容器:背景色、左侧 */
 .custom-block.info {
-    background-color: var(--vp-custom-block-info-bg);
-    border-left: 5px solid var(--vp-custom-block-info);
+    border-left: 5px solid var(--custom-block-info-left);
+    background-color: var(--custom-block-info-bg);
 }
 
 /* 提示容器:边框色、背景色、左侧 */
 .custom-block.tip {
-    /* border-color: var(--vp-custom-block-tip); */ 
-    background-color: var(--vp-custom-block-tip-bg);
-    border-left: 5px solid var(--vp-custom-block-tip);
+    /* border-color: var(--custom-block-tip); */ 
+    border-left: 5px solid var(--custom-block-tip-left);
+    background-color: var(--custom-block-tip-bg);
 }
 
 /* 警告容器:背景色、左侧 */
 .custom-block.warning {
-    background-color: var(--vp-custom-block-warning-bg);
-    border-left: 5px solid var(--vp-custom-block-warning);
+    border-left: 5px solid var(--custom-block-warning-left);
+    background-color: var(--custom-block-warning-bg);
 }
 
 /* 危险容器:背景色、左侧 */
 .custom-block.danger {
-    background-color: var(--vp-custom-block-danger-bg);
-    border-left: 5px solid var(--vp-custom-block-danger);
+    border-left: 5px solid var(--custom-block-danger-left);
+    background-color: var(--custom-block-danger-bg);
 }
 
 /* NOTE容器:背景色、左侧 */
 .custom-block.note {
-    background-color: var(--vp-custom-block-note-bg);
-    border-left: 5px solid var(--vp-custom-block-note);
+    border-left: 5px solid var(--custom-block-note-left);
+    background-color: var(--custom-block-note-bg);
 }
 
 /* IMPORTANT容器:背景色、左侧 */
 .custom-block.important {
-    background-color: var(--vp-custom-block-important-bg);
-    border-left: 5px solid var(--vp-custom-block-important);
+    border-left: 5px solid var(--custom-block-important-left);
+    background-color: var(--custom-block-important-bg);
+
 }
 
 /* CAUTION容器:背景色、左侧 */
 .custom-block.caution {
-    background-color: var(--vp-c-red-soft);
     border-left: 5px solid var(--vp-c-red-3);
+    background-color: var(--vp-c-red-soft);
 }
 ```
 :::
@@ -649,33 +650,18 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 /* 为代码块添加 macOS 风格的小圆点 */
 div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%); /* 可选的阴影效果 */ 
-    padding-top: 24px; /* 给小圆点留出空间 */
-  }
-  
-  /* 无行号添加小圆点 */
-  div[class*="language-"].vp-adaptive-theme::before {
-    content: "";
-    display: block;
-    position: relative;
-    top: 12px;
-    left: 12px;
-    width: 12px;
-    height: 12px;
-    background-color: #ff5f56; /* 红色 */
-    border-radius: 50%;
-    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* 黄色和绿色的小圆点 */
-    z-index: 1; /* 确保圆点在代码块上方 */
-  }
-  
-  /* 有行号添加小圆点 */
-div[class*="language-"].line-numbers-mode::before {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%); /* 可选的阴影效果 */ 
+  padding-top: 10px; /* 给小圆点留出空间 */
+}
+
+/* 无行号添加小圆点 */
+div[class*="language-"].vp-adaptive-theme::before {
   content: "";
   display: block;
-  position: absolute;
+  position: relative;
   top: 12px;
   left: 12px;
   width: 12px;
@@ -685,25 +671,37 @@ div[class*="language-"].line-numbers-mode::before {
   box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* 黄色和绿色的小圆点 */
   z-index: 1; /* 确保圆点在代码块上方 */
 }
-  /* 调整行号的样式 */
-  .vp-doc .line-numbers-wrapper {
-    top: 0; /* 调整行号位置，使其与代码内容对齐 */
-    right: 0; /* 确保行号容器靠右对齐 */
-    height: 100%; /* 使行号容器填满可用空间 */
-    position: absolute; /* 确保绝对定位 */
-    padding-top: 44px; /* 移除多余填充 */
-    border-right: none;
-  }
-  
-  /* 使用伪元素调整右边框位置 */
-  .vp-doc .line-numbers-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 44px; /* 将右边框下移24像素 */
-    right: 0; /* 将右边框置于容器右侧 */
-    height: calc(100% - 66px); /* 设置边框高度，减去顶部偏移 */
-    border-right: 1px solid var(--vp-code-block-divider-color);
-  }
+
+/* 有行号添加小圆点 */
+div[class*="language-"].line-numbers-mode::before {
+content: "";
+display: block;
+position: absolute;
+top: 10px;
+left: 10px;
+width: 12px;
+height: 12px;
+background-color: #ff5f56; /* 红色 */
+border-radius: 50%;
+box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* 黄色和绿色的小圆点 */
+z-index: 1; /* 确保圆点在代码块上方 */
+}
+
+/* 调整行号的样式 */
+.vp-doc .line-numbers-wrapper {
+  padding-top: 30px;
+  border-right: none; /* 移除多余填充 */
+}
+
+/* 使用伪元素调整右边框位置 */
+.vp-doc .line-numbers-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 35px; /* 将右边框下移 */
+  right: 0; /* 将右边框置于容器右侧 */
+  height: calc(100% - 66px); /* 设置边框高度，减去顶部偏移 */
+  border-right: 1px solid var(--vp-code-block-divider-color);
+}
 ```
 :::
 
@@ -775,41 +773,40 @@ pnpm -v
 
 /* 代码块tab */
 .vp-code-group .tabs {
-    padding-top: 30px;
-  }
-  
-  /* 代码块tab-顶部小圆点 */
-  .vp-code-group .tabs::before {
-    background: #fc625d;
-    border-radius: 50%;
-    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-    content: ' ';
-    height: 12px;
-    width: 12px;
-    left: 12px;
-    margin-top: -15px;
-    position: absolute;
-  }
-  
-  /* 代码组的容器样式 */
-  .vp-code-group {
-    color: var(--vp-c-black-soft);
-    border-radius: 8px;
-    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
-  }
-  
-  /* 在代码组内部的代码块样式 */
-  .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
-    padding-top: 24px; /* 确保代码块内的间距正确 */
-    border-radius: 8px; /* 与外部容器的边角一致 */
-    box-shadow: none; /* 避免嵌套的阴影叠加 */
-    position: relative;
-  }
-  
-  /* 确保 group 内的代码块不重复显示小圆点 */
-  .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
-    display: none;
-  }
+  padding-top: 30px;
+}
+
+/* 代码块tab-顶部小圆点 */
+.vp-code-group .tabs::before {
+  background: #fc625d;
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  content: ' ';
+  height: 12px;
+  width: 12px;
+  left: 12px;
+  margin-top: -15px;
+  position: absolute;
+}
+
+/* 代码组的容器样式 */
+.vp-code-group {
+  color: var(--vp-c-black-soft);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
+}
+
+/* 在代码组内部的代码块样式 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+  border-radius: 8px; /* 与外部容器的边角一致 */
+  box-shadow: none; /* 避免嵌套的阴影叠加 */
+  position: relative;
+}
+
+/* 确保 group 内的代码块不重复显示小圆点 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+  display: none;
+}
 ```
 :::
 
