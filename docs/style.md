@@ -393,7 +393,6 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
     position: relative;
     margin-right: 4px;
     left: -5px;
-    top: -2px;
 }
 
 /* 危险容器:背景色、左侧 */
