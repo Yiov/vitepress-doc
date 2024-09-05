@@ -605,9 +605,135 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 
 
+### 代码块
+
+将代码组改成Mac风格，三个小圆点，本次代码提供感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
+
+在 `.vitepress/theme/style` 目录新建一个 `vp-code.css` 文件
+
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ vp-code.css
+│  └─ index.md
+└─ node_modules
+```
+
+复制下面代码，粘贴到 `vp-code.css` 保存
+
+::: code-group
+```css [vp-code.css]
+/* .vitepress/theme/style/vp-code.css */
+
+/* 为代码块添加 macOS 风格的小圆点 */
+div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%); /* 可选的阴影效果 */ 
+    padding-top: 24px; /* 给小圆点留出空间 */
+  }
+  
+  /* 无行号添加小圆点 */
+  div[class*="language-"].vp-adaptive-theme::before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 12px;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #ff5f56; /* 红色 */
+    border-radius: 50%;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* 黄色和绿色的小圆点 */
+    z-index: 1; /* 确保圆点在代码块上方 */
+  }
+  
+  /* 有行号添加小圆点 */
+div[class*="language-"].line-numbers-mode::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #ff5f56; /* 红色 */
+  border-radius: 50%;
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* 黄色和绿色的小圆点 */
+  z-index: 1; /* 确保圆点在代码块上方 */
+}
+  /* 调整行号的样式 */
+  .vp-doc .line-numbers-wrapper {
+    top: 0; /* 调整行号位置，使其与代码内容对齐 */
+    right: 0; /* 确保行号容器靠右对齐 */
+    height: 100%; /* 使行号容器填满可用空间 */
+    position: absolute; /* 确保绝对定位 */
+    padding-top: 44px; /* 移除多余填充 */
+    border-right: none;
+  }
+  
+  /* 使用伪元素调整右边框位置 */
+  .vp-doc .line-numbers-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 44px; /* 将右边框下移24像素 */
+    right: 0; /* 将右边框置于容器右侧 */
+    height: calc(100% - 66px); /* 设置边框高度，减去顶部偏移 */
+    border-right: 1px solid var(--vp-code-block-divider-color);
+  }
+```
+:::
+
+
+然后在 `index.css` 中引入生效
+
+```css
+/* .vitepress/theme/style/index.css */
+@import './vp-code.css';
+```
+
+输入：
+
+````md
+```sh
+#默认有行号
+pnpm -v
+```
+
+```sh:no-line-numbers
+#关闭行号
+pnpm -v
+```
+````
+
+输出：
+
+```sh
+#查询pnpm版本
+pnpm -v
+```
+
+```sh:no-line-numbers
+#关闭行号
+pnpm -v
+```
+
+
+
+---
+
+
+
 ### 代码组
 
-将代码组改成Mac风格，三个小圆点
+将代码组改成Mac风格，三个小圆点，本次代码完善感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
 
 在 `.vitepress/theme/style` 目录新建一个 `vp-code-group.css` 文件
 
@@ -625,19 +751,19 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 └─ node_modules
 ```
 
-粘贴如下代码，保存
+复制下面代码，粘贴到 `vp-code-group.css` 保存
 
-
-```css
+::: code-group
+```css [vp-code-group.css]
 /* .vitepress/theme/style/vp-code-group.css */
 
 /* 代码块tab */
 .vp-code-group .tabs {
     padding-top: 30px;
-}
-
-/* 代码块tab-顶部小圆点 */
-.vp-code-group .tabs::before {
+  }
+  
+  /* 代码块tab-顶部小圆点 */
+  .vp-code-group .tabs::before {
     background: #fc625d;
     border-radius: 50%;
     box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
@@ -647,17 +773,30 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
     left: 12px;
     margin-top: -15px;
     position: absolute;
-}
-
-
-/* 代码组 */
-.vp-code-group {
+  }
+  
+  /* 代码组的容器样式 */
+  .vp-code-group {
     color: var(--vp-c-black-soft);
     border-radius: 8px;
     box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
-}
-
+  }
+  
+  /* 在代码组内部的代码块样式 */
+  .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+    padding-top: 24px; /* 确保代码块内的间距正确 */
+    border-radius: 8px; /* 与外部容器的边角一致 */
+    box-shadow: none; /* 避免嵌套的阴影叠加 */
+    position: relative;
+  }
+  
+  /* 确保 group 内的代码块不重复显示小圆点 */
+  .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+    display: none;
+  }
 ```
+:::
+
 
 然后在 `index.css` 中引入生效
 
@@ -702,32 +841,6 @@ yarn -v
 ```
 :::
 
-修改默认单个代码块，就会影响到代码组
-
-如果你想单个使用，在 `code-group` 只写入一组即可
-
-
-输入：
-
-````md
-::: code-group
-
-```sh [pnpm]
-#查询pnpm版本
-pnpm -v
-```
-:::
-````
-
-输出：
-
-::: code-group
-
-```sh [pnpm]
-#查询pnpm版本
-pnpm -v
-```
-:::
 
 
 ---
