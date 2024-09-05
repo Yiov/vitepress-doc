@@ -548,32 +548,48 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 分别添加了 [油管](https://www.youtube.com/) 和 [B站](https://www.bilibili.com/) 的链接图标
 
-::: details 使用说明
-多个链接，分别添加即可
+::: tip SVG图形
+* 建议使用 `32*32` 的尺寸
 
-`content` 可使用 [Unicode 符号表](https://symbl.cc/cn/unicode-table/)，自行修改好位置即可
+[iconfont](https://www.iconfont.cn/)、[xicons](https://www.xicons.org/#/zh-CN)、[iconpark](https://iconpark.oceanengine.com/official)
 :::
 
-```css{2,4}
+
+
+::: code-group
+
+```css{6,19} [link.css]
 /* .vitepress\theme\style\link.css */
-.vp-doc a[href^="https://www.youtube.com/"]:before,
-[href^="https://www.bilibili.com/"]:before {
-    content: '\2023';
+
+/* YouTube */
+.vp-doc a[href^="https://www.youtube.com/"]:before {
+    content: '';
+    background-image: url(/svg/youtube.svg);
     width: 20px;
     height: 20px;
     display: inline-block;
-    border-radius: 10px;
     vertical-align: middle;
     position: relative;
-    top: -2px;
-    color: var(--vp-c-green-1);
-    font-size: 30px;
-    border: 2px solid var(--vp-c-green-1);
+    background-size: cover;
     margin-right: 4px;
-    line-height: 13px;
-    padding-left: 0.8px;
+}
+
+/* 哔哩哔哩 */
+.vp-doc a[href^="https://www.bilibili.com/"]:before {
+    content: '';
+    background-image: url(/svg/bilibili.svg);
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-size: cover;
+    top: -2px;
+    margin-right: 4px;
 }
 ```
+:::
+
 
 然后在 `index.css` 中引入生效
 
@@ -607,7 +623,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 ### 代码块
 
-将代码组改成Mac风格，三个小圆点，本次代码提供感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
+将代码组改成Mac风格，三个小圆点，本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
 
 在 `.vitepress/theme/style` 目录新建一个 `vp-code.css` 文件
 
@@ -733,7 +749,7 @@ pnpm -v
 
 ### 代码组
 
-将代码组改成Mac风格，三个小圆点，本次代码完善感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
+将代码组改成Mac风格，三个小圆点，本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
 
 在 `.vitepress/theme/style` 目录新建一个 `vp-code-group.css` 文件
 
