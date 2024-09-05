@@ -335,13 +335,13 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
     font-size: 16px;
 }
 
-/* 注释容器:背景色、左侧 */
+/* info容器:背景色、左侧 */
 .custom-block.info {
     border-left: 5px solid var(--custom-block-info-left);
     background-color: var(--custom-block-info-bg);
 }
 
-/* 提示容器:svg图 */
+/* info容器:svg图 */
 .custom-block.info [class*="custom-block-title"]::before {
     content: '';
     background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v6h2v-6h-2zm0-4v2h2V7h-2z' fill='%23ccc'/%3E%3C/svg%3E");
