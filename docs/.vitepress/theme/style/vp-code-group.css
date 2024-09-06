@@ -27,6 +27,6 @@
 
 
 /* 确保 group 内的代码块不重复显示小圆点 */
-/* .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
-  display: none; */
+.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+  display: none; 
 }
