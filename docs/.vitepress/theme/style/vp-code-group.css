@@ -30,7 +30,3 @@
 .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
   display: none;
 }
-
-.vp-doc div[class*="line-numbers-wrapper"]::before {
-  display: none;
-}
