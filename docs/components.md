@@ -686,6 +686,25 @@ confetti({
 ```
 :::
 
+::: details npm打包报错，请使用如下方式
+```vue
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import confetti from "canvas-confetti";
+
+onMounted(() => (
+   /* 纸屑 */
+  confetti({
+    particleCount: 100,
+    spread: 170,
+    origin: { y: 0.6 },
+  })
+));
+
+</script>
+```
+:::
+
 然后，在 `index.ts` 中注册全局组件
 
 ```ts{3,7-10}

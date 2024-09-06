@@ -290,23 +290,23 @@ Emoji大全：https://www.emojiall.com/zh-hans/
 
 ```md
 ::: info
-这是一条信息，info后面的文字可修改
+这是一条info，自定义格式：info+空格+自定义文字
 :::
 
-::: tip 说明
-这是一个提示，tip后面的文字可修改
+::: tip 提示
+这是一个提示，自定义格式：tip+空格+自定义文字
 :::
 
 ::: warning 警告
-这是一条警告，warning后面的文字可修改
+这是一条警告，自定义格式：warning+空格+自定义文字
 :::
 
 ::: danger 危险
-这是一个危险警告，danger后面的文字可修改
+这是一个危险警告，自定义格式：danger+空格+自定义文字
 :::
 
 ::: details 点我查看
-这是一条详情，details后面的文字可修改
+这是一条详情，自定义格式：details+空格+自定义文字
 :::
 ```
 
@@ -314,23 +314,23 @@ Emoji大全：https://www.emojiall.com/zh-hans/
 输出：
 
 ::: info
-这是一条信息，info后面的文字可修改
+这是一条info，自定义格式：info+空格+自定义文字
 :::
 
-::: tip 说明
-这是一个提示，tip后面的文字可修改
+::: tip 提示
+这是一个提示，自定义格式：tip+空格+自定义文字
 :::
 
 ::: warning 警告
-这是一条警告，warning后面的文字可修改
+这是一条警告，自定义格式：warning+空格+自定义文字
 :::
 
 ::: danger 危险
-这是一个危险警告，danger后面的文字可修改
+这是一个危险警告，自定义格式：danger+空格+自定义文字
 :::
 
 ::: details 点我查看
-这是一条详情，details后面的文字可修改
+这是一条详情，自定义格式：details+空格+自定义文字
 
 还可以加入代码块
 
@@ -340,13 +340,12 @@ Hello, VitePress!
 :::
 
 
-::: danger 为什么和我不一样？
-因为我对样式进行了修改，仿造了VuePress/hope主题的样式
+> 为什么和我不一样？
+>
+> 我对样式进行了修改，请查看 [样式美化 - badge颜色](./style.md#badge颜色)
 
-详情请看 [样式美化 - badge颜色](./style.md#badge颜色)
-:::
 
-你也可以在配置中，添加自定义标题
+::: details 不喜欢添加在后面，可以直接在配置中自定义标题
 
 ```ts{4-12}
 // .vitepress/config.mts
@@ -364,20 +363,17 @@ export default defineConfig({
 
 })
 ```
-
-::: warning 注意
-官方有写关于 `raw` 使用，半吊子的我不是很明白使用场景
-
-具体请看官方：https://vitepress.dev/zh/guide/markdown#raw
 :::
 
 
-你也可以使用 [GitHub 风格的警报](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)，只是书写方式不同，渲染方式是一样的
+
+你也可以使用 [GitHub 风格的警报](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)，只是书写方式不同，使用上是一样的
+
 
 输入：
 
 ```md
-> [!NOTE]
+> [!NOTE] 重要
 > 强调用户在快速浏览文档时也不应忽略的重要信息。
 
 > [!TIP]
@@ -396,7 +392,7 @@ export default defineConfig({
 
 输出：
 
-> [!NOTE]
+> [!NOTE] 重要
 > 强调用户在快速浏览文档时也不应忽略的重要信息。
 
 > [!TIP]
@@ -410,6 +406,43 @@ export default defineConfig({
 
 > [!CAUTION]
 > 行为可能带来的负面影响。
+
+
+
+::: details 不喜欢添加在后面，可以直接在配置中自定义标题
+
+本代码由 [Aurorxa](https://github.com/Aurorxa) 提供
+
+```ts{4-25}
+// .vitepress/config.mts
+export default defineConfig({
+
+  markdown: {
+    config: (md) => {
+      // 创建 markdown-it 插件
+      md.use((md) => {
+        const defaultRender = md.render
+        md.render = function (...args) {
+
+          // 调用原始渲染
+          let defaultContent = defaultRender.apply(md, args)
+          // 替换内容
+          defaultContent = defaultContent
+                .replace(/NOTE/g, '提醒')
+                .replace(/TIP/g, '建议')
+                .replace(/IMPORTANT/g, '重要')
+                .replace(/WARNING/g, '警告')
+                .replace(/CAUTION/g, '注意')
+          // 返回渲染的内容
+          return defaultContent
+        }
+      })
+    }
+  },
+
+})
+```
+:::
 
 
 

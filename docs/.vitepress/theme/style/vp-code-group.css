@@ -25,14 +25,12 @@
   box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
 }
 
-/* 在代码组内部的代码块样式 */
-.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
-  border-radius: 8px; /* 与外部容器的边角一致 */
-  box-shadow: none; /* 避免嵌套的阴影叠加 */
-  position: relative;
-}
 
 /* 确保 group 内的代码块不重复显示小圆点 */
 .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+  display: none;
+}
+
+.vp-doc div[class*="line-numbers-wrapper"]::before {
   display: none;
 }
