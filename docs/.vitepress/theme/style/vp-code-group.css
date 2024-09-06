@@ -19,11 +19,11 @@
 }
 
 /* 代码组的容器样式 */
-.vp-code-group {
+/* .vp-code-group {
   color: var(--vp-c-black-soft);
   border-radius: 8px;
   box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
-}
+} */
 
 
 /* 确保 group 内的代码块不重复显示小圆点 */
