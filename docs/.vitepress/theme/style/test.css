@@ -30,7 +30,8 @@ div[class*="language-"].line-numbers-mode::before {
 
 .vp-doc .line-numbers-wrapper {
 
-    border-right: 1px solid var(--vp-code-block-divider-color);
+    /* border-right: 1px solid var(--vp-code-block-divider-color); */
     /* height: 40px; */
+    border-right: none;
 
 }
