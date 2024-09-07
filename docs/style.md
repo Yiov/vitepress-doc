@@ -786,7 +786,7 @@ div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
   content: "";
   display: block;
   position: relative;
-  top: 8px;
+  top: 12px;
   left: -22px;
   width: 12px;
   height: 12px;
