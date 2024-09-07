@@ -25,12 +25,23 @@
   box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
 }
 
-
-/* 确保 group 内的代码块不重复显示小圆点 */
-.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
-  display: none;
+/* 在代码组内部与外部容器的边角一致，避免嵌套的阴影叠加 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+  border-radius: 8px;
+  box-shadow: none;
+  position: relative;
 }
 
-.vp-doc div[class*="line-numbers-wrapper"]::before {
-  display: none;
+/* 上移代码块小圆点 遮盖住 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+  display: inherit;
+  content: "";
+  position: relative;
+  top: -12px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #ff5f56;
+  border-radius: 50%;
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
 }
