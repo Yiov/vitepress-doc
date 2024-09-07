@@ -744,17 +744,17 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 ```css [vp-code.css]
 /* .vitepress/theme/style/vp-code.css */
 
-/* 为代码块添加 macOS 风格的小圆点 */
-div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+/* 无行号 添加背景阴影 */
+.vp-doc div[class*=language-] {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%); /* 可选的阴影效果 */ 
-  padding-top: 10px; /* 给小圆点留出空间 */
+  box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
+  z-index: 1;
 }
 
-/* 无行号添加小圆点 */
-div[class*="language-"].vp-adaptive-theme::before {
+/* 无行号：添加 macOS 风格的小圆点 */
+.vp-doc div[class*=language-]::before {
   content: "";
   display: block;
   position: relative;
@@ -762,41 +762,52 @@ div[class*="language-"].vp-adaptive-theme::before {
   left: 12px;
   width: 12px;
   height: 12px;
-  background-color: #ff5f56; /* 红色 */
+  background-color: #ff5f56;
   border-radius: 50%;
-  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* 黄色和绿色的小圆点 */
-  z-index: 1; /* 确保圆点在代码块上方 */
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+  z-index: 1;
 }
 
-/* 有行号添加小圆点 */
-div[class*="language-"].line-numbers-mode::before {
-content: "";
-display: block;
-position: absolute;
-top: 10px;
-left: 10px;
-width: 12px;
-height: 12px;
-background-color: #ff5f56; /* 红色 */
-border-radius: 50%;
-box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* 黄色和绿色的小圆点 */
-z-index: 1; /* 确保圆点在代码块上方 */
+/* 有行号 添加背景阴影 */
+div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
 }
 
-/* 调整行号的样式 */
+
+/* 有行号：添加 macOS 风格的小圆点 */
+.vp-doc div[class*="language-"].line-numbers-mode::before {
+  content: "";
+  display: block;
+  position: relative;
+  top: 8px;
+  left: -22px;
+  width: 12px;
+  height: 12px;
+  background-color: #ff5f56;
+  border-radius: 50%;
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+  z-index: 1;
+}
+
+
+
+/* 下移行号，与代码对齐；隐藏右侧竖线 */
 .vp-doc .line-numbers-wrapper {
-  padding-top: 30px;
-  border-right: none; /* 移除多余填充 */
+  padding-top: 32px;
+  border-right: none;
 }
 
-/* 使用伪元素调整右边框位置 */
+/* 重新建立行号右侧竖线 */
 .vp-doc .line-numbers-wrapper::after {
   content: "";
   position: absolute;
-  top: 35px; /* 将右边框下移 */
-  right: 0; /* 将右边框置于容器右侧 */
-  height: calc(100% - 66px); /* 设置边框高度，减去顶部偏移 */
+  top: 38px;
+  right: 0;
   border-right: 1px solid var(--vp-code-block-divider-color);
+  height: calc(100% - 66px);
 }
 ```
 :::
@@ -892,16 +903,25 @@ pnpm -v
   box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
 }
 
-/* 在代码组内部的代码块样式 */
+/* 在代码组内部与外部容器的边角一致，避免嵌套的阴影叠加 */
 .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
-  border-radius: 8px; /* 与外部容器的边角一致 */
-  box-shadow: none; /* 避免嵌套的阴影叠加 */
+  border-radius: 8px;
+  box-shadow: none;
   position: relative;
 }
 
-/* 确保 group 内的代码块不重复显示小圆点 */
+/* 上移代码块小圆点 遮盖住 */
 .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
-  display: none;
+  display: inherit;
+  content: "";
+  position: relative;
+  top: -12px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #ff5f56;
+  border-radius: 50%;
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
 }
 ```
 :::
