@@ -1,0 +1,37 @@
+.vp-doc div[class*=language-]::before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 12px;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #ff5f56;
+    border-radius: 50%;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+    z-index: 1;
+}
+
+
+div[class*="language-"].line-numbers-mode::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    width: 12px;
+    height: 12px;
+    background-color: #ff5f56;
+    border-radius: 50%;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+    z-index: 1;
+}
+
+
+.vp-doc .line-numbers-wrapper {
+
+    /* border-right: 1px solid var(--vp-code-block-divider-color); */
+    /* height: 40px; */
+    border-right: none;
+
+}
