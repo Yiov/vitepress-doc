@@ -720,7 +720,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 ### 代码块
 
-将代码组改成Mac风格，三个小圆点，本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
+将代码组改成Mac风格，三个小圆点
 
 在 `.vitepress/theme/style` 目录新建一个 `vp-code.css` 文件
 
@@ -739,6 +739,10 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 ```
 
 复制下面代码，粘贴到 `vp-code.css` 保存
+
+::: tip 说明
+本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供，本人在此基础上进行一些修改
+:::
 
 ::: code-group
 ```css [vp-code.css]
@@ -854,7 +858,7 @@ pnpm -v
 
 ### 代码组
 
-将代码组改成Mac风格，三个小圆点，本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
+将代码组改成Mac风格，三个小圆点
 
 在 `.vitepress/theme/style` 目录新建一个 `vp-code-group.css` 文件
 
@@ -873,6 +877,10 @@ pnpm -v
 ```
 
 复制下面代码，粘贴到 `vp-code-group.css` 保存
+
+::: tip 说明
+本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供，本人在此基础上进行一些修改
+:::
 
 ::: code-group
 ```css [vp-code-group.css]
