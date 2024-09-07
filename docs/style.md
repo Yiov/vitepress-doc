@@ -920,16 +920,7 @@ pnpm -v
 
 /* 上移代码块小圆点 遮盖住 */
 .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
-  display: inherit;
-  content: "";
-  position: relative;
   top: -12px;
-  left: 12px;
-  width: 12px;
-  height: 12px;
-  background-color: #ff5f56;
-  border-radius: 50%;
-  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
 }
 ```
 :::
