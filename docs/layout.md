@@ -918,3 +918,144 @@ export default {
 }
 ```
 
+
+
+---
+
+
+### 视图过渡
+
+在官方的文档中，有这么一个 [外观切换的示例](https://vitepress.dev/zh/guide/extending-default-theme#on-appearance-toggle)，有点意思
+
+::: tip 说明
+苦于能力有限没有研究透，在收到 [issues #22](https://github.com/Yiov/vitepress-doc/issues/22) 且 [@shellRaining](https://github.com/shellRaining) 的友情提示后，再次翻看文档，原来只需要去掉 `enableTransitions` 即可实现
+:::
+
+![](https://vitepress.dev/appearance-toggle-transition.webp)
+
+
+
+在 `theme/components` 文件夹，新建 `SwitcherAppearance.vue` 组件
+
+```md{6}
+docs
+├─ .vitepress
+│  └─ config.mts
+│  └─ theme
+│  │   ├─ components
+│  │   │   └─ SwitcherAppearance.vue
+│  │   └─ index.ts
+└─ index.md
+```
+
+在 `SwitcherAppearance.vue` 填入如下代码，保存
+
+:::: details 类型“Document”上不存在属性“startViewTransition”。
+需要安装 [@types/dom-view-transitions](https://www.npmjs.com/package/@types/dom-view-transitions)
+
+::: code-group
+```sh [pnpm]
+pnpm add -D @types/dom-view-transitions
+```
+
+```sh [yarn]
+yarn add -D @types/dom-view-transitions
+```
+
+```sh [npm]
+npm i -D @types/dom-view-transitions
+```
+
+```sh [bun]
+bun add -D @types/dom-view-transitions
+```
+:::
+::::
+
+
+
+
+::: code-group
+```vue [SwitcherAppearance.vue]
+<!-- .vitepress/theme/SwitcherAppearance.vue -->
+
+<script setup lang="ts">
+import { useData } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+import { nextTick, provide } from 'vue'
+
+const { isDark } = useData()
+
+provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+  const clipPath = [
+    `circle(0px at ${x}px ${y}px)`,
+    `circle(${Math.hypot(
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y)
+    )}px at ${x}px ${y}px)`
+  ]
+
+  await document.startViewTransition(async () => {
+    isDark.value = !isDark.value
+    await nextTick()
+  }).ready
+
+  document.documentElement.animate(
+    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
+    {
+      duration: 300,
+      easing: 'ease-in',
+      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
+    }
+  )
+})
+</script>
+
+<template>
+  <DefaultTheme.Layout />
+</template>
+
+<style>
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root),
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root),
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+</style>
+```
+:::
+
+
+
+Layout 的方式，直接在 `index.ts` 中配置即可
+
+目前h函数，还没有弄好
+
+::: code-group
+
+```ts{3,7} [方式：Layout]
+// .vitepress/theme/index.ts
+import DefaultTheme from 'vitepress/theme'
+import SwitcherAppearance from './components/SwitcherAppearance.vue' // [!code focus]
+
+export default {
+  extends: DefaultTheme,
+  Layout: SwitcherAppearance, // [!code focus]
+}
+```
+:::
+
+
+有关视图过渡动画的更多详细信息，请参阅 [Chrome 文档](https://developer.chrome.com/docs/web-platform/view-transitions?hl=zh-cn)。
+
+

@@ -8,6 +8,9 @@ devDependencies:
   '@mdit-vue/shared':
     specifier: ^2.1.3
     version: 2.1.3
+  '@types/dom-view-transitions':
+    specifier: ^1.0.5
+    version: 1.0.5
   busuanzi.pure.js:
     specifier: ^1.0.3
     version: 1.0.3
@@ -713,6 +716,10 @@ packages:
     resolution: {integrity: sha512-PPWwXJTO8Zd04Y9Xy3zfBUN4K+kZ8fkpAnMXOJWBt4FjhyMQruVEOGuUDWtVO9TbMM26pFCXlpnXeJabkxGC5g==}
     dependencies:
       shiki: 1.15.1
+    dev: true
+
+  /@types/dom-view-transitions@1.0.5:
+    resolution: {integrity: sha512-N2sILR7fxSMnaFaAPwGj4DtHCXjIyQTHt+xJyf9jATpzUsTkMNM0DWtqZB6W7f501B/Y0tq3uqat/VlbjuTpMA==}
     dev: true
 
   /@types/estree@1.0.5:
