@@ -23,7 +23,7 @@ import xgplayer from "./components/xgplayer.vue" //西瓜播放器
 import backTop from "./components/backTop.vue" //返回顶部
 import ArticleMetadata from "./components/ArticleMetadata.vue" //字数阅读时间
 import Linkcard from "./components/Linkcard.vue" //链接卡片
-import SwitcherAppearance from "./components/SwitcherAppearance.vue" //视图过渡
+import MyLayout from "./components/MyLayout.vue" //视图过渡
 
 // 不蒜子
 import { inBrowser } from 'vitepress'
@@ -43,7 +43,6 @@ export default {
     app.component('xgplayer' , xgplayer) //西瓜播放器
     app.component('ArticleMetadata' , ArticleMetadata) //字数阅读时间
     app.component('Linkcard' , Linkcard) //链接卡片
-    app.component('SwitcherAppearance' , SwitcherAppearance) //视图过渡
 
     // 不蒜子
     if (inBrowser) {
@@ -65,7 +64,7 @@ export default {
       props.class = frontmatter.value.layoutClass
     }
 
-    return h(DefaultTheme.Layout, props, {
+    return h(MyLayout, props, {
       'layout-bottom': () => h(view), //不蒜子layout-bottom插槽
       'doc-footer-before': () => h(backTop), // 使用doc-footer-before插槽
     })

@@ -935,7 +935,7 @@ export default {
 
 
 
-在 `theme/components` 文件夹，新建 `SwitcherAppearance.vue` 组件
+在 `theme/components` 文件夹，新建 `MyLayout.vue` 组件
 
 ```md{6}
 docs
@@ -943,12 +943,12 @@ docs
 │  └─ config.mts
 │  └─ theme
 │  │   ├─ components
-│  │   │   └─ SwitcherAppearance.vue
+│  │   │   └─ MyLayout.vue
 │  │   └─ index.ts
 └─ index.md
 ```
 
-在 `SwitcherAppearance.vue` 填入如下代码，保存
+在 `MyLayout.vue` 填入如下代码，保存
 
 :::: details 类型“Document”上不存在属性“startViewTransition”。
 需要安装 [@types/dom-view-transitions](https://www.npmjs.com/package/@types/dom-view-transitions)
@@ -976,8 +976,8 @@ bun add -D @types/dom-view-transitions
 
 
 ::: code-group
-```vue [SwitcherAppearance.vue]
-<!-- .vitepress/theme/SwitcherAppearance.vue -->
+```vue [MyLayout.vue]
+<!-- .vitepress/theme/MyLayout.vue -->
 
 <script setup lang="ts">
 import { useData } from 'vitepress'
@@ -1037,25 +1037,42 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 
 
 
-Layout 的方式，直接在 `index.ts` 中配置即可
+选择一种你喜欢的方式，在 `index.ts` 中配置即可
 
-目前h函数，还没有弄好
 
 ::: code-group
 
-```ts{3,7} [方式：Layout]
+```ts{3,7} [Layout（二选一）]
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import SwitcherAppearance from './components/SwitcherAppearance.vue' // [!code focus]
+import MyLayout from './components/MyLayout.vue' // [!code focus]
 
 export default {
   extends: DefaultTheme,
-  Layout: SwitcherAppearance, // [!code focus]
+  Layout: MyLayout, // [!code focus]
+}
+```
+
+```ts{3-4,9-13} [h函数（二选一）]
+// .vitepress/theme/index.ts
+import DefaultTheme from 'vitepress/theme'
+import { h } from 'vue' // [!code focus:2]
+import MyLayout from './components/MyLayout.vue'
+
+export default {
+  extends: DefaultTheme,
+
+  Layout() {
+    // 这里将默认的 `DefaultTheme.Layout` 改成 `MyLayout`，因为组件内已经包含了
+    return h(MyLayout, null, { // [!code focus]
+      // 其他插槽
+    })
+  },
 }
 ```
 :::
 
 
-有关视图过渡动画的更多详细信息，请参阅 [Chrome 文档](https://developer.chrome.com/docs/web-platform/view-transitions?hl=zh-cn)。
+有关视图过渡动画的更多详细信息，请参阅 [Chrome 文档](https://developer.chrome.com/docs/web-platform/view-transitions?hl=zh-cn) 。
 
 
