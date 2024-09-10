@@ -64,7 +64,7 @@ export default {
       props.class = frontmatter.value.layoutClass
     }
 
-    return h(MyLayout, props, {
+    return h(DefaultTheme.Layout, props, {
       'layout-bottom': () => h(view), //不蒜子layout-bottom插槽
       'doc-footer-before': () => h(backTop), // 使用doc-footer-before插槽
     })
