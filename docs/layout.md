@@ -1063,8 +1063,8 @@ export default {
   extends: DefaultTheme,
 
   Layout() {
-    // 这里将默认的 `DefaultTheme.Layout` 改成 `MyLayout`，因为组件内已经包含了
-    return h(MyLayout, null, { // [!code focus]
+    // 这里将默认的 `DefaultTheme.Layout` 改成 `MyLayout`，因为组件内已经包含了 // [!code focus:2]
+    return h(MyLayout, null, {
       // 其他插槽
     })
   },
