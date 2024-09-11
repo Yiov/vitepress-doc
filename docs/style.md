@@ -656,7 +656,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 ::: code-group
 
 ```css{6,19} [link.css]
-/* .vitepress\theme\style\link.css */
+/* .vitepress/theme/style/link.css */
 
 /* YouTube */
 .vp-doc a[href^="https://www.youtube.com/"]:before {
@@ -691,7 +691,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 然后在 `index.css` 中引入生效
 
 ```css
-/* .vitepress\theme\style\index.css */
+/* .vitepress/theme/style/index.css */
 @import './link.css';
 ```
 
@@ -717,6 +717,126 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 
 
+### 记号笔
+
+在某些整段的文字中，我们可以用记号笔，划出重点
+
+在 `theme/style` 新建 `marker.css` 文件
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ marker.css
+│  └─ index.md
+└─ node_modules
+```
+
+将下面代码，复制粘贴到 `marker.css` 中
+
+```css
+/* .vitepress/theme/style/marker.css */
+
+/* 记号笔 不喜欢可自行调整 */
+.marker-text {
+    text-decoration: underline;
+    text-decoration-thickness: 9px;
+    text-decoration-color: rgba(255, 228, 0, 0.4);
+    text-underline-offset: -4px;
+    text-decoration-skip-ink: none;
+}
+```
+
+然后在 `index.css` 中引入生效
+
+```css
+/* .vitepress/theme/style/index.css */
+@import './link.css';
+```
+
+输入：
+
+```md
+<sapn class="marker-text">这里是重重点</sapn>
+```
+
+输出：
+
+<sapn class="marker-text">这里是重重点</sapn>
+
+还可以实现类似荧光笔的效果
+
+```css
+/* .vitepress/theme/style/marker.css */
+
+/* 荧光笔 不喜欢可自行调整*/
+.marker-text-highlight {
+    border-radius: 5px 5px;
+    background: transparent;
+    color: var(--vp-c-text-soft);
+    background: linear-gradient(104deg, rgba(130, 255, 173, 0) 0.9%, rgba(130, 255, 173, 1.25) 2.4%, rgba(130, 255, 173, 0.5) 5.8%, rgba(130, 255, 173, 0.1) 93%, rgba(130, 255, 173, 0.7) 96%, rgba(130, 255, 1732, 0) 98%), linear-gradient(183deg, rgba(130, 255, 173, 0) 0%, rgba(130, 255, 173, 0.3) 7.9%, rgba(130, 255, 173, 0) 15%);
+}
+```
+
+输入：
+
+```md
+<sapn class="marker-text-highlight">这里是荧光笔</sapn>
+```
+
+输出：
+
+<sapn class="marker-text-highlight">这里是荧光笔</sapn>
+
+
+但是这些都不是我心仪的，最后在 [尤大的个人主页](https://evanyou.me/) 还有个 `hover`，真不错
+
+直接扒拉下来，嘿嘿嘿
+
+```css
+/* .vitepress/theme/style/marker.css */
+
+/* 尤雨溪 不喜欢可自行调整 */
+.marker-evy {
+    white-space: nowrap;
+    position: relative;
+}
+
+.marker-evy:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 66%;
+    left: 0em;
+    right: 0em;
+    bottom: 0;
+    transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+    background-color: rgba(79, 192, 141, 0.5);
+}
+
+.marker-evy:hover:after {
+    top: 0%;
+}
+```
+
+输入：
+
+```md
+<sapn class="marker-evy">这里是尤雨溪的主页样式，鼠标放在我上面看效果</sapn>
+```
+
+输出：
+
+<sapn class="marker-evy">这里是尤雨溪的主页样式，鼠标放在我上面看效果</sapn>
+
+
+
+
+---
 
 ### 代码块
 
