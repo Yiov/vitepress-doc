@@ -52,4 +52,8 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 .dark::view-transition-old(root) {
   z-index: 9999;
 }
+
+.VPSwitchAppearance .check {
+  transform: none !important;
+}
 </style>

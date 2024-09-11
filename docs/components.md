@@ -69,11 +69,16 @@ docs
 
 ```vue
 <script setup>
+// 这里是JavaScript
 </script>
 
 <template>
-  自定义的组件代码
+<!-- 这里是HTML -->
 </template>
+
+<style>
+/* 这里是CSS */
+</style>
 ```
 
 

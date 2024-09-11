@@ -653,7 +653,7 @@ export default {
 
 使用前请安装 [浏览量的插件：不蒜子](./plugin.md#浏览量) ，想好看自己研究一下吧
 
-现在仅做一个简单的封装示例，新建一个 `view.vue` 组件
+现在仅做一个简单的封装示例，新建一个 `bsz.vue` 组件
 
 ```md{6}
 docs
@@ -661,13 +661,13 @@ docs
 │  └─ config.mts
 │  └─ theme
 │  │   ├─ components
-│  │   │   └─ view.vue    <--浏览量组件
+│  │   │   └─ bsz.vue    <--浏览量组件
 │  │   └─ index.ts
 └─ index.md
 ```
 
 
-选择一种方式，复制代码，粘贴到 `view.vue` 中
+选择一种方式，复制代码，粘贴到 `bsz.vue` 中
 
 ::: code-group
 
@@ -735,7 +735,7 @@ import { h } from 'vue' // [!code focus:6]
 // 不蒜子
 import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'
-import view from "./components/view.vue"
+import bsz from "./components/bsz.vue"
 
 export default {
   extends: DefaultTheme,
@@ -751,21 +751,35 @@ export default {
 
   Layout() { // [!code focus:5]
     return h(DefaultTheme.Layout, null, {
-      'layout-bottom': () => h(view), //不蒜子layout-bottom插槽
+      'layout-bottom': () => h(bsz), //不蒜子layout-bottom插槽
     })
   },
 
 }
 ```
 
-```ts{3,7} [Layout（2选1）]
+```ts{4-7,12-19,21} [Layout（2选1）]
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
-import busuanzi from './components/busuanzi.vue' // [!code focus]
+
+// 不蒜子 // [!code focus:4]
+import { inBrowser } from 'vitepress'
+import busuanzi from 'busuanzi.pure.js'
+import bsz from "./components/bsz.vue"
 
 export default {
   extends: DefaultTheme,
-  Layout: busuanzi, // [!code focus]
+
+  // 不蒜子 // [!code focus:8]
+  enhanceApp({ app , router }) {
+    if (inBrowser) {
+      router.onAfterRouteChanged = () => {
+        busuanzi.fetch()
+      }
+    }
+  },
+
+  Layout: bsz, // [!code focus]
 }
 ```
 :::
@@ -1012,7 +1026,9 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
-  <DefaultTheme.Layout />
+  <DefaultTheme.Layout>
+    <!-- 这里可以插入其他插槽组件 -->
+  </DefaultTheme.Layout>
 </template>
 
 <style>
@@ -1053,7 +1069,7 @@ export default {
 }
 ```
 
-```ts{3-4,9-13} [h函数（二选一）]
+```ts{3-4,9-11} [h函数（二选一）]
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue' // [!code focus:2]
@@ -1063,14 +1079,43 @@ export default {
   extends: DefaultTheme,
 
   Layout() {
-    // 这里将默认的 `DefaultTheme.Layout` 改成 `MyLayout`，因为组件内已经包含了 // [!code focus:2]
-    return h(MyLayout, null, {
-      // 其他插槽
-    })
+    return h(MyLayout) // [!code focus]
   },
 }
 ```
 :::
+
+:::: details 疑问：我的其他插槽怎么使用呢
+
+以 [返回顶部 backtop.vue](#返回顶部) 为例，将它的代码单独添加到 `MyLayout.vue` 中
+
+::: warning 注意
+不是整个复制过去替换，仅复制高亮部分添加进去!
+:::
+
+```vue{4,11-13}
+<!-- .vitepress/theme/MyLayout.vue -->
+<script setup lang="ts">
+...
+import backTop from "./backTop.vue" // [!code focus]
+...
+</script>
+
+<template>
+    <DefaultTheme.Layout>
+
+    <template #doc-footer-before> // [!code focus:3]
+      <backTop />
+    </template>
+
+  </DefaultTheme.Layout>
+</template>
+
+<style>
+...
+</style>
+```
+::::
 
 
 有关视图过渡动画的更多详细信息，请参阅 [Chrome 文档](https://developer.chrome.com/docs/web-platform/view-transitions?hl=zh-cn) 。

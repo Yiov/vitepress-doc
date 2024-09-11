@@ -28,7 +28,7 @@ import MyLayout from "./components/MyLayout.vue" //视图过渡
 // 不蒜子
 import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'
-import view from "./components/view.vue"
+import bsz from "./components/bsz.vue"
 
 
 export default {
@@ -65,7 +65,7 @@ export default {
     }
 
     return h(DefaultTheme.Layout, props, {
-      'layout-bottom': () => h(view), //不蒜子layout-bottom插槽
+      'layout-bottom': () => h(bsz), //不蒜子layout-bottom插槽
       'doc-footer-before': () => h(backTop), // 使用doc-footer-before插槽
     })
   },
