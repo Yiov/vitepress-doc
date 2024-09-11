@@ -260,7 +260,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 ---
 
 
-### Badge颜色
+### 容器颜色
 
 随着版本更新迭代，现在这 `tip` `warning` `danger` 颜色真的想吐槽，好丑！
 

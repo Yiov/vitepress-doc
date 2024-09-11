@@ -47,7 +47,7 @@ next: false
 
 - 修改 [链接图标](./style.md#链接图标) 使用SVG图形显示
 
-- 修复 自定义 [Badge颜色](./style.md#badge颜色) 后，导致与系统颜色冲突，更换色卡名
+- 修复 自定义 [容器颜色](./style.md#容器) 后，导致与系统颜色冲突，更换色卡名
 
 
 ## 2024-9-3
@@ -94,7 +94,7 @@ next: false
 
 - 更改 [引用样式颜色](./style.md#引用颜色)
 
-- 修正 [Bage容器自定义颜色样式](./style.md#badge颜色)
+- 修正 [Bage容器自定义颜色样式](./style.md#容器颜色)
 
 
 
@@ -104,7 +104,7 @@ next: false
 
 - 更改 [引用样式颜色为蓝色色调](./style.md#引用颜色)
 
-- 更新 [Bage容器自定义颜色样式](./style.md#badge颜色)
+- 更新 [Bage容器自定义颜色样式](./style.md#容器颜色)
 
 - 删除 [视屏过渡API演示](https://vitepress.dev/zh/guide/extending-default-theme#on-appearance-toggle)
 

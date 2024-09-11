@@ -342,7 +342,7 @@ Hello, VitePress!
 
 > 为什么和我不一样？
 >
-> 我对样式进行了修改，请查看 [样式美化 - badge颜色](./style.md#badge颜色)
+> 我对样式进行了修改，请查看 [样式美化 - 容器颜色](./style.md#容器颜色)
 
 
 ::: details 不喜欢添加在后面，可以直接在配置中自定义标题
@@ -366,6 +366,7 @@ export default defineConfig({
 :::
 
 
+### GitHub风格警报
 
 你也可以使用 [GitHub 风格的警报](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts)，只是书写方式不同，使用上是一样的
 
@@ -409,9 +410,9 @@ export default defineConfig({
 
 
 
-::: details 不喜欢添加在后面，可以直接在配置中自定义标题
+::: details 如果你是 Typora 的用户，本地不生效
 
-本代码由 [Aurorxa](https://github.com/Aurorxa) 提供
+使用下面代码进行配置，本代码由 [Aurorxa](https://github.com/Aurorxa) 提供
 
 ```ts{4-25}
 // .vitepress/config.mts
