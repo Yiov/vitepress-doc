@@ -679,15 +679,17 @@ docs
 ```vue [confetti.vue]
 <script setup lang="ts">
 import confetti from 'canvas-confetti'
-import { inBrowser } from "vitepress";
+import { inBrowser } from 'vitepress';
 
 if (inBrowser) {
+
 /* 纸屑 */
 confetti({
     particleCount: 100,
     spread: 170,
     origin: { y: 0.6 },
 })
+
 }
 </script>
 ```
@@ -697,7 +699,7 @@ confetti({
 ```vue
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import confetti from "canvas-confetti";
+import confetti from 'canvas-confetti';
 
 onMounted(() => (
    /* 纸屑 */
