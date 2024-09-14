@@ -24,6 +24,7 @@ import backTop from "./components/backTop.vue" //返回顶部
 import ArticleMetadata from "./components/ArticleMetadata.vue" //字数阅读时间
 import Linkcard from "./components/Linkcard.vue" //链接卡片
 import MyLayout from "./components/MyLayout.vue" //视图过渡
+import notice from "./components/notice.vue" //公告
 
 // 不蒜子
 import { inBrowser } from 'vitepress'
@@ -66,7 +67,8 @@ export default {
 
     return h(DefaultTheme.Layout, props, {
       'layout-bottom': () => h(bsz), //不蒜子layout-bottom插槽
-      'doc-footer-before': () => h(backTop), // 使用doc-footer-before插槽
+      'doc-footer-before': () => h(backTop), // 返回顶部doc-footer-before插槽
+      'layout-top': () => h(notice), // 公告layout-top插槽
     })
   },
   
