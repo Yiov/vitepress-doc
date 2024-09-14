@@ -1187,7 +1187,7 @@ function closeBulletin() {
             <h3 class="bulletin-h3">本次更新：</h3>
             <p class="bulletin-p">公告样式，参考自 <a class="bulletin-link" href="https://theme-reco.vuejs.press/" target="_blank">VuePress-Reco</a></p>
             <p class="bulletin-p">QQ 频道：******(无效二维码)</p>
-            <img src="/qrcode.png">
+            <img class="bulletin-img" src="/qrcode.png">
             <hr>
             <div class="btn-group">
                 <a class="btn" href="https://vitepress.dev/zh/" target="_blank">官网</a>
@@ -1267,7 +1267,7 @@ function closeBulletin() {
 }
 
 
-img {
+.bulletin-img {
     width: 100%
 }
 
