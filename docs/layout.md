@@ -1091,7 +1091,7 @@ export default {
 
 :::: details 疑问：我的其他插槽怎么使用呢
 
-以 [返回顶部 backtop.vue](#返回顶部) 为例，将它的代码单独添加到 `MyLayout.vue` 中
+以 [返回顶部 backtotop.vue](#返回顶部) 为例，将它的代码单独添加到 `MyLayout.vue` 中
 
 ::: warning 注意
 不是整个复制过去替换，仅复制高亮部分添加进去!
@@ -1101,7 +1101,7 @@ export default {
 <!-- .vitepress/theme/MyLayout.vue -->
 <script setup lang="ts">
 ...
-import backTop from "./backTop.vue" // [!code focus]
+import backtotop from "./backtotop.vue" // [!code focus]
 ...
 </script>
 
@@ -1109,7 +1109,7 @@ import backTop from "./backTop.vue" // [!code focus]
     <DefaultTheme.Layout>
 
     <template #doc-footer-before> // [!code focus:3]
-      <backTop />
+      <backtotop />
     </template>
 
   </DefaultTheme.Layout>
