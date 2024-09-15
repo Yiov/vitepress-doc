@@ -478,23 +478,23 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 :::
 
 
-看看效果，也可以在 `::before`中添加 `content`属性，使用 [Emoji表情](https://www.emojiall.com/zh-hans/) 或者 [Unicode 符号表](https://symbl.cc/cn/unicode-table/) ，因为添加后要改动的地方较多，就不演示了
+看看效果
 
 ::: info 注释
-改为左缩进+灰色
+注释是灰色
 :::
 
 ::: tip 提示
-改为左缩进+绿色
+提示是绿色
 :::
 
 
 ::: warning 警告
-改为左缩进+橘色
+警告是橘色
 :::
 
 ::: danger 危险
-改为左缩进+红色
+危险是红色
 :::
 
 
