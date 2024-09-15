@@ -1121,6 +1121,7 @@ import backtotop from "./backtotop.vue" // [!code focus]
 ```
 ::::
 
+最后，看看我用 [StackBlitz 做的效果](https://stackblitz.com/edit/vite-kg6cte)
 
 有关视图过渡动画的更多详细信息，请参阅 [Chrome 文档](https://developer.chrome.com/docs/web-platform/view-transitions?hl=zh-cn) 。
 

@@ -186,17 +186,18 @@ o  Add VitePress npm scripts to package.json?
 
 默认不用改，在 `package.json` 中可以查看
 
-::: warning 注意
-如果你在初始化的时候选择了 `./` ，而不是 `./doc`，这里就需要修改
+::: warning 建议
+在里面添加一个 `"type": "module",` ，避免有时出现未知错误
 :::
 
-```json{6-10}
+```json{6}
 {
   "devDependencies": {
     "vitepress": "^1.3.4"
   },
   "packageManager": "pnpm@8.6.10+sha1.98fe2755061026799bfa30e7dc8d6d48e9c3edf0",
-  "scripts": { // [!code focus:5]
+  "type": "module",
+  "scripts": { 
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
@@ -242,6 +243,13 @@ npm run docs:dev
 ```sh [bun]
 bun run docs:dev
 ```
+:::
+
+
+::: details 为什么我启动不了
+如果你在 [初始化向导](#初始化向导) 直接回车，使用的是 `./` ，而不是 `./doc`，这里就是 `pnpm run dev`
+
+在其 [脚本命令](#脚本命令) 的 `scripts` 中也可以看到
 :::
 
 
