@@ -277,7 +277,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 │  │  └─ theme
 │  │     └─ style
 │  │        └─ index.css
-│  │        └─ blockquote.css
+│  │        └─ custom-block.css
 │  └─ index.md
 └─ node_modules
 ```
