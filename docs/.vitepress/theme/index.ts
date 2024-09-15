@@ -20,7 +20,7 @@ import HomeUnderline from "./components/HomeUnderline.vue" // 首页下划线
 import confetti from "./components/confetti.vue" // 五彩纸屑
 import update from "./components/update.vue" // 更新时间
 import xgplayer from "./components/xgplayer.vue" //西瓜播放器
-import backTop from "./components/backTop.vue" //返回顶部
+import backtotop from "./components/backtotop.vue" //返回顶部
 import ArticleMetadata from "./components/ArticleMetadata.vue" //字数阅读时间
 import Linkcard from "./components/Linkcard.vue" //链接卡片
 import MyLayout from "./components/MyLayout.vue" //视图过渡
@@ -67,7 +67,7 @@ export default {
 
     return h(DefaultTheme.Layout, props, {
       'layout-bottom': () => h(bsz), //不蒜子layout-bottom插槽
-      'doc-footer-before': () => h(backTop), // 返回顶部doc-footer-before插槽
+      'doc-footer-before': () => h(backtotop), // 返回顶部doc-footer-before插槽
       'layout-top': () => h(notice), // 公告layout-top插槽
     })
   },

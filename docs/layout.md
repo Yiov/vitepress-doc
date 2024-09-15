@@ -795,7 +795,7 @@ export default {
 这里我们使用 [@wf0/monaco-editor-translate](https://github.com/wf0/monaco-editor-translate/blob/master/docs/.vitepress/theme/components/backTop.vue) 的 backTop 组件
 
 
-在 `theme/components` 文件夹，新建 `backTop.vue` 组件编写
+在 `theme/components` 文件夹，新建 `backtotop.vue` 组件编写
 
 
 ```md{6}
@@ -804,15 +804,15 @@ docs
 │  └─ config.mts
 │  └─ theme
 │  │   ├─ components
-│  │   │   └─ backTop.vue
+│  │   │   └─ backtotop.vue
 │  │   └─ index.ts
 └─ index.md
 ```
 
-在 `backTop.vue` 填入如下代码，保存
+在 `backtotop.vue` 填入如下代码，保存
 
 ::: code-group
-```vue [backTop.vue]
+```vue [backtotop.vue]
 <template>
   <Transition name="fade">
     <div v-show="showBackTop" class="vitepress-backTop-main" title="返回顶部" @click="scrollToTop()">
@@ -920,13 +920,13 @@ svg {
 ```ts{3,7-11}
 /* .vitepress\theme\index.ts */
 import DefaultTheme from 'vitepress/theme'
-import backTop from "./components/backTop.vue" // [!code focus]
+import backtotop from "./components/backtotop.vue" // [!code focus]
 
 export default {
   extends: DefaultTheme,
   Layout() { // [!code focus:5]
     return h(DefaultTheme.Layout, null, {
-      'doc-footer-before': () => h(backTop), // 使用doc-footer-before插槽
+      'doc-footer-before': () => h(backtotop), // 使用doc-footer-before插槽
     })
   }
 }
