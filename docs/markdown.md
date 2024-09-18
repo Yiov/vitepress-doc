@@ -188,6 +188,54 @@ export default defineConfig({
 <video src="/lol.mp4" controls="controls"></video>
 
 
+那在线视频呢，我们可以用 `<iframe>` 标签实现
+
+::: tip 说明
+本次仅演示 [Youtube](https://www.youtube.com/) 和 [B站](https://www.bilibili.com/) ，在视频分享中选择 `嵌入视频` 即可获取链接
+
+其他的请自测
+:::
+
+
+输入：
+
+```md{3,12}
+<iframe 
+style="width:100%; aspect-ratio:16/9; margin-top: 2em;" 
+src="https://www.youtube.com/embed/bzyMLoSwYvk" 
+frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+allowfullscreen>
+</iframe>
+
+
+<iframe 
+style="width:100%; aspect-ratio:16/9; margin-top: 2em;" 
+src="//player.bilibili.com/player.html?bvid=BV1YptMeMEcV" 
+frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+allowfullscreen>
+</iframe>
+```
+
+输出：
+
+<iframe 
+style="width:100%; aspect-ratio:16/9; margin-top: 2em;" 
+src="https://www.youtube.com/embed/bzyMLoSwYvk" 
+frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+allowfullscreen>
+</iframe>
+
+
+<iframe 
+style="width:100%; aspect-ratio:16/9; margin-top: 2em;" 
+src="//player.bilibili.com/player.html?bvid=BV1YptMeMEcV" 
+frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+allowfullscreen>
+</iframe>
 
 
 ### 表格

@@ -779,13 +779,21 @@ h1 {
 
 ## 评论
 
-评论的插件比较多：
-
-* [Giscus](https://giscus.app/zh-CN)、[waline](https://waline.js.org/)、[gitalk](https://gitalk.github.io/)
-
-* [Valine](https://valine.js.org/quickstart.html)、[disqus](https://disqus.com/)、[Twikoo](https://twikoo.js.org/)、[Artalk](https://artalk.js.org/guide/deploy.html)
-
 从个人角度而言，[Giscus](https://giscus.app/zh-CN) 最佳，就用它演示，其他的这里就不赘述了
+
+::: details 为什么使用 Giscus
+
+| 评论系统 | 说明 |
+| :-: | :-: |
+| [Valine](https://valine.js.org/quickstart.html) | 不用登录账号即可评论，但容易产生垃圾评论，其次没有评论提醒通知 |
+| [Waline](https://waline.js.org/) | 是Valine的升级版，登录后方可评论，有通知，但是需要自己部署服务端 |
+| [Twikoo](https://twikoo.js.org/) | 不用登录账号即可评论，但容易产生垃圾评论，有通知，但是需要自己部署服务端 |
+| [Artalk](https://artalk.js.org/) | 可设置是否启用登录账号后评论，有通知，但是需要自己部署服务端 |
+| [utteranc](https://utteranc.es/) | GitHub登录后方可评论，评论数据在 GitHub issues 中，评论后有邮件通知，无需部署服务端，但UI样式一般，且移动端不显示头像 |
+| [gitalk](https://gitalk.github.io/) | GitHub登录后方可评论，评论数据在 GitHub issues 中，评论后有邮件通知，无需部署服务端，UI样式一般，评论不支持点赞 |
+| ⭐[Giscus](https://giscus.app/zh-CN) | GitHub登录后方可评论，评论数据在 GitHub Discussions 中，评论后有邮件通知，无需部署服务端，UI爱了 |
+
+:::
 
 ::: details 关于 [@xinlei3166](https://github.com/xinlei3166/) 的 waline 插件
 
