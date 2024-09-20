@@ -1171,6 +1171,8 @@ const visible = ref(true)
 function closeBulletin() {
     visible.value = false
 }
+
+setTimeout(function(){ visible.value = false }, 5000);
 </script>
 
 <template>
