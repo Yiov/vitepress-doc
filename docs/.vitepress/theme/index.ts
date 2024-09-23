@@ -20,11 +20,12 @@ import HomeUnderline from "./components/HomeUnderline.vue" // 首页下划线
 import confetti from "./components/confetti.vue" // 五彩纸屑
 import update from "./components/update.vue" // 更新时间
 import xgplayer from "./components/xgplayer.vue" //西瓜播放器
-import backtotop from "./components/backtotop.vue" //返回顶部
 import ArticleMetadata from "./components/ArticleMetadata.vue" //字数阅读时间
 import Linkcard from "./components/Linkcard.vue" //链接卡片
 import MyLayout from "./components/MyLayout.vue" //视图过渡
+import backtotop from "./components/backtotop.vue" //返回顶部
 import notice from "./components/notice.vue" //公告
+import fluidborder from "./components/fluidborder.vue" //流体边框仅用于演示
 
 // 不蒜子
 import { inBrowser } from 'vitepress'
@@ -44,6 +45,7 @@ export default {
     app.component('xgplayer' , xgplayer) //西瓜播放器
     app.component('ArticleMetadata' , ArticleMetadata) //字数阅读时间
     app.component('Linkcard' , Linkcard) //链接卡片
+    app.component('fluidborder' , fluidborder) //流体边框仅用于演示
 
     // 不蒜子
     if (inBrowser) {
@@ -65,11 +67,13 @@ export default {
       props.class = frontmatter.value.layoutClass
     }
 
-    return h(DefaultTheme.Layout, props, {
-      'layout-bottom': () => h(bsz), //不蒜子layout-bottom插槽
-      'doc-footer-before': () => h(backtotop), // 返回顶部doc-footer-before插槽
-      'layout-top': () => h(notice), // 公告layout-top插槽
-    })
+    // return h(DefaultTheme.Layout, props, {
+    //   'layout-bottom': () => h(bsz), //不蒜子layout-bottom插槽
+    //   'doc-footer-before': () => h(backtotop), // 返回顶部doc-footer-before插槽
+    //   'layout-top': () => h(notice), // 公告layout-top插槽
+    // })
+
+    return h(MyLayout)
   },
   
   // medium-zoom

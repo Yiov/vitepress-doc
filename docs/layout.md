@@ -941,10 +941,6 @@ export default {
 
 在官方的文档中，有这么一个 [外观切换的示例](https://vitepress.dev/zh/guide/extending-default-theme#on-appearance-toggle)，有点意思
 
-::: tip 说明
-苦于能力有限没有研究透，在收到 [issues #22](https://github.com/Yiov/vitepress-doc/issues/22) 且 [@shellRaining](https://github.com/shellRaining) 的友情提示后，再次翻看文档，原来只需要去掉 `enableTransitions` 即可实现
-:::
-
 ![](https://vitepress.dev/appearance-toggle-transition.webp)
 
 
@@ -1000,7 +996,16 @@ import { nextTick, provide } from 'vue'
 
 const { isDark } = useData()
 
+const enableTransitions = () =>
+  'startViewTransition' in document &&
+  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+  if (!enableTransitions()) {
+    isDark.value = !isDark.value
+    return
+  }
+
   const clipPath = [
     `circle(0px at ${x}px ${y}px)`,
     `circle(${Math.hypot(
@@ -1046,6 +1051,10 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 ::view-transition-new(root),
 .dark::view-transition-old(root) {
   z-index: 9999;
+}
+
+.VPSwitchAppearance {
+  width: 22px !important;
 }
 
 .VPSwitchAppearance .check {
@@ -1124,6 +1133,12 @@ import backtotop from "./backtotop.vue" // [!code focus]
 最后，看看我用 [StackBlitz 做的效果](https://stackblitz.com/edit/vite-kg6cte)
 
 有关视图过渡动画的更多详细信息，请参阅 [Chrome 文档](https://developer.chrome.com/docs/web-platform/view-transitions?hl=zh-cn) 。
+
+::: details 为什么我的没效果？
+- 自身问题：请仔细是否正确配置
+
+- 电脑问题：我的电脑 - 右键 `属性` - `高级系统设置` - 在系统属性页卡中 `高级` - 性能 `设置`，默认为 调整为最佳外观，将 `窗口内的动画控件和元素` 打勾，确定（如果电脑字体变化，请调整为其他，只要确保勾选此项即可）
+:::
 
 
 ---

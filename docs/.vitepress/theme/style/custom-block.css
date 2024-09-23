@@ -18,6 +18,9 @@
 
     --custom-block-important-left: #a371f7;
     --custom-block-important-bg: #f4eefe;
+
+    --custom-block-caution-left: #e0575b;
+    --custom-block-caution-bg: #fde4e8;
 }
 
 .dark {
@@ -38,6 +41,9 @@
 
     --custom-block-important-left: #a371f7;
     --custom-block-important-bg: #230555;
+
+    --custom-block-caution-left: #e0575b;
+    --custom-block-caution-bg: #391c22;
 }
 
 
@@ -63,7 +69,7 @@
     position: relative;
     margin-right: 4px;
     left: -5px;
-    top: -2px;
+    top: -1px;
 }
 
 /* 提示容器:边框色、背景色、左侧 */
@@ -123,7 +129,7 @@
     position: relative;
     margin-right: 4px;
     left: -5px;
-    top: -2px;
+    top: -1px;
 }
 
 /* NOTE容器:背景色、左侧 */
@@ -143,7 +149,7 @@
     position: relative;
     margin-right: 4px;
     left: -5px;
-    top: -2px;
+    top: -1px;
 }
 
 /* IMPORTANT容器:背景色、左侧 */
@@ -163,13 +169,13 @@
     position: relative;
     margin-right: 4px;
     left: -5px;
-    top: -2px;
+    top: -1px;
 }
 
 /* CAUTION容器:背景色、左侧 */
 .custom-block.caution {
-    border-left: 5px solid var(--vp-c-red-3);
-    background-color: var(--vp-c-red-soft);
+    border-left: 5px solid var(--custom-block-caution-left);
+    background-color: var(--custom-block-caution-bg);
 }
 
 /* CAUTION容器:svg图 */
@@ -183,5 +189,5 @@
     position: relative;
     margin-right: 4px;
     left: -5px;
-    top: -2px;
+    top: -1px;
 }

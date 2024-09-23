@@ -1,13 +1,26 @@
-<!-- .vitepress/theme/SwitcherAppearance.vue -->
+<!-- .vitepress/theme/MyLayout.vue.vue -->
 
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { nextTick, provide } from 'vue'
 
+import backtotop from "./backtotop.vue"
+import notice from "./notice.vue"
+import bsz from "./bsz.vue"
+
 const { isDark } = useData()
 
+const enableTransitions = () =>
+  'startViewTransition' in document &&
+  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+  if (!enableTransitions()) {
+    isDark.value = !isDark.value
+    return
+  }
+  
   const clipPath = [
     `circle(0px at ${x}px ${y}px)`,
     `circle(${Math.hypot(
@@ -34,7 +47,15 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 
 <template>
   <DefaultTheme.Layout>
-    <!-- 这里可以插入其他插槽组件 -->
+    <template #doc-footer-before>
+      <backtotop />
+    </template>
+    <template #layout-top>
+      <notice />
+    </template>
+    <template #layout-bottom>
+      <bsz />
+    </template>
   </DefaultTheme.Layout>
 </template>
 
