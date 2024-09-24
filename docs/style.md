@@ -199,6 +199,496 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 ---
 
 
+### 彩虹背景动画
+
+在 [UnoCSS](https://unocss.dev/) 首页中，它的hero标题和图片背景有类似彩虹的渐变色动画，其实也是通过修改css样式实现的
+
+在 `theme/style` 新建 `rainbow.css` 文件
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ rainbow.css
+│  └─ index.md
+└─ node_modules
+```
+
+复制下面代码，粘贴到 `rainbow.css` 中
+
+::: code-group
+
+```css [rainbow.css]
+/* 彩虹动画 */
+@keyframes rainbow {
+    0% {
+        --rainbow-prev: #00a98e;
+        --rainbow-next: #009ff7;
+    }
+
+    1.25% {
+        --rainbow-prev: #00a996;
+        --rainbow-next: #009dfa;
+    }
+
+    2.5% {
+        --rainbow-prev: #00a99f;
+        --rainbow-next: #009bfc;
+    }
+
+    3.75% {
+        --rainbow-prev: #00a9a7;
+        --rainbow-next: #0098fd;
+    }
+
+    5% {
+        --rainbow-prev: #00a9b0;
+        --rainbow-next: #0096fd;
+    }
+
+    6.25% {
+        --rainbow-prev: #00a9b8;
+        --rainbow-next: #0093fd;
+    }
+
+    7.5% {
+        --rainbow-prev: #00a9c0;
+        --rainbow-next: #2e90fc;
+    }
+
+    8.75% {
+        --rainbow-prev: #00a8c7;
+        --rainbow-next: #4d8dfa;
+    }
+
+    10% {
+        --rainbow-prev: #00a8cf;
+        --rainbow-next: #638af8;
+    }
+
+    11.25% {
+        --rainbow-prev: #00a7d5;
+        --rainbow-next: #7587f5;
+    }
+
+    12.5% {
+        --rainbow-prev: #00a6dc;
+        --rainbow-next: #8583f1;
+    }
+
+    13.75% {
+        --rainbow-prev: #00a6e2;
+        --rainbow-next: #9280ed;
+    }
+
+    15% {
+        --rainbow-prev: #00a4e7;
+        --rainbow-next: #9f7ce9;
+    }
+
+    16.25% {
+        --rainbow-prev: #00a3ec;
+        --rainbow-next: #aa78e3;
+    }
+
+    17.5% {
+        --rainbow-prev: #00a2f1;
+        --rainbow-next: #b574dd;
+    }
+
+    18.75% {
+        --rainbow-prev: #00a0f4;
+        --rainbow-next: #be71d7;
+    }
+
+    20% {
+        --rainbow-prev: #009ff7;
+        --rainbow-next: #c76dd1;
+    }
+
+    21.25% {
+        --rainbow-prev: #009dfa;
+        --rainbow-next: #cf69c9;
+    }
+
+    22.5% {
+        --rainbow-prev: #009bfc;
+        --rainbow-next: #d566c2;
+    }
+
+    23.75% {
+        --rainbow-prev: #0098fd;
+        --rainbow-next: #dc63ba;
+    }
+
+    25% {
+        --rainbow-prev: #0096fd;
+        --rainbow-next: #e160b3;
+    }
+
+    26.25% {
+        --rainbow-prev: #0093fd;
+        --rainbow-next: #e65eab;
+    }
+
+    27.5% {
+        --rainbow-prev: #2e90fc;
+        --rainbow-next: #e95ca2;
+    }
+
+    28.75% {
+        --rainbow-prev: #4d8dfa;
+        --rainbow-next: #ed5a9a;
+    }
+
+    30% {
+        --rainbow-prev: #638af8;
+        --rainbow-next: #ef5992;
+    }
+
+    31.25% {
+        --rainbow-prev: #7587f5;
+        --rainbow-next: #f15989;
+    }
+
+    32.5% {
+        --rainbow-prev: #8583f1;
+        --rainbow-next: #f25981;
+    }
+
+    33.75% {
+        --rainbow-prev: #9280ed;
+        --rainbow-next: #f25a79;
+    }
+
+    35% {
+        --rainbow-prev: #9f7ce9;
+        --rainbow-next: #f25c71;
+    }
+
+    36.25% {
+        --rainbow-prev: #aa78e3;
+        --rainbow-next: #f15e69;
+    }
+
+    37.5% {
+        --rainbow-prev: #b574dd;
+        --rainbow-next: #ef6061;
+    }
+
+    38.75% {
+        --rainbow-prev: #be71d7;
+        --rainbow-next: #ed635a;
+    }
+
+    40% {
+        --rainbow-prev: #c76dd1;
+        --rainbow-next: #eb6552;
+    }
+
+    41.25% {
+        --rainbow-prev: #cf69c9;
+        --rainbow-next: #e8694b;
+    }
+
+    42.5% {
+        --rainbow-prev: #d566c2;
+        --rainbow-next: #e46c44;
+    }
+
+    43.75% {
+        --rainbow-prev: #dc63ba;
+        --rainbow-next: #e06f3d;
+    }
+
+    45% {
+        --rainbow-prev: #e160b3;
+        --rainbow-next: #db7336;
+    }
+
+    46.25% {
+        --rainbow-prev: #e65eab;
+        --rainbow-next: #d77630;
+    }
+
+    47.5% {
+        --rainbow-prev: #e95ca2;
+        --rainbow-next: #d17a2a;
+    }
+
+    48.75% {
+        --rainbow-prev: #ed5a9a;
+        --rainbow-next: #cc7d24;
+    }
+
+    50% {
+        --rainbow-prev: #ef5992;
+        --rainbow-next: #c6811e;
+    }
+
+    51.25% {
+        --rainbow-prev: #f15989;
+        --rainbow-next: #bf8418;
+    }
+
+    52.5% {
+        --rainbow-prev: #f25981;
+        --rainbow-next: #b98713;
+    }
+
+    53.75% {
+        --rainbow-prev: #f25a79;
+        --rainbow-next: #b28a0f;
+    }
+
+    55% {
+        --rainbow-prev: #f25c71;
+        --rainbow-next: #ab8d0c;
+    }
+
+    56.25% {
+        --rainbow-prev: #f15e69;
+        --rainbow-next: #a3900b;
+    }
+
+    57.5% {
+        --rainbow-prev: #ef6061;
+        --rainbow-next: #9c920d;
+    }
+
+    58.75% {
+        --rainbow-prev: #ed635a;
+        --rainbow-next: #949510;
+    }
+
+    60% {
+        --rainbow-prev: #eb6552;
+        --rainbow-next: #8b9715;
+    }
+
+    61.25% {
+        --rainbow-prev: #e8694b;
+        --rainbow-next: #83991b;
+    }
+
+    62.5% {
+        --rainbow-prev: #e46c44;
+        --rainbow-next: #7a9b21;
+    }
+
+    63.75% {
+        --rainbow-prev: #e06f3d;
+        --rainbow-next: #719d27;
+    }
+
+    65% {
+        --rainbow-prev: #db7336;
+        --rainbow-next: #679e2e;
+    }
+
+    66.25% {
+        --rainbow-prev: #d77630;
+        --rainbow-next: #5da035;
+    }
+
+    67.5% {
+        --rainbow-prev: #d17a2a;
+        --rainbow-next: #51a13c;
+    }
+
+    68.75% {
+        --rainbow-prev: #cc7d24;
+        --rainbow-next: #44a244;
+    }
+
+    70% {
+        --rainbow-prev: #c6811e;
+        --rainbow-next: #34a44b;
+    }
+
+    71.25% {
+        --rainbow-prev: #bf8418;
+        --rainbow-next: #1ba553;
+    }
+
+    72.5% {
+        --rainbow-prev: #b98713;
+        --rainbow-next: #00a65b;
+    }
+
+    73.75% {
+        --rainbow-prev: #b28a0f;
+        --rainbow-next: #00a663;
+    }
+
+    75% {
+        --rainbow-prev: #ab8d0c;
+        --rainbow-next: #00a76c;
+    }
+
+    76.25% {
+        --rainbow-prev: #a3900b;
+        --rainbow-next: #00a874;
+    }
+
+    77.5% {
+        --rainbow-prev: #9c920d;
+        --rainbow-next: #00a87d;
+    }
+
+    78.75% {
+        --rainbow-prev: #949510;
+        --rainbow-next: #00a985;
+    }
+
+    80% {
+        --rainbow-prev: #8b9715;
+        --rainbow-next: #00a98e;
+    }
+
+    81.25% {
+        --rainbow-prev: #83991b;
+        --rainbow-next: #00a996;
+    }
+
+    82.5% {
+        --rainbow-prev: #7a9b21;
+        --rainbow-next: #00a99f;
+    }
+
+    83.75% {
+        --rainbow-prev: #719d27;
+        --rainbow-next: #00a9a7;
+    }
+
+    85% {
+        --rainbow-prev: #679e2e;
+        --rainbow-next: #00a9b0;
+    }
+
+    86.25% {
+        --rainbow-prev: #5da035;
+        --rainbow-next: #00a9b8;
+    }
+
+    87.5% {
+        --rainbow-prev: #51a13c;
+        --rainbow-next: #00a9c0;
+    }
+
+    88.75% {
+        --rainbow-prev: #44a244;
+        --rainbow-next: #00a8c7;
+    }
+
+    90% {
+        --rainbow-prev: #34a44b;
+        --rainbow-next: #00a8cf;
+    }
+
+    91.25% {
+        --rainbow-prev: #1ba553;
+        --rainbow-next: #00a7d5;
+    }
+
+    92.5% {
+        --rainbow-prev: #00a65b;
+        --rainbow-next: #00a6dc;
+    }
+
+    93.75% {
+        --rainbow-prev: #00a663;
+        --rainbow-next: #00a6e2;
+    }
+
+    95% {
+        --rainbow-prev: #00a76c;
+        --rainbow-next: #00a4e7;
+    }
+
+    96.25% {
+        --rainbow-prev: #00a874;
+        --rainbow-next: #00a3ec;
+    }
+
+    97.5% {
+        --rainbow-prev: #00a87d;
+        --rainbow-next: #00a2f1;
+    }
+
+    98.75% {
+        --rainbow-prev: #00a985;
+        --rainbow-next: #00a0f4;
+    }
+
+    100% {
+        --rainbow-prev: #00a98e;
+        --rainbow-next: #009ff7;
+    }
+}
+
+/* 彩虹色卡 */
+:root {
+    --rainbow-prev: #00a98e;
+    --rainbow-next: #009ff7;
+    animation: rainbow 15s linear infinite;
+}
+
+.dark {
+    --rainbow-prev: #00a98e;
+    --rainbow-next: #009ff7;
+    animation: rainbow 15s linear infinite;
+}
+
+
+
+:root {
+    /* hero标题渐变色 */
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, var(--rainbow-prev) 30%, var(--rainbow-next));
+
+    /*hero logo背景渐变色 */
+    --vp-home-hero-image-background-image: linear-gradient(-45deg, var(--rainbow-prev) 30%, var(--rainbow-next));
+    --vp-home-hero-image-filter: blur(80px);
+}
+
+
+@media (min-width: 640px) {
+    :root {
+        --vp-home-hero-image-filter: blur(120px);
+    }
+}
+
+@media (min-width: 960px) {
+    :root {
+        --vp-home-hero-image-filter: blur(120px);
+    }
+}
+
+/* Safari has a very bad performance on gradient and filter */
+.browser-safari,
+.browser-firefox {
+    --vp-home-hero-image-background-image: transparent;
+    --vp-home-hero-image-filter: '';
+}
+```
+:::
+
+
+然后在 `index.css` 中引入生效，回到主页看效果
+
+```css
+/* .vitepress/theme/style/index.css */
+@import './rainbow.css';
+```
+
+---
+
+
 ### 引用颜色
 
 在Markdown中，我们常用的引用符号是 `>`，我们可以稍微改动一下
