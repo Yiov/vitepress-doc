@@ -625,7 +625,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
         --rainbow-next: #be71d7;
     }
 
-    98.75% {
+    100% {
         --rainbow-prev: #009ff7;
         --rainbow-next: #c76dd1;
     }
