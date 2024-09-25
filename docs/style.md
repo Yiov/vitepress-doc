@@ -676,6 +676,12 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 然后在 `index.css` 中引入生效，回到主页看效果
 
+::: details 为什么我的没效果？
+- 自身问题：请仔细检查代码颜色色卡，是否正确配置
+
+- 电脑问题：我的电脑 - 右键 `属性` - `高级系统设置` - 在系统属性页卡中 `高级` - 性能 `设置`，默认为 调整为最佳外观，将 `窗口内的动画控件和元素` 打勾，确定（如果电脑字体变化，请调整为其他，只要确保勾选此项即可）
+:::
+
 ```css
 /* .vitepress/theme/style/index.css */
 @import './rainbow.css';
@@ -990,9 +996,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 如果想更花里胡哨的，可以加一个流体边框，类似跑马灯的效果
 
-> 本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
-
-::: code-group
+::: details 点我查看代码，感谢 [@Aurorxa](https://github.com/Aurorxa) 提供
 
 ```css [custom-block.css (复制，粘贴，覆盖原先的代码保存)]
 /* .vitepress/theme/style/custom-block.css */
