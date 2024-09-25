@@ -220,7 +220,8 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 复制下面代码，粘贴到 `rainbow.css` 中
 
-::: code-group
+
+::: details 点我查看代码
 
 ```css [rainbow.css]
 /* 彩虹动画 */
@@ -633,6 +634,8 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 /* 彩虹色卡 */
 :root,.dark {
+    --rainbow-prev: #009ff7;
+    --rainbow-next: #c76dd1;
     animation: rainbow 8s linear infinite;
 }
 
