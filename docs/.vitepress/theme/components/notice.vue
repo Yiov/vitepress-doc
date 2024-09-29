@@ -70,10 +70,10 @@ setTimeout(function () { visible.value = false }, 5000);
 
 
 
-@media (max-width: 559px) {
+@media (max-width: 640px) {
     .notice {
         width: 82%;
-        padding: 0 25px;
+        padding: 25px;
     }
 }
 
