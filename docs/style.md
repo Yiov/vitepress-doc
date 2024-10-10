@@ -1466,6 +1466,12 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
             background-color: rgba(255, 255, 255, 0);
             backdrop-filter: blur(10px);
         }
+
+        /* 文档页侧边栏顶部 */
+        .curtain {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
     }
 
     @media (min-width: 960px) {
