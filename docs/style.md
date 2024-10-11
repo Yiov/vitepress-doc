@@ -1438,91 +1438,48 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 ::: code-group
 ```css [blur.css]
-/* .vitepress/theme/style/blur.css */
+/* .vitepress\theme\style\blur.css */
 :root {
 
-    /* 首页导航 */
-    .VPNavBar {
+    /* 首页下滑后导航透明 */
+    .VPNavBar:not(.has-sidebar):not(.home.top) {
         background-color: rgba(255, 255, 255, 0);
         backdrop-filter: blur(10px);
     }
 
-    /* 文档页导航两侧 */
-    .VPNavBar:not(.home) {
-        background-color: rgba(255, 255, 255, 0);
-        backdrop-filter: blur(10px);
-    }
-
-    @media (min-width: 960px) {
-
-        /* 文档页导航两侧 */
-        .VPNavBar:not(.home) {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-
-        /* 首页下滑后导航两侧 */
-        .VPNavBar:not(.has-sidebar):not(.home.top) {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-
-        /* 文档页侧边栏顶部 */
-        .curtain {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-    }
-
-    @media (min-width: 960px) {
-
-        /* 文档页导航中间 */
-        .VPNavBar:not(.home.top) .content-body {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-
-        /* 首页下滑后导航中间 */
-        .VPNavBar:not(.has-sidebar):not(.home.top) .content-body {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-    }
-
-
-    /* 分割线 */
-
-    @media (min-width: 960px) {
-
-        /* 文档页分割线 */
-        .VPNavBar:not(.home.top) .divider-line {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-
-        /* 首页分割线 */
-        .VPNavBar:not(.has-sidebar):not(.home.top) .divider {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-    }
-
-    /* 搜索框 VPNavBarSearchButton.vue */
+    /* 搜索框透明 */
     .DocSearch-Button {
         background-color: rgba(255, 255, 255, 0);
         backdrop-filter: blur(10px);
     }
 
+    /* Feature透明 */
+    .VPFeature {
+        border: none;
+        box-shadow: 0 10px 30px 0 rgb(0 0 0 / 15%);
+        background-color: transparent;
+    }
 
-    /* 移动端大纲栏 */
+    /* 文档页侧边栏顶部透明 */
+    .curtain {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+    }
+
+    @media (min-width: 960px) {
+
+        /* 文档页导航中间透明 */
+        .VPNavBar:not(.home.top) .content-body {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
+    }
+
+    /* 移动端大纲栏透明 */
     .VPLocalNav {
         background-color: rgba(255, 255, 255, 0);
         backdrop-filter: blur(10px);
-        /* 隐藏分割线 */
-        /* border-bottom: 5px solid var(--vp-c-gutter); */
-        border-bottom: 0px;
     }
-
 
 }
 ```
@@ -1539,6 +1496,83 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 ---
 
+
+
+### 隐藏横条
+
+文档中有各种横条，挡着占视野影响美观
+
+在 `theme/style` 文件夹，然后新建 `hidden.css` 并填入如下代码
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ hidden.css
+│  └─ index.md
+└─ node_modules
+```
+
+复制下面代码，粘贴到 `hidden.css` 中，可以自行增减
+
+::: code-group
+```css [hidden.css]
+/* .vitepress\theme\style\hidden.css */
+:root {
+
+    /* 文档页Logo出文字下横条 */
+    .VPNavBar.has-sidebar .title {
+        width: 0px;
+    }
+
+    /* 页脚横条隐藏 */
+    .VPFooter {
+        border-top: none;
+    }
+
+    /* 手机端菜单栏顶部横条隐藏 */
+    .VPNavBar.screen-open {
+        border-bottom: none;
+    }
+
+    /* 手机端菜单栏菜单分割线隐藏 */
+    .VPNavScreenMenuLink {
+        border-bottom: none;
+    }
+
+    /* 手机端菜单组隐藏 */
+    .VPNavScreenMenuGroup {
+        border-bottom: none;
+    }
+
+    /* 手机端大纲栏横条隐藏 */
+    .VPLocalNav {
+        border-bottom: none;
+    }
+
+}
+
+
+/* 导航栏下划线隐藏 */
+.divider {
+    display: none;
+}
+```
+:::
+
+最后引入 `index.css` 中 即可看到效果
+
+```css
+/* style/index.css */
+@import './hidden.css';
+```
+
+
+---
 
 
 

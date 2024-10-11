@@ -1,87 +1,44 @@
 /* .vitepress\theme\style\blur.css */
 :root {
 
-    /* 首页导航 */
-    .VPNavBar {
+    /* 首页下滑后导航透明 */
+    .VPNavBar:not(.has-sidebar):not(.home.top) {
         background-color: rgba(255, 255, 255, 0);
         backdrop-filter: blur(10px);
     }
 
-    /* 文档页导航两侧 */
-    .VPNavBar:not(.home) {
-        background-color: rgba(255, 255, 255, 0);
-        backdrop-filter: blur(10px);
-    }
-
-    @media (min-width: 960px) {
-
-        /* 文档页导航两侧 */
-        .VPNavBar:not(.home) {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-
-        /* 首页下滑后导航两侧 */
-        .VPNavBar:not(.has-sidebar):not(.home.top) {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-
-        /* 文档页侧边栏顶部 */
-        .curtain {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-    }
-
-    @media (min-width: 960px) {
-
-        /* 文档页导航中间 */
-        .VPNavBar:not(.home.top) .content-body {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-
-        /* 首页下滑后导航中间 */
-        .VPNavBar:not(.has-sidebar):not(.home.top) .content-body {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-    }
-
-
-    /* 分割线 */
-
-    @media (min-width: 960px) {
-
-        /* 文档页分割线 */
-        .VPNavBar:not(.home.top) .divider-line {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-
-        /* 首页分割线 */
-        .VPNavBar:not(.has-sidebar):not(.home.top) .divider {
-            background-color: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(10px);
-        }
-    }
-
-    /* 搜索框 VPNavBarSearchButton.vue */
+    /* 搜索框透明 */
     .DocSearch-Button {
         background-color: rgba(255, 255, 255, 0);
         backdrop-filter: blur(10px);
     }
 
+    /* Feature透明 */
+    .VPFeature {
+        border: none;
+        box-shadow: 0 10px 30px 0 rgb(0 0 0 / 15%);
+        background-color: transparent;
+    }
 
-    /* 移动端大纲栏 */
+    /* 文档页侧边栏顶部透明 */
+    .curtain {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+    }
+
+    @media (min-width: 960px) {
+
+        /* 文档页导航中间透明 */
+        .VPNavBar:not(.home.top) .content-body {
+            background-color: rgba(255, 255, 255, 0);
+            backdrop-filter: blur(10px);
+        }
+    }
+
+    /* 移动端大纲栏透明 */
     .VPLocalNav {
         background-color: rgba(255, 255, 255, 0);
         backdrop-filter: blur(10px);
-        /* 隐藏分割线 */
-        /* border-bottom: 5px solid var(--vp-c-gutter); */
-        border-bottom: 0px;
     }
-
 
 }
