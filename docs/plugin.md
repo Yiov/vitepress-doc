@@ -774,8 +774,48 @@ h1 {
 :::
 
 
+## 禁用F12
+
+使用的是 [@cellinlab/vitepress-protect-plugin](https://github.com/cellinlab/vitepress-protect-plugin/)
+
+::: code-group
+```sh [pnpm]
+pnpm add -D vitepress-protect-plugin
+```
+
+```sh [yarn]
+yarn add -D vitepress-protect-plugin
+```
+
+```sh [npm]
+npm install vitepress-protect-plugin
+```
+
+```sh [bun]
+bun add -D vitepress-protect-plugin
+```
+:::
 
 
+然后在 `config.mts` 中配置，不用的功能不配置即可
+
+```ts{2,8-12}
+import { defineConfig } from "vitepress"
+import vitepressProtectPlugin from "vitepress-protect-plugin"
+
+export default defineConfig({
+  // other VitePress configs...
+  vite: {
+    plugins: [
+      vitepressProtectPlugin({
+        disableF12: true, // 禁用F12开发者模式
+        disableCopy: true, // 禁用文本复制
+        disableSelect: true, // 禁用文本选择
+      }),
+    ],
+  },
+})
+```
 
 ## 评论
 
