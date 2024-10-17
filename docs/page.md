@@ -142,19 +142,11 @@ export default defineConfig({
   //启用深色模式
   appearance:'dark', // [!code focus]
   // appearance:false, // 关闭
-})
-```
-
-如果你既想隐藏切换按钮，有想启用深色模式，可以这样使用
-
-```ts{3-4}
-export default defineConfig({
-
-  appearance: false,
-  head: [['script', {}, `document.documentElement.classList.add('dark')`]],
+  // appearance: "force-dark", // 强制深色主题
 
 })
 ```
+
 
 
 ### 多语言
