@@ -94,7 +94,7 @@ export default defineConfig({
   //主题配置
   themeConfig: {
     //左上角logo
-    //logo: '/logo.png',
+    logo: '/logo.png',
     //logo: 'https://vitejs.cn/vite3-cn/logo-with-shadow.png', //远程引用
     //siteTitle: false, //标题隐藏
 

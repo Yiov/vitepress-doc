@@ -303,7 +303,7 @@ export default {
 useLive2d({
   model: {
   url: 'https://raw.githubusercontent.com/iCharlesZ/vscode-live2d-models/master/model-library/bilibili-22/index.json' // [!code focus]
-  },
+  }
 })
 ```
 

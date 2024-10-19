@@ -1525,8 +1525,10 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 :root {
 
     /* 文档页Logo出文字下横条 */
-    .VPNavBar.has-sidebar .title {
-        width: 0px;
+    @media (min-width: 960px) {
+        .VPNavBarTitle.has-sidebar .title {
+            border-bottom-color: transparent;
+        }
     }
 
     /* 页脚横条隐藏 */
