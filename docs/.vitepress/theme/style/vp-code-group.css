@@ -1,38 +1,49 @@
 /* .vitepress/theme/style/vp-code-group.css */
 
-/* 代码块tab */
+/* 代码组：tab间距 */
 .vp-code-group .tabs {
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
-/* 代码块tab-顶部小圆点 */
-.vp-code-group .tabs::before {
-  background: #fc625d;
-  border-radius: 50%;
-  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-  content: ' ';
-  height: 12px;
-  width: 12px;
-  left: 12px;
-  margin-top: -15px;
-  position: absolute;
-}
-
-/* 代码组的容器样式 */
+/* 代码组：添加样式及阴影 */
 .vp-code-group {
   color: var(--vp-c-black-soft);
   border-radius: 8px;
   box-shadow: 0 10px 30px 0 rgb(0 0 0 / 40%);
 }
 
-/* 在代码组内部与外部容器的边角一致，避免嵌套的阴影叠加 */
+/* 代码组：添加macOS风格的小圆点 */
+.vp-code-group .tabs::before {
+  content: ' ';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  height: 12px;
+  width: 12px;
+  background: #fc625d;
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+}
+
+
+/* 代码组：修正倒角、阴影、边距 */
 .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
   border-radius: 8px;
   box-shadow: none;
-  position: relative;
+  padding-top: 0px;
 }
 
-/* 上移代码块小圆点 遮盖住 */
+/* 代码组：隐藏小圆点 */
 .vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
-  top: -12px;
+  display: none;
+}
+
+/* 代码组：修正行号位置 */
+.vp-code-group .line-numbers-mode .line-numbers-wrapper {
+  padding-top: 20px;
+}
+
+/* 代码组：修正行号右侧竖线位置 */
+.vp-code-group .line-numbers-mode .line-numbers-wrapper::after {
+  top: 24px;
 }
