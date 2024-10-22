@@ -1980,6 +1980,21 @@ pnpm -v
 .vp-code-group .line-numbers-mode .line-numbers-wrapper::after {
   top: 24px;
 }
+
+
+
+/* 代码组（无行号）：修正倒角、阴影、边距 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme {
+  border-radius: 8px;
+  box-shadow: none;
+  padding-top: 0px;
+}
+
+/* 代码组（无行号）：隐藏小圆点 */
+.vp-code-group div[class*="language-"].vp-adaptive-theme::before {
+  display: none;
+}
+
 ```
 :::
 
@@ -2012,7 +2027,6 @@ yarn -v
 
 
 输出：
-
 
 ::: code-group
 
