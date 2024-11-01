@@ -262,7 +262,7 @@ F:\vitepress>pnpm run docs:dev
 > vitepress dev docs
 
 
-  vitepress v1.3.4
+  vitepress v1.4.3
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose

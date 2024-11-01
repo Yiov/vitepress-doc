@@ -1,6 +1,9 @@
 ---
 layout: home
 
+title: VitePress
+titleTemplate: 快速上手中文教程
+
 hero:
   name: VitePress
   text: "快速上手中文教程"
