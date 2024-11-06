@@ -536,7 +536,7 @@ export type SocialLinkIcon =
 我这里使用 [阿里旗下的：iconfont](https://www.iconfont.cn/)，搜索 `微信` 找到合适的 `下载 - 复制svg代码`
 
 ::: tip 说明
-其他图标网站：[xicons·需翻墙打开](https://www.xicons.org/#/zh-CN)、字节跳动旗下的 [iconpark](https://iconpark.oceanengine.com/official)
+其他图标网站：[xicons·需翻墙打开](https://www.xicons.org/#/zh-CN)、字节跳动旗下的 [iconpark](https://iconpark.oceanengine.com/official)、[Simple Icons](https://simpleicons.org/)
 :::
 
 我这里使用的是这个
