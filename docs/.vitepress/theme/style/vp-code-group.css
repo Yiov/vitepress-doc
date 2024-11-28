@@ -46,6 +46,7 @@
 /* 代码组：修正行号右侧竖线位置 */
 .vp-code-group .line-numbers-mode .line-numbers-wrapper::after {
   top: 24px;
+  height: calc(100% - 45px);
 }
 
 
