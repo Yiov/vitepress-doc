@@ -1013,7 +1013,7 @@ pnpm run docs:dev
 
 输入：
 
-```
+````md
 ```c [HelloWorld.c]
 # include <stdio.h>
 
@@ -1025,6 +1025,7 @@ int main(){
 }
 
 ```
+````
 
 
 输出：
