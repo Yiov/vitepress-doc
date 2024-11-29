@@ -64,19 +64,19 @@ export default defineConfig({
     // 组件插入h1标题下
     config: (md) => {
       md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
-          let htmlResult = slf.renderToken(tokens, idx, options);
-          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
-          return htmlResult;
+        let htmlResult = slf.renderToken(tokens, idx, options)
+        if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`
+        return htmlResult
       },
 
 
-      md.use(groupIconMdPlugin) //代码组图标
+        md.use(groupIconMdPlugin) //代码组图标
 
     }
 
   },
 
-  vite: { 
+  vite: {
     plugins: [
       groupIconVitePlugin({
         customIcon: {
@@ -156,8 +156,8 @@ export default defineConfig({
           },
         ],
       },
-      { text: `VitePress ${ devDependencies.vitepress.replace('^','') }`, link: 'https://vitepress.dev/zh/', noIcon: true },
-      {text: '更新日志', link: '/changelog.md'},
+      { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
+      { text: '更新日志', link: '/changelog.md' },
     ],
 
 
@@ -196,6 +196,7 @@ export default defineConfig({
           { text: '插件', link: '/plugin' },
           { text: '更新及卸载', link: '/update' },
           { text: '搭建导航', link: '/nav/' },
+          { text: '多语言', link: '/multi-language/' },
         ],
       },
       {
