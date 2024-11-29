@@ -1009,7 +1009,37 @@ pnpm run docs:dev
 ```
 ````
 
+### 代码块带标题
 
+输入：
+
+```
+```c [HelloWorld.c]
+# include <stdio.h>
+
+int main(){
+
+  printf("Hello World !!!");
+
+  return 0;
+}
+
+```
+
+
+输出：
+
+```c [HelloWorld.c]
+# include <stdio.h>
+
+int main(){
+
+  printf("Hello World !!!");
+
+  return 0;
+}
+
+```
 
 ## 团队页面
 
