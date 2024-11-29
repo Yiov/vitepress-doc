@@ -1015,7 +1015,7 @@ pnpm run docs:dev
 
 ````md
 ```c [HelloWorld.c]
-# include <stdio.h>
+#include <stdio.h>
 
 int main(){
 
@@ -1031,7 +1031,7 @@ int main(){
 输出：
 
 ```c [HelloWorld.c]
-# include <stdio.h>
+#include <stdio.h>
 
 int main(){
 

@@ -726,14 +726,6 @@ import { sharedConfig } from './config/share'
 import { zhConfig } from './config/zh'
 import { enConfig } from './config/en'
 
-
-import { loadEnv } from 'vite'
-const mode = process.env.NODE_ENV || 'development'
-const { VITE_BASE_URL } = loadEnv(mode, process.cwd())
-
-console.log('Mode:', process.env.NODE_ENV)
-console.log('VITE_BASE_URL:', VITE_BASE_URL)
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   ...sharedConfig,
