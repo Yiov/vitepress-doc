@@ -645,9 +645,9 @@ export const sharedConfig = defineConfig({
   titleTemplate: "Hi，终于等到你", // 网页标题
   description: "xxx、xxx", // 站点描述
   head: [ // favicon.ico 图标等
-    ['link', { rel: "shortcut icon", href: `/logo.svg` }],
+    ['link', { rel: "shortcut icon", href: `${VITE_BASE_URL}logo.svg` }],
     // 网站 favicon.ico 图标
-    ['link', { rel: "icon", href: `/logo.svg`, type: "image/svg+xml" }],
+    ['link', { rel: "icon", href: `${VITE_BASE_URL}logo.svg`, type: "image/svg+xml" }],
     // 引入 Google Fonts
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
