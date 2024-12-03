@@ -153,6 +153,10 @@ export default defineConfig({
 
 要启用多语言支持，首先需要使用如下的文件目录结构
 
+::: tip 说明
+实际就是新建一个语言目录，再把根目录所有文档，翻译后再放进去
+:::
+
 ```
 .
 ├─ docs
@@ -168,14 +172,11 @@ export default defineConfig({
 └─ package.json
 ```
 
+默认读取目录的index文件，无需手动填写 `index`
 
 ::: tip 说明
-实际就是新建一个语言目录，再把根目录所有文档，翻译后再放进去
-
-本次仅演示下首页，其他的请 [参考官方的配置](https://github.com/vuejs/vitepress/tree/main/docs/.vitepress/config) ！
+更详情的使用可根据 [官方配置](https://github.com/vuejs/vitepress/tree/main/docs/.vitepress/config)，参考单独的教程 [☛多语言](./multi-language.md)
 :::
-
-默认读取目录的index文件，无需手动填写 `index`
 
 ```ts{3-19}
 export default defineConfig({
