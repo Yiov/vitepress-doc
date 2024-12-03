@@ -1042,6 +1042,10 @@ int main(){
 
 ```
 
+::: danger 如何做到的呢
+请参考 [样式美化-代码块带标题](./style.md#代码块带标题) 教程
+:::
+
 ## 团队页面
 
 使用从 `vitepress/theme` 公开的 `<VPTeamMembers>` 组件在任何页面上显示团队成员列表

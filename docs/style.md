@@ -1860,6 +1860,10 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
   border-right: 1px solid var(--vp-code-block-divider-color);
   height: calc(100% - 60px);
 }
+
+.vp-doc div[class*='language-'].line-numbers-mode {
+  margin-bottom: 20px;
+}
 ```
 :::
 
@@ -1979,6 +1983,7 @@ pnpm -v
 /* 代码组：修正行号右侧竖线位置 */
 .vp-code-group .line-numbers-mode .line-numbers-wrapper::after {
   top: 24px;
+  height: calc(100% - 45px);
 }
 
 
@@ -2127,6 +2132,114 @@ export default defineConfig({
 
 
 
+### 代码块带标题
+
+在 `.vitepress/theme/style` 目录新建一个 `vp-code-title.css` 文件
+
+::: warning 注意
+使用前，必须先[安装 代码组图标 插件](./plugin.md#代码组图标) 才可以生效
+:::
+
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ vp-code-title.css
+│  └─ index.md
+└─ node_modules
+```
+
+复制下面代码，粘贴到 `vp-code-title.css` 保存
+
+::: tip 说明
+本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供，本人在此基础上进行一些修改
+:::
+
+
+```css [vp-code-title.css]
+/* .vitepress/theme/style/vp-code-title.css */
+
+/* 整体容器样式（带阴影和圆角） */
+.vp-code-block-title {
+  background-color: var(--vp-code-block-bg);
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4); /* 添加阴影 */
+  overflow: hidden;
+  position: relative; /* 确保小圆点定位 */
+}
+
+/* Mac 风格的小圆点，放在容器顶部 */
+.vp-code-block-title::before {
+  content: '';
+  position: absolute;
+  top: 12px; /* 圆点距离容器顶部的距离 */
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #fc625d; /* 红色圆点 */
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b; /* 黄色和绿色圆点 */
+  z-index: 1;
+}
+
+/* 标题栏样式 */
+.vp-code-block-title .vp-code-block-title-bar {
+  color: var(--vp-c-text-1);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* 代码块标题：修正倒角、阴影、边距 */
+.vp-code-block-title div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+  border-radius: 8px;
+  box-shadow: none;
+  padding-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* 代码块标题：隐藏小圆点 */
+.vp-code-block-title div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+  display: none;
+}
+
+/* 代码块标题：修正行号位置 */
+.vp-code-block-title .line-numbers-mode .line-numbers-wrapper {
+  padding-top: 20px;
+}
+
+/* 代码块标题：修正行号右侧竖线位置 */
+.vp-code-block-title .line-numbers-mode .line-numbers-wrapper::after {
+  top: 20px;
+  height: calc(100% - 40px);
+}
+
+/* 代码块标题（无行号）：修正倒角、阴影、边距 */
+.vp-code-block-title div[class*="language-"].vp-adaptive-theme {
+  border-radius: 8px;
+  box-shadow: none;
+  padding-top: 0px;
+}
+
+/* 代码块标题（无行号）：隐藏小圆点 */
+.vp-code-block-title div[class*="language-"].vp-adaptive-theme::before {
+  display: none;
+}
+```
+
+
+
+然后在 `index.css` 中引入生效
+
+```css
+/* .vitepress/theme/style/index.css */
+@import './vp-code-title.css';
+```
 
 
 
