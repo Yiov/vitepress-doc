@@ -152,6 +152,7 @@ export default defineConfig({
               { text: '插件', link: '/plugin' },
               { text: '更新及卸载', link: '/update' },
               { text: '搭建导航', link: '/nav/' },
+              { text: '多语言', link: '/multi-language' },
             ],
           },
         ],

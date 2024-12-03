@@ -19,6 +19,12 @@ next: false
 > 不过版本更新，还是会跟着走的
 
 
+## 2024-12-3
+
+- 修复 [搭建导航](./nav/index.md) css不生效，并弃用sass
+
+- 补充说明 [代码块带标题](./style.md#代码块带标题) 教程
+
 ## 2024-11-29
 
 - 新增 [代码块带标题（类似代码组标题）](./markdown.md#代码块带标题)，本次更新由 [Aurorxa](https://github.com/Aurorxa) 提供
