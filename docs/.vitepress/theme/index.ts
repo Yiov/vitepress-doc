@@ -73,7 +73,7 @@ export default {
     //   'layout-top': () => h(notice), // 公告layout-top插槽
     // })
 
-    return h(MyLayout)
+    return h(MyLayout,props)
   },
   
   // medium-zoom
