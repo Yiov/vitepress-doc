@@ -35,12 +35,8 @@
     margin-top: 24px;
   }
 
-  .medium-zoom-overlay {
-    z-index: 0;
-  }
-  
-  .medium-zoom-image {
-    z-index: 0 !important;
+  .medium-zoom-overlay,.medium-zoom-image {
+    z-index: none;
   }
 
 }

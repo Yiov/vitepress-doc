@@ -7,9 +7,7 @@ VitePress也能做导航，Amazing！[@茂茂大神](https://github.com/maomao19
 
 * 项目：https://github.com/maomao1996/vitepress-nav-template
 
-* DEMO：https://fe-nav.netlify.app/nav/
-
-* 我的演示页：[本次教程演示](./mao.md)
+* [茂茂的DEMO](https://fe-nav.netlify.app/nav/) 丨 [我的演示页](./mao.md)
 
 ::: details 其他衍生导航
 * ahua：[仓库](https://github.com/ahua666/StarNavigation) 丨 [DEMO](https://star-navigation.vercel.app/)
@@ -94,7 +92,7 @@ bun add -D vue
 
 
 
-## 新建组件
+## 新建接口
 
 ::: danger 特别说明
 以下文件夹及文件，可以放在任意位置/取名
@@ -146,6 +144,9 @@ export interface NavData {
 ```
 :::
 
+
+
+## 新建组件
 
 在 `.vitepress/theme/components` 分别新建 `MNavLink.vue` 和 `MNavLinks.vue` 文件
 
@@ -210,11 +211,7 @@ const formatBadge = computed(() => {
         <template v-if="!noIcon">
           <div v-if="svg" class="icon" v-html="svg"></div>
           <div v-else-if="icon && typeof icon === 'string'" class="icon">
-            <img
-              :src="withBase(icon)"
-              :alt="title"
-              onerror="this.parentElement.style.display='none'"
-            />
+            <img :src="withBase(icon)" :alt="title" onerror="this.parentElement.style.display='none'" />
           </div>
         </template>
         <h5 v-if="title" :id="formatTitle" class="title" :class="{ 'no-icon': noIcon }">
@@ -227,7 +224,7 @@ const formatBadge = computed(() => {
   </a>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .m-nav-link {
   --m-nav-icon-box-size: 50px;
   --m-nav-icon-size: 45px;
@@ -239,99 +236,100 @@ const formatBadge = computed(() => {
   height: 100%;
   background-color: var(--vp-c-bg-soft);
   transition: all 0.25s;
-  &:hover {
-    box-shadow: var(--vp-shadow-2);
-    //border-color: var(--vp-c-brand);
-    text-decoration: initial;
-    background-color: var(--vp-c-bg-soft-up);
-    transform: translateY(-5px);
-  }
-
-  .box {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding: var(--m-nav-box-gap);
-    height: 100%;
-    color: var(--vp-c-text-1);
-    &.has-badge {
-      padding-top: calc(var(--m-nav-box-gap) + 2px);
-    }
-    &-header {
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: calc(var(--m-nav-box-gap) - 2px);
-    border-radius: 6px;
-    width: var(--m-nav-icon-box-size);
-    height: var(--m-nav-icon-box-size);
-    font-size: var(--m-nav-icon-size);
-    background-color: var(--vp-c-bg-soft-down);
-    transition: background-color 0.25s;
-    :deep(svg) {
-      width: var(--m-nav-icon-size);
-      fill: currentColor;
-    }
-    :deep(img) {
-      border-radius: 4px;
-      width: var(--m-nav-icon-size);
-    }
-  }
-
-  .title {
-    overflow: hidden;
-    flex-grow: 1;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 16px;
-    font-weight: 600;
-    &:not(.no-icon) {
-      line-height: var(--m-nav-icon-box-size);
-    }
-  }
-
-  .badge {
-    position: absolute;
-    top: 2px;
-    right: 0;
-    transform: scale(0.8);
-  }
-
-  .desc {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    flex-grow: 1;
-    margin: calc(var(--m-nav-box-gap) - 2px) 0 0;
-    line-height: 1.5;
-    font-size: 12px;
-    color: var(--vp-c-text-2);
-  }
 }
+
+.m-nav-link:hover {
+  box-shadow: var(--vp-shadow-2);
+  border-color: var(--vp-c-brand);
+  text-decoration: initial;
+  background-color: var(--vp-c-bg-soft-up);
+  transform: translateY(-5px);
+}
+
+.m-nav-link .box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: var(--m-nav-box-gap);
+  height: 100%;
+  color: var(--vp-c-text-1);
+}
+
+.m-nav-link .box .has-badge {
+  padding-top: calc(var(--m-nav-box-gap) + 2px);
+}
+
+.m-nav-link .box-header {
+  display: flex;
+  align-items: center;
+}
+
+.m-nav-link .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: calc(var(--m-nav-box-gap) - 2px);
+  border-radius: 6px;
+  width: var(--m-nav-icon-box-size);
+  height: var(--m-nav-icon-box-size);
+  font-size: var(--m-nav-icon-size);
+  background-color: var(--vp-c-bg-soft-down);
+  transition: background-color 0.25s;
+}
+
+.m-nav-link .icon svg {
+  width: var(--m-nav-icon-size);
+  fill: currentColor;
+}
+
+.m-nav-link .icon img {
+  border-radius: 4px;
+  width: var(--m-nav-icon-size);
+}
+
+
+.m-nav-link .title {
+  overflow: hidden;
+  flex-grow: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.m-nav-link .badge {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  transform: scale(0.8);
+}
+
+.m-nav-link .desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  margin: calc(var(--m-nav-box-gap) - 2px) 0 0;
+  line-height: 1.5;
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+}
+
 
 @media (max-width: 960px) {
   .m-nav-link {
-    --m-nav-icon-box-size: 36px;
-    --m-nav-icon-size: 20px;
-    --m-nav-box-gap: 8px;
+    --m-nav-icon-box-size: 60px;
+    --m-nav-icon-size: 60px;
+    --m-nav-box-gap: 15px
+  }
 
-    .title {
-      font-size: 14px;
-    }
+  .m-nav-link .title {
+    font-size: 16px
   }
 }
 </style>
 ```
 
-``` [MNavLinks.vue]
+```vue [MNavLinks.vue]
 <script setup lang="ts">
 import { computed } from 'vue'
 import { slugify } from '@mdit-vue/shared'
@@ -360,9 +358,9 @@ const formatTitle = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .m-nav-links {
-  --m-nav-gap: 10px;
+  --m-nav-gap: 18px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   grid-row-gap: var(--m-nav-gap);
@@ -372,11 +370,39 @@ const formatTitle = computed(() => {
   margin-top: var(--m-nav-gap);
 }
 
-@each $media, $size in (500px: 140px, 640px: 155px, 768px: 175px, 960px: 200px, 1440px: 240px) {
-  @media (min-width: $media) {
-    .m-nav-links {
-      grid-template-columns: repeat(auto-fill, minmax($size, 1fr));
-    }
+@media (min-width: 500px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media (min-width: 640px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (min-width: 1440px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .m-nav-links {
+    --m-nav-gap: 20px;
   }
 }
 
@@ -468,7 +494,7 @@ layoutClass: m-nav-layout
 
 ## 新建样式
 
-然后在 `.vitepress/theme/style` 目录下新建 `nav.scss`
+然后在 `.vitepress/theme/style` 目录下新建 `nav.css`
 
 ```md{6}
 .
@@ -476,7 +502,7 @@ layoutClass: m-nav-layout
 │  ├─ .vitepress
 │  │  └─ theme
 │  │     └─ style
-│  │        └─ nav.scss
+│  │        └─ nav.css
 │  ├─ nav             
 │  │  └─ index.md     
 │  └─ index.md
@@ -487,7 +513,7 @@ layoutClass: m-nav-layout
 
 ::: code-group
 
-```scss [nav.scss]
+```scss [nav.css]
 .m-nav-layout {
     /* 覆盖全局的 vp-layout-max-width（仅当前页面使用） */
     --vp-layout-max-width: 1660px;
@@ -529,32 +555,6 @@ layoutClass: m-nav-layout
 :::
 
 
-安装一下 `sass`
-
-::: tip 说明
-按 `CTRL+C` 退出开发预览模式后安装，安装完成再重新启动
-:::
-
-
-::: code-group
-```sh [pnpm]
-pnpm add -D sass
-```
-
-```sh [yarn]
-yarn add -D sass
-```
-
-```sh [npm]
-npm i -D sass
-```
-
-```sh [bun]
-bun add -D sass
-```
-:::
-
-
 
 然后将样式引入 `index.md` ，并关闭侧边栏
 
@@ -565,7 +565,7 @@ layoutClass: m-nav-layout
 sidebar: false
 ---
 
-<style src="/.vitepress/theme/style/nav.scss"></style>
+<style src="/.vitepress/theme/style/nav.css"></style>
 
 # 我的导航
 ```
@@ -1240,7 +1240,7 @@ prev: false
 next: false
 ---
 
-<style src="/.vitepress/theme/style/nav.scss"></style>
+<style src="/.vitepress/theme/style/nav.css"></style>
 
 <script setup>
 import { NAV_DATA } from '/.vitepress/theme/untils/data'
@@ -1280,14 +1280,17 @@ outline: [2, 3, 4]
 只改边框色就行，背景色不好配
 :::
 
-```vue{4}
-<style lang="scss" scoped>
-  &:hover {
-    box-shadow: var(--vp-shadow-2); 
-    border-color: var(--vp-c-brand); //悬停边框色
-    text-decoration: initial;
-    background-color: var(--vp-c-bg); //悬停背景色
-  }
+```vue{4-5,7-8}
+<style scoped>
+.m-nav-link:hover {
+  box-shadow: var(--vp-shadow-2);
+  /* 悬停背景色 */
+  border-color: var(--vp-c-brand);
+  text-decoration: initial;
+  /* 悬停背景色 */
+  background-color: var(--vp-c-bg-soft-up); 
+  transform: translateY(-5px);
+}
 </style>
 ```
 
@@ -1302,7 +1305,7 @@ outline: [2, 3, 4]
 :::
 
 ```scss
-/* .vitepress/theme/style/nav.scss */
+/* .vitepress/theme/style/nav.css */
 .vp-doc a {
     text-decoration: none;
 }
@@ -1314,7 +1317,7 @@ outline: [2, 3, 4]
 图标大小在 `MNavLink.vue` 中修改 `.m-nav-link` 的值
 
 ```vue{3-4}
-<style lang="scss" scoped>
+<style scoped>
 .m-nav-link {
   --m-nav-icon-box-size: 50px;
   --m-nav-icon-size: 45px;
@@ -1323,17 +1326,15 @@ outline: [2, 3, 4]
 </style>
 ```
 
-因为安装 [medium-zoom](http://127.0.0.1:5174/plugin.html#%E5%9B%BE%E7%89%87%E7%BC%A9%E6%94%BE) 的时候引入了一个样式，导致手机端导航被这个图片样式给遮盖了
+因为安装 [medium-zoom](../plugin.md#图片缩放) 的时候引入了一个样式，导致手机端导航被这个图片样式给遮盖了
 
-那么我们就需要在 `nav.scss` 中加入此样式，并改成 `0` 就可以覆盖掉
+那么我们直接在样式中禁用即可
 
-```scss
-// .vitepress/theme/style/nav.scss
-.medium-zoom-overlay {
-  z-index: 0;
-}
-  
-.medium-zoom-image {
-  z-index: 0 !important;
+```css{3-5}
+/* .vitepress/theme/style/nav.css */
+.m-nav-layout {
+  .medium-zoom-overlay,.medium-zoom-image {
+    z-index: none;
+  }
 }
 ```

@@ -26,9 +26,9 @@ const formatTitle = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .m-nav-links {
-  --m-nav-gap: 10px;
+  --m-nav-gap: 18px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   grid-row-gap: var(--m-nav-gap);
@@ -38,11 +38,39 @@ const formatTitle = computed(() => {
   margin-top: var(--m-nav-gap);
 }
 
-@each $media, $size in (500px: 140px, 640px: 155px, 768px: 175px, 960px: 200px, 1440px: 240px) {
-  @media (min-width: $media) {
-    .m-nav-links {
-      grid-template-columns: repeat(auto-fill, minmax($size, 1fr));
-    }
+@media (min-width: 500px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media (min-width: 640px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (min-width: 1440px) {
+  .m-nav-links {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .m-nav-links {
+    --m-nav-gap: 20px;
   }
 }
 

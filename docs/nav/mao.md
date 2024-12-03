@@ -7,7 +7,7 @@ next: false
 outline: [2, 3, 4]
 ---
 
-<style src="/.vitepress/theme/style/nav.scss"></style>
+<style src="/.vitepress/theme/style/nav.css"></style>
 
 <script setup>
 import { NAV_DATA } from '/.vitepress/theme/untils/data'
