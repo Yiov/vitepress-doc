@@ -2,8 +2,10 @@ import DefaultTheme from 'vitepress/theme'
 
 // giscusTalk
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
-
+// 进度条
+import { NProgress } from 'nprogress-v2/dist/index.js'
 // 样式
+import 'nprogress-v2/dist/index.css'
 import 'virtual:group-icons.css' //代码组样式
 import './style/index.css' //自定义样式
 
@@ -49,8 +51,13 @@ export default {
 
     // 不蒜子
     if (inBrowser) {
+      NProgress.configure({ showSpinner: false })
+      router.onBeforeRouteChange = () => {
+        NProgress.start() // 开始进度条
+      }
       router.onAfterRouteChanged = () => {
          busuanzi.fetch()
+         NProgress.done() // 停止进度条
        }
     }
 
