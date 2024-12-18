@@ -19,6 +19,10 @@ next: false
 > 不过版本更新，还是会跟着走的
 
 
+## 2024-12-18
+
+- 新增 [切换路由进度条](./plugin.md#切换路由进度条)，本次更新由 [Aurorxa](https://github.com/Aurorxa) 提供
+
 ## 2024-12-3
 
 - 修复 [搭建导航](./nav/index.md) css不生效，并弃用sass

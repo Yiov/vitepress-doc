@@ -817,6 +817,57 @@ export default defineConfig({
 })
 ```
 
+## 切换路由进度条
+
+
+当你切换页面，顶部会显示进度条，使用的是 [@Skyleen77/nprogress-v2](https://github.com/Skyleen77/nprogress-v2)
+
+::: tip 说明
+本方式由 [Aurorxa](https://github.com/Aurorxa) 提供推送 [#36](https://github.com/Yiov/vitepress-doc/pull/36)
+:::
+
+先安装 `nprogress-v2`
+
+::: code-group
+```sh [pnpm]
+pnpm add -D nprogress-v2
+```
+
+```sh [yarn]
+yarn add -D nprogress-v2
+```
+
+```sh [npm]
+npm install nprogress-v2
+```
+
+```sh [bun]
+bun add -D nprogress-v2
+```
+:::
+
+然后再 `index.ts` 中配置，即可生效
+
+```ts{3-4,7-10,13}
+// .vitepress/theme/index.ts
+
+import { NProgress } from 'nprogress-v2/dist/index.js' // 进度条组件
+import 'nprogress-v2/dist/index.css' // 进度条样式
+
+if (inBrowser) {
+      NProgress.configure({ showSpinner: false })
+      router.onBeforeRouteChange = () => {
+        NProgress.start() // 开始进度条
+      }
+      router.onAfterRouteChanged = () => {
+         busuanzi.fetch()
+         NProgress.done() // 停止进度条
+      }
+}
+```
+
+
+
 ## 评论
 
 从个人角度而言，[Giscus](https://giscus.app/zh-CN) 最佳，就用它演示，其他的这里就不赘述了
