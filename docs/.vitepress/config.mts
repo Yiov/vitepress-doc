@@ -110,7 +110,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '🍉指南',
+        text: '建站指南',
         items: [
           {
             // 分组标题1
@@ -147,15 +147,14 @@ export default defineConfig({
           },
         ],
       },
-      { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
       {
-        text: '推荐访问',
+        text: '🍉避坑指南',
         items: [
           {
             // 分组标题1
-            text: '搬砖必备',
+            text: '飞牛NAS',
             items: [
-              { text: '自用导航', link: 'http://nav.qxiansen.online:8088' },
+              { text: '自用导航', link: '/fnnas/' },
               { text: '搬砖必备', link: 'http://nav.qxiansen.online:8088' },
             ],
           },
@@ -170,6 +169,7 @@ export default defineConfig({
               ],
       },
       { text: '搬砖必备', link: 'http://nav.qxiansen.online:8088' },
+      { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
     ],
 
 
