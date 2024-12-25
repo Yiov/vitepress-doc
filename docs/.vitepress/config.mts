@@ -148,7 +148,18 @@ export default defineConfig({
         ],
       },
       { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
-      { text: '搬砖必备', link: 'https://docs.qxiansen.online' },
+      {
+        text: '外部链接',
+        items: [
+          {
+            // 分组标题1
+            text: '搬砖必备',
+            items: [
+              { text: '自用导航', link: 'https://nav.qxiansen.online:8088' },
+            ],
+          },
+        }
+      { text: '搬砖必备', link: 'https://nav.qxiansen.online:8088' },
     ],
 
 
