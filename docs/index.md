@@ -1,13 +1,13 @@
 ---
 layout: home
 
-title: VitePress
-titleTemplate: 快速上手中文教程
+title: 乔先森的知识库
+titleTemplate: 边折腾·边学习·边记录
 
 hero:
-  name: VitePress
-  text: "快速上手中文教程"
-  tagline: 如果你也想搭建它，那跟我一起做吧
+  name: Document
+  text: "乔先森的知识库"
+  tagline: 边折腾·边学习·边记录
   image:
     src: /logo.png
     alt: VitePress
@@ -15,7 +15,7 @@ hero:
     - theme: brand
       text: 开始
       link: /getting-started
-    - theme: alt
+    - theme: sponsor
       text: GitHub
       link: https://github.com/Yiov/vitepress-doc
     - theme: sponsor
