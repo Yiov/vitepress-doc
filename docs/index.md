@@ -7,7 +7,7 @@ titleTemplate: 边折腾·边学习·边记录
 hero:
   name: Document
   text: "乔先森的知识库"
-  tagline: 边折腾·边学习·边记录
+  tagline: 边折腾 · 边学习 · 边记录
   image:
     src: /logo.png
     alt: VitePress
@@ -17,7 +17,7 @@ hero:
       link: /getting-started
     - theme: sponsor
       text: GitHub
-      link: https://github.com/Yiov/vitepress-doc
+      link: https://github.com/qiaomunanzi/docs
     - theme: sponsor
       text: 搭建导航
       link: /nav/

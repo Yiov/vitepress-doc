@@ -8,8 +8,8 @@ import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepre
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: "VitePress",
-  description: "我的vitpress文档教程",
+  title: "乔先森的知识库",
+  description: "我的vitpress文档",
 
   // #region fav
   head: [
@@ -233,7 +233,7 @@ export default defineConfig({
 
     //社交链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Yiov/vitepress-doc' },
+      { icon: 'github', link: 'https://github.com/qiaomunanzi' },
       { icon: 'twitter', link: 'https://twitter.com/' },
       { icon: 'discord', link: 'https://chat.vitejs.dev/' },
       {
@@ -255,7 +255,7 @@ export default defineConfig({
     //页脚
     footer: {
       message: 'Released under the MIT License.',
-      copyright: `Copyright © 2023-${new Date().getFullYear()} 备案号：<a href="https://beian.miit.gov.cn/" target="_blank">京****号</a>`,
+      copyright: `Copyright © 2023-${new Date().getFullYear()} 备案号：<a href="https://beian.miit.gov.cn/" target="_blank">冀****号</a>`,
     },
 
 
