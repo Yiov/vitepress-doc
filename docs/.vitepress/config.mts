@@ -159,7 +159,7 @@ export default defineConfig({
             ],
           },
               ],
-        }
+      },
       { text: '搬砖必备', link: 'https://nav.qxiansen.online:8088' },
     ],
 
