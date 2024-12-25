@@ -148,7 +148,7 @@ export default defineConfig({
         ],
       },
       { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
-      { text: '更新日志', link: '/changelog.md' },
+      { text: '搬砖必备', link: 'https://docs.qxiansen.online' },
     ],
 
 
