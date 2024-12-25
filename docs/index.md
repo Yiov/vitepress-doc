@@ -19,8 +19,8 @@ hero:
       text: GitHub
       link: https://github.com/qiaomunanzi/docs
     - theme: sponsor
-      text: 搭建导航
-      link: /nav/
+      text: 搬砖必备
+      link: http://nav.qxiansen.online:8088
 
 features:
   - icon: 📝
