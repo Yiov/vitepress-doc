@@ -155,8 +155,7 @@ export default defineConfig({
             text: '飞牛NAS',
             items: [
               { text: '配置过程', link: '/fnnas/' },
-              { text: '使用过程', link: '/fnnas/mao' },
-              { text: '使用过程避坑', link: '/fnnas/shiyong' },
+              { text: '使用过程', link: '/fnnas/shiyong' },
             ],
           },
           {
