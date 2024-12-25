@@ -155,21 +155,21 @@ export default defineConfig({
             // 分组标题1
             text: '搬砖必备',
             items: [
-              { text: '自用导航', link: 'https://nav.qxiansen.online:8088' },
-              { text: '搬砖必备', link: 'https://nav.qxiansen.online:8088' },
+              { text: '自用导航', link: 'http://nav.qxiansen.online:8088' },
+              { text: '搬砖必备', link: 'http://nav.qxiansen.online:8088' },
             ],
           },
           {
             // 分组标题2
             text: '搬砖必备',
             items: [
-              { text: '自用导航', link: 'https://nav.qxiansen.online:8088' },
-              { text: '搬砖必备', link: 'https://nav.qxiansen.online:8088' },
+              { text: '自用导航', link: 'http://nav.qxiansen.online:8088' },
+              { text: '搬砖必备', link: 'http://nav.qxiansen.online:8088' },
             ],
           },
               ],
       },
-      { text: '搬砖必备', link: 'https://nav.qxiansen.online:8088' },
+      { text: '搬砖必备', link: 'http://nav.qxiansen.online:8088' },
     ],
 
 
