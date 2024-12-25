@@ -6,7 +6,7 @@ function closetz() {
     visible.value = false
 }
 
-setTimeout(function () { visible.value = false }, 5000);
+setTimeout(function () { visible.value = false }, 10000);
 </script>
 
 <template>
@@ -17,14 +17,14 @@ setTimeout(function () { visible.value = false }, 5000);
         <h3 class="notice-title">网站公告</h3>
 
         <div class="notice-describe">
-            <p>本次更新：新公告样式</p>
+            <p>温馨提示：本窗口将在10秒后自动关闭</p>
             <p class="notice-domain">
                 <strong>
-                    详细教程：<a href="https://vitepress.yiov.top/layout.html#%E5%85%AC%E5%91%8A"
-                        target="_blank">vitepress.yiov.top</a>
+                    最新网址：<a href="https://docs.qxiansen.online"
+                        target="_blank">docs.qxiansen.online</a>
                 </strong>
             </p>
-            <p>QQ 频道：******(无效二维码)</p>
+            <p>QQ 频道：乔先森的知识库</p>
             <img class="notice-img" src="/qrcode.png">
         </div>
 
