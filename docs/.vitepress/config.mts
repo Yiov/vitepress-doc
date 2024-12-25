@@ -5,6 +5,21 @@ import { defineConfig } from 'vitepress'
 import { devDependencies } from '../../package.json'
 
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
+import { pagefindPlugin } from 'vitepress-plugin-pagefind'
+
+/**
+ * 使用浏览器内置的分词API Intl.Segmenter
+ */
+function chineseSearchOptimize(input: string) {
+  const segmenter = new Intl.Segmenter('zh-CN', { granularity: 'word' })
+  const result: string[] = []
+  for (const it of segmenter.segment(input)) {
+    if (it.isWordLike) {
+      result.push(it.segment)
+    }
+  }
+  return result.join(' ')
+}
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -78,6 +93,32 @@ export default defineConfig({
 
   vite: {
     plugins: [
+      pagefindPlugin({
+        locales: {
+          root: {
+            customSearchQuery: chineseSearchOptimize,
+            btnPlaceholder: '搜索',
+            placeholder: '搜索文档',
+            emptyText: '空空如也',
+            heading: '共: {{searchResult}} 条结果',
+            filter(searchItem, idx, originArray) {
+              console.log(searchItem)
+              return !searchItem.route.includes('404')
+            }
+          },
+          en: {
+            btnPlaceholder: 'Search',
+            placeholder: 'Search Docs...',
+            emptyText: 'No results',
+            heading: 'Total: {{searchResult}} search results.',
+            filter(searchItem, idx, originArray) {
+              console.log(searchItem)
+              return !searchItem.route.includes('404')
+            }
+          }
+        },
+        excludeSelector: ['img', 'a.header-anchor'],
+      }),
       groupIconVitePlugin({
         customIcon: {
           ts: localIconLoader(import.meta.url, '../public/svg/typescript.svg'), //本地ts图标导入
@@ -215,31 +256,29 @@ export default defineConfig({
 
 
     //本地搜索
-    search: {
-      provider: 'local',
-      options: {
-        locales: {
-          zh: {
-            translations: {
-              button: {
-                buttonText: '搜索文档',
-                buttonAriaLabel: '搜索文档'
-              },
-              modal: {
-                noResultsText: '无法找到相关结果',
-                resetButtonTitle: '清除查询条件',
-                footer: {
-                  selectText: '选择',
-                  navigateText: '切换'
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-
-
+    // search: {
+    //   provider: 'local',
+    //   options: {
+    //     locales: {
+    //       zh: {
+    //         translations: {
+    //           button: {
+    //             buttonText: '搜索文档',
+    //             buttonAriaLabel: '搜索文档'
+    //           },
+    //           modal: {
+    //             noResultsText: '无法找到相关结果',
+    //             resetButtonTitle: '清除查询条件',
+    //             footer: {
+    //               selectText: '选择',
+    //               navigateText: '切换'
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
 
     //社交链接
     socialLinks: [
