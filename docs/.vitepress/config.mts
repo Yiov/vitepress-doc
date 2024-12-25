@@ -156,6 +156,7 @@ export default defineConfig({
             items: [
               { text: '配置过程', link: '/fnnas/' },
               { text: '使用过程', link: '/fnnas/mao' },
+              { text: '使用过程避坑', link: '/fnnas/shiyong' },
             ],
           },
           {
