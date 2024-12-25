@@ -26,13 +26,13 @@ features:
   - icon: 📝
     title: 专注于内容创作
     details: 只需使用 Markdown 即可轻松创建精美的文档网站
-    link: https://vitepress.dev/zh/
-    linkText: VitePress
   - icon: 
       dark: /vitepress.png
       light: /vitepress-light.png
     title: VitePress
     details: 本站由 VitePress 定制搭建
+    link: https://vitepress.dev/zh/
+    linkText: VitePress
   - icon: 🚀
     title: 快速发布网站
     details: 使用静态 HTML 进行快速初始加载，使用客户端路由进行快速加载后导航
