@@ -19,11 +19,11 @@ setTimeout(function () { visible.value = false }, 10000);
         <div class="notice-describe">
             <p>温馨提示：本窗口将在10秒后自动关闭</p>
             <p class="notice-domain">
-                <centen>
+                <div style="text-align: center;">
                     <strong>
                     最新网址：<a href="https://docs.qxiansen.online" target="_blank">docs.qxiansen.online</a>
                     </strong>
-                </centen>
+                </div>
             </p>
             <p>QQ 频道：乔先森的知识库</p>
             <img class="notice-img" src="/qrcode.png">
