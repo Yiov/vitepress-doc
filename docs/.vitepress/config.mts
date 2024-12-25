@@ -130,7 +130,6 @@ export default defineConfig({
           },
               ],
       },
-      { text: '搬砖必备', link: 'http://nav.qxiansen.online:8088' },
       { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
     ],
 
