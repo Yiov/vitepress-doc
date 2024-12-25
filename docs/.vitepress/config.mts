@@ -154,7 +154,7 @@ export default defineConfig({
             // 分组标题1
             text: '飞牛NAS',
             items: [
-              { text: '自用导航', link: 'fnnas/index' },
+              { text: '自用导航', link: '/fnnas/' },
               { text: '搬砖必备', link: 'http://nav.qxiansen.online:8088' },
             ],
           },
