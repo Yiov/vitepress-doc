@@ -158,7 +158,7 @@ export default defineConfig({
               { text: '自用导航', link: 'https://nav.qxiansen.online:8088' },
             ],
           },
-              ]
+              ],
         }
       { text: '搬砖必备', link: 'https://nav.qxiansen.online:8088' },
     ],
