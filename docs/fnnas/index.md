@@ -1,11 +1,3 @@
----
-layout: doc
-layoutClass: m-nav-layout
-sidebar: false
-prev: false
-next: false
-outline: [2, 3, 4]
----
 # 飞牛NAS
 
 
