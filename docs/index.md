@@ -29,8 +29,8 @@ features:
     link: https://vitepress.dev/zh/
     linkText: VitePress
   - icon: 
--   dark: /vitepress.png
-    light: /vitepress-light.png
+      dark: /vitepress.png
+      light: /vitepress-light.png
     title: VitePress
     details: 本站由 VitePress 定制搭建
   - icon: 🚀
