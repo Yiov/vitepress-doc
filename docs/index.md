@@ -9,8 +9,8 @@ hero:
   text: "乔先森的知识库"
   tagline: 边折腾 · 边学习 · 边记录
   image:
-    src: /logo.png
-    alt: VitePress
+    src: /logo-docs.png
+    alt: Document
   actions:
     - theme: brand
       text: 开始
