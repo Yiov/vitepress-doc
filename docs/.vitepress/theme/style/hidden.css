@@ -4,13 +4,13 @@
     /* 文档页Logo出文字下横条 */
     @media (min-width: 960px) {
         .VPNavBarTitle.has-sidebar .title {
-            border-bottom-color: transparent;
+            border-bottom-color:darkgray;
         }
     }
 
     /* 页脚横条隐藏 */
     .VPFooter {
-        border-top: none;
+        border-top: 1px;
     }
 
     /* 手机端菜单栏顶部横条隐藏 */
