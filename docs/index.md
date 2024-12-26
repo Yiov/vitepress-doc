@@ -25,7 +25,7 @@ hero:
 features:
   - icon: 📝
     title: 专注于内容创作
-    details: 只需使用 Markdown 即可轻松创建精美的文档网站
+    details: 使用 Markdown 记录学习过程
   - icon: 
       dark: /vitepress.png
       light: /vitepress-light.png
