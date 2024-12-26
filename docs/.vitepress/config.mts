@@ -22,7 +22,7 @@ export default defineConfig({
   //cleanUrls:true, //开启纯净链接无html
 
   //启用深色模式
-  appearance: 'dark',
+  //appearance: 'dark',
 
   //多语言
   locales: {
