@@ -116,7 +116,7 @@ export default defineConfig({
             // 分组标题1
             text: '飞牛NAS',
             items: [
-              { text: '配置过程', link: '/fnnas/' },
+              { text: '配置过程', link: '/🖥️fnnas/' },
               { text: '使用过程', link: '/fnnas/shiyong' },
             ],
           },
