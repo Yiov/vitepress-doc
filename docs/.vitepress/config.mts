@@ -137,10 +137,10 @@ export default defineConfig({
     sidebar: [
       {
         //分组标题1
-        text: '介绍',
+        text: '🖥️fnNAS',
         collapsed: false,
         items: [
-          { text: '前言', link: '/preface' },
+          { text: '介绍', link: '/fn-preface' },
         ],
       },
     ],
