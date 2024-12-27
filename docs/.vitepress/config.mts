@@ -116,8 +116,7 @@ export default defineConfig({
             // 分组标题1
             text: '飞牛NAS',
             items: [
-              { text: '配置过程', link: '/🖥️fnnas/' },
-              { text: '使用过程', link: '/fnnas/shiyong' },
+              { text: '避坑', link: '/fnnas/' },
             ],
           },
           {
@@ -125,7 +124,6 @@ export default defineConfig({
             text: '搬砖必备',
             items: [
               { text: '自用导航', link: 'http://nav.qxiansen.online:8088' },
-              { text: '搬砖必备', link: 'http://nav.qxiansen.online:8088' },
             ],
           },
               ],
@@ -140,7 +138,7 @@ export default defineConfig({
         text: '🖥️fnNAS',
         collapsed: false,
         items: [
-          { text: '介绍', link: '/fn-preface' },
+          { text: '避坑', link: '/fn-sybk' },
         ],
       },
     ],
