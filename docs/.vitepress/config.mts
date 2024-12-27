@@ -138,7 +138,7 @@ export default defineConfig({
         text: '🖥️fnNAS',
         collapsed: false,
         items: [
-          { text: '避坑', link: '/fn-sybk' },
+          { text: '避坑', link: '/fnnas/fn-sybk' },
         ],
       },
     ],
