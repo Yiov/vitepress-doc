@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 开始
-      link: /fnnas
+      link: /🖥️fnnas/
     - theme: sponsor
       text: GitHub
       link: https://github.com/qiaomunanzi/docs
