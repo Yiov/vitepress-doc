@@ -24,7 +24,7 @@ import update from "./components/update.vue" // 更新时间
 import xgplayer from "./components/xgplayer.vue" //西瓜播放器
 import ArticleMetadata from "./components/ArticleMetadata.vue" //字数阅读时间
 import Linkcard from "./components/Linkcard.vue" //链接卡片
-// import MyLayout from "./components/MyLayout.vue" 视图过渡
+import MyLayout from "./components/MyLayout.vue" //视图过渡
 import backtotop from "./components/backtotop.vue" //返回顶部
 import notice from "./components/notice.vue" //公告
 import fluidborder from "./components/fluidborder.vue" //流体边框仅用于演示
