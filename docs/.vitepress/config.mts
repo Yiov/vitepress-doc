@@ -122,9 +122,10 @@ export default defineConfig({
           },
           {
             // 分组标题2
-            text: '搬砖必备',
+            text: 'iStoreOS',
             items: [
-              { text: '自用导航', link: 'http://nav.qxiansen.online:8088' },
+              { text: '安装及使用', link: '/💻iStoreOS/' },
+              { text: '避坑指南', link: '/💻iStoreOS/istoreos-bk' },
             ],
           },
               ],
@@ -142,6 +143,13 @@ export default defineConfig({
         items: [
           { text: '安装及使用', link: '/🖥️fnnas/' },
           { text: '避坑必读', link: '/🖥️fnnas/fn-bk' },
+        ],
+        //分组标题2
+        text: '💻iStoreOS',
+        collapsed: false,
+        items: [
+          { text: '安装及使用', link: '/💻iStoreOS/' },
+          { text: '避坑指南', link: '/💻iStoreOS/istoreos-bk' },
         ],
       },
     ],
