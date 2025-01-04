@@ -1334,7 +1334,7 @@ outline: [2, 3, 4]
 /* .vitepress/theme/style/nav.css */
 .m-nav-layout {
   .medium-zoom-overlay,.medium-zoom-image {
-    z-index: none;
+    z-index: 0 !important;
   }
 }
 ```
