@@ -116,7 +116,8 @@ export default defineConfig({
             // 分组标题1
             text: '飞牛NAS',
             items: [
-              { text: '避坑', link: '/🖥️fnnas/' },
+              { text: '安装及使用', link: '/🖥️fnnas/' },
+              { text: '避坑必读', link: '/🖥️fnnas/fn-sybk' },
             ],
           },
           {
@@ -128,6 +129,7 @@ export default defineConfig({
           },
               ],
       },
+      { text: '关于', link: '/about/' },
     ],
 
 
@@ -138,7 +140,8 @@ export default defineConfig({
         text: '🖥️fnNAS',
         collapsed: false,
         items: [
-          { text: '避坑', link: '/🖥️fnnas/fn-sybk' },
+          { text: '安装及使用', link: '/🖥️fnnas/' },
+          { text: '避坑必读', link: '/🖥️fnnas/fn-sybk' },
         ],
       },
     ],
