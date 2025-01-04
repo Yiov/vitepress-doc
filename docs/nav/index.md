@@ -100,14 +100,14 @@ bun add -D vue
 为了方便查看和管理，我放到了自己习惯的文件夹
 :::
 
-在 `.vitepress/theme` 新建 `utils` 文件夹，再新建 `types.ts` 文件
+在 `.vitepress/theme` 新建 `untils` 文件夹，再新建 `types.ts` 文件
 
 ```md{5-6}
 .
 ├─ docs
 │  ├─ .vitepress
 │  │  └─ theme          
-│  │     └─ utils       
+│  │     └─ untils       
 │  │         └─ types.ts   <-- 我在这
 │  │  └─ config.mts
 │  └─ index.md       
