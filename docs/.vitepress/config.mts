@@ -110,14 +110,14 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '🍉避坑指南',
+        text: '📓学习笔记',
         items: [
           {
             // 分组标题1
             text: '飞牛NAS',
             items: [
               { text: '安装及使用', link: '/🖥️fnnas/' },
-              { text: '避坑必读', link: '/🖥️fnnas/fn-sybk' },
+              { text: '避坑指南', link: '/🖥️fnnas/fn-sybk' },
             ],
           },
           {
