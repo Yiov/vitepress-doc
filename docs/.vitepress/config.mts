@@ -144,6 +144,8 @@ export default defineConfig({
           { text: '安装及使用', link: '/🖥️fnnas/' },
           { text: '避坑必读', link: '/🖥️fnnas/fn-bk' },
         ],
+      },
+      {
         //分组标题2
         text: '💻iStoreOS',
         collapsed: false,
