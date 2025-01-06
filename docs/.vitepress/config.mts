@@ -144,6 +144,7 @@ export default defineConfig({
         items: [
           { text: '飞牛私有云', link: '/学习笔记/fnos' },
           { text: 'iStoreOS', link: '/学习笔记/istoreos/' },
+          { text: 'Docker', link: '/学习笔记/docker' },
         ],
       },
       {
@@ -151,8 +152,8 @@ export default defineConfig({
         text: '生活小妙招',
         collapsed: false,
         items: [
-          { text: '生活小妙招', link: '/iStoreOS/' },
-          { text: '生活小妙招', link: '/iStoreOS/' },
+          { text: '生活小妙招', link: '/学习笔记/fnos' },
+         
         ],
       },
     ],
