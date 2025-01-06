@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 开始
-      link: /🖥️fnnas/
+      link: /学习笔记/fnos
     - theme: sponsor
       text: 我的导航
       link: http://nav.qxiansen.online:8088
