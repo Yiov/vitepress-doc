@@ -110,11 +110,10 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '📓笔记',
+        text: '📓学习笔记',
         items: [
           {
             // 分组标题1
-            text: '学习笔记',
             items: [
               { text: '飞牛私有云', link: '/学习笔记/fnos' },
               { text: 'iStoreOS', link: '/学习笔记/istoreos' },
@@ -123,7 +122,6 @@ export default defineConfig({
           },
           {
             // 分组标题2
-            text: '生活小妙招',
             items: [
               { text: 'Markdown', link: '/学习笔记/markdown' },
               { text: '避坑指南', link: '/学习笔记/markdown' },
