@@ -118,7 +118,7 @@ export default defineConfig({
             items: [
               { text: '飞牛私有云', link: '/学习笔记/fnos' },
               { text: 'iStoreOS', link: '/学习笔记/istoreos' },
-              { text: 'Docker', link: '/学习笔记/docker' }，
+              { text: 'Docker', link: '/学习笔记/docker' },
             ],
           },
           {
