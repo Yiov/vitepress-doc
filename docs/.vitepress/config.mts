@@ -110,22 +110,23 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '📓学习笔记',
+        text: '📓笔记',
         items: [
           {
             // 分组标题1
-            text: '飞牛NAS',
+            text: '学习笔记',
             items: [
-              { text: '安装及使用', link: '/🖥️fnnas/' },
-              { text: '避坑指南', link: '/🖥️fnnas/fn-bk' },
+              { text: '飞牛私有云', link: '/学习笔记/fnos' },
+              { text: 'iStoreOS', link: '/学习笔记/istoreos' },
+              { text: 'Docker', link: '/学习笔记/docker' }，
             ],
           },
           {
             // 分组标题2
-            text: 'iStoreOS',
+            text: '生活小妙招',
             items: [
-              { text: '安装及使用', link: '/💻iStoreOS/' },
-              { text: '避坑指南', link: '/💻iStoreOS/istoreos-bk' },
+              { text: 'Markdown', link: '/学习笔记/markdown' },
+              { text: '避坑指南', link: '/学习笔记/markdown' },
             ],
           },
               ],
@@ -138,20 +139,20 @@ export default defineConfig({
     sidebar: [
       {
         //分组标题1
-        text: '🖥️fnNAS',
+        text: '学习笔记',
         collapsed: false,
         items: [
-          { text: '安装及使用', link: '/🖥️fnnas/' },
-          { text: '避坑必读', link: '/🖥️fnnas/fn-bk' },
+          { text: '飞牛私有云', link: '/学习笔记/fnos' },
+          { text: 'iStoreOS', link: '/学习笔记/istoreos/' },
         ],
       },
       {
         //分组标题2
-        text: '💻iStoreOS',
+        text: '生活小妙招',
         collapsed: false,
         items: [
-          { text: '安装及使用', link: '/💻iStoreOS/' },
-          { text: '避坑指南', link: '/💻iStoreOS/istoreos-bk' },
+          { text: '生活小妙招', link: '/iStoreOS/' },
+          { text: '生活小妙招', link: '/iStoreOS/' },
         ],
       },
     ],

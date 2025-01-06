@@ -16,11 +16,11 @@ hero:
       text: 开始
       link: /🖥️fnnas/
     - theme: sponsor
+      text: 我的导航
+      link: http://nav.qxiansen.online:8088
+    - theme: sponsor
       text: GitHub
       link: https://github.com/qiaomunanzi/docs
-    - theme: sponsor
-      text: 搬砖必备
-      link: http://nav.qxiansen.online:8088
 
 features:
   - icon: 📝
