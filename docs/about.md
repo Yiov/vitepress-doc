@@ -4,7 +4,9 @@ comments: false
 ---
 # 关于本站
 
-非盈利个人网站，所有内容均可复制、转载，但请保留出处：[乔先森的知识库](https://docs.qxiansen.online)，https://docs.qxiansen.online
+非盈利个人网站，所有内容均可复制、转载，但请保留出处：
+
+[乔先森的知识库](https://docs.qxiansen.online)，https://docs.qxiansen.online
 
 ## 建站初心
 
@@ -21,3 +23,4 @@ comments: false
 - 加入QQ群
 - 加入QQ频道
 
+![交流方式](https://img.qxiansen.online/file/AgACAgUAAyEGAASG4H8TAAMMZ38w_IV-lnVUZI_ZOghlZRtaJpYAAhvEMRvMgvhXphdPE2Sq2lUBAAMCAAN3AAM2BA.jpg)
