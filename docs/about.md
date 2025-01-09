@@ -1,16 +1,12 @@
----
-title: about
-comments: false
----
 # 关于本站
 
-非盈利个人网站，所有内容均可复制、转载，但请保留出处：
+本站是非盈利个人网站，所有内容均可复制、转载，但请保留出处：
 
-[乔先森的知识库](https://docs.qxiansen.online)，https://docs.qxiansen.online
+[乔先森的知识库](https://docs.qxiansen.online) , https://docs.qxiansen.online
 
-## 建站初心
+## 建站原因
 
-本人纯小白，因为喜欢折腾，所以才有了这个网站。
+本人是一个喜欢折腾的小白，也正是因为喜欢折腾，所以才有了这个网站。
 
 - 记录折腾 · 学习的过程。
 - 备忘，以备不时之需。
