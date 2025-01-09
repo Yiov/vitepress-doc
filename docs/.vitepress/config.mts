@@ -128,7 +128,7 @@ export default defineConfig({
           {
             // 分组标题1
             items: [
-              { text: 'Frps/Frpc', link: '/学习笔记/内网穿透' },
+              { text: '内网穿透', link: '/学习笔记/内网穿透' },
               { text: '飞牛私有云', link: '/学习笔记/fnos' },
               { text: 'iStoreOS', link: '/学习笔记/istoreos' },
               { text: 'Docker', link: '/学习笔记/docker' },
