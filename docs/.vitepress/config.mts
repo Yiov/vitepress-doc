@@ -110,7 +110,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '白嫖指南',
+        text: '🗂白嫖指南',
         items: [
           {
             // 分组标题1
@@ -158,7 +158,7 @@ export default defineConfig({
       },
       {
         //分组标题1
-        text: '学习笔记',
+        text: '📓学习笔记',
         collapsed: false,
         items: [
           { text: '飞牛私有云', link: '/学习笔记/fnos' },
@@ -168,7 +168,7 @@ export default defineConfig({
       },
       {
         //分组标题2
-        text: '生活小妙招',
+        text: '🔓生活小妙招',
         collapsed: false,
         items: [
           { text: '生活小妙招', link: '/学习笔记/fnos' },
