@@ -153,7 +153,7 @@ export default defineConfig({
         text: '🗂白嫖指南',
         collapsed: false,
         items: [
-          { text: '浏览器插件', link: '/白嫖指南/浏览器扩展程序' },
+          { text: '浏览器插件（已完结）', link: '/白嫖指南/浏览器扩展程序' },
           { text: '搭建网站（待更新）', link: '/白嫖指南/静态网站' },
           { text: '搭建图床（待更新）', link: '/白嫖指南/图床' },
         ],
