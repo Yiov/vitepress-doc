@@ -105,8 +105,8 @@ export default {
 
     // giscus配置
     giscusTalk({
-      repo: 'qiaomunanzi/docs', //仓库
-      repoId: 'R_kgDONiA5mw', //仓库ID
+      repo: 'Yiov/vitepress-doc', //仓库
+      repoId: 'R_kgDOGYFl1A', //仓库ID
       category: 'Announcements', // 讨论分类
       categoryId: 'DIC_kwDOGYFl1M4CayLM', //讨论分类ID
       mapping: 'pathname',
