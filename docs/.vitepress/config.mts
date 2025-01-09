@@ -149,7 +149,7 @@ export default defineConfig({
     sidebar: [
       {
         //分组标题1
-        text: '白嫖指南',
+        text: '🗂白嫖指南',
         collapsed: false,
         items: [
           { text: '搭建网站', link: '/白嫖指南/静态网站' },
