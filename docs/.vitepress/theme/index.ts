@@ -26,7 +26,7 @@ import ArticleMetadata from "./components/ArticleMetadata.vue" //字数阅读时
 import Linkcard from "./components/Linkcard.vue" //链接卡片
 import MyLayout from "./components/MyLayout.vue" //视图过渡
 import backtotop from "./components/backtotop.vue" //返回顶部
-// import notice from "./components/notice.vue" //公告
+import notice from "./components/notice.vue" //公告
 import fluidborder from "./components/fluidborder.vue" //流体边框仅用于演示
 
 // 不蒜子
