@@ -128,7 +128,7 @@ export default defineConfig({
           {
             // 分组标题1
             items: [
-              { text: 'Frps/Frpc', link: '/学习笔记/frp' },
+              { text: 'Frps/Frpc', link: '/学习笔记/内网穿透' },
               { text: '飞牛私有云', link: '/学习笔记/fnos' },
               { text: 'iStoreOS', link: '/学习笔记/istoreos' },
               { text: 'Docker', link: '/学习笔记/docker' },
@@ -164,7 +164,7 @@ export default defineConfig({
         text: '📓学习笔记',
         collapsed: false,
         items: [
-          { text: 'Frps/Frpc（正在更新）', link: '/学习笔记/frp' },
+          { text: '内网穿透（正在更新）', link: '/学习笔记/内网穿透' },
           { text: '飞牛私有云（待更新）', link: '/学习笔记/fnos' },
           { text: 'iStoreOS（待更新）', link: '/学习笔记/istoreos/' },
           { text: 'Docker（待更新）', link: '/学习笔记/docker' },
