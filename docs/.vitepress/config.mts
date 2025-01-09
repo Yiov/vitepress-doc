@@ -115,8 +115,8 @@ export default defineConfig({
           {
             // 分组标题1
             items: [
-              { text: '静态网站', link: '/白嫖指南/静态网站' },
-              { text: '图床', link: '/白嫖指南/图床' },
+              { text: '搭建网站', link: '/白嫖指南/静态网站' },
+              { text: '搭建图床', link: '/白嫖指南/图床' },
             ],
           },
                ],
@@ -147,6 +147,15 @@ export default defineConfig({
 
     //侧边栏
     sidebar: [
+      {
+        //分组标题1
+        text: '白嫖指南',
+        collapsed: false,
+        items: [
+          { text: '搭建网站', link: '/白嫖指南/静态网站' },
+          { text: '搭建图床', link: '/白嫖指南/图床' },
+        ],
+      },
       {
         //分组标题1
         text: '学习笔记',
