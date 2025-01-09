@@ -26,7 +26,7 @@ import ArticleMetadata from "./components/ArticleMetadata.vue" //字数阅读时
 import Linkcard from "./components/Linkcard.vue" //链接卡片
 import MyLayout from "./components/MyLayout.vue" //视图过渡
 import backtotop from "./components/backtotop.vue" //返回顶部
-import notice from "./components/notice.vue" //公告
+// import notice from "./components/notice.vue" //公告
 import fluidborder from "./components/fluidborder.vue" //流体边框仅用于演示
 
 // 不蒜子
@@ -105,7 +105,7 @@ export default {
 
     // giscus配置
     giscusTalk({
-      repo: 'Yiov/vitepress-doc', //仓库
+      repo: 'qiaomunanzi/docs', //仓库
       repoId: 'R_kgDOGYFl1A', //仓库ID
       category: 'Announcements', // 讨论分类
       categoryId: 'DIC_kwDOGYFl1M4CayLM', //讨论分类ID
