@@ -17,7 +17,7 @@ hero:
       link: http://nav.qxiansen.online:8088
     - theme: brand
       text: 开始
-      link: /学习笔记/fnos
+      link: /about
     - theme: sponsor
       text: GitHub
       link: https://github.com/qiaomunanzi/docs
