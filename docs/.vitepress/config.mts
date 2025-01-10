@@ -139,7 +139,7 @@ export default defineConfig({
             // 分组标题2
             items: [
               { text: 'Markdown', link: '/学习笔记/markdown' },
-              { text: '避坑指南', link: '/学习笔记/markdown' },
+              { text: '避坑指南', link: '/学习笔记/避坑指南' },
             ],
           },
               ],
@@ -246,7 +246,7 @@ export default defineConfig({
 
     //页脚
     footer: {
-      message: 'Released under the MIT License.',
+      message: 'Powered By 乔先森',
       copyright: `Copyright © 2024-${new Date().getFullYear()} `,
     },
 
