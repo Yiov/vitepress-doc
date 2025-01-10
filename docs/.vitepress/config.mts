@@ -246,7 +246,7 @@ export default defineConfig({
 
     //页脚
     footer: {
-      message: 'Powered By 乔先森',
+      message: 'Released under the MIT License. | Powered By 乔先森',
       copyright: `Copyright © 2024-${new Date().getFullYear()} `,
     },
 
