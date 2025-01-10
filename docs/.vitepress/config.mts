@@ -168,7 +168,7 @@ export default defineConfig({
         text: '🗂白嫖指南',
         collapsed: false,
         items: [
-          { text: '影音娱乐', link: '/白嫖指南/影音娱乐' },
+          { text: '影音娱乐（已完结）', link: '/白嫖指南/影音娱乐' },
           { text: '浏览器插件（已完结）', link: '/白嫖指南/浏览器扩展程序' },
           { text: '搭建图床（已完结）', link: '/白嫖指南/图床' },
           { text: '搭建网站（更新中）', link: '/白嫖指南/静态网站' },
