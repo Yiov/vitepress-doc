@@ -2,7 +2,7 @@
 
 ## 网站列表
 
-**[个人主页]( https://www.qxiansen.online)** | **[知识库]( https://www.qxiansen.online)** | **[导航页]( https://nav.qxiansen.online)** | **[博客]( https://blog.qxiansen.online)**
+**[个人主页]( https://www.qxiansen.online)** | **[知识库]( https://docs.qxiansen.online)（持续更新）** | **[导航页]( https://nav.qxiansen.online:8088)** | **[博客]( https://blog.qxiansen.online:8088)（建设中）**
 
 ## 版权声明
 
