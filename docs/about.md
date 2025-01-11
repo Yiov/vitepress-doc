@@ -1,22 +1,27 @@
 # 关于本站
 
-本站是非盈利个人网站，所有内容均可复制、转载，但请保留出处：
+## 版权声明
 
-[乔先森的知识库](https://docs.qxiansen.online) , https://docs.qxiansen.online
+- 本站为 **非盈利** 个人网站。
+
+- 本站涉及的 **软件** 均来自网络，如有侵权，请联系删除。
+
+- 本站文字内容均为本人原创，采用 **[CC BY-NC-ND 4.0（署名—非商业性使用—禁止演绎 4.0 协议国际版）](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans)**。
+  
+  所有内容均可自由复制、转载，但需保留出处：[乔先森的知识库](https://docs.qxiansen.online) （ https://docs.qxiansen.online ）。
 
 ## 建站原因
 
-本人是一个喜欢折腾的小白，也正是因为喜欢折腾，所以才有了这个网站。
+本人是一个酷爱折腾的技术小白，对互联网及设备有着超乎寻常的执着，正是因为这份热爱与执着，才有了这个分享型的知识库网站。
 
-- 记录折腾 · 学习的过程。
-- 备忘，以备不时之需。
+一方面可以记录折腾 · 学习的过程，给自己留下一份纪念。另一方面可以把经验分享给有需要的人。
 
-如果你也喜欢折腾，跟我一样是个小白，那么恭喜你，本站中的内容，或许可以帮你跳过我所遇到的坑，让你少走一些弯路。
+如果你也喜欢折腾，跟我一样是个小白，欢迎你加入我的队伍，让我们互相帮助，共同进步。
 
 ##  交流方式
 
-- 本站留言
-- 加入QQ群
+- 本站留言（回复无时效性）
+- 加入QQ群（推荐的方式）
 - 加入QQ频道
 
 ![交流方式](https://img.qxiansen.online/file/AgACAgUAAyEGAASG4H8TAAMMZ38w_IV-lnVUZI_ZOghlZRtaJpYAAhvEMRvMgvhXphdPE2Sq2lUBAAMCAAN3AAM2BA.jpg)
