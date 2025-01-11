@@ -132,7 +132,7 @@ export default defineConfig({
             items: [
               { text: '内网穿透', link: '/学习笔记/内网穿透' },
               { text: '飞牛私有云', link: '/学习笔记/fnos' },
-              { text: 'iStoreOS', link: '/学习笔记/istoreos' },
+              { text: '软路由', link: '/学习笔记/软路由' },
               { text: 'Docker', link: '/学习笔记/docker' },
             ],
           },
@@ -237,7 +237,7 @@ export default defineConfig({
         // You can include a custom label for accessibility too (optional but recommended):
         ariaLabel: 'wechat'
       },
-      { icon: 'github', link: 'https://github.com/qiaomunanzi' },
+      { icon: 'github', link: 'https://github.com/qiaomunanzi/docs' },
     ],
 
     //手机端深浅模式文字修改
@@ -248,7 +248,7 @@ export default defineConfig({
 
     //页脚
     footer: {
-      message: 'Released under the MIT License. | Powered By 乔先森',
+      message: '基于 MIT 发布. | Powered By 乔先森',
       copyright: `Copyright © 2024-${new Date().getFullYear()} `,
     },
 
