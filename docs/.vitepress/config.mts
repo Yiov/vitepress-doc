@@ -248,7 +248,7 @@ export default defineConfig({
 
     //页脚
     footer: {
-      message: '基于 MIT 发布. | Powered By 乔先森',
+      message: '基于 CC BY-NC-ND 4.0 发布 | Powered By 乔先森',
       copyright: `Copyright © 2024-${new Date().getFullYear()} `,
     },
 
