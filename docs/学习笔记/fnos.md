@@ -32,10 +32,10 @@
 
 ## 配置DDNSTO
 
-在开始配置之前，我们需要先建立几个文件夹，以便在配置过程中使用。
+在开始配置之前，我们需要提前做好几项工作，以便在配置过程中使用。
 
-- 选择 **文件管理** ，在你想要存放 **DDNSTO** 的位置，新建 **ddnsto** 文件夹
-- 进入 **ddnsto** 文件夹，再新建 **ddnsto-config** 文件夹
+- 打开 **DDNSTO官网**，注册账号。**[点此前往官网注册](https://web.ddnsto.com/)**
+- 打开飞牛NAS后台，选择 **文件管理** ，在你想要存放 **DDNSTO** 的位置，新建 **ddnsto** 文件夹。进入 **ddnsto** 文件夹，再新建 **ddnsto-config** 文件夹
 
 1. 飞牛后台打开 **Docker** 应用，点击 **镜像仓库** ，搜索栏输入 **linkease/ddnsto** 回车，选择第1个镜像下载，如下图：
 
@@ -57,6 +57,8 @@
 
 ![添加环境变量](https://img.qxiansen.online/file/AgACAgUAAyEGAASG4H8TAANCZ4J5uwhQmwjkT1LkQWQkv9TNxHwAAgG_MRs06xlUP4l4A1sH-egBAAMCAAN4AAM2BA.png)
 
-1. 点击 **创建** ，如下图：
+6. 点击 **创建** 后，配置完成，如下图：
 
-![]()
+![创建完成](https://img.qxiansen.online/file/AgACAgUAAyEGAASG4H8TAANDZ4J6itvU66BdUYblpkVuKY5lwk0AAgO_MRs06xlUDrrGT6cMKIABAAMCAAN4AAM2BA.png)
+
+7. 到 **DDNSTO** 官网登录后台，点击 **添加域名映射** ，在弹出窗口按提示填写信息即可完成内网穿透。
