@@ -115,10 +115,10 @@ export default defineConfig({
           {
             // 分组标题1
             items: [
-              { text: '影音娱乐', link: '/白嫖指南/影音娱乐' },
-              { text: '浏览器插件', link: '/白嫖指南/浏览器扩展程序' },
-              { text: '搭建图床', link: '/白嫖指南/图床' },
-              { text: '搭建网站', link: '/白嫖指南/静态网站' },
+              { text: '影音娱乐（已完结）', link: '/白嫖指南/影音娱乐' },
+              { text: '浏览器插件（已完结）', link: '/白嫖指南/浏览器扩展程序' },
+              { text: '搭建图床（已完结）', link: '/白嫖指南/图床' },
+              { text: '搭建网站（更新中）', link: '/白嫖指南/静态网站' },
               
             ],
           },
@@ -130,17 +130,17 @@ export default defineConfig({
           {
             // 分组标题1
             items: [
-              { text: '内网穿透', link: '/学习笔记/内网穿透' },
-              { text: '飞牛私有云', link: '/学习笔记/fnos' },
-              { text: '软路由', link: '/学习笔记/软路由' },
-              { text: 'Docker', link: '/学习笔记/docker' },
+              { text: '内网穿透（更新中）', link: '/学习笔记/内网穿透' },
+              { text: '飞牛私有云（待更新）', link: '/学习笔记/fnos' },
+              { text: '软路由（待更新）', link: '/学习笔记/软路由' },
+              { text: 'Docker（待更新）', link: '/学习笔记/docker' },
             ],
           },
           {
             // 分组标题2
             items: [
-              { text: 'Markdown', link: '/学习笔记/markdown' },
-              { text: '避坑指南', link: '/学习笔记/避坑指南' },
+              { text: 'Markdown（待更新）', link: '/学习笔记/markdown' },
+              { text: '避坑指南（待更新）', link: '/学习笔记/避坑指南' },
             ],
           },
               ],
@@ -151,7 +151,7 @@ export default defineConfig({
           {
             // 分组标题1
             items: [
-              { text: '小妙招', link: '/生活小妙招/小妙招' },
+              { text: '小妙招（待更新）', link: '/生活小妙招/小妙招' },
                             
             ],
           },
