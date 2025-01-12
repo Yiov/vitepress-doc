@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: sponsor
       text: 我的导航
-      link: http://nav.qxiansen.online:8088
+      link: http://nav.qxiansen.online
     - theme: brand
       text: 开始
       link: /about
