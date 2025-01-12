@@ -20,7 +20,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     isDark.value = !isDark.value
     return
   }
-  
+
   const clipPath = [
     `circle(0px at ${x}px ${y}px)`,
     `circle(${Math.hypot(
@@ -78,5 +78,10 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 
 .VPSwitchAppearance .check {
   transform: none !important;
+}
+
+/* 修正因视图过渡导致的月牙图标偏移 */
+.check .icon {
+  top: -2px;
 }
 </style>

@@ -1141,6 +1141,21 @@ import backtotop from "./backtotop.vue" // [!code focus]
 :::
 
 
+还有一个小问题就是，深浅模式切换按钮图标有偏移，看着别扭
+
+在视图过渡组件 `MyLayout.vue` 的 `<style>` 处添加代码即可
+
+
+```vue [MyLayout.vue] {2-5}
+<style>
+/* 修正因视图过渡导致的按钮图标偏移 */ // [!code focus:4]
+.check .icon {
+  top: -2px;
+}
+</style>
+```
+
+
 ---
 
 
