@@ -110,6 +110,18 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
+        text: '🔥好物分享',
+        items: [
+          {
+            // 分组标题1
+            items: [
+              { text: '软件集合', link: '/好物分享/软件集合' },
+                    
+            ],
+          },
+               ],
+      },
+      {
         text: '🗂白嫖指南',
         items: [
           {
@@ -176,7 +188,7 @@ export default defineConfig({
         ],
       },
       {
-        //分组标题1
+        //分组标题2
         text: '📔学习笔记',
         collapsed: false,
         items: [
@@ -188,7 +200,16 @@ export default defineConfig({
         ],
       },
       {
-        //分组标题2
+        //分组标题3
+        text: '🔥好物分享',
+        collapsed: false,
+        items: [
+          { text: '软件集合', link: '/好物分享/软件集合' },
+          
+        ],
+      },
+      {
+        //分组标题4
         text: '💰生活小妙招',
         collapsed: false,
         items: [
