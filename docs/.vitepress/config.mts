@@ -125,7 +125,7 @@ export default defineConfig({
                ],
       },
       {
-        text: '📓学习笔记',
+        text: '📔学习笔记',
         items: [
           {
             // 分组标题1
@@ -177,7 +177,7 @@ export default defineConfig({
       },
       {
         //分组标题1
-        text: '📓学习笔记',
+        text: '📔学习笔记',
         collapsed: false,
         items: [
           { text: '内网穿透（更新中）', link: '/学习笔记/内网穿透' },
