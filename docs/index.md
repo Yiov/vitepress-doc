@@ -9,7 +9,7 @@ hero:
   text: "乔先森的知识库"
   tagline: 边折腾 · 边学习 · 边记录
   image:
-    src: /logo-docs.png
+    src: https://alist.qxiansen.online/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/images/docs/%E4%BA%A4%E6%B5%81%E6%96%B9%E5%BC%8F.png?sign=GTVQHTmLH4ITPRIszwK492a_NXjDN9H-UbOcBYSiV4g=:0
     alt: Document
   actions:
     - theme: sponsor
