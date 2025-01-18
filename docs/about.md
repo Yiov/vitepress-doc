@@ -28,4 +28,4 @@
 - 加入QQ群（推荐的方式）
 - 加入QQ频道
 
-![交流方式](https://alist.qxiansen.online/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/images/docs/%E4%BA%A4%E6%B5%81%E6%96%B9%E5%BC%8F.png?sign=GTVQHTmLH4ITPRIszwK492a_NXjDN9H-UbOcBYSiV4g=:0)
+![交流方式](https://image.qxiansen.online/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/images/docs/connect.jpg?sign=CpcjyKh1maH-Bq46U3SqgIf79as7jpXZy9NlnSM4_10=:0)
