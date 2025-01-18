@@ -24,7 +24,7 @@ setTimeout(function () { visible.value = false }, 5000);
                 </strong>
             </p>
             <p>QQ 频道：乔先森的知识库</p>
-            <img class="notice-img" src="/qrcode.png">
+            <img class="notice-img" src="https://alist.qxiansen.online/d/%E5%A4%A9%E7%BF%BC%E4%BA%91%E7%9B%98/images/docs/qrcode.png?sign=Zx2eHsF7plr83aeSe9kIS-gygVTwkmNKQ9_ZoYKeS9g=:0">
         </div>
 
         <div class="notice-footer">
