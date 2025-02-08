@@ -2,12 +2,32 @@
     "index_name": "doc",
     "start_urls": [
         {
-            "url": "https://vitepress.yiov.top/",
-            "selectors_key": ""
-        }
+            "url": "https://vitepress.yiov.top/markdown.html", 
+            "selectors_key": "markdown",
+            "tags": ["markdown"]
+        },
+        "https://vitepress.yiov.top/"
     ],
     "stop_urls": [],
     "selectors": {
+      "markdown": { 
+            "lvl0": {
+                "selector": "",
+                "default_value": "Markdown"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
         "default": {
             "lvl0": {
                 "selector": "",
@@ -29,7 +49,7 @@
     },
     "custom_settings": {
         "attributesForFaceting": [
-            "lang"
+            "lang","tags"
         ]
     }
 }
