@@ -4,6 +4,7 @@
 .vp-code-block-title {
   background-color: var(--vp-code-block-bg);
   margin-bottom: 20px;
+  margin-top: 16px;
   border-radius: 8px;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4); /* 添加阴影 */
   overflow: hidden;
@@ -46,7 +47,7 @@
 
 /* 代码块标题：修正行号位置 */
 .vp-code-block-title .line-numbers-mode .line-numbers-wrapper {
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 /* 代码块标题：修正行号右侧竖线位置 */
