@@ -107,7 +107,7 @@
             ]
         },
         {
-            "url": "https://vitepress.yiov.top/nav.html",
+            "url": "https://vitepress.yiov.top/nav/",
             "selectors_key": "nav",
             "tags": [
                 "nav"
