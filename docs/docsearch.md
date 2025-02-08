@@ -620,23 +620,43 @@ export default defineConfig({
 ## 搜索美化
 
 
+需要对json文件进行修改，以下是仅单独增加一个 [Markdown](./markdown.md) 页面分类的简单案例
+
+::: details 案例说明代码说明
+
+- start_urls：爬取链接，必须要一个默认主页和其他页，多页面就得多填
+
+- tags：标签，也是我们分类的最最重要的代码
+
+- stop_urls：不爬取的页面
+
+- selectors：默认一个 `default` 必须要有，然后再依次新增标签页
+
+- default_value：标签显示的文字，可以是中文
+
+- attributesForFaceting：必须具备 `lang` `tags` 否则有数据也用不了
+
+注：请根据自己的页面进行新增修改！！！
+:::
+
+
 ```json
 {
-    "index_name": "daohang",
+    "index_name": "doc",
     "start_urls": [
         {
-            "url": "https://nav.yiov.top/movie.html",
-            "selectors_key": "movie",
-            "tags": ["movie"]
+            "url": "https://vitepress.yiov.top/preface.html", // [!code ++:3]
+            "selectors_key": "preface",
+            "tags": ["preface"]
         },
-        "https://nav.yiov.top/"
+        "https://vitepress.yiov.top/" // [!code ++]
     ],
     "stop_urls": [],
     "selectors": {
-        "movie": {
+      "preface": { // [!code ++:18]
             "lvl0": {
                 "selector": "",
-                "default_value": "影视"
+                "default_value": "前言"
             },
             "lvl1": ".content h1",
             "lvl2": ".content h2",
@@ -654,7 +674,7 @@ export default defineConfig({
         "default": {
             "lvl0": {
                 "selector": "",
-                "default_value": "导航首页"
+                "default_value": "我的文档"
             },
             "lvl1": ".content h1",
             "lvl2": ".content h2",
@@ -672,8 +692,19 @@ export default defineConfig({
     },
     "custom_settings": {
         "attributesForFaceting": [
-            "lang","tags"
+            "lang","tags" // [!code ++]
         ]
     }
 }
 ```
+
+
+最后将所有页面添加完后，[对比文件](https://github.com/Yiov/vitepress-doc/blob/main/docsearch.json)，看效果
+
+::: tip 说明
+如果你的页面很多，额，那是真的有点麻烦，可以不美化
+:::
+
+
+
+![](/docsearch/docsearch-49.png)
