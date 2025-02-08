@@ -2,18 +2,397 @@
     "index_name": "doc",
     "start_urls": [
         {
-            "url": "https://vitepress.yiov.top/markdown.html", 
+            "url": "https://vitepress.yiov.top/preface.html",
+            "selectors_key": "preface",
+            "tags": [
+                "preface"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/getting-started.html",
+            "selectors_key": "getting-started",
+            "tags": [
+                "getting-started"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/configuration.html",
+            "selectors_key": "configuration",
+            "tags": [
+                "configuration"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/page.html",
+            "selectors_key": "page",
+            "tags": [
+                "page"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/frontmatter.html",
+            "selectors_key": "frontmatter",
+            "tags": [
+                "frontmatter"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/markdown.html",
             "selectors_key": "markdown",
-            "tags": ["markdown"]
+            "tags": [
+                "markdown"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/team.html",
+            "selectors_key": "team",
+            "tags": [
+                "team"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/multi-language.html",
+            "selectors_key": "multi-language",
+            "tags": [
+                "multi-language"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/docsearch.html",
+            "selectors_key": "docsearch",
+            "tags": [
+                "docsearch"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/assets.html",
+            "selectors_key": "assets",
+            "tags": [
+                "assets"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/style.html",
+            "selectors_key": "style",
+            "tags": [
+                "style"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/components.html",
+            "selectors_key": "components",
+            "tags": [
+                "components"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/layout.html",
+            "selectors_key": "layout",
+            "tags": [
+                "layout"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/plugin.html",
+            "selectors_key": "plugin",
+            "tags": [
+                "plugin"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/update.html",
+            "selectors_key": "update",
+            "tags": [
+                "update"
+            ]
+        },
+        {
+            "url": "https://vitepress.yiov.top/nav.html",
+            "selectors_key": "nav",
+            "tags": [
+                "nav"
+            ]
         },
         "https://vitepress.yiov.top/"
     ],
-    "stop_urls": [],
+    "stop_urls": [
+        "https://vitepress.yiov.top/nav/mao.html"
+    ],
     "selectors": {
-      "markdown": { 
+        "preface": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "前言"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "getting-started": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "快速上手"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "configuration": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "配置"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "page": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "页面"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "frontmatter": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "Frontmatter"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "markdown": {
             "lvl0": {
                 "selector": "",
                 "default_value": "Markdown"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "team": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "团队"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "multi-language": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "多语言"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "docsearch": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "DocSearch"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "assets": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "静态部署"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "style": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "样式美化"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "components": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "组件"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "layout": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "布局插槽"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "plugin": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "插件"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "update": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "更新及卸载"
+            },
+            "lvl1": ".content h1",
+            "lvl2": ".content h2",
+            "lvl3": ".content h3",
+            "lvl4": ".content h4",
+            "lvl5": ".content h5",
+            "lvl6": ".content h6",
+            "text": ".content p, .content li",
+            "lang": {
+                "selector": "/html/@lang",
+                "type": "xpath",
+                "global": true
+            }
+        },
+        "nav": {
+            "lvl0": {
+                "selector": "",
+                "default_value": "搭建导航"
             },
             "lvl1": ".content h1",
             "lvl2": ".content h2",
@@ -49,7 +428,8 @@
     },
     "custom_settings": {
         "attributesForFaceting": [
-            "lang","tags"
+            "lang",
+            "tags"
         ]
     }
 }
