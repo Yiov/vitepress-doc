@@ -25,8 +25,8 @@
   text-decoration: none;
 }
 
-/* h1标题样式 */
-h1 {
+/* 文档h1标题样式 */
+.VPDoc h1 {
   background: -webkit-linear-gradient(10deg, #bd34fe 5%, #e43498 15%);
   background-clip: text;
   -webkit-background-clip: text;
