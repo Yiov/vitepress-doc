@@ -25,6 +25,10 @@ next: false
 
 - 更新 [todo插件](./plugin.md#todo) 最新用法 ([pull#46](https://github.com/Yiov/vitepress-doc/pull/46))
 
+- 分离 [容器流体边框教程](./style-fluidborder.md)
+
+- 修正 [代码块带标题行号偏移](./markdown.md#代码块带标题)
+
 
 ## 2025-2-9
 
