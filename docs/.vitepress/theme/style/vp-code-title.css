@@ -47,7 +47,7 @@
 
 /* 代码块标题：修正行号位置 */
 .vp-code-block-title .line-numbers-mode .line-numbers-wrapper {
-  padding-top: 0px;
+  padding-top: 20px;
 }
 
 /* 代码块标题：修正行号右侧竖线位置 */
