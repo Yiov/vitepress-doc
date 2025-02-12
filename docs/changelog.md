@@ -19,6 +19,13 @@ next: false
 > 不过版本更新，还是会跟着走的
 
 
+## 2025-2-12
+
+- 修复导航布局问题导致的样式污染 ([issues#45](https://github.com/Yiov/vitepress-doc/issues/45))
+
+- 更新 [todo插件](./plugin.md#todo) 最新用法 ([pull#46](https://github.com/Yiov/vitepress-doc/pull/46))
+
+
 ## 2025-2-9
 
 - 更新 版本至v1.6.3

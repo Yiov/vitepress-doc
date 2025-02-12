@@ -1,7 +1,5 @@
 import { defineConfig } from 'vitepress'
 
-//命令集：pnpm add -D vitepress vue @mdit-vue/shared @types/node busuanzi.pure.js canvas-confetti less medium-zoom sass vitepress-plugin-comment-with-giscus xgplayer
-
 import { devDependencies } from '../../package.json'
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
@@ -69,9 +67,8 @@ export default defineConfig({
         return htmlResult
       },
 
-
-        md.use(groupIconMdPlugin) //代码组图标
-        md.use(markdownItTaskCheckbox)
+      md.use(groupIconMdPlugin) //代码组图标
+      md.use(markdownItTaskCheckbox) //todo
 
     }
 
