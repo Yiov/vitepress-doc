@@ -3,8 +3,8 @@ import { defineConfig } from 'vitepress'
 import { devDependencies } from '../../package.json'
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
-
-export default defineConfig({
+import { withMermaid } from 'vitepress-plugin-mermaid'
+export default withMermaid(defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
   description: "我的vitpress文档教程",
@@ -322,3 +322,4 @@ export default defineConfig({
 
 
 })
+)

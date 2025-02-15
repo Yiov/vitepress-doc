@@ -53,12 +53,12 @@ export default {
 
 ::: code-group
 
-```css [index.css]
+```css
 /* index.css */
 @import './var.css';
 ```
 
-```css [var.css]
+```css
 /* var.css */
 :root {
   --vp-c-brand-1: #18794e;
@@ -121,7 +121,7 @@ export default {
 
 最简单的修改就是，比如改成红色
 
-```css [var.css]
+```css
 /* .vitepress/theme/style/var.css */
 .VPDoc h1 {
   color: red;
@@ -130,7 +130,7 @@ export default {
 
 但是这样并不太好看，我们可以弄一个渐变色
 
-```css [var.css]
+```css
 /* .vitepress/theme/style/var.css */
 .VPDoc h1 {
   background: -webkit-linear-gradient(10deg, #bd34fe 5%, #e43498 15%);
@@ -156,7 +156,7 @@ text-fill-color：将文字透明
 
 不习惯的可以修改，我们在 `var.css` 中添加下面代码就行了
 
-```css [var.css]
+```css
 /* var.css */
 .vp-doc a {
     text-decoration: none;
@@ -657,7 +657,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 - 电脑问题：我的电脑 - 右键 `属性` - `高级系统设置` - 在系统属性页卡中 `高级` - 性能 `设置`，默认为 调整为最佳外观，将 `窗口内的动画控件和元素` 打勾，确定（如果电脑字体变化，请调整为其他，只要确保勾选此项即可）
   :::
 
-```css [index.css]
+```css
 /* .vitepress/theme/style/index.css */
 @import './rainbow.css';
 ```
@@ -687,7 +687,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 ::: code-group
 
-```css [blockquote.css]
+```css
 /* .vitepress/theme/style/blockquote.css */
 .vp-doc blockquote {
     border-radius: 10px;
@@ -702,7 +702,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 然后在 `index.css` 中引入生效
 
-```css [index.css]
+```css
 /* .vitepress/theme/style/index.css */
 @import './blockquote.css';
 ```
@@ -744,7 +744,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 ::: code-group
 
-```css [custom-block.css]
+```css
 /* .vitepress/theme/style/custom-block.css */
 /* 深浅色卡 */
 :root {
@@ -960,7 +960,6 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 危险是红色
 :::
 
-
 ---
 
 ### 导航栏毛玻璃
@@ -986,7 +985,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 ::: code-group
 
-```css [blur.css]
+```css
 /* .vitepress\theme\style\blur.css */
 :root {
 
@@ -1037,7 +1036,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 最后引入 `index.css` 中 即可看到效果
 
-```css [index.css]
+```css
 /* style/index.css */
 @import './blur.css';
 ```
@@ -1067,7 +1066,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 ::: code-group
 
-```css [hidden.css]
+```css
 /* .vitepress\theme\style\hidden.css */
 :root {
 
@@ -1116,7 +1115,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 最后引入 `index.css` 中 即可看到效果
 
-```css [index.css]
+```css
 /* style/index.css */
 @import './hidden.css';
 ```
@@ -1155,7 +1154,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 ::: code-group
 
-```css{6,19} [link.css]
+```css{6,19}
 /* .vitepress/theme/style/link.css */
 
 /* YouTube */
@@ -1190,7 +1189,7 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 然后在 `index.css` 中引入生效
 
-```css [index.css]
+```css
 /* .vitepress/theme/style/index.css */
 @import './link.css';
 ```
@@ -1232,7 +1231,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 将下面代码，复制粘贴到 `marker.css` 中
 
-```css [marker.css]
+```css
 /* .vitepress/theme/style/marker.css */
 
 /* 记号笔 不喜欢可自行调整 */
@@ -1247,7 +1246,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 然后在 `index.css` 中引入生效
 
-```css [index.css]
+```css
 /* .vitepress/theme/style/index.css */
 @import './marker.css';
 ```
@@ -1260,11 +1259,11 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 输出：
 
-<sapn class="marker-text">这里是重重点</sapn>
+`<sapn class="marker-text">`这里是重重点`</sapn>`
 
 还可以实现类似荧光笔的效果
 
-```css [marker.css]
+```css
 /* .vitepress/theme/style/marker.css */
 
 /* 荧光笔 不喜欢可自行调整*/
@@ -1284,13 +1283,13 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 输出：
 
-<sapn class="marker-text-highlight">这里是荧光笔</sapn>
+`<sapn class="marker-text-highlight">`这里是荧光笔`</sapn>`
 
 但是这些都不是我心仪的，最后在 [尤大的个人主页](https://evanyou.me/) 还有个 `hover`，真不错
 
 直接扒拉下来，嘿嘿嘿
 
-```css [marker.css]
+```css
 /* .vitepress/theme/style/marker.css */
 
 /* 尤雨溪 不喜欢可自行调整 */
@@ -1324,7 +1323,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 输出：
 
-<sapn class="marker-evy">这里是尤雨溪的主页样式，鼠标放在我上面看效果</sapn>
+`<sapn class="marker-evy">`这里是尤雨溪的主页样式，鼠标放在我上面看效果`</sapn>`
 
 ---
 
@@ -1355,7 +1354,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 ::: code-group
 
-```css [vp-code.css]
+```css
 /* .vitepress/theme/style/vp-code.css */
 
 /* 代码块：增加留空边距 增加阴影 */
@@ -1404,7 +1403,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 然后在 `index.css` 中引入生效
 
-```css [index.css]
+```css
 /* .vitepress/theme/style/index.css */
 @import './vp-code.css';
 ```
@@ -1464,7 +1463,7 @@ pnpm -v
 
 ::: code-group
 
-```css [vp-code-group.css]
+```css
 /* .vitepress/theme/style/vp-code-group.css */
 
 /* 代码组：tab间距 */
@@ -1536,7 +1535,7 @@ pnpm -v
 
 然后在 `index.css` 中引入生效
 
-```css [index.css]
+```css
 /* .vitepress/theme/style/index.css */
 @import './vp-code-group.css';
 ```
@@ -1563,12 +1562,12 @@ yarn -v
 
 ::: code-group
 
-```sh [pnpm]
+```sh
 #查询pnpm版本
 pnpm -v
 ```
 
-```sh [yarn]
+```sh
 #查询yarn版本
 yarn -v
 ```
@@ -1619,7 +1618,7 @@ export * from './nav'
 
 同样复制粘贴并保存
 
-```ts [nav.ts]
+```ts
 /* configs/nav.ts */
 import type { DefaultTheme } from 'vitepress'
 
@@ -1679,7 +1678,7 @@ export default defineConfig({
 本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供，本人在此基础上进行一些修改
 :::
 
-```css [vp-code-title.css]
+```css
 /* .vitepress/theme/style/vp-code-title.css */
 
 /* 整体容器样式（带阴影和圆角） */
@@ -1755,6 +1754,85 @@ export default defineConfig({
 ```css
 /* .vitepress/theme/style/index.css */
 @import './vp-code-title.css';
+```
+
+
+### mermaid 
+
+安装依赖：
+
+```
+ npm i vitepress-plugin-mermaid -D
+```
+
+在 config.mts 中进行配置
+
+```ts
+import { withMermaid } from 'vitepress-plugin-mermaid'
+
+export const sharedConfig = withMermaid(defineConfig({
+  ...
+}))
+
+```
+
+在 markdown 中输入：
+
+```txt
+graph LR
+    A[Java 数据类型] --> B[原始数据类型]
+    A[Java 数据类型] --> C[引用数据类型]
+    
+    B --> D[整数类型]
+    B --> E[浮点类型]
+    B --> F[字符类型]
+    B --> G[布尔类型]
+    
+    D --> H[int]
+    D --> I[long]
+    D --> J[short]
+    D --> K[byte]
+    
+    E --> L[float]
+    E --> M[double]
+    
+    F --> N[char]
+    
+    G --> O[boolean]
+    
+    C --> P[类]
+    C --> Q[接口]
+    C --> R[数组]
+
+```
+
+结果：
+```mermaid
+graph LR
+    A[Java 数据类型] --> B[原始数据类型]
+    A[Java 数据类型] --> C[引用数据类型]
+    
+    B --> D[整数类型]
+    B --> E[浮点类型]
+    B --> F[字符类型]
+    B --> G[布尔类型]
+    
+    D --> H[int]
+    D --> I[long]
+    D --> J[short]
+    D --> K[byte]
+    
+    E --> L[float]
+    E --> M[double]
+    
+    F --> N[char]
+    
+    G --> O[boolean]
+    
+    C --> P[类]
+    C --> Q[接口]
+    C --> R[数组]
+
 ```
 
 
