@@ -1844,9 +1844,13 @@ graph LR
  npm i @types/animejs -D
 ```
 
-配置组件，在 .vitepress/theme/components 中新建 MouseClick.vue，内容如下：
+配置组件，在 .vitepress/theme/components 中新建对应的 Vue 文件，内容如下：
 
-```vue
+::: code-group
+
+
+
+```vue [MouseClick.vue]
 <template>
   <canvas
     ref="canvas"
@@ -2044,9 +2048,7 @@ onUnmounted(() => {
 
 ```
 
-配置组件，在 .vitepress/theme/components 中新建 MouseFollower.vue，内容如下：
-
-```vue
+```vue [MouseFollower.vue]
 <template>
   <canvas
     ref="canvas"
@@ -2248,8 +2250,9 @@ canvas {
   z-index: 999999;
 }
 </style>
-
 ```
+
+:::
 
 启用组件，.vitepress/theme/components/MyLayout.vue 中启用上述的组件，内容如下：
 
@@ -2274,7 +2277,7 @@ import MouseFollower from "./MouseFollower.vue";
 
 显示效果，如下所示：
 
-
+![](/mouse/mouse.gif)
 
 
 ## 徽章
