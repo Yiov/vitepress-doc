@@ -25,6 +25,7 @@ next: false
 
 - 新增 [鼠标例子效果插件](./plugin.md#鼠标粒子效果) ([pull#46](https://github.com/Yiov/vitepress-doc/pull/46))
 
+- 关掉首页 [彩虹背景动画](./style.md#彩虹背景动画)，被卡哭了
 
 ## 2025-2-12
 
