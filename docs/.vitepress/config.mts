@@ -3,8 +3,9 @@ import { defineConfig } from 'vitepress'
 import { devDependencies } from '../../package.json'
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
-import { withMermaid } from 'vitepress-plugin-mermaid'
-export default withMermaid(defineConfig({
+import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
+
+export default (defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
   description: "我的vitpress文档教程",
@@ -67,8 +68,9 @@ export default withMermaid(defineConfig({
         return htmlResult
       },
 
-        md.use(groupIconMdPlugin) //代码组图标
+      md.use(groupIconMdPlugin) //代码组图标
       md.use(markdownItTaskCheckbox) //todo
+      md.use(MermaidMarkdown); 
 
     }
 
@@ -83,10 +85,14 @@ export default withMermaid(defineConfig({
           css: localIconLoader(import.meta.url, '../public/svg/css.svg'), //css图标
           js: 'logos:javascript', //js图标
         },
-      })
+      }),
+      [MermaidPlugin()]
     ],
-    server: {
-      port: 10090
+    optimizeDeps: {
+      include: ['mermaid'],
+    },
+    ssr: {
+      noExternal: ['mermaid'],
     },
   },
 
