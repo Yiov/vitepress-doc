@@ -9,6 +9,7 @@
     "less": "^4.2.2",
     "markdown-it-task-checkbox": "^1.0.6",
     "medium-zoom": "^1.1.0",
+    "mermaid": "^11.4.1",
     "nprogress-v2": "^1.1.10",
     "sass": "^1.85.0",
     "vitepress": "^1.6.3",

@@ -19,6 +19,13 @@ next: false
 > 不过版本更新，还是会跟着走的
 
 
+## 2025-2-22
+
+- 新增 [流程图插件vitepress-plugin-mermaid](./plugin.md#mermaid) ([pull#47](https://github.com/Yiov/vitepress-doc/pull/47))
+
+- 新增 [鼠标例子效果插件](./plugin.md#鼠标粒子效果) ([pull#46](https://github.com/Yiov/vitepress-doc/pull/46))
+
+
 ## 2025-2-12
 
 - 修复导航布局问题导致的样式污染 ([issues#45](https://github.com/Yiov/vitepress-doc/issues/45))
