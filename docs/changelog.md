@@ -18,14 +18,19 @@ next: false
 > 
 > 不过版本更新，还是会跟着走的
 
+## 2025-2-23
+
+- 更新 [彩虹背景动画](./style.md#彩虹背景动画) 使用，不在卡顿了
+
 
 ## 2025-2-22
 
 - 新增 [流程图插件vitepress-plugin-mermaid](./plugin.md#mermaid) ([pull#47](https://github.com/Yiov/vitepress-doc/pull/47))
 
-- 新增 [鼠标例子效果插件](./plugin.md#鼠标粒子效果) ([pull#46](https://github.com/Yiov/vitepress-doc/pull/46))
+- 新增 [鼠标例子效果插件](./components.md#鼠标粒子效果) ([pull#46](https://github.com/Yiov/vitepress-doc/pull/46))
 
 - 关掉首页 [彩虹背景动画](./style.md#彩虹背景动画)，被卡哭了
+
 
 ## 2025-2-12
 

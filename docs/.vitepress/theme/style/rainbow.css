@@ -406,14 +406,12 @@
     }
 }
 
-/* 彩虹色卡 */
-:root,.dark {
+/* 彩虹色卡初始色 */
+:root {
     --rainbow-prev: #009ff7;
     --rainbow-next: #c76dd1;
-    animation: rainbow 8s linear infinite;
+    /* animation: rainbow 12s linear infinite; */
 }
-
-
 
 :root {
     /* hero标题渐变色 */
@@ -423,24 +421,4 @@
     /*hero logo背景渐变色 */
     --vp-home-hero-image-background-image: linear-gradient(-45deg, var(--rainbow-prev) 30%, var(--rainbow-next));
     --vp-home-hero-image-filter: blur(80px);
-}
-
-
-@media (min-width: 640px) {
-    :root {
-        --vp-home-hero-image-filter: blur(120px);
-    }
-}
-
-@media (min-width: 960px) {
-    :root {
-        --vp-home-hero-image-filter: blur(120px);
-    }
-}
-
-/* Safari has a very bad performance on gradient and filter */
-.browser-safari,
-.browser-firefox {
-    --vp-home-hero-image-background-image: transparent;
-    --vp-home-hero-image-filter: '';
 }

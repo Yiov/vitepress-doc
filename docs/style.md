@@ -177,9 +177,9 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
 
 ### 彩虹背景动画
 
-在 [UnoCSS](https://unocss.dev/) 首页中，它的hero标题和图片背景有类似彩虹的渐变色动画，其实也是通过修改css样式实现的
+在 [UnoCSS](https://unocss.dev/) 首页中，它的hero标题和图片背景有类似彩虹的渐变色动画
 
-在 `theme/style` 新建 `rainbow.css` 文件
+我们通过修改css样式实现，在 `theme/style` 新建 `rainbow.css` 文件
 
 ```md{8}
 .
@@ -607,14 +607,12 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
     }
 }
 
-/* 彩虹色卡 */
-:root,.dark {
+/* 彩虹色卡初始色 */
+:root {
     --rainbow-prev: #009ff7;
     --rainbow-next: #c76dd1;
-    animation: rainbow 8s linear infinite;
+    /* animation: rainbow 8s linear infinite; */
 }
-
-
 
 :root {
     /* hero标题渐变色 */
@@ -626,30 +624,72 @@ node_modules\vitepress\dist\client\theme-default\styles\var.css
     --vp-home-hero-image-filter: blur(80px);
 }
 
-
-@media (min-width: 640px) {
-    :root {
-        --vp-home-hero-image-filter: blur(120px);
-    }
-}
-
-@media (min-width: 960px) {
-    :root {
-        --vp-home-hero-image-filter: blur(120px);
-    }
-}
-
-/* Safari has a very bad performance on gradient and filter */
-.browser-safari,
-.browser-firefox {
-    --vp-home-hero-image-background-image: transparent;
-    --vp-home-hero-image-filter: '';
-}
 ```
 
 :::
 
-然后在 `index.css` 中引入生效，回到主页看效果
+本来直接在代码中加入 `animation` 即可生效，但是由于颜色代码过多，渲染页面会很卡顿，换个方式不卡的方式来实现
+
+在 `theme/index.ts` 中写入代码中，保存
+
+```md{9}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ rainbow.css
+│  │     └─ index.ts
+│  └─ index.md
+└─ node_modules
+```
+
+```ts{2-3,10-17,22-39}
+/* .vitepress/theme/index.ts */ // [!code focus:3] 
+// 彩虹背景动画样式
+let homePageStyle: HTMLStyleElement | undefined
+
+export default {
+  extends: DefaultTheme,
+
+  enhanceApp({app , router }) {
+    // [!code focus:8]
+    // 彩虹背景动画样式
+    if (typeof window !== 'undefined') {
+      watch(
+        () => router.route.data.relativePath,
+        () => updateHomePageStyle(location.pathname === '/'),
+        { immediate: true },
+      )
+    }
+
+  },
+}
+// [!code focus:18]
+// 彩虹背景动画样式
+function updateHomePageStyle(value: boolean) {
+  if (value) {
+    if (homePageStyle) return
+
+    homePageStyle = document.createElement('style')
+    homePageStyle.innerHTML = `
+    :root {
+      animation: rainbow 12s linear infinite;
+    }`
+    document.body.appendChild(homePageStyle)
+  } else {
+    if (!homePageStyle) return
+
+    homePageStyle.remove()
+    homePageStyle = undefined
+  }
+}
+
+```
+
+最后在 `index.css` 中引入生效，回到主页看效果
 
 ::: details 为什么我的没效果？
 
@@ -1756,6 +1796,466 @@ export default defineConfig({
 @import './vp-code-title.css';
 ```
 
+
+
+## 鼠标粒子效果
+
+安装依赖：
+
+
+::: code-group
+```sh [pnpm]
+pnpm add -D animejs @types/animejs
+```
+
+```sh [yarn]
+yarn add -D animejs @types/animejs
+```
+
+```sh [npm]
+npm i -D animejs @types/animejs
+```
+
+```sh [bun]
+bun add -D animejs @types/animejs
+```
+:::
+
+
+
+
+配置组件，在 `.vitepress/theme/components` 中新建对应的 Vue 文件，内容如下：
+
+::: code-group
+
+```vue [MouseClick.vue]
+<template>
+  <canvas
+    ref="canvas"
+    style="position: fixed; left: 0; top: 0; pointer-events: none; z-index: 999999"
+  ></canvas>
+</template>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+import anime from "animejs";
+const canvas = ref(null);
+
+onMounted(() => {
+  const canvasEl = canvas.value;
+  const ctx = canvasEl.getContext("2d");
+  let numberOfParticules = 20;
+  let pointerX = 0;
+  let pointerY = 0;
+  const tap =
+    "ontouchstart" in globalThis || navigator.msMaxTouchPoints
+      ? "touchstart"
+      : "mousedown";
+  const colors = ["#FF1461", "#18FF92", "#5A87FF", "#FBF38C"];
+
+  // 设置画布大小以适应窗口
+  function setCanvasSize() {
+    canvasEl.width = globalThis.innerWidth * 2;
+    canvasEl.height = globalThis.innerHeight * 2;
+    canvasEl.style.width = globalThis.innerWidth + "px";
+    canvasEl.style.height = globalThis.innerHeight + "px";
+    canvasEl.getContext("2d").scale(2, 2);
+  }
+
+  // 更新鼠标或触摸点的坐标
+  function updateCoords(e) {
+    pointerX = e.clientX || e.touches[0].clientX;
+    pointerY = e.clientY || e.touches[0].clientY;
+  }
+
+  // 设置粒子的运动方向
+  function setParticuleDirection(p) {
+    const angle = (anime.random(0, 360) * Math.PI) / 180;
+    const value = anime.random(20, 90);
+    const radius = [-1, 1][anime.random(0, 1)] * value;
+    return {
+      x: p.x + radius * Math.cos(angle),
+      y: p.y + radius * Math.sin(angle),
+    };
+  }
+
+  // 创建粒子对象
+  function createParticule(x, y) {
+    const p = {};
+    p.x = x;
+    p.y = y;
+    p.color = colors[anime.random(0, colors.length - 1)];
+    p.radius = anime.random(8, 16);
+    p.endPos = setParticuleDirection(p);
+    p.draw = function () {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+    };
+    return p;
+  }
+
+  // 创建圆形对象
+  function createCircle(x, y) {
+    const p = {};
+    p.x = x;
+    p.y = y;
+    p.color = "#FFF";
+    p.radius = 0.1;
+    p.alpha = 0.5;
+    p.lineWidth = 6;
+    p.draw = function () {
+      ctx.globalAlpha = p.alpha;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
+      ctx.lineWidth = p.lineWidth;
+      ctx.strokeStyle = p.color;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    };
+    return p;
+  }
+
+  // 渲染粒子
+  function renderParticule(anim) {
+    for (let i = 0; i < anim.animatables.length; i++) {
+      anim.animatables[i].target.draw();
+    }
+  }
+
+  // 动画粒子
+  function animateParticules(x, y) {
+    const circle = createCircle(x, y);
+    const particules = [];
+    for (let i = 0; i < numberOfParticules; i++) {
+      particules.push(createParticule(x, y));
+    }
+    anime
+      .timeline()
+      .add({
+        targets: particules,
+        x: function (p) {
+          return p.endPos.x;
+        },
+        y: function (p) {
+          return p.endPos.y;
+        },
+        radius: 0.1,
+        duration: anime.random(1200, 1800),
+        easing: "easeOutExpo",
+        update: renderParticule,
+      })
+      .add({
+        targets: circle,
+        radius: anime.random(80, 160),
+        lineWidth: 0,
+        alpha: {
+          value: 0,
+          easing: "linear",
+          duration: anime.random(600, 800),
+        },
+        duration: anime.random(1200, 1800),
+        easing: "easeOutExpo",
+        update: renderParticule,
+        offset: 0,
+      });
+  }
+
+  // 创建随机圆形动画
+  function createRandomCircleAnimation(x, y) {
+    const randomSize = anime.random(50, 90);
+    const randomColor = colors[anime.random(0, colors.length - 1)];
+
+    const circle = {
+      x: x,
+      y: y,
+      radius: 0,
+      color: randomColor,
+      alpha: 1,
+      draw: function () {
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      },
+    };
+
+    anime({
+      targets: circle,
+      radius: randomSize,
+      alpha: 0,
+      duration: 1000,
+      easing: "easeOutExpo",
+      update: function () {
+        circle.draw();
+      },
+    });
+  }
+
+  // 渲染动画
+  const render = anime({
+    duration: Infinity,
+    update: function () {
+      ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+    },
+  });
+
+  document.addEventListener(
+    tap,
+    function (e) {
+      render.play();
+      updateCoords(e);
+      animateParticules(pointerX, pointerY);
+      createRandomCircleAnimation(pointerX, pointerY); // 添加随机圆形动画
+    },
+    false
+  );
+
+  setCanvasSize();
+  globalThis.addEventListener("resize", setCanvasSize, false);
+});
+
+onUnmounted(() => {
+  globalThis.removeEventListener("resize", setCanvasSize);
+  document.removeEventListener(tap, handleTap);
+});
+</script>
+
+```
+
+```vue [MouseFollower.vue]
+<template>
+  <canvas
+    ref="canvas"
+    style="position: fixed; left: 0; top: 0; pointer-events: none; z-index: 999999"
+  ></canvas>
+</template>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+const canvas = ref(null);
+let ctx = null;
+let particles = [];
+let mouse = { x: globalThis ?.innerWidth / 2, y: globalThis ?.innerHeight / 2 };
+let targetMouse = { x: globalThis ?.innerWidth / 2, y: globalThis ?.innerHeight / 2 };
+let lastMouse = { x: globalThis ?.innerWidth / 2, y: globalThis ?.innerHeight / 2 };
+let animationFrameId = null;
+
+class Particle {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    // 随机角度
+    this.angle = Math.random() * Math.PI * 2;
+    // 更小的随机半径 (15-25)
+    this.radius = Math.random() * 40 + 25;
+    // 随机旋转速度
+    this.speed = (Math.random() * 2 + 2) * 0.01;
+    // 更小的粒子大小 (1-2)
+    this.size = Math.random() * 3 + 1;
+    // 随机颜色
+    this.hue = Math.random() * 360;
+    // 随机方向
+    this.clockwise = Math.random() > 0.5;
+    // 更小的随机偏移
+    this.offsetX = (Math.random() - 0.5) * 10;
+    this.offsetY = (Math.random() - 0.5) * 10;
+    // 生命周期
+    this.life = Math.random() * 0.5 + 0.5;
+    this.maxLife = this.life;
+    // 拖尾效果
+    this.trail = [];
+    this.trailLength = Math.floor(Math.random() * 3) + 2; // 2-4个拖尾点
+  }
+
+  update() {
+    // 更新角度
+    this.angle += this.speed * (this.clockwise ? 1 : -1);
+
+    // 计算目标位置
+    const targetX = mouse.x + Math.cos(this.angle) * this.radius + this.offsetX;
+    const targetY = mouse.y + Math.sin(this.angle) * this.radius + this.offsetY;
+
+    // 添加当前位置到拖尾数组
+    if (!this.x) {
+      this.x = targetX;
+      this.y = targetY;
+    }
+
+    // 计算实际移动（添加弹性移动）
+    const dx = targetX - this.x;
+    const dy = targetY - this.y;
+    this.x += dx * 0.15;
+    this.y += dy * 0.15;
+
+    // 更新拖尾
+    this.trail.unshift({ x: this.x, y: this.y });
+    if (this.trail.length > this.trailLength) {
+      this.trail.pop();
+    }
+
+    // 更新生命周期
+    this.life -= 0.002;
+    if (this.life <= 0) {
+      this.reset();
+    }
+  }
+
+  draw() {
+    if (!ctx) return;
+    const alpha = this.life / this.maxLife;
+
+    // 绘制拖尾
+    if (this.trail.length > 1) {
+      ctx.beginPath();
+      ctx.moveTo(this.trail[0].x, this.trail[0].y);
+
+      for (let i = 1; i < this.trail.length; i++) {
+        const point = this.trail[i];
+        ctx.lineTo(point.x, point.y);
+      }
+
+      ctx.strokeStyle = `hsla(${this.hue}, 70%, 60%, ${alpha * 0.5})`;
+      ctx.lineWidth = this.size;
+      ctx.lineCap = "round";
+      ctx.stroke();
+    }
+
+    // 绘制主粒子
+    ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${alpha})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// 平滑跟随鼠标
+function updateMousePosition() {
+  const dx = targetMouse.x - mouse.x;
+  const dy = targetMouse.y - mouse.y;
+
+  // 计算鼠标移动速度
+  const mouseSpeed = Math.sqrt(
+    Math.pow(targetMouse.x - lastMouse.x, 2) + Math.pow(targetMouse.y - lastMouse.y, 2)
+  );
+
+  // 根据鼠标速度调整跟随速度
+  const followSpeed = Math.min(0.15, 0.15 / (1 + mouseSpeed * 0.005));
+
+  mouse.x += dx * followSpeed;
+  mouse.y += dy * followSpeed;
+
+  lastMouse.x = mouse.x;
+  lastMouse.y = mouse.y;
+}
+
+function handleMouseMove(e) {
+  const rect = canvas.value.getBoundingClientRect();
+  targetMouse.x = e.clientX - rect.left;
+  targetMouse.y = e.clientY - rect.top;
+}
+
+function animate() {
+  if (!ctx || !canvas.value) return;
+  ctx.clearRect(0, 0, canvas.value.width, canvas.value.height);
+
+  updateMousePosition();
+
+  // 随机添加新粒子
+  if (particles.length < 25 && Math.random() < 0.1) {
+    particles.push(new Particle());
+  }
+
+  // 更新和绘制所有粒子
+  particles.forEach((particle) => {
+    particle.update();
+    particle.draw();
+  });
+
+  animationFrameId = requestAnimationFrame(animate);
+}
+
+function handleResize() {
+  if (!canvas.value) return;
+  canvas.value.width = globalThis .innerWidth;
+  canvas.value.height = globalThis .innerHeight;
+}
+
+function initParticles() {
+  particles = [];
+  // 初始创建12-15个粒子
+  const initialCount = Math.floor(Math.random() * 4) + 12;
+  for (let i = 0; i < initialCount; i++) {
+    particles.push(new Particle());
+  }
+}
+
+onMounted(() => {
+  if (typeof globalThis  !== "undefined") {
+    ctx = canvas.value.getContext("2d");
+    handleResize();
+    initParticles();
+
+    globalThis .addEventListener("resize", handleResize);
+    globalThis .addEventListener("mousemove", handleMouseMove);
+
+    animate();
+  }
+});
+
+onUnmounted(() => {
+  if (typeof globalThis  !== "undefined") {
+    globalThis .removeEventListener("resize", handleResize);
+    globalThis .removeEventListener("mousemove", handleMouseMove);
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+    }
+  }
+});
+</script>
+
+<style scoped>
+canvas {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999999;
+}
+</style>
+```
+
+:::
+
+启用组件，`.vitepress/theme/components/MyLayout.vue` 中启用上述的组件，内容如下：
+
+```vue
+<template>
+  <DefaultTheme.Layout>
+   ...
+    <template #layout-top>
+      <MouseFollower />
+      <MouseClick />
+    </template>
+    ...
+  </DefaultTheme.Layout>
+</template>
+<script lang="ts" setup>
+...
+import MouseClick from "./MouseClick.vue";
+import MouseFollower from "./MouseFollower.vue";
+...
+</script>
+```
+
+显示效果，如下所示：
+
+![](/mouse/mouse.gif)
 
 
 
