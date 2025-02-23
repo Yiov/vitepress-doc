@@ -1005,7 +1005,24 @@ export default defineConfig({
 
 
 
-在 markdown 中输入：
+输入：
+
+````
+```mermaid
+flowchart LR
+  Start --> Stop
+```
+````
+
+输出：
+
+```mermaid
+flowchart LR
+  Start --> Stop
+```
+
+
+输入：
 
 ````md
 ```mermaid
@@ -1066,9 +1083,7 @@ graph LR
 
 ```
 
-
-
-
+更多使用方式，请查看 [VitePress Plugin Mermaid官网](https://emersonbottero.github.io/vitepress-plugin-mermaid/guide/more-examples.html)
 
 
 ## 评论
