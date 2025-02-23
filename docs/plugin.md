@@ -945,18 +945,45 @@ export default defineConfig({ // [!code --:3]
 
 })
 
-export default withMermaid( // [!code ++:5]
+export default withMermaid( // [!code ++:13]
   defineConfig({
+
+    mermaid: {
+      // refer https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults for options
+    },
+    // optionally set additional config for plugin itself with MermaidPluginConfig
+    mermaidPlugin: {
+      class: "mermaid my-class", // set additional css classes for parent container 
+    },
 
   })
 )
 
 ```
 
-:::: details ❗ 报错了页面也打不开了
-可能是插件的问题，也可能是vitepress的问题，你可以这样配置
+如果报错了页面打不开，你还需要安装如下几个依赖
 
-先安装mermaid
+::: code-group
+```sh [pnpm]
+pnpm add -D @braintree/sanitize-url cytoscape cytoscape-cose-bilkent dayjs debug
+```
+
+```sh [yarn]
+yarn add -D @braintree/sanitize-url cytoscape cytoscape-cose-bilkent dayjs debug
+```
+
+```sh [npm]
+npm i -D @braintree/sanitize-url cytoscape cytoscape-cose-bilkent dayjs debug
+```
+
+```sh [bun]
+bun add -D @braintree/sanitize-url cytoscape cytoscape-cose-bilkent dayjs debug
+```
+:::
+
+
+:::: details 不想安装这么多依赖？你可以这样配置
+仅安装mermaid
 
 ::: code-group
 ```sh [pnpm]
