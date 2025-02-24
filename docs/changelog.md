@@ -27,7 +27,7 @@ next: false
 
 - 新增 [流程图插件vitepress-plugin-mermaid](./plugin.md#mermaid) ([pull#47](https://github.com/Yiov/vitepress-doc/pull/47))
 
-- 新增 [鼠标例子效果插件](./components.md#鼠标粒子效果) ([pull#48](https://github.com/Yiov/vitepress-doc/pull/48))
+- 新增 [鼠标粒子效果插件](./components.md#鼠标粒子效果) ([pull#48](https://github.com/Yiov/vitepress-doc/pull/48))
 
 - 关掉首页 [彩虹背景动画](./style.md#彩虹背景动画)，被卡哭了
 
