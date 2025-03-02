@@ -5,7 +5,7 @@ import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 
-export default (defineConfig({
+export default defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
   description: "我的vitpress文档教程",
@@ -45,6 +45,9 @@ export default (defineConfig({
   markdown: {
     //行号显示
     lineNumbers: true,
+
+    // toc显示一级标题
+    toc: {level: [1,3]},
 
     // 使用 `!!code` 防止转换
     codeTransformers: [
@@ -331,4 +334,3 @@ export default (defineConfig({
 
 
 })
-)

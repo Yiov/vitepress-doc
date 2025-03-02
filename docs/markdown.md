@@ -302,6 +302,19 @@ Emoji大全：https://www.emojiall.com/zh-hans/
 [[toc]]
 :::
 
+默认显示2-3级标题，如果想显示一级标题
+
+在查阅 [mdit-vue/plugin-toc#level](https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-toc#level) 后，只需要在 `config.ts` 中配置
+
+```ts{4-5}
+export default defineConfig({
+  //markdown配置
+  markdown: {
+    // toc显示一级标题
+    toc: {level: [1,3]},
+  }
+})
+```
 
 
 ### 折叠语法
