@@ -38,9 +38,9 @@ features:
 
 比如：语言 / 标题 / 自定义标题 / 站点描述
 
-```yaml
----
-lang: zh-CN // [!code focus:4]
+```yaml{2-5}
+--- 
+lang: zh-CN
 title: VitePress
 titleTemplate: Vite 和 Vue 强力驱动的静态网站生成器
 description: 简单、强大、快速。满足你一直想要的现代SSG框架
@@ -54,9 +54,9 @@ description: 简单、强大、快速。满足你一直想要的现代SSG框架
 
 指定要为当前页面注入的额外头标签。将附加在站点级配置注入的头标签之后
 
-```yaml
+```yaml{2-8}
 ---
-head: // [!code focus:7]
+head:
   - - meta
     - name: description
       content: hello
@@ -76,9 +76,9 @@ head: // [!code focus:7]
 
 * `page` 是无样式的文档，自定义页面
 
-```yaml
+```yaml{2}
 ---
-layout: home // [!code focus]
+layout: home
 ---
 ```
 
@@ -96,9 +96,9 @@ layout: home // [!code focus]
 :::
 
 
-```yaml
+```yaml{2-15}
 ---
-hero: // [!code focus:14]
+hero:
   name: VitePress
   text: "快速上手中文教程"
   tagline: 如果你也想搭建它，那跟我一起做吧
@@ -134,7 +134,7 @@ hero: // [!code focus:14]
 
 ```yaml {11}
 ---
-features: // [!code focus:15]
+features:
   - icon: 📝
     title: 专注于您的内容
     details: 只需使用 Markdown 即可轻松创建精美的文档网站
@@ -166,7 +166,7 @@ features:
       light: /logo-light.png
     title: 享受Vite DX
     details: Instant server start, lightning fast hot updates, and leverage Vite ecosystem plugins.
-    link: https://vitejs.cn/ // [!code focus:2]
+    link: https://vitejs.cn/
     linkText: Vite
   - icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path fill="#41b883" d="M24.4 3.925H30l-14 24.15L2 3.925h10.71l3.29 5.6 3.22-5.6Z"/><path fill="#41b883" d="m2 3.925 14 24.15 14-24.15h-5.6L16 18.415 7.53 3.925Z"/><path fill="#35495e" d="M7.53 3.925 16 18.485l8.4-14.56h-5.18L16 9.525l-3.29-5.6Z"/></svg>
     title: 使用 Vue 进行定制
@@ -182,9 +182,9 @@ features:
 
 默认 `true` 开启，可以选择关闭，仅在当前文档不显示
 
-```yaml
+```yaml{2}
 ---
-navbar: false // [!code focus]
+navbar: false
 ---
 ```
 
@@ -194,9 +194,9 @@ navbar: false // [!code focus]
 
 默认 `true` 开启，可以选择关闭，仅在当前文档不显示
 
-```yaml
+```yaml{2}
 ---
-sidebar: false // [!code focus]
+sidebar: false
 ---
 ```
 
@@ -207,15 +207,15 @@ sidebar: false // [!code focus]
 
 ::: code-group
 
-```yaml [大纲在左侧]
+```yaml{2} [大纲在左侧]
 ---
-aside: left // [!code focus]
+aside: left
 ---
 ```
 
-```yaml  [关闭大纲显示]
+```yaml{2} [关闭大纲显示]
 ---
-aside: false // [!code focus]
+aside: false
 ---
 ```
 :::
@@ -230,15 +230,15 @@ aside: false // [!code focus]
 
 ::: code-group
 
-```yaml [显示2级、3级标题]
+```yaml{2} [显示2级、3级标题]
 ---
-outline: [2,3] // [!code focus]
+outline: [2,3]
 ---
 ```
 
-```yaml  [关闭标题显示]
+```yaml{2} [关闭标题显示]
 ---
-outline: false // [!code focus]
+outline: false
 ---
 ```
 :::
@@ -249,9 +249,9 @@ outline: false // [!code focus]
 默认开启，不想显示可以关闭，仅在当前文档不显示
 
 
-```yaml
+```yaml{2}
 ---
-lastUpdated: false // [!code focus]
+lastUpdated: false
 ---
 ```
 
@@ -262,9 +262,9 @@ lastUpdated: false // [!code focus]
 默认开启，不想显示可以关闭，仅在当前文档不显示
 
 
-```yaml
+```yaml{2}
 ---
-editLink: false // [!code focus]
+editLink: false
 ---
 ```
 
@@ -281,17 +281,17 @@ editLink: false // [!code focus]
 
 ::: code-group 
 
-```yaml [更改文字显示]
+```yaml{2-3} [更改文字显示]
 ---
-prev: '页面 | 更详细的页面配置' // [!code focus:2]
+prev: '页面 | 更详细的页面配置'
 next: 'Markdown | 更详细的markdown'
 ---
 ```
 
 
-```yaml [更改文字显示并指定跳转页]
+```yaml{2-7} [更改文字显示并指定跳转页]
 ---
-prev: // [!code focus:6]
+prev:
   text: '页面'
   link: '/page'
 next:
@@ -301,9 +301,9 @@ next:
 ```
 
 
-```yaml [关闭上/下页显示]
+```yaml{2-3} [关闭上/下页显示]
 ---
-prev: false // [!code focus:2]
+prev: false
 next: false
 ---
 ```
@@ -315,9 +315,9 @@ next: false
 
 不想显示可以选择关闭，仅在当前文档不显示
 
-```yaml
+```yaml{2}
 ---
-footer: false // [!code focus]
+footer: false
 ---
 ```
 
@@ -326,9 +326,9 @@ footer: false // [!code focus]
 
 在特定页面添加额外的类名
 
-```yaml
+```yaml{2}
 ---
-pageClass: custom-page-class // [!code focus]
+pageClass: custom-page-class
 ---
 ```
 
