@@ -262,7 +262,7 @@ F:\vitepress>pnpm run docs:dev
 > vitepress dev docs
 
 
-  vitepress v1.4.3
+  vitepress v1.6.3
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
@@ -292,7 +292,7 @@ F:\vitepress>pnpm run docs:dev
 
 ```json{2}
   "scripts": {
-    "docs:preview": "vitepress preview docs --port 8080" // [!code focus]
+    "docs:dev": "vitepress preview docs --port 8080" // [!code focus]
   }
 ```
 ::::
