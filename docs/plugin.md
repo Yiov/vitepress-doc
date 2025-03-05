@@ -1208,7 +1208,24 @@ Giscus 是一个基于 GitHub Discussion 的评论系统，启用简便
 
 ![](/giscus/giscus-04.png)
 
-下拉到 Discussion 分类我们按推荐的选 `Announcements` ，懒加载评论也可以勾选下
+下拉到 Discussion 分类推荐选 `General` ，懒加载评论也可以勾选下
+
+::: details 关于讨论的类型
+查看了一下 [Github的讨论文档](https://docs.github.com/zh/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#about-categories-for-discussions)
+
+* Announcements：公告，每次评论都会推送所有人！
+
+* Geeral：常规，开放式讨论
+
+* Ideas：想法，开放式讨论
+
+* Polls：投票
+
+* Q&A：问答
+
+* Show and tell：展示和说明，开放式讨论
+
+:::
 
 ![](/giscus/giscus-05.png)
 
@@ -1224,7 +1241,7 @@ Giscus 是一个基于 GitHub Discussion 的评论系统，启用简便
 <script src="https://giscus.app/client.js"
         data-repo="github repository" // [!code focus:4]
         data-repo-id="R_******"
-        data-category="Announcements"
+        data-category="General"
         data-category-id="DIC_******"
         data-mapping="pathname"
         data-strict="0"
