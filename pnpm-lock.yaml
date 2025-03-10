@@ -12,8 +12,8 @@ devDependencies:
     specifier: ^3.1.13
     version: 3.1.13
   '@types/dom-view-transitions':
-    specifier: ^1.0.5
-    version: 1.0.5
+    specifier: ^1.0.6
+    version: 1.0.6
   animejs:
     specifier: ^3.2.2
     version: 3.2.2
@@ -39,11 +39,11 @@ devDependencies:
     specifier: ^1.1.10
     version: 1.1.10
   sass:
-    specifier: ^1.85.0
-    version: 1.85.0
+    specifier: ^1.85.1
+    version: 1.85.1
   vitepress:
     specifier: ^1.6.3
-    version: 1.6.3(@algolia/client-search@5.20.1)(less@4.2.2)(sass@1.85.0)(search-insights@2.17.0)
+    version: 1.6.3(@algolia/client-search@5.20.1)(less@4.2.2)(sass@1.85.1)(search-insights@2.17.0)
   vitepress-plugin-comment-with-giscus:
     specifier: ^1.1.15
     version: 1.1.15(vue@3.5.13)
@@ -57,8 +57,8 @@ devDependencies:
     specifier: ^3.5.13
     version: 3.5.13
   xgplayer:
-    specifier: ^3.0.20
-    version: 3.0.20(core-js@3.38.1)
+    specifier: ^3.0.21
+    version: 3.0.21(core-js@3.38.1)
 
 packages:
 
@@ -1153,8 +1153,8 @@ packages:
       '@types/d3-zoom': 3.0.8
     dev: true
 
-  /@types/dom-view-transitions@1.0.5:
-    resolution: {integrity: sha512-N2sILR7fxSMnaFaAPwGj4DtHCXjIyQTHt+xJyf9jATpzUsTkMNM0DWtqZB6W7f501B/Y0tq3uqat/VlbjuTpMA==}
+  /@types/dom-view-transitions@1.0.6:
+    resolution: {integrity: sha512-Q5IoDouTOcZKEs4nDpmUti2MXP48MQDBkS2nUQKFrsDeTFIaArVmhWUon28vlDfNkbbaK4EROu4Fv0iKObWjSg==}
     dev: true
 
   /@types/estree@1.0.5:
@@ -1215,7 +1215,7 @@ packages:
       vite: ^5.0.0 || ^6.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.4.14(less@4.2.2)(sass@1.85.0)
+      vite: 5.4.14(less@4.2.2)(sass@1.85.1)
       vue: 3.5.13
     dev: true
 
@@ -2638,8 +2638,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /sass@1.85.0:
-    resolution: {integrity: sha512-3ToiC1xZ1Y8aU7+CkgCI/tqyuPXEmYGJXO7H4uqp0xkLXUqp88rQQ4j1HmP37xSJLbCJPaIiv+cT1y+grssrww==}
+  /sass@1.85.1:
+    resolution: {integrity: sha512-Uk8WpxM5v+0cMR0XjX9KfRIacmSG86RH4DCCZjLU2rFh5tyutt9siAXJ7G+YfxQ99Q6wrRMbMlVl6KqUms71ag==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -2818,7 +2818,7 @@ packages:
       vfile-message: 4.0.2
     dev: true
 
-  /vite@5.4.14(less@4.2.2)(sass@1.85.0):
+  /vite@5.4.14(less@4.2.2)(sass@1.85.1):
     resolution: {integrity: sha512-EK5cY7Q1D8JNhSaPKVK4pwBFvaTmZxEnoKXLG/U9gmdDcihQGNzFlgIvaxezFR4glP1LsuiedwMBqCXH3wZccA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -2853,7 +2853,7 @@ packages:
       less: 4.2.2
       postcss: 8.4.49
       rollup: 4.21.2
-      sass: 1.85.0
+      sass: 1.85.1
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
@@ -2883,12 +2883,12 @@ packages:
       vitepress: ^1.0.0 || ^1.0.0-alpha
     dependencies:
       mermaid: 11.4.1
-      vitepress: 1.6.3(@algolia/client-search@5.20.1)(less@4.2.2)(sass@1.85.0)(search-insights@2.17.0)
+      vitepress: 1.6.3(@algolia/client-search@5.20.1)(less@4.2.2)(sass@1.85.1)(search-insights@2.17.0)
     optionalDependencies:
       '@mermaid-js/mermaid-mindmap': 9.3.0
     dev: true
 
-  /vitepress@1.6.3(@algolia/client-search@5.20.1)(less@4.2.2)(sass@1.85.0)(search-insights@2.17.0):
+  /vitepress@1.6.3(@algolia/client-search@5.20.1)(less@4.2.2)(sass@1.85.1)(search-insights@2.17.0):
     resolution: {integrity: sha512-fCkfdOk8yRZT8GD9BFqusW3+GggWYZ/rYncOfmgcDtP3ualNHCAg+Robxp2/6xfH1WwPHtGpPwv7mbA3qomtBw==}
     hasBin: true
     peerDependencies:
@@ -2916,7 +2916,7 @@ packages:
       mark.js: 8.11.1
       minisearch: 7.1.1
       shiki: 2.3.2
-      vite: 5.4.14(less@4.2.2)(sass@1.85.0)
+      vite: 5.4.14(less@4.2.2)(sass@1.85.1)
       vue: 3.5.13
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -2992,8 +2992,8 @@ packages:
       '@vue/shared': 3.5.13
     dev: true
 
-  /xgplayer-subtitles@3.0.20(core-js@3.38.1):
-    resolution: {integrity: sha512-I1bjsIY+aKOrhYQspLdneOkYg+Vf4cJVGPnDSFnNebnxXl9Mhz5SEpWGzYizMYxL9UvsQ9pgjeEY0o4hkwM+kQ==}
+  /xgplayer-subtitles@3.0.21(core-js@3.38.1):
+    resolution: {integrity: sha512-Z3EVdFe31c0JUYwuG/C6+T2NKfiGqzzcd0na7FZ9Kx6nIDznGPtLeG6EZOaZXnfW8V35b/WhfsdKSBXYzBOOqw==}
     peerDependencies:
       core-js: '>=3.12.1'
     dependencies:
@@ -3001,8 +3001,8 @@ packages:
       eventemitter3: 4.0.7
     dev: true
 
-  /xgplayer@3.0.20(core-js@3.38.1):
-    resolution: {integrity: sha512-UNKZJRyODOZGdka83ao8fI18xdhzOV8qG4aNEOOkuOQbXFXfXsJMr/dazRHFP+uXmTqiCXr568euee3ch7CS7g==}
+  /xgplayer@3.0.21(core-js@3.38.1):
+    resolution: {integrity: sha512-v4O+qzok994AZ2EeU1yFjWhGa6p6V8mdPpWHmfCL7AE3Bqo+MRsYEhWYIhj3FXPK8aUYO6VWyTFc1MThpLYZJA==}
     peerDependencies:
       core-js: '>=3.12.1'
     dependencies:
@@ -3011,7 +3011,7 @@ packages:
       delegate: 3.2.0
       downloadjs: 1.4.7
       eventemitter3: 4.0.7
-      xgplayer-subtitles: 3.0.20(core-js@3.38.1)
+      xgplayer-subtitles: 3.0.21(core-js@3.38.1)
     dev: true
 
   /zwitch@2.0.4:
