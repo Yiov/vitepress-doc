@@ -310,8 +310,8 @@ Emoji大全：https://www.emojiall.com/zh-hans/
 export default defineConfig({
   //markdown配置
   markdown: {
-    // toc显示一级标题
-    toc: {level: [1,3]},
+    // toc显示1-6级标题
+    toc: {level: [1,2,3,4,5,6]},
   }
 })
 ```

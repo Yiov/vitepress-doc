@@ -47,7 +47,7 @@ export default defineConfig({
     lineNumbers: true,
 
     // toc显示一级标题
-    toc: {level: [1,3]},
+    toc: {level: [1,2,3]},
 
     // 使用 `!!code` 防止转换
     codeTransformers: [
