@@ -292,7 +292,7 @@ F:\vitepress>pnpm run docs:dev
 
 ```json{2}
   "scripts": {
-    "docs:dev": "vitepress preview docs --port 8080" // [!code focus]
+    "docs:dev": "vitepress dev docs --port 8080" // [!code focus]
   }
 ```
 ::::
