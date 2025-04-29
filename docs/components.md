@@ -745,22 +745,25 @@ export default {
 
 安装依赖：
 
+::: warning 注意
+请使用3.2.2版本，最新版不兼容，请勿升级
+:::
 
 ::: code-group
 ```sh [pnpm]
-pnpm add -D animejs @types/animejs
+pnpm add -D animejs@3.2.2 @types/animejs
 ```
 
 ```sh [yarn]
-yarn add -D animejs @types/animejs
+yarn add -D animejs@3.2.2 @types/animejs
 ```
 
 ```sh [npm]
-npm i -D animejs @types/animejs
+npm i -D animejs@3.2.2 @types/animejs
 ```
 
 ```sh [bun]
-bun add -D animejs @types/animejs
+bun add -D animejs@3.2.2 @types/animejs
 ```
 :::
 
