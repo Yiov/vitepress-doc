@@ -22,6 +22,7 @@
 然后在 `theme` 目录下新建 `index.ts` 并填入如下代码
 
 ```ts
+/* .vitepress/theme/index.ts */
 import DefaultTheme from 'vitepress/theme'
 
 export default {
@@ -53,12 +54,12 @@ export default {
 
 ::: code-group
 
-```css
+```css [index.css]
 /* index.css */
 @import './var.css';
 ```
 
-```css
+```css [var.css]
 /* var.css */
 :root {
   --vp-c-brand-1: #18794e;
@@ -725,7 +726,6 @@ function updateHomePageStyle(value: boolean) {
 
 复制下面代码，粘贴到 `blockquote.css` 中
 
-::: code-group
 
 ```css
 /* .vitepress/theme/style/blockquote.css */
@@ -738,7 +738,7 @@ function updateHomePageStyle(value: boolean) {
 }
 ```
 
-:::
+
 
 然后在 `index.css` 中引入生效
 
@@ -782,7 +782,6 @@ function updateHomePageStyle(value: boolean) {
 
 复制下面代码，粘贴到 `custom-block.css` 中
 
-::: code-group
 
 ```css
 /* .vitepress/theme/style/custom-block.css */
@@ -980,7 +979,7 @@ function updateHomePageStyle(value: boolean) {
 }
 ```
 
-:::
+
 
 看看效果，如果想更花里胡哨的， [流体边框类似跑马灯的效果](./style-fluidborder.md)
 
@@ -1023,7 +1022,6 @@ function updateHomePageStyle(value: boolean) {
 
 复制下面代码，粘贴到 `blur.css` 中，可以自行增减
 
-::: code-group
 
 ```css
 /* .vitepress\theme\style\blur.css */
@@ -1072,7 +1070,7 @@ function updateHomePageStyle(value: boolean) {
 }
 ```
 
-:::
+
 
 最后引入 `index.css` 中 即可看到效果
 
@@ -1104,7 +1102,7 @@ function updateHomePageStyle(value: boolean) {
 
 复制下面代码，粘贴到 `hidden.css` 中，可以自行增减
 
-::: code-group
+
 
 ```css
 /* .vitepress\theme\style\hidden.css */
@@ -1151,7 +1149,7 @@ function updateHomePageStyle(value: boolean) {
 }
 ```
 
-:::
+
 
 最后引入 `index.css` 中 即可看到效果
 
@@ -1192,7 +1190,6 @@ function updateHomePageStyle(value: boolean) {
 [iconfont](https://www.iconfont.cn/)、[xicons](https://www.xicons.org/#/zh-CN)、[iconpark](https://iconpark.oceanengine.com/official)
 :::
 
-::: code-group
 
 ```css{6,19}
 /* .vitepress/theme/style/link.css */
@@ -1225,7 +1222,7 @@ function updateHomePageStyle(value: boolean) {
 }
 ```
 
-:::
+
 
 然后在 `index.css` 中引入生效
 
@@ -1271,7 +1268,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 将下面代码，复制粘贴到 `marker.css` 中
 
-```css
+```css [marker.css]
 /* .vitepress/theme/style/marker.css */
 
 /* 记号笔 不喜欢可自行调整 */
@@ -1299,7 +1296,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 输出：
 
-`<sapn class="marker-text">`这里是重重点`</sapn>`
+<sapn class="marker-text">这里是重重点</sapn>
 
 还可以实现类似荧光笔的效果
 
@@ -1323,7 +1320,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 输出：
 
-`<sapn class="marker-text-highlight">`这里是荧光笔`</sapn>`
+<sapn class="marker-text-highlight">这里是荧光笔</sapn>
 
 但是这些都不是我心仪的，最后在 [尤大的个人主页](https://evanyou.me/) 还有个 `hover`，真不错
 
@@ -1363,7 +1360,7 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 输出：
 
-`<sapn class="marker-evy">`这里是尤雨溪的主页样式，鼠标放在我上面看效果`</sapn>`
+<sapn class="marker-evy">这里是尤雨溪的主页样式，鼠标放在我上面看效果</sapn>
 
 ---
 
@@ -1392,7 +1389,6 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供，本人在此基础上进行一些修改
 :::
 
-::: code-group
 
 ```css
 /* .vitepress/theme/style/vp-code.css */
@@ -1439,7 +1435,6 @@ B站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 }
 ```
 
-:::
 
 然后在 `index.css` 中引入生效
 
@@ -1501,7 +1496,6 @@ pnpm -v
 本次代码感谢 [@Aurorxa](https://github.com/Aurorxa) 提供，本人在此基础上进行一些修改
 :::
 
-::: code-group
 
 ```css
 /* .vitepress/theme/style/vp-code-group.css */
@@ -1571,7 +1565,7 @@ pnpm -v
 
 ```
 
-:::
+
 
 然后在 `index.css` 中引入生效
 
@@ -1602,12 +1596,12 @@ yarn -v
 
 ::: code-group
 
-```sh
+```sh [pnpm]
 #查询pnpm版本
 pnpm -v
 ```
 
-```sh
+```sh [yarn]
 #查询yarn版本
 yarn -v
 ```
