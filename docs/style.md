@@ -1614,44 +1614,19 @@ yarn -v
 
 有的时候，我们需要在代码组中添加图片，来展示代码的运行结果
 
-输入：
 
-````md
-```shell [pnpm]
-::: code-group
+在配置文件中 `config.mts` 中添加配置
 
-```shell [pnpm]
-npm i pnpm -g
-```
+```ts {7-56}
+export default defineConfig({
+  //markdown配置
+  markdown: {
 
-```md:img [cmd 控制台]
-![](./assets/18.gif)
-```
+    config: (md) => {
 
-:::
-````
-
-输出：
-
-::: code-group
-
-```shell [pnpm]
-npm i pnpm -g
-```
-
-```md:img [cmd 控制台]
-![](/lol.png)
-```
-:::
-
-修改步骤：
-
-① 在配置文件中 config.mts 中添加配置
-
-```ts
-     config: (md) => {
-      md.use((md) => { 
-        const defaultRender = md.render // [!code highlight:50]
+      // 代码组中添加图片
+      md.use((md) => {
+        const defaultRender = md.render
         md.render = (...args) => {
           const [content, env] = args
           const currentLang = env?.localeIndex || 'root'
@@ -1699,30 +1674,18 @@ npm i pnpm -g
           return defaultFence(tokens, idx, options, env, self);
         };
       })
-      md.use(groupIconMdPlugin) //代码组图标
-      md.use(markdownItTaskCheckbox) //todo
-      md.use(MermaidMarkdown); 
 
     }
+  },
+})
 ```
-② 在 `theme/style/index.css` 中引入样式
 
-```css
-@import './var.css';
-@import './link.css';
-@import './linkcard.css';
-@import './vp-code.css';
-@import './vp-code-title.css';
-@import './vp-code-group.css';
-@import './blockquote.css';
-@import './blur.css';
-@import './custom-block.css';
-@import './marker.css';
-@import './rainbow.css';
-@import './hidden.css';
-@import './task-list.css';
 
- /* 以下是添加的样式 */
+然后我们修改一下样式，在 `theme/style/var.css` 中写入
+
+```css [var.css]
+/* .vitepress/theme/style/var.css */
+
 .rendered-md img { 
     max-width: 100%;
     border-radius: 6px;
@@ -1739,6 +1702,35 @@ npm i pnpm -g
 }
 
 ```
+
+
+输入：
+
+````md
+::: code-group
+
+```shell [pnpm]
+npm i pnpm -g
+```
+
+```md:img [cmd 控制台]
+![](/lol.png)
+```
+:::
+````
+
+输出：
+
+::: code-group
+
+```shell [pnpm]
+npm i pnpm -g
+```
+
+```md:img [cmd 控制台]
+![](/lol.png)
+```
+:::
 
 
 

@@ -63,13 +63,15 @@ export default defineConfig({
       lazyLoading: true
     },
 
-    // 组件插入h1标题下
     config: (md) => {
-      // md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
-      //   let htmlResult = slf.renderToken(tokens, idx, options)
-      //   if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`
-      //   return htmlResult
-      // },
+      // 组件插入h1标题下
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+        let htmlResult = slf.renderToken(tokens, idx, options)
+        if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`
+        return htmlResult
+      },
+
+      // 代码组中添加图片
       md.use((md) => {
         const defaultRender = md.render
         md.render = (...args) => {
@@ -119,6 +121,7 @@ export default defineConfig({
           return defaultFence(tokens, idx, options, env, self);
         };
       })
+      
       md.use(groupIconMdPlugin) //代码组图标
       md.use(markdownItTaskCheckbox) //todo
       md.use(MermaidMarkdown); 
