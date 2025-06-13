@@ -1610,6 +1610,138 @@ yarn -v
 
 ---
 
+### 代码组中添加图片
+
+有的时候，我们需要在代码组中添加图片，来展示代码的运行结果
+
+输入：
+
+````md
+```shell [pnpm]
+::: code-group
+
+```shell [pnpm]
+npm i pnpm -g
+```
+
+```md:img [cmd 控制台]
+![](./assets/18.gif)
+```
+
+:::
+````
+
+输出：
+
+::: code-group
+
+```shell [pnpm]
+npm i pnpm -g
+```
+
+```md:img [cmd 控制台]
+![](/lol.png)
+```
+:::
+
+修改步骤：
+
+① 在配置文件中 config.mts 中添加配置
+
+```ts
+     config: (md) => {
+      md.use((md) => { 
+        const defaultRender = md.render // [!code highlight:50]
+        md.render = (...args) => {
+          const [content, env] = args
+          const currentLang = env?.localeIndex || 'root'
+          const isHomePage = env?.path === '/' || env?.relativePath === 'index.md'  // 判断是否是首页
+
+          if (isHomePage) {
+            return defaultRender.apply(md, args) // 如果是首页，直接渲染内容
+          }
+          // 调用原始渲染
+          let defaultContent = defaultRender.apply(md, args)
+          // 替换内容
+          if (currentLang === 'root') {
+            defaultContent = defaultContent.replace(/NOTE/g, '提醒')
+              .replace(/TIP/g, '建议')
+              .replace(/IMPORTANT/g, '重要')
+              .replace(/WARNING/g, '警告')
+              .replace(/CAUTION/g, '注意')
+          } else if (currentLang === 'ko') {
+            // 韩文替换
+            defaultContent = defaultContent.replace(/NOTE/g, '알림')
+              .replace(/TIP/g, '팁')
+              .replace(/IMPORTANT/g, '중요')
+              .replace(/WARNING/g, '경고')
+              .replace(/CAUTION/g, '주의')
+          }
+          // 返回渲染的内容
+          return defaultContent
+        }
+
+        // 获取原始的 fence 渲染规则
+        const defaultFence = md.renderer.rules.fence?.bind(md.renderer.rules) ?? ((...args) => args[0][args[1]].content);
+
+        // 重写 fence 渲染规则
+        md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+          const token = tokens[idx];
+          const info = token.info.trim();
+
+          // 判断是否为 md:img 类型的代码块
+          if (info.includes('md:img')) {
+            // 只渲染图片，不再渲染为代码块
+            return `<div class="rendered-md">${md.render(token.content)}</div>`;
+          }
+
+          // 其他代码块按默认规则渲染（如 java, js 等）
+          return defaultFence(tokens, idx, options, env, self);
+        };
+      })
+      md.use(groupIconMdPlugin) //代码组图标
+      md.use(markdownItTaskCheckbox) //todo
+      md.use(MermaidMarkdown); 
+
+    }
+```
+② 在 `theme/style/index.css` 中引入样式
+
+```css
+@import './var.css';
+@import './link.css';
+@import './linkcard.css';
+@import './vp-code.css';
+@import './vp-code-title.css';
+@import './vp-code-group.css';
+@import './blockquote.css';
+@import './blur.css';
+@import './custom-block.css';
+@import './marker.css';
+@import './rainbow.css';
+@import './hidden.css';
+@import './task-list.css';
+
+ /* 以下是添加的样式 */
+.rendered-md img { 
+    max-width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.rendered-md {
+    display: none;  /* 默认隐藏 */
+}
+
+.rendered-md.active {
+    display: block; /* 只有在 active 状态下才显示 */
+    max-width: 100%;
+}
+
+```
+
+
+
 ### 代码精简
 
 当我们的内容多了，在 `config.mts` 中配置导航和侧边栏，翻就要半天了

@@ -11,3 +11,19 @@
 @import './rainbow.css';
 @import './hidden.css';
 @import './task-list.css';
+
+
+.rendered-md img {
+    max-width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.rendered-md {
+    display: none;  /* 默认隐藏 */
+}
+
+.rendered-md.active {
+    display: block; /* 只有在 active 状态下才显示 */
+    max-width: 100%;
+}

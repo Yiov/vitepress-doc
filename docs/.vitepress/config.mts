@@ -65,12 +65,60 @@ export default defineConfig({
 
     // 组件插入h1标题下
     config: (md) => {
-      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
-        let htmlResult = slf.renderToken(tokens, idx, options)
-        if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`
-        return htmlResult
-      },
+      // md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+      //   let htmlResult = slf.renderToken(tokens, idx, options)
+      //   if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`
+      //   return htmlResult
+      // },
+      md.use((md) => {
+        const defaultRender = md.render
+        md.render = (...args) => {
+          const [content, env] = args
+          const currentLang = env?.localeIndex || 'root'
+          const isHomePage = env?.path === '/' || env?.relativePath === 'index.md'  // 判断是否是首页
 
+          if (isHomePage) {
+            return defaultRender.apply(md, args) // 如果是首页，直接渲染内容
+          }
+          // 调用原始渲染
+          let defaultContent = defaultRender.apply(md, args)
+          // 替换内容
+          if (currentLang === 'root') {
+            defaultContent = defaultContent.replace(/NOTE/g, '提醒')
+              .replace(/TIP/g, '建议')
+              .replace(/IMPORTANT/g, '重要')
+              .replace(/WARNING/g, '警告')
+              .replace(/CAUTION/g, '注意')
+          } else if (currentLang === 'ko') {
+            // 韩文替换
+            defaultContent = defaultContent.replace(/NOTE/g, '알림')
+              .replace(/TIP/g, '팁')
+              .replace(/IMPORTANT/g, '중요')
+              .replace(/WARNING/g, '경고')
+              .replace(/CAUTION/g, '주의')
+          }
+          // 返回渲染的内容
+          return defaultContent
+        }
+
+        // 获取原始的 fence 渲染规则
+        const defaultFence = md.renderer.rules.fence?.bind(md.renderer.rules) ?? ((...args) => args[0][args[1]].content);
+
+        // 重写 fence 渲染规则
+        md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+          const token = tokens[idx];
+          const info = token.info.trim();
+
+          // 判断是否为 md:img 类型的代码块
+          if (info.includes('md:img')) {
+            // 只渲染图片，不再渲染为代码块
+            return `<div class="rendered-md">${md.render(token.content)}</div>`;
+          }
+
+          // 其他代码块按默认规则渲染（如 java, js 等）
+          return defaultFence(tokens, idx, options, env, self);
+        };
+      })
       md.use(groupIconMdPlugin) //代码组图标
       md.use(markdownItTaskCheckbox) //todo
       md.use(MermaidMarkdown); 
