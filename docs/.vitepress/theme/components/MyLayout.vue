@@ -1,4 +1,4 @@
-<!-- .vitepress/theme/MyLayout.vue.vue -->
+<!-- .vitepress/theme/MyLayout.vue -->
 
 <script setup lang="ts">
 import { useData } from 'vitepress'
@@ -62,7 +62,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   </DefaultTheme.Layout>
 </template>
 
-<style>
+<style scoped>
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

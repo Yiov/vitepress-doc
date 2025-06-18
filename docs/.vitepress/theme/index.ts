@@ -25,9 +25,9 @@ import xgplayer from "./components/xgplayer.vue" //西瓜播放器
 import ArticleMetadata from "./components/ArticleMetadata.vue" //字数阅读时间
 import Linkcard from "./components/Linkcard.vue" //链接卡片
 import MyLayout from "./components/MyLayout.vue" //视图过渡
+import fluidborder from "./components/fluidborder.vue" //流体边框仅用于演示
 import backtotop from "./components/backtotop.vue" //返回顶部
 import notice from "./components/notice.vue" //公告
-import fluidborder from "./components/fluidborder.vue" //流体边框仅用于演示
 import MouseClick from "./components/MouseClick.vue"
 import MouseFollower from "./components/MouseFollower.vue"
 
@@ -52,8 +52,6 @@ export default {
     app.component('ArticleMetadata' , ArticleMetadata) //字数阅读时间
     app.component('Linkcard' , Linkcard) //链接卡片
     app.component('fluidborder' , fluidborder) //流体边框仅用于演示
-    app.component('MouseClick', MouseClick) //鼠标跟随组件
-    app.component('MouseFollower', MouseFollower) //鼠标跟随组件
 
     // 不蒜子
     if (inBrowser) {
