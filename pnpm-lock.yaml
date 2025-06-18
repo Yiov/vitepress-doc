@@ -8,15 +8,9 @@ devDependencies:
   '@mdit-vue/shared':
     specifier: ^2.1.4
     version: 2.1.4
-  '@types/animejs':
-    specifier: ^3.1.13
-    version: 3.1.13
   '@types/dom-view-transitions':
     specifier: ^1.0.6
     version: 1.0.6
-  animejs:
-    specifier: ^3.2.2
-    version: 3.2.2
   busuanzi.pure.js:
     specifier: ^1.0.3
     version: 1.0.3
@@ -969,10 +963,6 @@ packages:
     resolution: {integrity: sha512-fTIQwLF+Qhuws31iw7Ncl1R3HUDtGwIipiJ9iU+UsDUwMhegFcQKQHd51nZjb7CArq0MvON8rbgCGQYWHUKAdg==}
     dev: true
 
-  /@types/animejs@3.1.13:
-    resolution: {integrity: sha512-yWg9l1z7CAv/TKpty4/vupEh24jDGUZXv4r26StRkpUPQm04ztJaftgpto8vwdFs8SiTq6XfaPKCSI+wjzNMvQ==}
-    dev: true
-
   /@types/d3-array@3.2.1:
     resolution: {integrity: sha512-Y2Jn2idRrLzUfAKV2LyRImR+y4oa2AntrgID95SHJxuMUrkNXmanDSed71sRNZysveJVt1hLLemQZIady0FpEg==}
     dev: true
@@ -1415,10 +1405,6 @@ packages:
       '@algolia/requester-browser-xhr': 5.20.1
       '@algolia/requester-fetch': 5.20.1
       '@algolia/requester-node-http': 5.20.1
-    dev: true
-
-  /animejs@3.2.2:
-    resolution: {integrity: sha512-Ao95qWLpDPXXM+WrmwcKbl6uNlC5tjnowlaRYtuVDHHoygjtIPfDUoK9NthrlZsQSKjZXlmji2TrBUAVbiH0LQ==}
     dev: true
 
   /argparse@2.0.1:

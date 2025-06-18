@@ -1,9 +1,7 @@
 {
   "devDependencies": {
     "@mdit-vue/shared": "^2.1.4",
-    "@types/animejs": "^3.1.13",
     "@types/dom-view-transitions": "^1.0.6",
-    "animejs": "^3.2.2",
     "busuanzi.pure.js": "^1.0.3",
     "canvas-confetti": "^1.9.3",
     "less": "^4.3.0",
