@@ -1152,16 +1152,17 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   z-index: 9999;
 }
 
-.VPSwitchAppearance {
+/* 恢复原始开关按钮 */
+/* .VPSwitchAppearance {
   width: 22px !important;
-}
+} */
 
 .VPSwitchAppearance .check {
   transform: none !important;
 }
 
 /* 修正因视图过渡导致的按钮图标偏移 */
-.check .icon {
+.VPSwitchAppearance .check .icon {
   top: -2px;
 }
 </style>

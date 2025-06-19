@@ -62,7 +62,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   </DefaultTheme.Layout>
 </template>
 
-<style scoped>
+<style>
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -84,7 +84,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 }
 
 /* 修正因视图过渡导致的月牙图标偏移 */
-.check .icon {
+.VPSwitchAppearance .check .icon {
   top: -2px;
 }
 </style>
