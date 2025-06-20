@@ -166,6 +166,28 @@ text-fill-color：将文字透明
 
 [参考：MDN Web Docs 社区](https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration)
 
+
+---
+
+### 首页特性悬停效果
+
+给首页特性VPFeature加一个hover效果，添加如下代码即可
+
+```css
+/* .vitepress/theme/style/var.css */
+
+/* VPFeatures 页卡悬浮效果 */
+.VPFeatures .items .item {
+  transition: transform 0.3s;
+}
+
+.VPFeatures .items .item:hover {
+  transform: translateY(-5px);
+}
+
+```
+
+
 ## 其他美化
 
 太多了，可以参照源文件来进行修改
@@ -1041,7 +1063,7 @@ function updateHomePageStyle(value: boolean) {
 
     /* Feature透明 */
     .VPFeature {
-        border: none;
+        border: 1px solid transparent;
         box-shadow: 0 10px 30px 0 rgb(0 0 0 / 15%);
         background-color: transparent;
     }

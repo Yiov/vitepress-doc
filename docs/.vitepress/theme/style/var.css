@@ -42,3 +42,30 @@
   z-index: 9999 !important;
   /* 给的值是21，但是实测盖不住，直接999 */
 }
+
+
+/* VPFeatures 页卡悬浮效果 */
+.VPFeatures .items .item {
+  transition: transform 0.3s;
+}
+
+.VPFeatures .items .item:hover {
+  transform: translateY(-5px);
+}
+
+
+/* 代码组中添加图片 */
+.rendered-md img {
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.rendered-md {
+  display: none;  /* 默认隐藏 */
+}
+
+.rendered-md.active {
+  display: block; /* 只有在 active 状态下才显示 */
+  max-width: 100%;
+}
