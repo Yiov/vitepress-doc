@@ -43,7 +43,7 @@ next:
 │  │  └─ config.mts          <-- 配置文件
 │  ├─ api-examples.md        <-- 文章1
 │  ├─ markdown-examples.md   <-- 文章2
-│  ├─ guide                  <-- 目录1
+│  ├─ permalink              <-- 目录1
 │  │   └─ index.md           <-- 目录1的首页
 │  └─ index.md               <-- 首页
 └─ package.json
@@ -54,7 +54,7 @@ next:
 ├─ .vitepress
 │    └─ config.mts          <-- 配置文件
 ├─ docs                     <-- 目录1
-├─ guide                    <-- 目录2
+├─ permalink                <-- 目录2
 │    └─ index.md            <-- 目录2的首页
 ├─ index.md                 <-- 首页
 └─ package.json
