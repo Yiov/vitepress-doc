@@ -1,10 +1,3 @@
----
-title: 永久链接
-permalink: /permalink/4fc40c
-next:
-  text: 测试1
-  link: /permalink/3e7ddb
----
 # 永久链接
 
 
