@@ -45,7 +45,7 @@ devDependencies:
     specifier: ^1.89.1
     version: 1.89.1
   vitepress:
-    specifier: ^1.6.3
+    specifier: ^1.5.0
     version: 1.6.3(@algolia/client-search@5.29.0)(@types/node@24.0.3)(less@4.3.0)(sass@1.89.1)(search-insights@2.17.3)
   vitepress-plugin-comment-with-giscus:
     specifier: ^1.1.15
