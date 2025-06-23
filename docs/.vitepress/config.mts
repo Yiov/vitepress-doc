@@ -22,7 +22,7 @@ export default defineConfig({
 
   base: '/', //网站部署到github的vitepress这个仓库里
 
-  //cleanUrls:true, //开启纯净链接无html
+  cleanUrls:true, //开启纯净链接无html
 
   //启用深色模式
   appearance: 'dark',
@@ -135,6 +135,11 @@ export default defineConfig({
   },
 
   vite: {
+    server: {
+      fs: {
+        strict: false // 允许无扩展名访问
+      }
+    },
     plugins: [
       groupIconVitePlugin({
         customIcon: {
