@@ -1,10 +1,3 @@
----
-title: 永久链接
-permalink: /permalink/8b743a
-next:
-  text: 测试1
-  link: /permalink/3e7ddb
----
 # 永久链接
 
 
@@ -427,16 +420,13 @@ bun run docs:dev
 :::
 
 
-```md{2-9}
+```md{2-6}
 ---
 title: 测试1
-permalink: /permalink/3e7ddb
-prev:
-  text: 永久链接
-  link: /permalink/4fc40c
+permalink: /permalink/3dc2b3
 next:
   text: 测试2
-  link: /permalink/9a2f41
+  link: /permalink/3d643c
 ---
 # 测试1
 
@@ -444,7 +434,7 @@ next:
 
 ```
 
-- 本地访问：`http://localhost:5173/permalink/3e7ddb`
+- 本地访问：`http://localhost:5173/permalink/3dc2b3`
 
-- 原始链接：`http://你的域名/permalink/3e7ddb`
+- 永久链接：`http://vitepress/top/permalink/3dc2b3`
 

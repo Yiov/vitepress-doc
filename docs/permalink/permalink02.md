@@ -1,9 +1,9 @@
 ---
 title: 测试2
-permalink: /permalink/9a2f41
+permalink: /permalink/3d643c
 prev:
   text: 测试1
-  link: /permalink/3e7ddb
+  link: /permalink/3dc2b3
 ---
 # 测试2
 
