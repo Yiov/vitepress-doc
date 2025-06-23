@@ -135,11 +135,6 @@ export default defineConfig({
   },
 
   vite: {
-    server: {
-      fs: {
-        strict: false // 允许无扩展名访问
-      }
-    },
     plugins: [
       groupIconVitePlugin({
         customIcon: {
