@@ -7,9 +7,6 @@
 
 永久链接就是为了解决这个情况，无论你怎么改文件名，都是这个访问链接
 
-- 原始链接：https://vitepress.yiov.top/permalink
-
-- 永久链接：https://vitepress.yiov.top/permalink/4fc40c
 
 
 ## 实现历程
