@@ -158,7 +158,7 @@ const extractTitleFromContent = (content: string): string => {
  * @returns {Promise<Object>} 包含重写规则的对象
  */
 export const usePosts = async ({
-  srcDir = 'permalink',  // 默认源目录为'permalink'
+  srcDir = 'permalink',  // 默认源目录为'permalink' [!code focus:2]
   baseDir = 'docs'   // 默认基础目录为'docs'
 } = {}) => {
   const rewrites = {}; // 初始化重写规则对象
