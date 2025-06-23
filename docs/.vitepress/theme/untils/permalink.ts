@@ -54,7 +54,7 @@ export const usePosts = async ({
     })).sort(); // 按字母顺序排序
 
     // 创建一个映射，存储所有文件的permalink和title
-    const postsMap: Record<string, { permalink: string; title: string }> = {};
+    const postsMap: Record<string, { permalink: string; title: string; originalPath: string }> = {};
 
     // 第一遍：收集所有文件的基本信息
     await Promise.all(
@@ -77,7 +77,8 @@ export const usePosts = async ({
         // 存储到映射中
         postsMap[postPath] = {
           permalink: data.permalink,
-          title: data.title || path.basename(postPath, '.md')
+          title: data.title || path.basename(postPath, '.md'),
+          originalPath: postPath.replace(`${baseDir}/`, '').replace(/\.md$/, '')
         };
       })
     );
@@ -114,8 +115,11 @@ export const usePosts = async ({
 
         // 计算相对路径并添加到重写规则
         const relativePath = postPath.replace(`${baseDir}/`, '');
-        rewrites[relativePath.replace(/[+()]/g, '\\$&')] =
-          `${data.permalink}.md`.slice(1).replace(/[+()]/g, '\\$&');
+        const mdPath = `${data.permalink}.md`.slice(1).replace(/[+()]/g, '\\$&');
+        
+        // 同时添加原始路径和永久链接的重写规则
+        rewrites[relativePath.replace(/[+()]/g, '\\$&')] = mdPath;
+        rewrites[data.permalink.replace(/[+()]/g, '\\$&')] = mdPath;
       })
     );
 
