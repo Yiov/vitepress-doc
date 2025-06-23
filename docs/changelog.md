@@ -22,6 +22,9 @@ next: false
 
 - 新增 [永久链接](./permalink/) 教程
 
+- 版本降至 1.6.1，刚更新永久链接，就被告知刷新链接就没了，折腾半天，才知道是版本bug，不知道怎么降级的，删掉 `pnpm-lock.yaml` 和 `node_modules` ，更改 `package.json` 中的vitepress版本为1.6.1即可
+
+
 
 ## 2025-6-20
 
