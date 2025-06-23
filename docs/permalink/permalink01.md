@@ -4,6 +4,7 @@ permalink: /permalink/3dc2b3
 next:
   text: 测试2
   link: /permalink/3d643c
+originalPath: permalink/permalink01
 ---
 # 测试1
 
