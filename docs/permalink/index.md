@@ -1,3 +1,10 @@
+---
+title: 永久链接
+permalink: /permalink/8b743a
+next:
+  text: 测试1
+  link: /permalink/3e7ddb
+---
 # 永久链接
 
 
@@ -151,15 +158,16 @@ const extractTitleFromContent = (content: string): string => {
  * @returns {Promise<Object>} 包含重写规则的对象
  */
 export const usePosts = async ({
-  srcDir = 'permalink',  // 默认源目录为'permalink' [!code focus:2]
+  srcDir = 'permalink',  // 默认源目录为'permalink'
   baseDir = 'docs'   // 默认基础目录为'docs'
 } = {}) => {
   const rewrites = {}; // 初始化重写规则对象
 
   try {
-    // 使用fast-glob查找所有匹配的Markdown文件
-    // 模式: 'docs/permalink/**/*.md' (根据baseDir和srcDir组合)
-    const paths = (await fg(`${baseDir}/${srcDir}/**/*.md`)).sort(); // 按字母顺序排序
+    // 使用fast-glob查找所有匹配的Markdown文件，但忽略index.md文件
+    const paths = (await fg(`${baseDir}/${srcDir}/**/*.md`, {
+      ignore: ['**/index.md']  // 忽略所有index.md文件
+    })).sort(); // 按字母顺序排序
 
     // 创建一个映射，存储所有文件的permalink和title
     const postsMap: Record<string, { permalink: string; title: string }> = {};
@@ -284,9 +292,10 @@ export const usePosts = async ({
   const rewrites = {}; // 初始化重写规则对象
 
   try {
-    // 使用fast-glob查找所有匹配的Markdown文件
-    // 模式: 'permalink/**/*.md' (根据srcDir组合)
-    const paths = (await fg(`${srcDir}/**/*.md`)).sort(); // 按字母顺序排序
+    // 使用fast-glob查找所有匹配的Markdown文件，但忽略index.md文件
+    const paths = (await fg(`${baseDir}/${srcDir}/**/*.md`, {
+      ignore: ['**/index.md']  // 忽略所有index.md文件
+    })).sort(); // 按字母顺序排序
 
     // 创建一个映射，存储所有文件的permalink和title
     const postsMap: Record<string, { permalink: string; title: string }> = {};
