@@ -54,7 +54,7 @@ export const usePosts = async ({
     })).sort(); // 按字母顺序排序
 
     // 创建一个映射，存储所有文件的permalink和title
-    const postsMap: Record<string, { permalink: string; title: string; originalPath: string }> = {};
+    const postsMap: Record<string, { permalink: string; title: string }> = {};
 
     // 第一遍：收集所有文件的基本信息
     await Promise.all(
@@ -74,22 +74,11 @@ export const usePosts = async ({
           data.permalink = `/${srcDir}/${generateString(6)}`;
         }
 
-        // 计算原始路径（不含.md扩展名）
-        const originalPath = postPath
-          .replace(`${baseDir}/`, '')
-          .replace(/\.md$/, '');
-
         // 存储到映射中
         postsMap[postPath] = {
           permalink: data.permalink,
-          title: data.title || path.basename(postPath, '.md'),
-          originalPath: originalPath
+          title: data.title || path.basename(postPath, '.md')
         };
-
-        // 在frontmatter中保存原始路径
-        if (!data.originalPath) {
-          data.originalPath = originalPath;
-        }
       })
     );
 
@@ -123,14 +112,10 @@ export const usePosts = async ({
           'utf8'
         );
 
-        // 计算相对路径
+        // 计算相对路径并添加到重写规则
         const relativePath = postPath.replace(`${baseDir}/`, '');
-        const mdPath = `${data.permalink}.md`.slice(1).replace(/[+()]/g, '\\$&');
-        
-        // 添加原始路径和永久链接的重写规则
-        rewrites[relativePath.replace(/[+()]/g, '\\$&')] = mdPath; // 原始.md路径
-        rewrites[data.originalPath.replace(/[+()]/g, '\\$&')] = mdPath; // 原始路径（不含.md）
-        rewrites[data.permalink.replace(/[+()]/g, '\\$&')] = mdPath; // 永久链接
+        rewrites[relativePath.replace(/[+()]/g, '\\$&')] =
+          `${data.permalink}.md`.slice(1).replace(/[+()]/g, '\\$&');
       })
     );
 
