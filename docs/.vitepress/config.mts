@@ -22,7 +22,7 @@ export default defineConfig({
 
   base: '/', //网站部署到github的vitepress这个仓库里
 
-  cleanUrls:true, //开启纯净链接无html
+  // cleanUrls:true, //开启纯净链接无html
 
   //启用深色模式
   appearance: 'dark',
@@ -134,25 +134,25 @@ export default defineConfig({
 
   },
 
-  vite: {
-    plugins: [
-      groupIconVitePlugin({
-        customIcon: {
-          ts: localIconLoader(import.meta.url, '../public/svg/typescript.svg'), //本地ts图标导入
-          md: localIconLoader(import.meta.url, '../public/svg/md.svg'), //markdown图标
-          css: localIconLoader(import.meta.url, '../public/svg/css.svg'), //css图标
-          js: 'logos:javascript', //js图标
-        },
-      }),
-      [MermaidPlugin()]
-    ],
-    optimizeDeps: {
-      include: ['mermaid'],
-    },
-    ssr: {
-      noExternal: ['mermaid'],
-    },
-  },
+  // vite: {
+  //   plugins: [
+  //     groupIconVitePlugin({
+  //       customIcon: {
+  //         ts: localIconLoader(import.meta.url, '../public/svg/typescript.svg'), //本地ts图标导入
+  //         md: localIconLoader(import.meta.url, '../public/svg/md.svg'), //markdown图标
+  //         css: localIconLoader(import.meta.url, '../public/svg/css.svg'), //css图标
+  //         js: 'logos:javascript', //js图标
+  //       },
+  //     }),
+  //     [MermaidPlugin()]
+  //   ],
+  //   optimizeDeps: {
+  //     include: ['mermaid'],
+  //   },
+  //   ssr: {
+  //     noExternal: ['mermaid'],
+  //   },
+  // },
 
   lastUpdated: true, //此配置不会立即生效，需git提交后爬取时间戳，没有安装git本地报错可以先注释
 
