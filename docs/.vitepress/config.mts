@@ -5,10 +5,14 @@ import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 
+import { usePosts } from './theme/untils/permalink';
+const { rewrites } = await usePosts();
+
 export default defineConfig({
   lang: 'zh-CN',
   title: "VitePress",
   description: "我的vitpress文档教程",
+  rewrites,
 
   // #region fav
   head: [
@@ -215,12 +219,13 @@ export default defineConfig({
               { text: '插件', link: '/plugin' },
               { text: '更新及卸载', link: '/update' },
               { text: '搭建导航', link: '/nav/' },
+              { text: '永久链接', link: '/permalink/' },
             ],
           },
         ],
       },
       { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
-      { text: '更新日志', link: '/changelog.md' },
+      { text: '更新日志', link: '/changelog' },
     ],
 
 
@@ -261,6 +266,7 @@ export default defineConfig({
           { text: '插件', link: '/plugin' },
           { text: '更新及卸载', link: '/update' },
           { text: '搭建导航', link: '/nav/' },
+          { text: '永久链接', link: '/permalink/' },
         ],
       },
       {

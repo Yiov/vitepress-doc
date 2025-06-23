@@ -2,8 +2,11 @@
   "devDependencies": {
     "@mdit-vue/shared": "^2.1.4",
     "@types/dom-view-transitions": "^1.0.6",
+    "@types/node": "^24.0.3",
     "busuanzi.pure.js": "^1.0.3",
     "canvas-confetti": "^1.9.3",
+    "fast-glob": "^3.3.3",
+    "gray-matter": "^4.0.3",
     "less": "^4.3.0",
     "markdown-it-task-checkbox": "^1.0.6",
     "medium-zoom": "^1.1.0",
