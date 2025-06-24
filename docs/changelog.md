@@ -18,11 +18,27 @@ next: false
 > 
 > 不过版本更新，还是会跟着走的
 
+
+
+::: danger 关于 vitepress 1.6.3 版本使用上的Bug
+当你的网页后缀是 `.html` 时
+
+- Bug情况：在你删除了html后缀，再访问当前页面，会闪现一下404，然后页面文字内容丢失
+
+- 解决办法：开启纯净模式 或 升级到alpha版本，毕竟正式版2.0要很久了
+:::
+
+## 2025-6-24
+
+- 新增 [安装alpha版本](./getting-started.md#安装依赖) 及 [更新说明](./update.md#alpha版本)
+
+- 删除无用的代码组class代码
+
+
+
 ## 2025-6-23
 
 - 新增 [永久链接](./permalink/) 教程
-
-- 版本降至 1.6.1，刚更新永久链接，就被告知刷新链接就没了，折腾半天，才知道是版本bug，不知道怎么降级的，删掉 `pnpm-lock.yaml` 和 `node_modules` ，更改 `package.json` 中的vitepress版本为1.6.1即可
 
 
 

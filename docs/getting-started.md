@@ -119,7 +119,33 @@ bun add -D vitepress
 ```
 :::
 
+
+:::: details 想安装alpha版本？
+
+如果你想体验新版，不在乎Bug，可以安装，虽然正式版bug也不少
+
+::: code-group
+```sh [pnpm]
+pnpm add -D vitepress@2.0.0-alpha.6
+```
+
+```sh [yarn]
+yarn add -D vitepress@2.0.0-alpha.6
+```
+
+```sh [npm]
+npm i -D vitepress@2.0.0-alpha.6
+```
+
+```sh [bun]
+bun add -D vitepress@2.0.0-alpha.6
+```
+:::
+
+::::
+
 ![](/cmd/cmd-06.png)
+
 
 ### 初始化向导
 
@@ -138,7 +164,7 @@ npx vitepress init
 ```
 
 ```sh [bun]
-bunx vitepress init
+bun vitepress init
 ```
 :::
 
@@ -312,7 +338,7 @@ npx vitepress dev docs
 ```
 
 ```sh [bun]
-bunx vitepress dev docs
+bun vitepress dev docs
 ```
 :::
 ::::
