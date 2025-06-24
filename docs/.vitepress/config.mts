@@ -145,7 +145,7 @@ export default defineConfig({
         },
       }),
       [MermaidPlugin()]
-    ],
+    ]as any,
     optimizeDeps: {
       include: ['mermaid'],
     },
