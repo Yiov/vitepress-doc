@@ -1549,14 +1549,14 @@ pnpm -v
 
 
 /* 代码组：修正倒角、阴影、边距 */
-.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode {
+.vp-code-group div[class*="language-"] {
   border-radius: 8px;
   box-shadow: none;
   padding-top: 0px;
 }
 
 /* 代码组：隐藏小圆点 */
-.vp-code-group div[class*="language-"].vp-adaptive-theme.line-numbers-mode::before {
+.vp-code-group div[class*="language-"]::before {
   display: none;
 }
 
