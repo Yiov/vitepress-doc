@@ -1854,17 +1854,42 @@ export default defineConfig({
 其内容是 ：
 
 ```css
+/* 侧边栏缩放 */
+.group:has([role='button']) .VPSidebarItem.level-0 .items {
+  padding-left: 15px !important;
+  border-left: 1px solid var(--vp-c-divider);
+  border-radius: 2px;
+  transition: background-color 0.25s;
+}
+
 /* 侧边栏图标 */
 /* 选中所有 .VPSidebarItem 元素，排除带有 .is-link 类的 */
+#VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item {
+    display: inline-flex;
+    align-items: center;  /* 垂直居中对齐图标和文本 */
+}
+
+/* 为所有不带 .is-link 的 .VPSidebarItem 折叠状态添加图标 */
+#VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item::before {
+    content: '';
+    background-image: url('/svg/document.svg'); /* 设置图标路径 */
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;  /* 确保图标与文本垂直居中 */
+    background-size: cover;
+    margin-right: 4px;  /* 给图标和文本之间增加间距 */
+}
+
 #VPSidebarNav .VPSidebarItem:not(.is-link) >.item {
     display: inline-flex;
     align-items: center;  /* 垂直居中对齐图标和文本 */
 }
 
-/* 为所有不带 .is-link 的 .VPSidebarItem 添加图标 */
+/* 为所有不带 .is-link 的 .VPSidebarItem 非折叠状态添加图标 */
 #VPSidebarNav .VPSidebarItem:not(.is-link) >.item::before {
     content: '';
-    background-image: url('/svg/document.svg'); /* 设置图标路径 */
+    background-image: url('/svg/document-open.svg'); /* 设置图标路径 */
     width: 16px;
     height: 16px;
     display: inline-block;
