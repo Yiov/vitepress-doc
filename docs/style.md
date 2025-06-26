@@ -1831,91 +1831,6 @@ export default defineConfig({
 })
 ```
 
-### 侧边栏样式美化
-
-默认的侧边栏不太容易区分到底是目录还是文件，我们可以进行美化
-
-在 `.vitepress/theme/style` 目录新建一个 `var.css` 文件
-
-
-```md{8}
-.
-├─ docs
-│  ├─ .vitepress
-│  │  └─ config.mts
-│  │  └─ theme
-│  │     └─ style
-│  │        └─ index.css
-│  │        └─ var.css
-│  └─ index.md
-└─ node_modules
-```
-
-其内容是 ：
-
-```css
-/* 侧边栏缩放 */
-.group:has([role='button']) .VPSidebarItem.level-0 .items {
-  padding-left: 15px !important;
-  border-left: 1px solid var(--vp-c-divider);
-  border-radius: 2px;
-  transition: background-color 0.25s;
-}
-
-/* 侧边栏图标 */
-/* 选中所有 .VPSidebarItem 元素，排除带有 .is-link 类的 */
-#VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item {
-    display: inline-flex;
-    align-items: center;  /* 垂直居中对齐图标和文本 */
-}
-
-/* 为所有不带 .is-link 的 .VPSidebarItem 折叠状态添加图标 */
-#VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item::before {
-    content: '';
-    background-image: url('/svg/document.svg'); /* 设置图标路径 */
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    vertical-align: middle;  /* 确保图标与文本垂直居中 */
-    background-size: cover;
-    margin-right: 4px;  /* 给图标和文本之间增加间距 */
-}
-
-#VPSidebarNav .VPSidebarItem:not(.is-link) >.item {
-    display: inline-flex;
-    align-items: center;  /* 垂直居中对齐图标和文本 */
-}
-
-/* 为所有不带 .is-link 的 .VPSidebarItem 非折叠状态添加图标 */
-#VPSidebarNav .VPSidebarItem:not(.is-link) >.item::before {
-    content: '';
-    background-image: url('/svg/document-open.svg'); /* 设置图标路径 */
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    vertical-align: middle;  /* 确保图标与文本垂直居中 */
-    background-size: cover;
-    margin-right: 4px;  /* 给图标和文本之间增加间距 */
-}
-
-/* 选中带有 .is-link 的 .VPSidebarItem 的直接子元素 .item */
-#VPSidebarNav .VPSidebarItem.is-link > .item {
-    display: inline-flex;
-    align-items: center;  /* 垂直居中图标和文字 */
-}
-
-/* 为选中的 .item 添加图标 */
-#VPSidebarNav .VPSidebarItem.is-link > .item::before {
-    content: '';
-    background-image: url('/svg/file.svg'); /* 图标路径 */
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    vertical-align: middle;
-    background-size: cover;
-    margin-right: 4px;  /* 图标与文字间距 */
-}
-```
 
 ### 代码块带标题
 
@@ -2020,6 +1935,106 @@ export default defineConfig({
 ```css
 /* .vitepress/theme/style/index.css */
 @import './vp-code-title.css';
+```
+
+
+---
+
+
+### 侧边栏样式美化
+
+默认的侧边栏不太容易区分到底是目录还是文件，我们可以进行美化
+
+在 `.vitepress/theme/style` 目录新建一个 `sidebarIcon.css` 文件
+
+
+```md{8}
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  │  └─ theme
+│  │     └─ style
+│  │        └─ index.css
+│  │        └─ sidebarIcon.css
+│  └─ index.md
+└─ node_modules
+```
+
+其内容是 ：
+
+```css
+/* .vitepress/theme/style/sidebarIcon.css */
+
+/* 侧边栏缩放 */
+.group:has([role='button']) .VPSidebarItem.level-0 .items {
+  padding-left: 15px !important;
+  border-left: 1px solid var(--vp-c-divider);
+  border-radius: 2px;
+  transition: background-color 0.25s;
+}
+
+/* 侧边栏图标 */
+/* 选中所有 .VPSidebarItem 元素，排除带有 .is-link 类的 */
+#VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item {
+    display: inline-flex;
+    align-items: center;  /* 垂直居中对齐图标和文本 */
+}
+
+/* 为所有不带 .is-link 的 .VPSidebarItem 折叠状态添加图标 */
+#VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item::before {
+    content: '';
+    background-image: url('/svg/document.svg'); /* 设置图标路径 */
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;  /* 确保图标与文本垂直居中 */
+    background-size: cover;
+    margin-right: 4px;  /* 给图标和文本之间增加间距 */
+}
+
+#VPSidebarNav .VPSidebarItem:not(.is-link) >.item {
+    display: inline-flex;
+    align-items: center;  /* 垂直居中对齐图标和文本 */
+}
+
+/* 为所有不带 .is-link 的 .VPSidebarItem 非折叠状态添加图标 */
+#VPSidebarNav .VPSidebarItem:not(.is-link) >.item::before {
+    content: '';
+    background-image: url('/svg/document-open.svg'); /* 设置图标路径 */
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;  /* 确保图标与文本垂直居中 */
+    background-size: cover;
+    margin-right: 4px;  /* 给图标和文本之间增加间距 */
+}
+
+/* 选中带有 .is-link 的 .VPSidebarItem 的直接子元素 .item */
+#VPSidebarNav .VPSidebarItem.is-link > .item {
+    display: inline-flex;
+    align-items: center;  /* 垂直居中图标和文字 */
+}
+
+/* 为选中的 .item 添加图标 */
+#VPSidebarNav .VPSidebarItem.is-link > .item::before {
+    content: '';
+    background-image: url('/svg/file.svg'); /* 图标路径 */
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: cover;
+    margin-right: 4px;  /* 图标与文字间距 */
+}
+```
+
+
+然后在 `index.css` 中引入生效
+
+```css
+/* .vitepress/theme/style/index.css */
+@import './sidebarIcon.css';
 ```
 
 
