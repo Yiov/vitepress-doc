@@ -515,7 +515,7 @@ bun add -D markdown-it-task-checkbox
 
 ```ts{2,5-9}
 // .vitepress/config.mts
-import taskLists from 'markdown-it-task-checkbox'
+import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 
 export default defineConfig({
   markdown: {
