@@ -1762,7 +1762,7 @@ npm i pnpm -g
 
 所以那就来个简化导航栏，其他同理
 
-在 `.vitepress` 目录新建 `config` 文件夹，并新建 `index.ts` 文件
+在 `.vitepress` 目录新建 `configs` 文件夹，并新建 `index.ts` 文件
 
 ```md{5-6}
 .
