@@ -1138,7 +1138,7 @@ bun add -D @types/dom-view-transitions
 
 
 ::: code-group
-```vue{4-40,50-77} [MyLayout.vue]
+```vue [MyLayout.vue]
 <!-- .vitepress/theme/MyLayout.vue -->
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
@@ -1157,26 +1157,39 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     return
   }
 
-  const clipPath = [
-    `circle(0px at ${x}px ${y}px)`,
-    `circle(${Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
-    )}px at ${x}px ${y}px)`
-  ]
+  const endRadius = Math.hypot(
+    Math.max(x, innerWidth - x),
+    Math.max(y, innerHeight - y)
+  )
+  
+  document.documentElement.style.setProperty('--v-x', `${x}px`)
+  document.documentElement.style.setProperty('--v-y', `${y}px`)
 
-  await document.startViewTransition(async () => {
+  const transition = document.startViewTransition(async () => {
     isDark.value = !isDark.value
     await nextTick()
-  }).ready
+  })
+
+  await transition.ready
+
+  const clipPath = isDark.value
+    ? [
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+        `circle(0px at ${x}px ${y}px)`
+      ]
+    : [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`
+      ]
 
   document.documentElement.animate(
-    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
+    { clipPath },
     {
       duration: 300,
       easing: 'ease-in',
-      fill: 'forwards',
-      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
+      pseudoElement: isDark.value
+        ? '::view-transition-old(root)'
+        : '::view-transition-new(root)'
     }
   )
 })
@@ -1195,26 +1208,26 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   mix-blend-mode: normal;
 }
 
-::view-transition-old(root),
-.dark::view-transition-new(root) {
+::view-transition-old(root) {
   z-index: 1;
 }
-
-::view-transition-new(root),
-.dark::view-transition-old(root) {
+::view-transition-new(root) {
   z-index: 9999;
 }
 
-/* 恢复原始开关按钮 */
-/* .VPSwitchAppearance {
-  width: 22px !important;
-} */
+.dark::view-transition-old(root) {
+  z-index: 9999;
+  clip-path: circle(0px at var(--v-x, 50%) var(--v-y, 50%));
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
 
 .VPSwitchAppearance .check {
   transform: none !important;
 }
 
-/* 修正因视图过渡导致的按钮图标偏移 */
+/* 修正因视图过渡导致的月牙图标偏移 */
 .VPSwitchAppearance .check .icon {
   top: -2px;
 }

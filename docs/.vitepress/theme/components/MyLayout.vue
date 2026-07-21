@@ -4,8 +4,8 @@
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { nextTick, provide } from 'vue'
-import MouseClick from "./MouseClick.vue";
-import MouseFollower from "./MouseFollower.vue";
+import MouseClick from "./MouseClick.vue"
+import MouseFollower from "./MouseFollower.vue"
 import backtotop from "./backtotop.vue"
 import notice from "./notice.vue"
 import bsz from "./bsz.vue"
@@ -22,26 +22,39 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     return
   }
 
-  const clipPath = [
-    `circle(0px at ${x}px ${y}px)`,
-    `circle(${Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
-    )}px at ${x}px ${y}px)`
-  ]
+  const endRadius = Math.hypot(
+    Math.max(x, innerWidth - x),
+    Math.max(y, innerHeight - y)
+  )
+  
+  document.documentElement.style.setProperty('--v-x', `${x}px`)
+  document.documentElement.style.setProperty('--v-y', `${y}px`)
 
-  await document.startViewTransition(async () => {
+  const transition = document.startViewTransition(async () => {
     isDark.value = !isDark.value
     await nextTick()
-  }).ready
+  })
+
+  await transition.ready
+
+  const clipPath = isDark.value
+    ? [
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+        `circle(0px at ${x}px ${y}px)`
+      ]
+    : [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`
+      ]
 
   document.documentElement.animate(
-    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
+    { clipPath },
     {
       duration: 300,
       easing: 'ease-in',
-      fill: 'forwards',
-      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
+      pseudoElement: isDark.value
+        ? '::view-transition-old(root)'
+        : '::view-transition-new(root)'
     }
   )
 })
@@ -70,14 +83,19 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   mix-blend-mode: normal;
 }
 
-::view-transition-old(root),
-.dark::view-transition-new(root) {
+::view-transition-old(root) {
   z-index: 1;
 }
+::view-transition-new(root) {
+  z-index: 9999;
+}
 
-::view-transition-new(root),
 .dark::view-transition-old(root) {
   z-index: 9999;
+  clip-path: circle(0px at var(--v-x, 50%) var(--v-y, 50%));
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
 }
 
 .VPSwitchAppearance .check {
